@@ -20,3 +20,5 @@
 # capitalized by convention.
 
 export BUILD_ID=IMM76D
+export BAOXUE_CUSTOM_ID=BXT_01
+export BAOXUE_BUILD_VERSION=V01

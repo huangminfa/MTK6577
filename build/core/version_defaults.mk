@@ -99,6 +99,6 @@ ifeq "" "$(BUILD_NUMBER)"
   # use the format "seconds since 1970-01-01 00:00:00 UTC" as timestamp
   # to reduce the length of build number & reserve more quota for related properties
   DATE_INFO := $(shell date +%s)
-  BUILD_NUMBER := eng.$(USER).$(DATE_INFO)
+  BUILD_NUMBER := $(TARGET_BUILD_VARIANT).$(USER).$(DATE_INFO)
 endif
 

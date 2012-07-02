@@ -15,10 +15,12 @@ endif
 
 #wschen
 ifeq "" "$(CUSTOM_BUILD_VERNO)"
-  CUSTOM_BUILD_VERNO := $(BUILD_NUMBER)
-  CUSTOM_BUILD_VERNO := $(subst eng.$(USER).,,$(CUSTOM_BUILD_VERNO))
+  CUSTOM_BUILD_VERNO := $(shell date +%s)
 endif
 
+ifeq "" "$(BAOXUE_BUILD_VERNO)"
+  BAOXUE_BUILD_VERNO := $(TARGET_BUILD_VARIANT).$(BUILD_ID)_$(BAOXUE_CUSTOM_ID)_$(BAOXUE_BUILD_VERSION) 
+endif
 # -----------------------------------------------------------------
 # Define rules to copy PRODUCT_COPY_FILES defined by the product.
 # PRODUCT_COPY_FILES contains words like <source file>:<dest file>.
@@ -161,9 +163,10 @@ endef
 
 BUILDINFO_SH := build/tools/buildinfo.sh
 MTK_BUILDINFO_PL := mediatek/build/tools/mtk_buildinfo.pl
-$(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(BUILD_SYSTEM)/version_defaults.mk $(wildcard $(TARGET_DEVICE_DIR)/system.prop)
-	@echo Target buildinfo: $@
-	@mkdir -p $(dir $@)
+.PHONY: _install_buildinfo
+_install_buildinfo $(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(BUILD_SYSTEM)/version_defaults.mk $(wildcard $(TARGET_DEVICE_DIR)/system.prop)
+	@echo Target buildinfo: $(INSTALLED_BUILD_PROP_TARGET)
+	@mkdir -p $(dir $(INSTALLED_BUILD_PROP_TARGET))
 	$(hide) TARGET_BUILD_TYPE="$(TARGET_BUILD_VARIANT)" \
 			TARGET_DEVICE="$(TARGET_DEVICE)" \
 			PRODUCT_NAME="$(TARGET_PRODUCT)" \
@@ -178,6 +181,7 @@ $(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(
 			BUILD_DISPLAY_ID="$(BUILD_DISPLAY_ID)" \
 			BUILD_NUMBER="$(BUILD_NUMBER)" \
 			CUSTOM_BUILD_VERNO="$(CUSTOM_BUILD_VERNO)" \
+			BAOXUE_BUILD_VERNO="$(BAOXUE_BUILD_VERNO)" \
 			PLATFORM_VERSION="$(PLATFORM_VERSION)" \
 			PLATFORM_SDK_VERSION="$(PLATFORM_SDK_VERSION)" \
 			PLATFORM_VERSION_CODENAME="$(PLATFORM_VERSION_CODENAME)" \
@@ -188,19 +192,19 @@ $(INSTALLED_BUILD_PROP_TARGET): $(BUILDINFO_SH) $(INTERNAL_BUILD_ID_MAKEFILE) $(
 			TARGET_CPU_ABI="$(TARGET_CPU_ABI)" \
 			TARGET_CPU_ABI2="$(TARGET_CPU_ABI2)" \
 			TARGET_AAPT_CHARACTERISTICS="$(TARGET_AAPT_CHARACTERISTICS)" \
-	        bash $(BUILDINFO_SH) > $@
-	        @perl $(MTK_BUILDINFO_PL) $(MTK_PROJECT) >> $@
+	        bash $(BUILDINFO_SH) > $(INSTALLED_BUILD_PROP_TARGET)
+	        @perl $(MTK_BUILDINFO_PL) $(MTK_PROJECT) >> $(INSTALLED_BUILD_PROP_TARGET)
 	$(hide) if [ -f $(TARGET_DEVICE_DIR)/system.prop ]; then \
-	          cat $(TARGET_DEVICE_DIR)/system.prop >> $@; \
+	          cat $(TARGET_DEVICE_DIR)/system.prop >> $(INSTALLED_BUILD_PROP_TARGET); \
 	        fi
 	$(if $(ADDITIONAL_BUILD_PROPERTIES), \
-		$(hide) echo >> $@; \
-		        echo "#" >> $@; \
-		        echo "# ADDITIONAL_BUILD_PROPERTIES" >> $@; \
-		        echo "#" >> $@; )
+		$(hide) echo >> $(INSTALLED_BUILD_PROP_TARGET); \
+		        echo "#" >> $(INSTALLED_BUILD_PROP_TARGET); \
+		        echo "# ADDITIONAL_BUILD_PROPERTIES" >> $(INSTALLED_BUILD_PROP_TARGET); \
+		        echo "#" >> $(INSTALLED_BUILD_PROP_TARGET); )
 	$(hide) $(foreach line,$(ADDITIONAL_BUILD_PROPERTIES), \
-		echo "$(line)" >> $@;)
-	$(hide) build/tools/post_process_props.py $@
+		echo "$(line)" >> $(INSTALLED_BUILD_PROP_TARGET);)
+	$(hide) build/tools/post_process_props.py $(INSTALLED_BUILD_PROP_TARGET)
 
 build_desc :=
 
@@ -1032,7 +1036,7 @@ $(INSTALLED_SYSTEMIMAGE): $(BUILT_SYSTEMIMAGE) $(RECOVERY_FROM_BOOT_PATCH) | $(A
 systemimage: $(INSTALLED_SYSTEMIMAGE)
 
 .PHONY: systemimage-nodeps snod
-systemimage-nodeps snod: $(filter-out systemimage-nodeps snod,$(MAKECMDGOALS)) \
+systemimage-nodeps snod: _install_buildinfo $(filter-out systemimage-nodeps snod,$(MAKECMDGOALS)) \
 	            | $(INTERNAL_USERIMAGES_DEPS)
 	@echo "make $@: ignoring dependencies"
 	$(call build-systemimage-target,$(INSTALLED_SYSTEMIMAGE))

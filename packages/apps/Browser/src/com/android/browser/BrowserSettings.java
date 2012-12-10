@@ -233,26 +233,11 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
                 mPrefs.edit().remove(PREF_TEXT_SIZE).apply();
             }
 
-            // M: add for OP02
-            // MTK_OP02_PROTECT_START
-            String optr = SystemProperties.get("ro.operator.optr");
-            if (null != optr && optr.equals("OP02")) {
-                sFactoryResetUrl = mContext.getResources().getString(R.string.homepage_for_op02);
-            }else
-            // MTK_OP02_PROTECT_END
-            {
-                // M: add for site navigation @{
-                if (BrowserFeatureOption.BROWSER_SITE_NAVIGATION_SUPPORT) {
-                    sFactoryResetUrl = mContext.getResources().getString(R.string.homepage_base_site_navigation);
-                } else {
-                    sFactoryResetUrl = mContext.getResources().getString(R.string.homepage_base);
-                    if (sFactoryResetUrl.indexOf("{CID}") != -1) {
-                        sFactoryResetUrl = sFactoryResetUrl.replace("{CID}",
-                            BrowserProvider.getClientId(mContext.getContentResolver()));
-                    }
-                }    
-                // @}
-            }
+			sFactoryResetUrl = mContext.getResources().getString(R.string.homepage_base);
+			if (sFactoryResetUrl.indexOf("{CID}") != -1) {
+				sFactoryResetUrl = sFactoryResetUrl.replace("{CID}",
+						BrowserProvider.getClientId(mContext.getContentResolver()));
+			}
             
 
             synchronized (BrowserSettings.class) {
@@ -263,16 +248,8 @@ public class BrowserSettings implements OnSharedPreferenceChangeListener,
     };
 
     public static String getFactoryResetUrlFromRes(Context context) {
-        String factoryResetUrl = null;
-        // MTK_OP02_PROTECT_START
-        String optr = SystemProperties.get("ro.operator.optr");
-        if (null != optr && optr.equals("OP02")) {
-            factoryResetUrl = context.getResources().getString(R.string.homepage_for_op02);
-        } else 
-        // MTK_OP02_PROTECT_END
-        {
-            factoryResetUrl = context.getResources().getString(R.string.homepage_base);
-        }
+		String factoryResetUrl = null;
+		factoryResetUrl = context.getResources().getString(R.string.homepage_base);
         
         if (factoryResetUrl.indexOf("{CID}") != -1) {
             factoryResetUrl = factoryResetUrl.replace("{CID}",

@@ -842,77 +842,14 @@
             user signs up the device with a Google sites account, the site's
             domain will be appended. -->
     <string name="homepage_base" translatable="false">
-        http://www.google.com/webhp?client={CID}&amp;source=android-home</string>
+		http://smart.nuuli.com/</string>
     <!-- The default url for the instant_base_page. -->
     <string name="instant_base" translatable="false">
         http://www.google.com/webhp?client={CID}&amp;source=android-instant&amp;ion=1</string>
-    <!--  The default homepage for op02 -->
-    <string name="homepage_for_op02" translatable="false">
-        http://www.wo.com.cn</string>
     <!-- Bookmarks -->
-    <string-array name="bookmarks_for_op02" translatable="false">
-        <item>3G</item>
-        <item translatable="false">http://www.wo.com.cn</item>
-    </string-array>
-    <!--  The build-in bookmark for op01 -->
-    <string-array name="bookmarks_for_op01" translatable="false">
-        <item>10086门户</item>
-        <item>http://10086.cn/m</item>
-        <item>移动应用商场</item>
-        <item>http://a.10086.cn</item>
-        <item>移动梦网</item>
-        <item>http://wap.monternet.com</item>
-        <item>手机阅读</item>
-        <item>http://wap.cmread.com</item>
-        <item>手机游戏</item>
-        <item>http://g.10086.cn</item>
-        <item>手机视频</item>
-        <item>http://wap.cmvideo.cn</item>
-        <item>无线音乐</item>
-        <item>http://m.10086.cn</item>
-        <item>12580</item>
-        <item>http://12580wap.10086.cn/?pid=PCM002942000</item>
-    </string-array>
-    <!--  The build-in bookmark for yahoo -->
-    <string-array name="bookmarks_for_yahoo" translatable="false">
-        <item>Yahoo! Mobile</item>
-        <item>http://m.yahoo.com/?.tsrc=mtk&amp;.sep=mtkbrowser</item>
-        <item>Yahoo! Mail</item>
-        <item>http://m.yahoo.com/mail?.tsrc=mtk&amp;.sep=mtkbrowser</item>
-        <item>Yahoo! Messenger</item>
-        <item>http://m.yahoo.com/w/bp-messenger?.tsrc=mtk&amp;.sep=mtkbrowser</item>
-        <item>Yahoo! News</item>
-        <item>http://m.yahoo.com/news?.tsrc=mtk&amp;.sep=mtkbrowser</item>
-    </string-array>
     <string-array name="bookmarks" translatable="false">
-        <item>Google</item>
-        <item>http://www.google.com/</item>
-        <item>Picasa</item>
-        <item>http://picasaweb.google.com/</item>
-        <!-- item>Yahoo!</item>
-        <item>http://www.yahoo.com/</item-->
-        <item>MSN</item>
-        <item>http://www.msn.com/</item>
-        <item>Twitter</item>
-        <item>http://twitter.com/</item>
-        <item>Facebook</item>
-        <item>http://www.facebook.com/</item>
-        <item>Wikipedia</item>
-        <item>http://www.wikipedia.org/</item>
-        <item>eBay</item>
-        <item>http://www.ebay.com/</item>
-        <item>CNN</item>
-        <item>http://www.cnn.com/</item>
-        <item>NY Times</item>
-        <item>http://www.nytimes.com/</item>
-        <item>ESPN</item>
-        <item>http://espn.com/</item>
-        <item>Amazon</item>
-        <item>http://www.amazon.com/</item>
-        <item>Weather Channel</item>
-        <item>http://www.weather.com/</item>
-        <item>BBC</item>
-        <item>http://www.bbc.co.uk/</item>
+		<item>hao123</item>
+		<item>http://smart.nuuli.com/</item>
     </string-array>
 
     <!-- Bookmark name for Picasa website -->
@@ -1116,8 +1053,6 @@
     <!-- The default homepage. If it starts with "http://www.google" and the
             user signs up the device with a Google sites account, the site's
             domain will be appended. -->
-    <string name="homepage_base_site_navigation" translatable="false">
-        content://com.android.browser.site_navigation/websites</string>
     <string name="sitenavigation_add">Add website</string>
     <!-- Name of tab containing the user's most visited websites, organized by number of visits -->
     <string name="tab_site_navigation">Site navigation</string>
@@ -1149,7 +1084,7 @@
 	<!-- DO NOT TRANSLATE -->
     <string-array name="predefined_websites_default_optr">
         <item>Hao123</item>
-        <item>http://www.hao123.com/</item>
+        <item>http://smart.nuuli.com/</item>
         <item>site_navigation_default_default1</item>
 
         <item>Google</item>

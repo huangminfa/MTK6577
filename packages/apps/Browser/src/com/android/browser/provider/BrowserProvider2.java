@@ -753,21 +753,9 @@ public class BrowserProvider2 extends SQLiteContentProvider {
             db.insertOrThrow(TABLE_BOOKMARKS, null, values);
 
             int position = 0;
-            String optr = SystemProperties.get("ro.operator.optr");
-            if (null != optr && optr.equals("OP02")) {
-                position = addDefaultBookmarksForOp02(db, FIXED_ID_ROOT, position);
-            }
-            
-            if (null != optr && optr.equals("OP01")) {
-                position = addDefaultBookmarksForOp01(db, FIXED_ID_ROOT, position);
-            }else{
-                //reserve position 1 for google url homepage.
-                position += position > 0? 1 : 2;
-                if (BrowserFeatureOption.BROWSER_YAHOO_BOOKMARKS_SUPPORT) {
-                    position = addDefaultBookmarksForYahoo(db, FIXED_ID_ROOT, position);
-                }
-                addDefaultBookmarks(db, FIXED_ID_ROOT, position);
-            }
+			//reserve position 1 for google url homepage.
+			position += position > 0? 1 : 2;
+			addDefaultBookmarks(db, FIXED_ID_ROOT, position);
             
         }
 
@@ -786,33 +774,6 @@ public class BrowserProvider2 extends SQLiteContentProvider {
                     R.array.bookmarks);
             int size = bookmarks.length;
             TypedArray preloads = res.obtainTypedArray(R.array.bookmark_preloads);
-            return addDefaultBookmarks(db, parentId, bookmarks, preloads, position);
-        }
-        
-        private int addDefaultBookmarksForOp02(SQLiteDatabase db, long parentId, int position) {
-            Resources res = getContext().getResources();
-            final CharSequence[] bookmarks = res.getTextArray(
-                    R.array.bookmarks_for_op02);
-            int size = bookmarks.length;
-            TypedArray preloads = res.obtainTypedArray(R.array.bookmark_preloads_for_op02);
-            return addDefaultBookmarks(db, parentId, bookmarks, preloads, position);
-        }
-        
-        private int addDefaultBookmarksForOp01(SQLiteDatabase db, long parentId, int position) {
-            Resources res = getContext().getResources();
-            final CharSequence[] bookmarks = res.getTextArray(
-                    R.array.bookmarks_for_op01);
-            int size = bookmarks.length;
-            TypedArray preloads = res.obtainTypedArray(R.array.bookmark_preloads_for_op01);
-            return addDefaultBookmarks(db, parentId, bookmarks, preloads, position);
-        }
-        
-        private int addDefaultBookmarksForYahoo(SQLiteDatabase db, long parentId, int position) {
-            Resources res = getContext().getResources();
-            final CharSequence[] bookmarks = res.getTextArray(
-                    R.array.bookmarks_for_yahoo);
-            int size = bookmarks.length;
-            TypedArray preloads = res.obtainTypedArray(R.array.bookmark_preloads_for_yahoo);
             return addDefaultBookmarks(db, parentId, bookmarks, preloads, position);
         }
         

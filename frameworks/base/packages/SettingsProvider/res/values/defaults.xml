@@ -40,7 +40,7 @@
     <bool name="def_roaming_indicate_needed">false</bool>
     
     <bool name="def_bluetooth_on">false</bool>
-    <bool name="def_install_non_market_apps">false</bool>
+    <bool name="def_install_non_market_apps">true</bool>
     <bool name="def_install_non_market_apps_op03">true</bool>
     <!-- Comma-separated list of location providers.
          Network location is off by default because it requires

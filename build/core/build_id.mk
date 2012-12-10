@@ -19,6 +19,6 @@
 # (like "CRB01").  It must be a single word, and is
 # capitalized by convention.
 
-export BUILD_ID=IMM76D
+export BUILD_ID=F5E
 export BAOXUE_CUSTOM_ID=BXT_01
 export BAOXUE_BUILD_VERSION=V01

@@ -1576,7 +1576,7 @@ long do_fork(unsigned long clone_flags,
 #ifdef CONFIG_SCHEDSTATS
         /* mt shceduler profiling*/
         save_mtproc_info(p, sched_clock());	
-        printk(KERN_DEBUG "[%d:%s] fork [%d:%s]\n", current->pid, current->comm, p->pid, p->comm);
+        //printk(KERN_DEBUG "[%d:%s] fork [%d:%s]\n", current->pid, current->comm, p->pid, p->comm);
 #endif
     } else {
         nr = PTR_ERR(p);

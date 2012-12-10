@@ -57,7 +57,7 @@ rm -r $TEM_DIR >/dev/null 2>&1
 rm $ZIP_NAME >/dev/null 2>&1
 mkdir $TEM_DIR
 COPY_ERROR=0
-for name in boot.img DSP_BL recovery.img secro.img system.img userdata.img logo.bin uboot_baoxue.bin preloader_baoxue.bin MT6575_Android_scatter.txt
+for name in boot.img DSP_BL recovery.img secro.img system.img userdata.img logo.bin uboot_baoxue.bin preloader_baoxue.bin MT6577_Android_scatter_emmc.txt MBR EBR1 cache.img
 do
 	if ! cp -p $TARGET_PRODUCE_PATH/$name $TEM_DIR/ 2>/dev/null ;then
 		echo "***Not found ${name}"
@@ -70,7 +70,7 @@ if ! cp -p $BPL_PATH $TEM_DIR/${BUILD_ID}_${BAOXUE_CUSTOM_ID}_${BAOXUE_BUILD_VER
 	COPY_ERROR=1
 fi
 #copy sp db
-if ! cp -p mediatek/source/cgen/APDB_MT6575_S01_ALPS.GB2.MP_ $TEM_DIR/ 2>/dev/null ;then
+if ! cp -p mediatek/source/cgen/APDB_MT6577_S01_MAIN2.1_W10.24 $TEM_DIR/ 2>/dev/null ;then
 	echo "***Not found mediatek/source/cgen/APDB_MT6573_S01_ALPS.GB.FDD2_MP_W11.43"
 	COPY_ERROR=1
 fi

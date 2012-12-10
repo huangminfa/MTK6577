@@ -785,6 +785,7 @@ GRANDFATHERED_USER_MODULES += \
 	wappush \
 	boot_logo_updater \
 	boot_logo \
+	boot_logo1 \
 	emid \
 	libemicontrol \
 	emid_test \
@@ -998,6 +999,7 @@ GRANDFATHERED_USER_MODULES += \
     dm_agent_binder \
     CuHotLine \
 	bootanimation.zip \
+	bootanimation1.zip \
 	shutanimation.zip \
 	shutrotate.zip \
 	bootaudio.mp3 \

@@ -30,6 +30,8 @@
 #include <GLES/gl.h>
 #include <cutils/xlog.h>
 
+#define FLAG_OFFSET 515
+#define LOGO_B_DEV "/dev/logo"
 class SkBitmap;
 
 namespace android {
@@ -52,6 +54,7 @@ private:
     virtual status_t    readyToRun();
     virtual void        onFirstRef();
     virtual void        binderDied(const wp<IBinder>& who);
+            bool        changeLogo();
 
     struct Texture {
         GLint   w;

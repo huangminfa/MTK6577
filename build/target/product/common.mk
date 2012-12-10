@@ -34,6 +34,7 @@ PRODUCT_PACKAGES := \
     Protips \
     QuickSearchBox \
     Settings \
+    ChangeLogo \
     Sync \
     SystemUI \
     Updater \

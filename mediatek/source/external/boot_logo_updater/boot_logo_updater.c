@@ -45,6 +45,11 @@
 
 #include <cutils/properties.h>
 #include <utils/Log.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/mount.h>
+#include <mtd/mtd-abi.h>
+#include<unistd.h>
 
 
 char const * const fb_dev_node_paths[] = {
@@ -56,6 +61,9 @@ extern void bootlogo_show_boot();
 extern void bootlogo_fb_init();
 extern void bootlogo_fb_deinit();
 const char LOGO_PATH[] = "/system/media/images/boot_logo";
+const char LOGO_PATH1[] = "/system/media/images/boot_logo1";
+const char LOGO_C_DEV[] = "/dev/logo";
+
 
 #define RGB565_TO_ARGB8888(x)   \
     ((((x) &   0x1F) << 3) |    \
@@ -74,6 +82,119 @@ const char LOGO_PATH[] = "/system/media/images/boot_logo";
 #define BOOT_REASON_SYS_PROPERTY "sys.boot.reason"
 #define BOOT_PACKAGE_SYS_PROPERTY "persist.sys.bootpackage"
 
+#define FLAG_OFFSET 515
+static void  setFlag(int flag)
+{
+	int fd;
+	int iWriteSize;
+	int result;
+	int ofset=0;
+	char *tempBuf=NULL;
+	struct mtd_info_user info;
+	struct erase_info_user erase_info;
+	fd=open(LOGO_C_DEV,O_RDWR);
+	if(fd<0)
+	{
+		return;
+	}
+
+	result=ioctl(fd,MEMGETINFO,&info);
+	if(result<0)
+	{
+		goto end;
+	}
+
+	erase_info.start= (FLAG_OFFSET/info.erasesize)*info.erasesize;
+	erase_info.length=info.erasesize;
+	iWriteSize=erase_info.length;
+	ofset=FLAG_OFFSET-erase_info.start;
+	fprintf(stderr, "writesize=%d,erasesize=%d,start=%d\n",info.writesize,info.erasesize,erase_info.start);
+	tempBuf=(int*)malloc(iWriteSize);
+	if(tempBuf==NULL)
+	{
+		fprintf(stderr,"0001: malloc faile\n");
+		goto end;
+	}
+	result=lseek(fd,erase_info.start,SEEK_SET);
+	if(result!=(erase_info.start))
+	{
+		fprintf(stderr,"0002: seek faile\n");
+		goto end;
+	}
+	result=read(fd,tempBuf,iWriteSize);
+	if(result!=iWriteSize)
+	{
+		fprintf(stderr,"0003: read faile\n");
+		goto end;
+	}
+	if(flag)
+	{
+		tempBuf[ofset]=1;
+	}
+	else
+	{
+		tempBuf[ofset]=0;
+	}
+	result=ioctl(fd, MEMERASE, &erase_info);
+	if(result<0)
+	{
+		fprintf(stderr,"eraser error\n");
+		goto end;
+	}
+	printf("eraser ok\n");
+
+	result=lseek(fd,erase_info.start,SEEK_SET);
+	if(result!=(erase_info.start))
+	{
+		fprintf(stderr,"0004: seek faile\n");
+		goto end;
+	}
+	result=write(fd,tempBuf,iWriteSize);
+	if(result!=iWriteSize)
+	{
+		fprintf(stderr,"0005: write faile\n");
+		goto end;
+	}
+end:
+	if(tempBuf!=NULL)
+	{
+		free(tempBuf);
+	}
+	close(fd);
+}
+
+int changeLogo()
+{
+	int fd = 0;
+	char flag = 0;
+	int result;
+	fd = open(LOGO_C_DEV, O_RDONLY);
+	result=lseek(fd,FLAG_OFFSET,SEEK_SET);
+	if(result!=FLAG_OFFSET)
+	{
+		fprintf(stderr,"1001: seek faile\n");
+		goto end;
+	}
+	result = read(fd,&flag,1);
+	if(result!=1)
+	{
+		fprintf(stderr,"1002: read faile\n");
+		goto end;
+	}
+	close(fd);
+	if(flag)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+
+end:
+	close(fd);
+	return 0;
+}
 
 /*
  * return value:
@@ -170,7 +291,7 @@ void set_int_value(const char * path, const int value)
 }
 
 
-int main(void)
+int main(int argc,char** argv)
 {
     int fb = -1;
     int fd = -1;
@@ -186,6 +307,32 @@ int main(void)
 
     unsigned int i = 0;
 
+	if(argc>1)
+	{
+	setgid(0);
+	setuid(0);
+	chmod(LOGO_C_DEV,0777);
+		if(argv[1][0]=='0')
+		{
+			setFlag(0);
+		}
+		else if(argv[1][0]=='1')
+		{
+			setFlag(1);
+		}
+		else
+		{
+			if(changeLogo())
+			{
+				printf("1");
+			}
+			else
+			{
+				printf("0");
+			}
+		}
+		return 0;
+	}
     LOGI("starting boot_logo_updater ...");
     
     int ret = updateBootReason();
@@ -224,8 +371,18 @@ int main(void)
     rgb565_logo_size = vinfo.xres * vinfo.yres * 2;
 
     // (3) open logo file
-
-    if ((fd = open(LOGO_PATH, O_RDONLY)) < 0) {
+    fprintf(stderr, "check logo flag\n");
+		if(changeLogo())
+		{
+    fprintf(stderr, "check logo flag =1\n");
+    	fd = open(LOGO_PATH1, O_RDONLY);
+		}
+		else
+		{
+    fprintf(stderr, "check logo flag =0\n");
+    	fd = open(LOGO_PATH, O_RDONLY);
+		}
+    if (fd < 0) {
         fprintf(stderr, "failed to open logo file: %s\n", LOGO_PATH);
         goto done;
     }

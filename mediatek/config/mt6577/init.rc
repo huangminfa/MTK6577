@@ -128,6 +128,7 @@ on fs
     chown radio system /system/etc/ril
     chmod 0770 /system/etc/ril
     chmod 0444 /system/etc/ril/oper.lis
+    chmod 4777 /system/bin/boot_logo_updater
     mount ext4 /emmc@android /system noatime ro remount 
     exec /sbin/e2fsck -pfD /emmc@usrdata
     exec /sbin/tune2fs -O has_journal /emmc@usrdata

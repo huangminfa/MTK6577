@@ -387,34 +387,68 @@ status_t BootAnimation::readyToRun() {
     mFlingerSurface = s;
     XLOGV("open bootanimation.zip");
     
-    mAndroidAnimation = false;
-    if(bBootOrShutDown){
-        status_t err = mZip.open("/data/local/bootanimation.zip");
-        if (err != NO_ERROR) {
-           err = mZip.open("/system/media/bootanimation.zip");
-           if (err != NO_ERROR) {
-               mAndroidAnimation = true;
-           }
-        }
-    } else {
-	if(!bShutRotate){
-	    status_t err = mZip.open("/data/local/shutanimation.zip");
-     	    if (err != NO_ERROR) {
-        	err = mZip.open("/system/media/shutanimation.zip");
-        	if (err != NO_ERROR) {
-            	    mAndroidAnimation = true;
-        	}
-            }
-	} else {
-	    status_t err = mZip.open("/data/local/shutrotate.zip");
-     	    if (err != NO_ERROR) {
-                err = mZip.open("/system/media/shutrotate.zip");
-        	if (err != NO_ERROR) {
-            	    mAndroidAnimation = true;
-        	}
-    	    }
+	if(changeLogo())
+	{
+		mAndroidAnimation = false;
+		if(bBootOrShutDown){
+			status_t err = mZip.open("/data/local/bootanimation1.zip");
+			if (err != NO_ERROR) {
+				err = mZip.open("/system/media/bootanimation1.zip");
+				if (err != NO_ERROR) {
+					mAndroidAnimation = true;
+				}
+			}
+		} else {
+			if(!bShutRotate){
+				status_t err = mZip.open("/data/local/shutanimation1.zip");
+				if (err != NO_ERROR) {
+					err = mZip.open("/system/media/shutanimation1.zip");
+					if (err != NO_ERROR) {
+						mAndroidAnimation = true;
+					}
+				}
+			} else {
+				status_t err = mZip.open("/data/local/shutrotate1.zip");
+				if (err != NO_ERROR) {
+					err = mZip.open("/system/media/shutrotate1.zip");
+					if (err != NO_ERROR) {
+						mAndroidAnimation = true;
+					}
+				}
+			}
+		}
 	}
-    }
+	else
+	{
+		mAndroidAnimation = false;
+		if(bBootOrShutDown){
+			status_t err = mZip.open("/data/local/bootanimation.zip");
+			if (err != NO_ERROR) {
+				err = mZip.open("/system/media/bootanimation.zip");
+				if (err != NO_ERROR) {
+					mAndroidAnimation = true;
+				}
+			}
+		} else {
+			if(!bShutRotate){
+				status_t err = mZip.open("/data/local/shutanimation.zip");
+				if (err != NO_ERROR) {
+					err = mZip.open("/system/media/shutanimation.zip");
+					if (err != NO_ERROR) {
+						mAndroidAnimation = true;
+					}
+				}
+			} else {
+				status_t err = mZip.open("/data/local/shutrotate.zip");
+				if (err != NO_ERROR) {
+					err = mZip.open("/system/media/shutrotate.zip");
+					if (err != NO_ERROR) {
+						mAndroidAnimation = true;
+					}
+				}
+			}
+		}
+	}
     XLOGV("after check bootanimation.zip");
     /*
     mAndroidAnimation = true;
@@ -827,6 +861,36 @@ bool BootAnimation::movie()
     return false;
 }
 
+bool BootAnimation::changeLogo()
+{
+	int fd = 0;
+	char flag = 0;
+	int result;
+	fd = open(LOGO_B_DEV, O_RDONLY);
+	result=lseek(fd,FLAG_OFFSET,SEEK_SET);
+	if(result!=FLAG_OFFSET)
+	{
+		goto end;
+	}
+	result = read(fd,&flag,1);
+	if(result!=1)
+	{
+		goto end;
+	}
+	close(fd);
+	if(flag)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+end:
+	close(fd);
+	return false;
+}
 // ---------------------------------------------------------------------------
 
 }

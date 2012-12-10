@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ChangeLogo</string>
+    <string name="special">设置为特殊logo</string>
+    <string name="normal">设置为一般logo</string>
+	<string name="set_fail">设置失败</string>
+
+</resources>

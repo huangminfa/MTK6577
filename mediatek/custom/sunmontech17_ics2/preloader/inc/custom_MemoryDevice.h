@@ -67,8 +67,7 @@
  ****************************************************************************
 */
 
-#define BOARD_ID                LENOVO77
-
-#define CS_PART_NUMBER[0]       KMSJS000KM_B308
+#define BOARD_ID 			MT6577_EVB
+#define CS_PART_NUMBER[0]  	H9TP32A4GDMCPR_KDM
 
 #endif /* __CUSTOM_MEMORYDEVICE__ */

@@ -1,0 +1,12 @@
+#!/bin/bash
+function get_type()
+{
+	grep "^\s*ro.build.type\s*=" out/target/product/baoxue/system/build.prop|sed "s/^\s*ro.build.type\s*=\s*//"
+}
+
+if [ `get_type` == 'user' ];then
+	echo "目前为user版本，不能编译eng版本"
+	exit 1
+fi
+./mk -t baoxue $*
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+export ANDROID_PRODUCT_OUT=./out/target/product/generic
+./out/host/linux-x86/bin/emulator -partition-size 1000 -memory 1000 $*
+

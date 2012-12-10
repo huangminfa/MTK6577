@@ -1,0 +1,119 @@
+#!/bin/bash
+function get_value()
+{
+	grep "^export\s*$1\s*="  build/core/build_id.mk|sed "s/^export\s*$1\s*=\s*//"
+}
+function get_project_value()
+{
+	grep "^\s*$1\s*=" mediatek/config/baoxue/ProjectConfig.mk|sed "s/^\s*$1\s*=\s*//"
+}
+function get_BPL_path()
+{
+	if [ $# = 1 ];then
+		modem_path=mediatek/custom/common/modem/$1
+		find $modem_path -name "BPL*"
+	fi
+}
+function usage()
+{
+	echo "无参数，直接打包。"
+	echo "$0 <bugID>，打包,上传服务器,提交到mantis"
+	echo "注：版本号信息从build/core/build_id.mk获取"
+}
+function check_mount()
+{
+	if mount|grep "$1" >/dev/null 2>&1 ;then
+		return 0;
+	else
+		echo "*** $1 dose not mounted"
+		return 1;
+	fi
+}
+
+BUILD_ID=`get_value BUILD_ID`
+BAOXUE_CUSTOM_ID=`get_value BAOXUE_CUSTOM_ID`
+BAOXUE_BUILD_VERSION=`get_value BAOXUE_BUILD_VERSION`
+DATESTR=`date +%Y-%m-%d_%H_%M`
+TARGET_PRODUCE_PATH=out/target/product/baoxue
+TEM_DIR=release_img
+EXTERNAL_SERVER_PATH=/mnt/web
+RELEASE_PATH=/mnt/release
+MODEM_NAME=`get_project_value CUSTOM_MODEM`
+BPL_PATH=`get_BPL_path $MODEM_NAME`
+echo "BPL:$BPL_PATH"
+
+if [ $# -eq 0 ];then
+	NAME=${BUILD_ID}_${BAOXUE_CUSTOM_ID}_${BAOXUE_BUILD_VERSION}
+elif [ $# -eq 1 ];then
+	NAME=${BUILD_ID}_${BAOXUE_CUSTOM_ID}_${BAOXUE_BUILD_VERSION}_${DATESTR}
+else
+	echo "参数错误"
+	usage
+	exit 1;
+fi
+ZIP_NAME=${NAME}.zip
+CUSTOM_NAME=`echo $BAOXUE_CUSTOM_ID|sed "s/_.*$//"`
+rm -r $TEM_DIR >/dev/null 2>&1
+rm $ZIP_NAME >/dev/null 2>&1
+mkdir $TEM_DIR
+COPY_ERROR=0
+for name in boot.img DSP_BL recovery.img secro.img system.img userdata.img logo.bin uboot_baoxue.bin preloader_baoxue.bin MT6575_Android_scatter.txt
+do
+	if ! cp -p $TARGET_PRODUCE_PATH/$name $TEM_DIR/ 2>/dev/null ;then
+		echo "***Not found ${name}"
+		COPY_ERROR=1
+	fi
+done
+#copy modem's BPL
+if ! cp -p $BPL_PATH $TEM_DIR/${BUILD_ID}_${BAOXUE_CUSTOM_ID}_${BAOXUE_BUILD_VERSION}.src 2>/dev/null ;then
+	echo "***Not found $BPL_PATH"
+	COPY_ERROR=1
+fi
+#copy sp db
+if ! cp -p mediatek/source/cgen/APDB_MT6575_S01_ALPS.GB2.MP_ $TEM_DIR/ 2>/dev/null ;then
+	echo "***Not found mediatek/source/cgen/APDB_MT6573_S01_ALPS.GB.FDD2_MP_W11.43"
+	COPY_ERROR=1
+fi
+
+if [ $COPY_ERROR -eq 1 ] ; then
+	exit 1
+fi
+if zip $ZIP_NAME $TEM_DIR/*;then
+  echo -e "Packaged into\033[37;41m $ZIP_NAME \033[0m"
+fi
+rm -r $TEM_DIR >/dev/null 2>&1
+#copy to ex server
+COPY_EX_SERVER_ERROR=1
+if [ $# -eq 1 ] && check_mount ${EXTERNAL_SERVER_PATH};then
+	echo "copying to external server ..."
+	DEST_PATH=${EXTERNAL_SERVER_PATH}/${CUSTOM_NAME}/${BUILD_ID}/${BUILD_ID}_${BAOXUE_CUSTOM_ID}
+	if mkdir -p ${DEST_PATH} ;then
+		if cp ${ZIP_NAME} ${DEST_PATH} ;then
+			echo "copy to ${DEST_PATH}/${ZIP_NAME} success!"
+			COPY_EX_SERVER_ERROR=0
+		fi
+	fi
+	if [ $COPY_EX_SERVER_ERROR -eq 1 ] ; then
+		echo "*** copy to server error!(${EXTERNAL_SERVER_PATH})"
+  fi
+fi
+
+COPY_RELEASE_ERROR=1
+if [ $# -eq 1 ] && check_mount ${RELEASE_PATH};then
+	echo "copying to server ..."
+	DEST_PATH=${RELEASE_PATH}/${BUILD_ID}/${CUSTOM_NAME}/${BUILD_ID}_${BAOXUE_CUSTOM_ID}
+	if mkdir -p ${DEST_PATH} ;then
+		if cp ${ZIP_NAME} ${DEST_PATH} ;then
+			git log -1 >>$DEST_PATH/${NAME}.txt
+			echo "-----------------------------------------">>$DEST_PATH/${NAME}.txt
+			git show-branch -a >> $DEST_PATH/${NAME}.txt
+			echo "-----------------------------------------">>$DEST_PATH/${NAME}.txt
+			git status -uno>> $DEST_PATH/${NAME}.txt
+			echo "copy to ${DEST_PATH}/${ZIP_NAME} success!"
+			COPY_RELEASE_ERROR=0
+		fi
+	fi
+	if [ $COPY_RELEASE_ERROR -eq 1 ] ; then
+		echo "*** copy to server error!(${RELEASE_PATH})"
+  fi
+fi

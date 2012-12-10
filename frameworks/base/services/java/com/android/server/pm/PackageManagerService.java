@@ -3853,7 +3853,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                         Log.i(TAG, "removed obsolete native libraries for system package "
                                 + path);
                     }
-                } else if (nativeLibraryDir.getParentFile().getCanonicalPath()
+                }
+				if (nativeLibraryDir.getParentFile().getCanonicalPath()
                         .equals(dataPathString)) {
                     /*
                      * Make sure the native library dir isn't a symlink to

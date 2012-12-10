@@ -33,6 +33,7 @@ int do_load_persist_props(int nargs, char **args);
 int do_wait(int nargs, char **args);
 int do_mknod(int nargs, char **args);
 int do_exec_rc(int nargs, char **args);
+int do_losetup(int nargs, char **args);
 #define __MAKE_KEYWORD_ENUM__
 #define KEYWORD(symbol, flags, nargs, func) K_##symbol,
 enum {
@@ -87,6 +88,7 @@ enum {
     KEYWORD(load_persist_props,    COMMAND, 0, do_load_persist_props)
     KEYWORD(ioprio,      OPTION,  0, 0)
     KEYWORD(exec_rc,      COMMAND,  1, do_exec_rc)
+	KEYWORD(losetup,     COMMAND, 2, do_losetup)
 #ifdef __MAKE_KEYWORD_ENUM__
     KEYWORD_COUNT,
 };

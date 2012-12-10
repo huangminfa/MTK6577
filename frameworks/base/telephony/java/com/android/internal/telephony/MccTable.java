@@ -204,8 +204,8 @@ public final class MccTable
             Log.d(LOG_TAG, "updateMccMncConfiguration: mcc=" + mcc + ", mnc=" + mnc);
 
             if (mcc != 0) {
-                setTimezoneFromMccIfNeeded(phone, mcc);
-                setLocaleFromMccIfNeeded(phone, mcc);
+                //setTimezoneFromMccIfNeeded(phone, mcc);
+                //setLocaleFromMccIfNeeded(phone, mcc);
                 setWifiCountryCodeFromMcc(phone, mcc);
             }
             try {

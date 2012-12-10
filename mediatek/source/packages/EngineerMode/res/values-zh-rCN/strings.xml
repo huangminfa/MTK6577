@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">	
+	<!-- Tag Log start -->
+    <string name="taglog">Tag Log</string>
+    <string name="taglog_title">[Tag Log]</string>
+    <string name="taglog_title_warning">[Tag Log] 警告!</string>
+    <string name="taglog_msg_input">Tag Log 将会压缩当前的log文件到存储卡中，防止log文件被回收，请输入一个文件标识:</string>
+    <string name="taglog_msg_logtool_stopped">所有抓取log的工具都未打开，是否打开所有的log工具？</string>
+    <string name="taglog_msg_no_space">存储卡空间不足！</string>
+    <string name="taglog_msg_zip_log_fail">压缩log失败!</string>
+    <string name="taglog_msg_no_sdcard">无存储卡！</string>
+    <string name="taglog_msg_sdcard_not_writtable">存储卡不可写！</string>
+    <string name="taglog_msg_compress_log">正在后台压缩log文件...</string>
+    <string name="taglog_busy">[Tag Log] 在压缩log期间，Tag Log 无法处理其他的异常！</string>
+    <string name="taglog_compress_done">[Tag Log] 压缩log完成！</string>
+    <string name="taglog_exit">[Tag Log] 退出！</string>
+	<!-- Tag Log end -->
+</resources>

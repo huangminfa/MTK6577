@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- #Lunar# -->
+    <!-- M:add for lunar calendar,only be used in zh-rCN. @{ -->
+    <string name="lunar_radio_text" >"农历"</string>
+    <string name="gregorain_radio_text">"公历"</string>
+    
+    <string name="date_picker_dialog_title">设置农历时间</string>
+    <!-- Name of the button in the date/time picker to accept the date/time change -->
+    <string name="date_time_set">设置</string>
+    <string name="date_picker_decrement_year_button">增加一年</string>
+    <string name="cancel">取消</string>
+    <!-- DataPicker original has.Only simple preserved.  -->
+    <string name="date_picker_decrement_month_button">Decrement month</string>
+    <string name="date_picker_increment_month_button">Increment month</string>
+    <string name="date_picker_increment_year_button">Increment year</string>
+    <string name="date_picker_increment_day_button">Increment day</string>
+    <string name="date_picker_decrement_day_button">Decrement day</string>
+    <!-- simple preserved -->
+    <string name="picker_change_date">改变日期</string>
+     <!-- @} -->
+    
+</resources>

@@ -1,0 +1,8 @@
+1.0
+vertex_source_file flat.vert
+fragment_source_file flat.frag
+
+uniform u_t_modelViewProjection T_MODEL_VIEW_PROJECTION
+
+uniform u_m_diffuseTexture M_DIFFUSE_TEXTURE
+uniform u_m_diffuseColour M_DIFFUSE_COLOUR

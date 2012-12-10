@@ -1,0 +1,3574 @@
+commit 850d35c4e5e54b074104d9ef71dffe1077080a69
+Author: lzhang <lzhang@insidefr.com>
+Date:   Mon May 14 16:17:04 2012 +0200
+
+    patch
+
+diff --git a/Makefile b/Makefile
+index 1ab3ebf..aab5e0f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -469,7 +469,7 @@ scripts: scripts_basic include/config/auto.conf
+ 
+ # Objects we will link into vmlinux / subdirs we need to visit
+ init-y		:= init/
+-drivers-y	:= drivers/ sound/ firmware/
++drivers-y	:= drivers/ sound/ firmware/ nfc/
+ net-y		:= net/
+ libs-y		:= lib/
+ core-y		:= usr/
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index f2fd91a..513e2bb 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1349,3 +1349,5 @@ source "security/Kconfig"
+ source "crypto/Kconfig"
+ 
+ source "lib/Kconfig"
++
++source "nfc/Kconfig"
+diff --git a/nfc/Kconfig b/nfc/Kconfig
+new file mode 100644
+index 0000000..26cfe14
+--- /dev/null
++++ b/nfc/Kconfig
+@@ -0,0 +1,33 @@
++#
++# Near Field Communication (NFC) devices
++#
++
++menu "Near Field Communication (NFC) devices"
++
++config NFC_DEVICES
++	bool "Near Field Communication (NFC) devices"
++	default n
++	help
++	  You'll have to say Y if your computer contains an NFC device that
++	  you want to use under Linux.
++	  
++	  You can say N here if you don't have any Near Field Communication
++	  devices connected to your computer.
++
++if NFC_DEVICES
++
++choice
++	prompt "Choose NFC implementation"
++	default MICROREAD
++	help
++	  Choose the NFC implementation for your device
++
++	config MICROREAD
++		bool "MICROREAD driver"
++		help
++		  Inside Secure Open NFC
++endchoice
++
++endif # NFC_DEVICES
++
++endmenu
+diff --git a/nfc/Makefile b/nfc/Makefile
+new file mode 100644
+index 0000000..981ed63
+--- /dev/null
++++ b/nfc/Makefile
+@@ -0,0 +1,10 @@
++#
++# Makefile for nfc devices
++#
++
++obj-$(CONFIG_MICROREAD)		+= microread.o
++
++microread-objs := open_nfc_main.o
++microread-objs += open_nfc_custom.o
++microread-objs += ccclient.o
++microread-objs += ccclient_md.o
+diff --git a/nfc/ccclient.c b/nfc/ccclient.c
+new file mode 100644
+index 0000000..1a578f2
+--- /dev/null
++++ b/nfc/ccclient.c
+@@ -0,0 +1,1516 @@
++/*
++ * Copyright (c) 2009-2012 Inside Secure, All Rights Reserved.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#include "ccclient.h"
++#include "ccclient_md.h"
++
++/* -------------------------------------------------------------------------
++   -------------------------------------------------------------------------
++         UTILITY FUNCTIONS
++   -------------------------------------------------------------------------
++   ------------------------------------------------------------------------- */
++
++
++static bool_t static_CCClientStringCompare(
++            const char16_t* pString1,
++            const char16_t* pString2)
++{
++   char16_t nChar;
++
++   do
++   {
++      if((nChar = *pString1++) != *pString2++)
++      {
++         return W_FALSE;
++      }
++   } while (nChar != 0);
++
++   return W_TRUE;
++}
++
++static char16_t static_CCClientGetHexChar(uint8_t nValue)
++{
++   if(nValue > 0x0F)
++   {
++      CCPrintError("static_CCClientGetHexChar: Wrong hexadecimal value");
++      return 0;
++   }
++
++   return (nValue < 0x0A)?(nValue + '0'):((nValue - 0x0A) + 'A');
++}
++
++static uint8_t static_CCClientGetHexValue(char16_t nChar)
++{
++   if((nChar >= '0') && (nChar <= '9'))
++   {
++      return (uint8_t)(nChar - '0');
++   }
++   if((nChar >= 'a') && (nChar <= 'f'))
++   {
++      return (uint8_t)(nChar + 10 - 'a');
++   }
++   if((nChar >= 'A') && (nChar <= 'F'))
++   {
++      return (uint8_t)(nChar + 10 - 'A');
++   }
++
++   CCPrintError("static_CCClientGetHexValue: Wrong hexadecimal character");
++   return 0xFF;
++}
++
++/**
++ * Returns the value of the 32 bit integer encoded in a buffer.
++ *
++ * @param[in]  pBuffer The buffer where is encoded the integer.
++ *
++ * @param[in]  nOffset  The offset of the integer.
++ *
++ * @param[out] pnValue  A pointer on a variable valued with the integer value.
++ *
++ * @return  The offset following the integer value in the buffer.
++ **/
++static uint32_t static_CCClientParseIntegeter(
++                  const uint8_t* pBuffer,
++                  uint32_t nOffset,
++                  uint32_t* pnValue)
++{
++   *pnValue = (pBuffer[nOffset + 3] << 24) | (pBuffer[nOffset + 2] << 16) | (pBuffer[nOffset + 1] << 8) | pBuffer[nOffset];
++
++   return nOffset + 4;
++}
++
++/**
++ * Writes a 32 bit integer in a buffer.
++ *
++ * @param[out] pBuffer  The buffer where to encode the value.
++ *
++ * @param[in]  nOffset  The offset of the integer.
++ *
++ * @param[in]  nValue  The value to encode.
++ *
++ * @return  The offset following the integer value in the buffer.
++ **/
++static uint32_t static_CCClientWriteInteger(
++                  uint8_t* pBuffer,
++                  uint32_t nOffset,
++                  uint32_t nValue)
++{
++   pBuffer[nOffset] = (uint8_t)(nValue & 0xFF);
++   pBuffer[nOffset + 1] = (uint8_t)((nValue >> 8) & 0xFF);
++   pBuffer[nOffset + 2] = (uint8_t)((nValue >> 16) & 0xFF);
++   pBuffer[nOffset + 3] = (uint8_t)((nValue >> 24) & 0xFF);
++
++   return nOffset + 4;
++}
++
++/**
++ * Returns the size of a zero-ended Unicode string once encoded in Utf8.
++ * The size does not include the terminating zero.
++ *
++ * @param[in]  pUnicodeString The Unicode string.
++ *
++ * @return  The size of a string encoded in Utf8.
++ **/
++static uint32_t static_CCClientGetUtf8Length(
++               const char16_t* pUnicodeString)
++{
++   char16_t c;
++   uint32_t nPos = 0;
++
++   while((c = *pUnicodeString++) != 0)
++   {
++      if(c < 0x0080)
++      {
++         nPos++;
++      }
++      else if(c < 0x0800)
++      {
++         nPos +=2;
++      }
++      else
++      {
++         nPos +=3;
++      }
++   }
++
++   return nPos;
++}
++
++/**
++ * Returns the value of a string encoded in Utf8 in a buffer.
++ *
++ * @param[in]  pBuffer The buffer where is encoded the string.
++ *
++ * @param[in]  nOffset  The offset of the string in the buffer.
++ *
++ * @param[out] pStringBuffer  A pointer on the buffer receiving the string value.
++ *             a zero is added at the end of the string.
++ *
++ * @return  The offset of the byte following the ending zero in the buffer.
++ **/
++static uint32_t static_CCClientParseString(
++                  const uint8_t* pBuffer,
++                  uint32_t nOffset,
++                  char16_t* pStringBuffer)
++{
++   char16_t c;
++   uint32_t nIndex = 0;
++   char16_t nValue;
++
++   for (;;)
++   {
++      c = pBuffer[nOffset++];
++
++      if(c == 0x00)
++      {
++         pStringBuffer[nIndex] = 0x0000;
++         return nOffset;
++      }
++
++      if ( (c & 0x80) == 0x00 )
++      {
++         /* [0xxx-xxxx] */
++         nValue = c;      /* 0xxx-xxxx */
++      }
++      else if ( (c & 0xE0) == 0xE0 )
++      {
++         nValue =  ((((char16_t)c) & 0x0f ) << 12);/* ....-xxxx */
++         c = pBuffer[nOffset++];
++         nValue |= ((((char16_t)c) & 0x3f) << 6);   /* ..xx-xxxx */
++         c = pBuffer[nOffset++];
++         nValue |= (((char16_t)c) & 0x3f);          /* ..xx-xxxx */
++      }
++      else
++      {
++         nValue =  (((char16_t)c) & 0x1f) << 6;/* ...x-xxxx */
++         c = pBuffer[nOffset++];
++         nValue |= (((char16_t)c) & 0x3f);       /* ..xx-xxxx */
++      }
++
++      pStringBuffer[ nIndex++ ] = nValue;
++   }
++}
++
++/**
++ * Returns the length in characters of a zero-ended Utf8 string.
++ *
++ * @param[in]  pBuffer  The buffer containing the string.
++ *
++ * @param[in]  nOffset  the offset where is located the string.
++ *
++ * @param[in]  nBufferLength  the buffer length in bytes.
++ *
++ * @return  The length in characters of the string, including a terminating zero.
++ *          0 if an error is detected.
++ **/
++static uint32_t static_CCClientGetUnicodeLength(
++                  const uint8_t* pBuffer,
++                  uint32_t nOffset,
++                  uint32_t nBufferLength)
++{
++   uint8_t c;
++   uint32_t nStringLength = 0;
++
++   for(;;)
++   {
++      c = pBuffer[nOffset++];
++
++      nStringLength++;
++
++      if(c == 0x00)
++      {
++         break;
++      }
++
++      if((c & 0x80) != 0x00)
++      {
++         if((c & 0xE0) == 0xC0)
++         {
++            nOffset++;
++         }
++         else
++         {
++            nOffset+=2;
++         }
++      }
++
++      if(nOffset >= nBufferLength)
++      {
++         nStringLength = 0;
++         break;
++      }
++   }
++
++   return nStringLength;
++}
++
++/**
++ * Writes a string in a Utf8 buffer.
++ *
++ * @param[out] pBuffer  The buffer where to encode the string in Utf8.
++ *
++ * @param[in]  nOffset  The offset in the buffer where to write the string.
++ *
++ * @param[in]  pString  The zero ended unicode string to encode in the buffer.
++ *
++ * @return  The offset following the string in the buffer.
++ **/
++static uint32_t static_CCClientWriteString(
++                   uint8_t* pBuffer,
++                   uint32_t nOffset,
++                   const char16_t* pString)
++{
++   char16_t v;
++   int32_t i = 0;
++
++   while ((v = pString[i++]) != 0)
++   {
++      if ( v < 128 )
++      {
++         /* [0xxx-xxxx] */
++         pBuffer[nOffset++] = (uint8_t)v;          /* 00000000-0xxxxxx */
++      }
++      else if ( v < 2048 )
++      {
++         /* [110x-xxxx][10xx-xxxx] */
++         pBuffer[nOffset++] = (uint8_t)(0xC0 | (v>>6));       /* 00000xxx-xx...... */
++         pBuffer[nOffset++] = (uint8_t)(0x80 | (v&0x003F));   /* 00000...-..xxxxxx */
++      }
++      else
++      {
++         /* [1110-xxxx][10xx-xxxx][10xx-xxxx] */
++         pBuffer[nOffset++] = (uint8_t)(0xE0 | ((v&0xF000)>>12)); /* xxxx....-........ */
++         pBuffer[nOffset++] = (uint8_t)(0x80 | ((v&0x0FC0)>>6));  /* ....xxxx-xx...... */
++         pBuffer[nOffset++] = (uint8_t)(0x80 | (v&0x003F));       /* ........-..xxxxxx */
++      }
++   }
++
++   return nOffset;
++}
++
++/* -------------------------------------------------------------------------
++   -------------------------------------------------------------------------
++         CLIENT IMPLEMENTATION
++   -------------------------------------------------------------------------
++   ------------------------------------------------------------------------- */
++
++#define MSG_ROUTER_HELLO               'A'
++#define MSG_PROVIDER_CONNECT           'B'
++#define MSG_CLIENT_CONNECT             'C'
++#define MSG_CLIENT_CONNECT_WAIT        'D'
++#define MSG_CONNECT_OK                 'E'
++#define MSG_CONNECT_ERR_NO_PROVIDER    'F'
++#define MSG_CONNECT_ERR_PROVIDER_BUSY  'G'
++#define MSG_DISCONNECT                 'H'
++#define MSG_SPECIFIC_MESSAGE           'K'
++#define MSG_ADMIN                      'M'
++#define MSG_CONNECT_ERR_VERSION        'N'
++
++#define CCCLIENT_SEND_BUFFER_LENGTH  4096
++#define CCCLIENT_RECV_BUFFER_LENGTH  4096
++
++static const char* g_pAddress = null;
++
++typedef struct __tCCClientInstance
++{
++   CCSocket socket;
++   uint8_t aSendBuffer[CCCLIENT_SEND_BUFFER_LENGTH];
++   uint8_t aRecvBuffer[CCCLIENT_RECV_BUFFER_LENGTH];
++   CCCriticalSection sSendCS;
++
++   const char16_t* pnCCVersion;
++} tCCClientInstance;
++
++static int32_t static_CCClientReceiveMessage(
++            tCCClientInstance* pInstance,
++            uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint8_t* pnType,
++            char16_t*** pppParameterList,
++            uint32_t* pnParameterNumber,
++            const uint8_t** pPayloadBuffer,
++            uint32_t* pnPayloadLength,
++            bool_t bWait);
++
++static uint32_t static_CCClientSendMessage(
++            tCCClientInstance* pInstance,
++            uint8_t nType,
++            const char16_t** ppParameterList,
++            uint32_t nParameterNumber,
++            const uint8_t* pPayload1Buffer,
++            uint32_t nPayload1Length,
++            const uint8_t* pPayload2Buffer,
++            uint32_t nPayload2Length);
++
++void CCClientSetAddress(
++            const char* pAddress)
++{
++   g_pAddress = pAddress;
++}
++
++static void static_CCClientCreateVersionList(
++            char16_t* pVersionList,
++            uint32_t nMaxLength,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber)
++{
++   uint32_t nPos = 0;
++   uint32_t nIndex = 0;
++
++   while(nIndex < nVersionNumber)
++   {
++      uint8_t nValue = pVersionSupported[nIndex++];
++      if((nIndex * 3) <= nMaxLength)
++      {
++         pVersionList[nPos++] = static_CCClientGetHexChar((nValue >> 4) & 0x0F);
++         pVersionList[nPos++] = static_CCClientGetHexChar(nValue & 0x0F);
++         pVersionList[nPos++] = ',';
++      }
++      else
++      {
++         CCPrintError("static_CCClientCreateVersionList: Wrong version length");
++      }
++   }
++
++   if(nPos > 0) nPos--;
++
++   pVersionList[nPos] = 0;
++}
++
++static bool_t static_CCParseVersionList(
++            const char16_t* pString,
++            uint8_t* pVersionList,
++            uint32_t nMaxVersionNumber,
++            uint32_t* pnVersionNumber)
++{
++   uint32_t nVersionNumber = 0;
++
++   for(;;)
++   {
++      uint8_t nHighVersion, nLowVersion, nVersion;
++      uint32_t nStringPos = nVersionNumber*3;
++
++      if(nVersionNumber >= nMaxVersionNumber)
++      {
++         CCPrintError("static_CCClientCreateInstance: Too many versions in the string");
++         return W_FALSE;
++      }
++
++      if((pString[nStringPos] == 0) || (pString[nStringPos + 1] == 0))
++      {
++         CCPrintError("static_CCClientCreateInstance: Error in the string format");
++         return W_FALSE;
++      }
++
++      nHighVersion = static_CCClientGetHexValue(pString[nStringPos]);
++      if(nHighVersion > 0x0F)
++      {
++         CCPrintError("static_CCClientCreateInstance: Error in the string format");
++         return W_FALSE;
++      }
++      nLowVersion = static_CCClientGetHexValue(pString[nStringPos + 1]);
++      if(nLowVersion > 0x0F)
++      {
++         CCPrintError("static_CCClientCreateInstance: Error in the string format");
++         return W_FALSE;
++      }
++
++      nVersion = (nHighVersion << 4) + nLowVersion;
++
++      if(nVersion == CC_UNKNOWN_VERSION)
++      {
++         CCPrintError("static_CCClientCreateInstance: CC_UNKNOWN_VERSION is not allowed");
++         return W_FALSE;
++      }
++
++      pVersionList[nVersionNumber++] = nVersion;
++
++      if(pString[nStringPos + 2] == 0)
++      {
++         break;
++      }
++      else if(pString[nStringPos + 2] != ',')
++      {
++         CCPrintError("static_CCClientCreateInstance: Error in the version separator");
++         return W_FALSE;
++      }
++   }
++
++   *pnVersionNumber = nVersionNumber;
++   return W_TRUE;
++}
++
++static uint8_t static_CCGetNegociatedVersion(
++            const uint8_t* pVersionList1,
++            uint32_t nVersionNumber1,
++            const uint8_t* pVersionList2,
++            uint32_t nVersionNumber2)
++{
++   uint32_t nPos1, nPos2;
++   uint8_t nNegociatedVersion = CC_UNKNOWN_VERSION;
++
++   for(nPos1 = 0; nPos1 < nVersionNumber1; nPos1++)
++   {
++      for(nPos2 = 0; nPos2 < nVersionNumber2; nPos2++)
++      {
++         if(pVersionList1[nPos1] == pVersionList2[nPos2])
++         {
++            if(pVersionList1[nPos1] > nNegociatedVersion)
++            {
++               nNegociatedVersion = pVersionList1[nPos1];
++            }
++            break;
++         }
++      }
++   }
++
++   return nNegociatedVersion;
++}
++
++static const char16_t g_sVersion0_03[] = { '0', '.', '0', '3', 0 };
++static const char16_t g_sVersion1_0[] = { '1', '.', '0', 0 };
++
++static uint32_t static_CCClientCreateInstance(
++            uint8_t nType,
++            const char16_t* pServiceType,
++            const char16_t* pProviderURI,
++            const char16_t* pServiceName,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber,
++            uint8_t* pnNegociatedVersion,
++            void** ppConnection)
++{
++   tCCClientInstance* pInstance;
++   uint8_t nNegociatedVersion = CC_UNKNOWN_VERSION;
++   int32_t res;
++   char16_t** ppParameterList;
++   uint8_t nReceivedType;
++   uint32_t nParameterNumber;
++   const uint8_t* pPayloadBuffer;
++   uint32_t nPayloadLength;
++   const char16_t* apParameterList[20];
++   char16_t aApplicationaName[256];
++   char16_t aApplicationIdentifier[32];
++   char16_t aVersionList[CC_MAXIMUM_VERSION*3];
++   const char* pAddress = g_pAddress;
++   uint32_t nError = CC_SUCCESS;
++
++   pInstance = (tCCClientInstance*)CCMalloc(sizeof(tCCClientInstance));
++
++   if(pInstance == null)
++   {
++      CCPrintError("static_CCClientCreateInstance: Memory allocation error");
++      nError = CC_ERROR_MEMORY;
++      goto return_function;
++   }
++
++   CCCreateCriticalSection(&pInstance->sSendCS);
++
++   if(pAddress == null)
++   {
++      pAddress = "127.0.0.1";
++   }
++
++   nError = CCSocketCreate(pAddress, &pInstance->socket);
++   if(nError != CC_SUCCESS)
++   {
++      CCPrintError("static_CCClientCreateInstance: Error returned by CCSocketCreate()");
++      goto return_function;
++   }
++
++   if((res = static_CCClientReceiveMessage(
++            pInstance,
++            pInstance->aRecvBuffer,
++            CCCLIENT_RECV_BUFFER_LENGTH,
++            &nReceivedType,
++            &ppParameterList,
++            &nParameterNumber,
++            &pPayloadBuffer,
++            &nPayloadLength, W_TRUE)) < 0)
++   {
++      CCPrintError("static_CCClientCreateInstance: Error returned by first static_CCClientReceiveMessage()");
++      nError = CC_ERROR_COMMUNICATION;
++      goto return_function;
++   }
++
++   if((nReceivedType != MSG_ROUTER_HELLO) || (nParameterNumber < 1))
++   {
++      CCPrintError("static_CCClientCreateInstance: First message received is not HELLO");
++      nError = CC_ERROR_PROTOCOL;
++      goto return_function;
++   }
++
++   if(static_CCClientStringCompare(ppParameterList[0], g_sVersion0_03) != W_FALSE)
++   {
++      pInstance->pnCCVersion = g_sVersion0_03;
++   }
++   else if(static_CCClientStringCompare(ppParameterList[0], g_sVersion1_0) != W_FALSE)
++   {
++      pInstance->pnCCVersion = g_sVersion1_0;
++   }
++   else
++   {
++      /*CCPrintError("static_CCClientCreateInstance: CC version not supported");*/
++      nError = CC_ERROR_CC_VERSION;
++      goto return_function;
++   };
++
++   CCGetApplicationName(aApplicationaName);
++
++   CCGetApplicationIdentifier(aApplicationIdentifier);
++
++   static_CCClientCreateVersionList(aVersionList, sizeof(aVersionList)/sizeof(char16_t), pVersionSupported, nVersionNumber);
++
++   nParameterNumber = 0;
++   apParameterList[nParameterNumber++] = null; /* UUID */
++
++   apParameterList[nParameterNumber++] = null; /* host name */
++   apParameterList[nParameterNumber++] = null; /* host address */
++
++   if(pInstance->pnCCVersion == g_sVersion0_03)
++   {
++      apParameterList[nParameterNumber++] = null; /* host image */
++   }
++
++   apParameterList[nParameterNumber++] = aApplicationaName; /* application name */
++   apParameterList[nParameterNumber++] = aApplicationIdentifier; /* application identifier */
++   if(pInstance->pnCCVersion == g_sVersion0_03)
++   {
++      apParameterList[nParameterNumber++] = null; /* application image */
++   }
++
++   apParameterList[nParameterNumber++] = pServiceName; /* Service name */
++   if(pInstance->pnCCVersion == g_sVersion0_03)
++   {
++      apParameterList[nParameterNumber++] = null;  /* Service Image */
++   }
++   apParameterList[nParameterNumber++] = pServiceType; /* Service Type */
++
++   if(pInstance->pnCCVersion == g_sVersion1_0)
++   {
++      apParameterList[nParameterNumber++] = aVersionList; /* Version List */
++   }
++
++   apParameterList[nParameterNumber++] = pProviderURI; /* Connection string */
++
++   if(static_CCClientSendMessage(
++      pInstance,
++      nType,
++      apParameterList,
++      nParameterNumber,
++      (uint8_t*)null, 0, (uint8_t*)null, 0) == 0)
++   {
++      CCPrintError("static_CCClientCreateInstance: Error returned by static_CCClientSendMessage()");
++      nError = CC_ERROR_COMMUNICATION;
++      goto return_function;
++   };
++
++   if((res = static_CCClientReceiveMessage(
++            pInstance,
++            pInstance->aRecvBuffer,
++            CCCLIENT_RECV_BUFFER_LENGTH,
++            &nReceivedType,
++            &ppParameterList,
++            &nParameterNumber,
++            &pPayloadBuffer,
++            &nPayloadLength, W_TRUE)) < 0)
++   {
++      CCPrintError("static_CCClientCreateInstance: Error returned by second static_CCClientReceiveMessage()");
++      nError = CC_ERROR_COMMUNICATION;
++      goto return_function;
++   }
++
++   if(nReceivedType == MSG_CONNECT_ERR_NO_PROVIDER)
++   {
++      /*CCPrintError("static_CCClientCreateInstance: Error MSG_CONNECT_ERR_NO_PROVIDER");*/
++      nError = CC_ERROR_NO_PROVIDER;
++      goto return_function;
++   }
++   else if(nReceivedType == MSG_CONNECT_ERR_PROVIDER_BUSY)
++   {
++      /*CCPrintError("static_CCClientCreateInstance: Error MSG_CONNECT_ERR_PROVIDER_BUSY");*/
++      nError = CC_ERROR_PROVIDER_BUSY;
++      goto return_function;
++   }
++   else if(nReceivedType == MSG_CONNECT_ERR_VERSION)
++   {
++      /*CCPrintError("static_CCClientCreateInstance: Error MSG_CONNECT_ERR_VERSION");*/
++      nError = CC_ERROR_SERVICE_VERSION;
++      goto return_function;
++   }
++   else if(nReceivedType != MSG_CONNECT_OK)
++   {
++      CCPrintError("static_CCClientCreateInstance: Wrong message type, protocol error");
++      nError = CC_ERROR_PROTOCOL;
++      goto return_function;
++   }
++
++   if(pInstance->pnCCVersion == g_sVersion1_0)
++   {
++       uint8_t aRemoteVersionList[CC_MAXIMUM_VERSION];
++       uint32_t nRemoteVersionNumber;
++
++      if(nParameterNumber != 8)
++      {
++         CCPrintError("static_CCClientCreateInstance: Wrong parameter number for version 1.0, protocol error");
++         nError = CC_ERROR_PROTOCOL;
++         goto return_function;
++      }
++
++      if(static_CCParseVersionList(ppParameterList[7], aRemoteVersionList, CC_MAXIMUM_VERSION, &nRemoteVersionNumber) == W_FALSE)
++      {
++         CCPrintError("static_CCClientCreateInstance: Error returned by static_CCParseVersionList()");
++         nError = CC_ERROR_PROTOCOL;
++         goto return_function;
++      }
++
++      nNegociatedVersion = static_CCGetNegociatedVersion(aRemoteVersionList, nRemoteVersionNumber, pVersionSupported, nVersionNumber);
++
++      if(nNegociatedVersion == CC_UNKNOWN_VERSION)
++      {
++         CCPrintError("static_CCClientCreateInstance: Error returned by static_CCGetNegociatedVersion()");
++         nError = CC_ERROR_PROTOCOL;
++         goto return_function;
++      }
++   }
++   else if(pInstance->pnCCVersion == g_sVersion0_03)
++   {
++
++      if(nParameterNumber != 10)
++      {
++         CCPrintError("static_CCClientCreateInstance: Wrong parameter number for version 0.03, protocol error");
++         nError = CC_ERROR_PROTOCOL;
++         goto return_function;
++      }
++   }
++
++return_function:
++
++   if(nError != CC_SUCCESS)
++   {
++      nNegociatedVersion = CC_UNKNOWN_VERSION;
++
++      if(pInstance != null)
++      {
++         CCSocketShutdownClose(&pInstance->socket);
++
++         CCDestroyCriticalSection(&pInstance->sSendCS);
++
++         CCFree(pInstance);
++
++         pInstance = null;
++      }
++   }
++
++   if(pnNegociatedVersion != null)
++   {
++      *pnNegociatedVersion = nNegociatedVersion;
++   }
++   if(ppConnection != null)
++   {
++      *ppConnection = pInstance;
++   }
++
++   return nError;
++}
++
++/**
++ * Builds a message.
++ *
++ * @param[out]  pBuffer the buffer receiving the message content.
++ *
++ * @param[in]   nBufferLength  The maximum length in byte of the message data stored in \a pBuffer.
++ *
++ * @param[in]   nType  The type of the message.
++ *
++ * @param[in]   ppParameterList  The array of message parameters.
++ *
++ * @param[in]   nParameterNumber  The number of message parameters.
++ *
++ * @param[in]   nPayloadLength  The length in bytes of the binary payload or zero if no payload is provided.
++ *
++ * @return  The length in bytes of the message or zero if the buffer is too short.
++ **/
++static uint32_t static_CCClientBuildMessage(
++            uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint8_t nType,
++            const char16_t** ppParameterList,
++            uint32_t nParameterNumber,
++            uint32_t nPayloadLength)
++{
++   uint32_t nLength;
++   uint32_t nIndex, nOffset;
++
++   nLength = 1;
++   for(nIndex = 0; nIndex < nParameterNumber ;nIndex++)
++   {
++       if (ppParameterList[nIndex] != null)
++       {
++          nLength += static_CCClientGetUtf8Length(ppParameterList[nIndex]);
++       }
++       nLength++;
++   }
++
++   if(nPayloadLength != 0)
++   {
++      nLength += 1 + nPayloadLength;
++   }
++
++   if((nLength + 4) > nBufferLength)
++   {
++      CCPrintError("static_CCClientBuildMessage: Buffer too short");
++      return 0;
++   }
++
++   nOffset = 0;
++
++   nOffset = static_CCClientWriteInteger(pBuffer, nOffset, nLength);
++   pBuffer[nOffset++] = nType;
++
++   for(nIndex = 0; nIndex < nParameterNumber ;nIndex++)
++   {
++       if (ppParameterList[nIndex] != null)
++       {
++          nOffset = static_CCClientWriteString(pBuffer, nOffset, ppParameterList[nIndex]);
++       }
++       pBuffer[nOffset++] = 0x00;
++   }
++
++   if(nPayloadLength != 0)
++   {
++      pBuffer[nOffset++] = 0x01;
++   }
++
++   return nLength + 4 - nPayloadLength;
++}
++
++/**
++ * Parses the content of a message buffer.
++ *
++ * @param[in]  pBuffer  The message buffer.
++ *
++ * @param[in]  nBufferLength  The length in bytes of the message buffer.
++ *
++ * @param[in]  nMessageLength  The message length in bytes.
++ *
++ * @param[out]  pnType  A pointer on a variable valued with the type of the message.
++ *
++ * @param[out]  pppParameterList  A pointer on an array receiving the pointers on the string parameters.
++ *
++ * @param[out]  pnParameterNumber  Set with the maximum number of parameter in the`\a ppParameterList array.
++ *              Receive the actual number of parameters.
++ *
++ * @param[out]  pPayloadBuffer  A pointer on a variable valued with the address of the binary payload buffer, if any.
++ *
++ * @param[out]  pnPayloadLength  A pointer on a variable receiving the length in bytes of the binary payload buffer.
++ *              This value is set to zero if no payload is present or if an error occurs.
++ *
++ * @return  The actual length in bytes of the message, or zero if an error occurs.
++ **/
++static uint32_t static_CCClientParseMessage(
++            const uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint32_t nMessageLength,
++            uint8_t* pnType,
++            char16_t*** pppParameterList,
++            uint32_t* pnParameterNumber,
++            const uint8_t** pPayloadBuffer,
++            uint32_t* pnPayloadLength)
++{
++   uint32_t nOffset = 0;
++   uint32_t nLowBoundary;
++   uint32_t nParameterNumber = 0;
++
++   if(nMessageLength == 0)
++   {
++      CCPrintError("static_CCClientParseMessage: Empty message");
++      return 0;
++   }
++   *pnType = pBuffer[nOffset++];
++
++   nLowBoundary = nMessageLength;
++   *pppParameterList = (char16_t**)&pBuffer[nLowBoundary];
++
++   while(nOffset < nMessageLength)
++   {
++      if(pBuffer[nOffset] == 0x01)
++      {
++         nOffset++;
++         if(nOffset > nMessageLength)
++         {
++            CCPrintError("static_CCClientParseMessage: Message truncated");
++            return 0;
++         }
++
++         *pnPayloadLength = nMessageLength - nOffset;
++
++         *pPayloadBuffer = &pBuffer[nOffset];
++         break;
++      }
++      else
++      {
++         uint32_t nUnicodeLength = static_CCClientGetUnicodeLength( pBuffer, nOffset, nBufferLength);
++         char16_t* pString;
++         if(nUnicodeLength == 0)
++         {
++            CCPrintError("static_CCClientParseMessage: Error in Utf8 encoding");
++            return 0;
++         }
++         if(nLowBoundary + sizeof(char16_t*) + (nUnicodeLength * sizeof(char16_t)) > nBufferLength)
++         {
++            return 0;
++         }
++         nBufferLength -= (nUnicodeLength * sizeof(char16_t));
++         nLowBoundary += sizeof(char16_t*);
++         if(nUnicodeLength != 1)
++         {
++            pString = (char16_t*)&pBuffer[nBufferLength];
++            nOffset = static_CCClientParseString( pBuffer, nOffset, pString);
++         }
++         else
++         {
++            pString = null;
++            nOffset++;
++         }
++         (*pppParameterList)[nParameterNumber++] = pString;
++      }
++   }
++
++   *pnParameterNumber = nParameterNumber;
++
++   return nMessageLength;
++}
++
++static int32_t static_CCClientReceiveMessage(
++            tCCClientInstance* pInstance,
++            uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint8_t* pnType,
++            char16_t*** pppParameterList,
++            uint32_t* pnParameterNumber,
++            const uint8_t** pPayloadBuffer,
++            uint32_t* pnPayloadLength,
++            bool_t bWait)
++{
++   uint32_t nLength;
++   static const char16_t aFilteredParameter[] = {'0','x','5','D','4','9','C','F','7','B','A','E','4','6','4','B','D','B','B','2','7','1','B','7','7','8','C','5','B','D','D','2','2','9', 0 };
++   int32_t res = CCSocketReceive(
++      &pInstance->socket,
++      pBuffer, 4, bWait);
++
++   if(res < 0)
++   {
++      /*CCPrintError("static_CCClientReceiveMessage: Error returned by CCSocketReceive()");*/
++      return res;
++   }
++
++   if(res == 0)
++   {
++      return 0;
++   }
++
++   static_CCClientParseIntegeter( pBuffer, 0, &nLength);
++
++   if(nLength == 0)
++   {
++      return 0;
++   }
++
++   if(nLength > nBufferLength)
++   {
++      CCPrintError("static_CCClientReceiveMessage: message too long");
++      return -1;
++   }
++
++   res = CCSocketReceive(
++      &pInstance->socket,
++      pBuffer, nLength, W_TRUE);
++
++   if(res < 0)
++   {
++      /*CCPrintError("static_CCClientReceiveMessage: Error returned by CCSocketReceive()");*/
++      return res;
++   }
++
++   if(static_CCClientParseMessage(
++            pBuffer, nBufferLength,
++            nLength,
++            pnType,
++            pppParameterList, pnParameterNumber,
++            pPayloadBuffer, pnPayloadLength) == 0)
++   {
++      CCPrintError("static_CCClientReceiveMessage: Error returned by static_CCClientParseMessage()");
++      return -1;
++   }
++
++   /* filter the  / ID parameters if present (always located at the end of the parameter list) */
++
++   if (* pnParameterNumber >= 2)
++   {
++      if ( ((* pppParameterList)[* pnParameterNumber - 2] != null) &&
++           (static_CCClientStringCompare((* pppParameterList)[* pnParameterNumber - 2], aFilteredParameter) != W_FALSE))
++      {
++         * pnParameterNumber -= 2;
++
++         CCPrintError("static_CCClientReceiveMessage : removed spurious parmameter");
++      }
++   }
++
++   return 1;
++}
++
++static uint32_t static_CCClientSendMessage(
++            tCCClientInstance* pInstance,
++            uint8_t nType,
++            const char16_t** ppParameterList,
++            uint32_t nParameterNumber,
++            const uint8_t* pPayload1Buffer,
++            uint32_t nPayload1Length,
++            const uint8_t* pPayload2Buffer,
++            uint32_t nPayload2Length)
++{
++   uint32_t nMessageHeadLength;
++   uint32_t nResult = 0;
++
++   CCEnterCriticalSection(&pInstance->sSendCS);
++
++   nMessageHeadLength = static_CCClientBuildMessage(
++      pInstance->aSendBuffer, CCCLIENT_SEND_BUFFER_LENGTH,
++      nType,
++      ppParameterList, nParameterNumber,
++      nPayload1Length + nPayload2Length);
++
++   if(nMessageHeadLength != 0)
++   {
++      if(CCSocketSend(
++         &pInstance->socket, pInstance->aSendBuffer, nMessageHeadLength) != W_FALSE)
++      {
++         nResult = 1;
++
++         if(nPayload1Length != 0)
++         {
++            if(CCSocketSend(
++               &pInstance->socket, pPayload1Buffer, nPayload1Length) == W_FALSE)
++            {
++               CCPrintError("static_CCClientSendMessage: Error returned by CCSocketSend()");
++               nResult = 0;
++            }
++         }
++
++         if((nResult > 0) && (nPayload2Length != 0))
++         {
++            if(CCSocketSend(
++               &pInstance->socket, pPayload2Buffer, nPayload2Length) == W_FALSE)
++            {
++               CCPrintError("static_CCClientSendMessage: Error returned by CCSocketSend()");
++               nResult = 0;
++            }
++         }
++      }
++      else
++      {
++         CCPrintError("static_CCClientSendMessage: Error returned by CCSocketSend()");
++      }
++   }
++
++   CCLeaveCriticalSection(&pInstance->sSendCS);
++
++   return nResult;
++}
++
++/* See header file */
++bool_t CCClientGetProtocol(
++            const char16_t* pProviderURI,
++            char16_t* pProtocolBuffer,
++            uint32_t nProtocolBufferLength)
++{
++   uint32_t nPos = 0;
++   uint32_t i = 0;
++   char16_t c;
++
++   if((pProviderURI[0] != 'c')
++   || (pProviderURI[1] != 'c')
++   || (pProviderURI[2] != ':'))
++   {
++      return W_FALSE;
++   }
++
++   nPos = 3;
++
++   /* Skip the host name */
++   if(pProviderURI[nPos] == '/')
++   {
++      if(pProviderURI[++nPos] != '/')
++      {
++         return W_FALSE;
++      }
++      do
++      {
++         c = pProviderURI[++nPos];
++         if(c == 0x0000)
++         {
++            return W_FALSE;
++         }
++      } while(c != L'/');
++
++      nPos++;
++   }
++
++   while((pProviderURI[nPos] != 0) && (pProviderURI[nPos] != '?'))
++   {
++      pProtocolBuffer[i++] = pProviderURI[nPos];
++      if(i == nProtocolBufferLength)
++      {
++         break;
++      }
++      nPos++;
++   }
++   pProtocolBuffer[i] = 0;
++
++   return W_TRUE;
++}
++
++/* See header file */
++uint32_t CCClientOpen(
++            const char16_t* pProviderURI,
++            bool_t bWait,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber,
++            uint8_t* pnNegociatedVersion,
++            void** ppConnection)
++{
++   char16_t aServiceName[51];
++   uint8_t nType;
++
++   if(pnNegociatedVersion != null)
++   {
++      *pnNegociatedVersion = CC_UNKNOWN_VERSION;
++   }
++
++   if(ppConnection != null)
++   {
++      *ppConnection = null;
++   }
++
++   if((pProviderURI == null)
++   || (pVersionSupported == null) || (nVersionNumber == 0) || (nVersionNumber > CC_MAXIMUM_VERSION)
++   || (pnNegociatedVersion == null) || (ppConnection == null))
++   {
++      /*CCPrintError("CCClientOpen: Bad Parameters");*/
++      return CC_ERROR_BAD_PARAMETER;
++   }
++
++   if(CCClientGetProtocol(pProviderURI, aServiceName, 51) == W_FALSE)
++   {
++      /*CCPrintError("CCClientOpen: Bad URI syntax");*/
++      return CC_ERROR_URI_SYNTAX;
++   }
++
++   nType = (bWait != W_FALSE) ? MSG_CLIENT_CONNECT_WAIT : MSG_CLIENT_CONNECT;
++
++   return static_CCClientCreateInstance(
++      nType, aServiceName, pProviderURI, (const char16_t*)null,
++      pVersionSupported, nVersionNumber, pnNegociatedVersion,
++      ppConnection);
++}
++
++/* See header file */
++uint32_t CCClientOpenAsProvider(
++            const char16_t* pServiceType,
++            const char16_t* pServiceName,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber,
++            uint8_t* pnNegociatedVersion,
++            void** ppConnection)
++{
++   if(pnNegociatedVersion != null)
++   {
++      *pnNegociatedVersion = CC_UNKNOWN_VERSION;
++   }
++
++   if(ppConnection != null)
++   {
++      *ppConnection = null;
++   }
++
++   if((pServiceType == null)
++   || (pVersionSupported == null) || (nVersionNumber == 0) || (nVersionNumber > CC_MAXIMUM_VERSION)
++   || (pnNegociatedVersion == null) || (ppConnection == null))
++   {
++      /*CCPrintError("CCClientOpenAsProvider: Bad Parameters");*/
++      return CC_ERROR_BAD_PARAMETER;
++   }
++
++   return static_CCClientCreateInstance(
++      MSG_PROVIDER_CONNECT, pServiceType, (const char16_t*)null, pServiceName,
++      pVersionSupported, nVersionNumber, pnNegociatedVersion,
++      ppConnection);
++}
++
++/* See header file */
++void* CCClientGetReceptionEvent(
++            void* pConnection)
++{
++   tCCClientInstance* pInstance = (tCCClientInstance*)pConnection;
++
++   if(pInstance != null)
++   {
++      return CCSocketGetReceptionEvent(&pInstance->socket);
++   }
++
++   return null;
++}
++
++/* See header file */
++void CCClientClose(
++            void* pConnection)
++{
++   tCCClientInstance* pInstance = (tCCClientInstance*)pConnection;
++
++   if(pInstance != null)
++   {
++      CCSocketShutdownClose(&pInstance->socket);
++
++      CCFree(pInstance);
++   }
++}
++
++/* See header file */
++uint32_t CCClientSendData(
++            void* pConnection,
++            const uint8_t* pPayloadBuffer,
++            uint32_t nPayloadLength)
++{
++   tCCClientInstance* pInstance = (tCCClientInstance*)pConnection;
++
++   if(pInstance == null)
++   {
++      return 0;
++   }
++
++   return static_CCClientSendMessage(
++      pInstance,
++      MSG_SPECIFIC_MESSAGE,
++      null, 0,
++      pPayloadBuffer, nPayloadLength,
++      null, 0);
++}
++
++/* See header file */
++uint32_t CCClientSendDataEx(
++            void* pConnection,
++            const uint8_t nPayload1,
++            const uint8_t* pPayload2Buffer,
++            uint32_t nPayload2Length)
++{
++   tCCClientInstance* pInstance = (tCCClientInstance*)pConnection;
++   uint32_t nMessageHeadLength;
++   uint32_t nResult = 0;
++   uint8_t* pBuffer = pInstance->aSendBuffer;
++   uint32_t nLength = 3 + nPayload2Length;
++
++   if(pInstance == null)
++   {
++      CCPrintError("CCClientSendDataEx: Bad Connection");
++      return 0;
++   }
++
++   if((nLength + 4) > CCCLIENT_SEND_BUFFER_LENGTH)
++   {
++      CCPrintError("CCClientSendDataEx: Buffer too long");
++      return 0;
++   }
++
++   CCEnterCriticalSection(&pInstance->sSendCS);
++
++   nMessageHeadLength = static_CCClientWriteInteger(pBuffer, 0, nLength);
++   pBuffer[nMessageHeadLength++] = MSG_SPECIFIC_MESSAGE;
++   pBuffer[nMessageHeadLength++] = 0x01;
++   pBuffer[nMessageHeadLength++] = nPayload1;
++   if(nPayload2Length < 64)
++   {
++      CCMemcpy(&pBuffer[nMessageHeadLength], pPayload2Buffer, nPayload2Length);
++      nMessageHeadLength += nPayload2Length;
++      nPayload2Length = 0;
++   }
++
++   if(CCSocketSend(
++      &pInstance->socket, pBuffer, nMessageHeadLength) != W_FALSE)
++   {
++      nResult = 1;
++
++      if(nPayload2Length != 0)
++      {
++         if(CCSocketSend(
++            &pInstance->socket, pPayload2Buffer, nPayload2Length) == W_FALSE)
++         {
++            CCPrintError("CCClientSendDataEx: Error returned by CCSocketSend()");
++            nResult = 0;
++         }
++      }
++   }
++   else
++   {
++      CCPrintError("CCClientSendDataEx: Error returned by CCSocketSend()");
++   }
++
++   CCLeaveCriticalSection(&pInstance->sSendCS);
++
++   return nResult;
++}
++
++/* See header file */
++int32_t CCClientReceiveData(
++            void* pConnection,
++            uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint8_t** ppPayload,
++            bool_t bWait)
++{
++   tCCClientInstance* pInstance = (tCCClientInstance*)pConnection;
++   uint8_t nType;
++   uint32_t nParameterNumber;
++   uint32_t nPayloadLength;
++   char16_t** ppParameterList;
++   int32_t nResult;
++
++   if(pInstance == null)
++   {
++      CCPrintError("CCClientReceiveData: Bad Connection");
++      return -1;
++   }
++
++   nResult = static_CCClientReceiveMessage(
++            pInstance,
++            pBuffer, nBufferLength,
++            &nType,
++            &ppParameterList,
++            &nParameterNumber,
++            (const uint8_t **) ppPayload,
++            &nPayloadLength,
++            bWait);
++
++   if(nResult <= 0)
++   {
++      return nResult;
++   }
++
++   if(nType != MSG_SPECIFIC_MESSAGE)
++   {
++      return 0;
++   }
++
++   if(nParameterNumber != 0)
++   {
++      return 0;
++   }
++
++   if(nPayloadLength > 0)
++   {
++      /* If a message is available and another one is ready, reactivate the event */
++      CCSocketSignalReceptionEvent(&pInstance->socket);
++   }
++
++   return (int32_t)nPayloadLength;
++}
++
++/* -------------------------------------------------------------------------
++   -------------------------------------------------------------------------
++         TRACE IMPLEMENTATION
++   -------------------------------------------------------------------------
++   ------------------------------------------------------------------------- */
++
++#define TRACE_MAX_SIZE 2048
++static char g_aTraceBuffer[TRACE_MAX_SIZE+1];
++
++static void* g_pDebugHandler = null;
++
++static char16_t g_aLogService[] = { 'c', 'c', ':', 'l', 'o', 'g', 0 };
++
++/* CC Trace Protocol version 1.0 */
++#define CC_TRACE_PROTOCOL_VERSION_10  0x10
++
++static uint8_t g_aTraceVersions[] = { CC_TRACE_PROTOCOL_VERSION_10 };
++
++static CCCriticalSection g_sCS;
++
++void CCTraceInit(void)
++{
++   if(CCInterlockedEnter() == W_FALSE)
++   {
++      CCCreateCriticalSection(&g_sCS);
++
++      CCEnterCriticalSection(&g_sCS);
++
++      CCInitializeTime();
++
++      if(g_pDebugHandler == null)
++      {
++         uint8_t nNegociatedVersion;
++
++         CCClientOpen(g_aLogService, W_FALSE,
++                     g_aTraceVersions, sizeof(g_aTraceVersions),
++                     &nNegociatedVersion,
++                     &g_pDebugHandler);
++
++      /* nNegociatedVersion is equal to CC_TRACE_PROTOCOL_VERSION_10 or CC_UNKNOWN_VERSION
++         in both cases, the Service Provider version is assumed to be CC_TRACE_PROTOCOL_VERSION_10 */
++      }
++
++      CCLeaveCriticalSection(&g_sCS);
++   }
++}
++
++static char* static_PrepareTraceBuffer(
++                                       const char* pTag,
++                                       uint32_t nTraceLevel)
++{
++   /* No time header in CCLient trace mode */
++   if(g_pDebugHandler == null)
++   {
++      CCGetRelativeTime(g_aTraceBuffer, TRACE_MAX_SIZE);
++   }
++   else
++   {
++      CCGetAbsoluteRawTime(g_aTraceBuffer, TRACE_MAX_SIZE);
++   }
++
++   switch(nTraceLevel)
++   {
++   case P_TRACE_TRACE:
++      CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " INF ");
++      break;
++   case P_TRACE_LOG:
++      CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " LOG ");
++      break;
++   case P_TRACE_WARNING:
++      CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " WARN ");
++      break;
++   case P_TRACE_ERROR:
++      CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " ERROR ");
++      break;
++   default:
++      CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " ????? ");
++      break;
++   }
++
++   CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, pTag);
++   CCStrCat(g_aTraceBuffer,TRACE_MAX_SIZE, " ");
++   return g_aTraceBuffer;
++}
++
++void CCTracePrintBuffer(
++                            const char* pTag,
++                            uint32_t nTraceLevel,
++                            const uint8_t* pDataBuffer,
++                            uint32_t nLength)
++{
++   uint32_t nIndex;
++   char* pBuffer;
++   uint32_t nPos;
++
++   CCTraceInit();
++
++   CCEnterCriticalSection(&g_sCS);
++
++   pBuffer = static_PrepareTraceBuffer(pTag, nTraceLevel);
++
++   nPos = CCStrLen(pBuffer, TRACE_MAX_SIZE);
++
++   for(nIndex = 0; ((nIndex < nLength) && (nPos < TRACE_MAX_SIZE - 4)); nIndex++)
++   {
++      uint8_t nValue = pDataBuffer[nIndex];
++      uint8_t nSubValue;
++
++      pBuffer[nPos++] = ' ';
++      nSubValue = nValue >> 4;
++      if(nSubValue <= 9)
++      {
++         pBuffer[nPos++] = nSubValue + '0';
++      }
++      else
++      {
++         pBuffer[nPos++] = nSubValue - 10 + 'A';
++      }
++      nSubValue = nValue & 0x0F;
++      if(nSubValue <= 9)
++      {
++         pBuffer[nPos++] = nSubValue + '0';
++      }
++      else
++      {
++         pBuffer[nPos++] = nSubValue - 10 + 'A';
++      }
++   }
++
++   pBuffer[nPos++] = ' ';
++   pBuffer[nPos++] = '}';
++   pBuffer[nPos++] = '\n';
++   pBuffer[nPos] = 0;
++
++   if(g_pDebugHandler != null)
++   {
++      if(CCClientSendData(
++         g_pDebugHandler,
++         (uint8_t *)pBuffer, nPos)==0)
++      {
++         g_pDebugHandler = null;
++      }
++   }
++   else
++   {
++      CCDefaultPrintf(nTraceLevel, pBuffer);
++   }
++   CCLeaveCriticalSection(&g_sCS);
++}
++
++
++void CCTracePrint(
++                      const char* pTag,
++                      uint32_t nTraceLevel,
++                      const char* pMessage,
++                      va_list list)
++{
++   char* pBuffer;
++   uint32_t nPos;
++
++   CCTraceInit();
++   CCEnterCriticalSection(&g_sCS);
++
++   pBuffer = static_PrepareTraceBuffer(pTag, nTraceLevel);
++
++   nPos = CCStrLen(pBuffer, TRACE_MAX_SIZE);
++   nPos += CCVSPrintf( pBuffer + nPos, TRACE_MAX_SIZE - nPos, pMessage, list);
++
++   pBuffer[nPos++] = '\n';
++   pBuffer[nPos] = 0;
++
++   if(g_pDebugHandler != null)
++   {
++      if(CCClientSendData(
++         g_pDebugHandler,
++         (uint8_t *)pBuffer, nPos)==0)
++      {
++         g_pDebugHandler = null;
++      }
++   }
++   else
++   {
++      CCDefaultPrintf(nTraceLevel, pBuffer);
++   }
++   CCLeaveCriticalSection(&g_sCS);
++}
+diff --git a/nfc/ccclient.h b/nfc/ccclient.h
+new file mode 100644
+index 0000000..b6918b0
+--- /dev/null
++++ b/nfc/ccclient.h
+@@ -0,0 +1,255 @@
++/*
++ * Copyright (c) 2009-2011 Inside Secure, All Rights Reserved.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#pragma once
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++#include "porting_types.h"
++
++#ifndef __CDECL
++#  ifdef _WIN32
++#     define __CDECL __cdecl
++#  else
++#     define __CDECL
++#  endif
++#endif
++
++/*******************************************************************************
++  Error codes
++*******************************************************************************/
++
++typedef enum __ccErrorCode {
++   CC_SUCCESS                    =  0,    /* successfull connection */
++   CC_ERROR_URI_SYNTAX           =  1,    /* syntax error in URI parameter */
++   CC_ERROR_SOCKET_OPERATION     =  2,    /* error creating or configuring the TCP/IP socket */
++   CC_ERROR_CONNECTION_FAILURE   =  3,    /* error connecting to the connection center */
++   CC_ERROR_MEMORY               =  4,    /* memory allocation failure */
++   CC_ERROR_EVENT_CREATION       =  5,    /* error creating or configuring the socket Event */
++   CC_ERROR_COMMUNICATION        =  6,    /* error sending to / receiving from the Connection Center */
++   CC_ERROR_PROTOCOL             =  7,    /* error in message received from Connection Center */
++   CC_ERROR_CC_VERSION           =  8,    /* Connection Center with incompatible version */
++   CC_ERROR_NO_PROVIDER          =  9,    /* connected to Connection Center, but no Service Provider yet connected */
++   CC_ERROR_PROVIDER_BUSY        = 10,    /* connected to Connection Center, but Service Provider is already used */
++   CC_ERROR_BAD_PARAMETER        = 11,    /* bad parameters */
++   CC_ERROR_SERVICE_VERSION      = 12,    /* service provider found but the protocol version does not match */
++} ccErrorCode;
++
++/* Unknown Version value */
++#define CC_UNKNOWN_VERSION ((uint8_t)0)
++
++/* Maximum number of version supported */
++#define CC_MAXIMUM_VERSION    30
++
++/**
++ * Extracts the protocol from the URI.
++ *
++ * The syntax of the URI is the following:
++ *
++ *    cc:[//<host>/]<protocol>[?[<query>][;<query>]*]
++ *
++ * where
++ *   host ::= localhost|<host name>|<host address>
++ *   query ::= <name=value> | <process=id>
++ *
++ * @param[in]  pProviderURI  The provider URI.
++ *
++ * @param[in]  pProtocolBuffer  The buffer receiving the protocol.
++ *
++ * @param[in]  nProtocolBufferLength  The buffer length in character.
++ *
++ * @return  W_TRUE in case of success, W_FALSE in case of error.
++ **/
++bool_t __CDECL CCClientGetProtocol(
++            const char16_t* pProviderURI,
++            char16_t* pProtocolBuffer,
++            uint32_t nProtocolBufferLength);
++
++/**
++ * Opens a connection as client.
++ *
++ * @param[in] pProviderURI  The provider URI.
++ *
++ * @param[in] bWait  Wait for service provider (W_TRUE) or disconnect if no service provider is ready (W_FALSE).
++ *
++ * @param[in] pVersionSupported  The array of the version supported by the service client.
++ *
++ * @param[in] nVersionNumber  The number of version in the array pVersionSupported.
++ *            This value is in the range ]0, CC_MAXIMUM_VERSION]
++ *
++ * @param[out] pnNegociatedVersion A pointer on the version negociated with the service provider.
++ *             CC_UNKNOWN_VERSION if the version is unknown or if an error occured.
++ *
++ * @param[out] ppConnection  The connection, or null in case of error.
++ *
++ * @return CC_SUCCESS or the error code.
++ **/
++uint32_t __CDECL CCClientOpen(
++            const char16_t* pProviderURI,
++            bool_t bWait,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber,
++            uint8_t* pnNegociatedVersion,
++            void** ppConnection);
++
++/**
++ * Opens a connection as service provider.
++ *
++ * @param[in] pServiceType  The service type.
++ *
++ * @param[in] pServiceName  The service name. This value may be null for the default name.
++ *
++ * @param[in] pVersionSupported  The array of the version supported by the service provider.
++ *
++ * @param[in] nVersionNumber  The number of version in the array pVersionSupported.
++ *            This value is in the range ]0, CC_MAXIMUM_VERSION]
++ *
++ * @param[out] pnNegociatedVersion A pointer on the version negociated with the service client.
++ *             CC_UNKNOWN_VERSION if the version is unknown or if an error occured.
++ *
++ * @param[out] ppConnection  The connection, or null in case of error.
++ *
++ * @return CC_SUCCESS or the error code.
++ **/
++uint32_t __CDECL CCClientOpenAsProvider(
++            const char16_t* pServiceType,
++            const char16_t* pServiceName,
++            const uint8_t* pVersionSupported,
++            uint32_t nVersionNumber,
++            uint8_t* pnNegociatedVersion,
++            void** ppConnection);
++
++/**
++ * Closes a connection.
++ *
++ * @param[in]  pConnection  The connection.
++ **/
++void __CDECL CCClientClose(
++            void* pConnection);
++
++/**
++ * Sends some binary data.
++ *
++ * @param[in] pConnection  The connection.
++ *
++ * @param[in] pData  A pointer on the data buffer.
++ *
++ * @param[in] nDataLength  The length in bytes of the data.
++ *
++ * @return  Non zero value if the data is sent, zero if an error occured.
++ **/
++uint32_t __CDECL CCClientSendData(
++            void* pConnection,
++            const uint8_t* pData,
++            uint32_t nDataLength);
++
++/**
++ * Sends some binary data.
++ *
++ * @param[in] pConnection  The connection.
++ *
++ * @param[in] nData1  The value of the first data buffer.
++ *
++ * @param[in] pData2  A pointer on the second data buffer.
++ *
++ * @param[in] nData2Length  The length in bytes of the second data buffer.
++ *
++ * @return  Non zero value if the data is sent, zero if an error occured.
++ **/
++uint32_t __CDECL CCClientSendDataEx(
++            void* pConnection,
++            const uint8_t nData1,
++            const uint8_t* pData2,
++            uint32_t nData2Length);
++
++/**
++ * Receives some binary data.
++ *
++ * @param[in]  pConnection  The connection.
++ *
++ * @param[in]  pBuffer  A pointer on the buffer used for the reception.
++ *
++ * @param[in]  nBufferLength  The length in bytes of the buffer.
++ *
++ * @param[out] ppData  A pointer on a variable valued with the address
++ *             of the data in the buffer.
++ *
++* @param[in]  bWait  If W_TRUE, waits for data availability (blocking call)
++ *
++ * @return  The length in bytes of the data,
++ *          zero if no data is received,
++ *          a negative value if an error is detected.
++ **/
++int32_t __CDECL CCClientReceiveData(
++            void* pConnection,
++            uint8_t* pBuffer,
++            uint32_t nBufferLength,
++            uint8_t** ppData,
++            bool_t bWait);
++
++/**
++ * Gets the reception event.
++ *
++ * @param[in]  pConnection  The connection.
++ *
++ * @return The reception event.
++ **/
++void* __CDECL CCClientGetReceptionEvent(
++            void* pConnection);
++
++/**
++ * Sets the Connection Center address.
++ *
++ * If not set, the local-loop address is used.
++ *
++ * @param[in]  pAddress  The Connection Center address.
++ **/
++void __CDECL CCClientSetAddress(
++            const char* pAddress);
++
++/*******************************************************************************
++  Print Functions
++*******************************************************************************/
++
++/* The trace levels */
++#define P_TRACE_TRACE      1
++#define P_TRACE_LOG        2
++#define P_TRACE_WARNING    3
++#define P_TRACE_ERROR      4
++#define P_TRACE_NONE       5
++
++/* See Functional Specifications Document */
++void __CDECL CCTraceInit(void);
++
++/* See Functional Specifications Document */
++void __CDECL CCTracePrint(
++            const char* pTag,
++            uint32_t nTraceLevel,
++            const char* pMessage,
++            va_list list);
++
++/* See Functional Specifications Document */
++void __CDECL CCTracePrintBuffer(
++            const char* pTag,
++            uint32_t nTraceLevel,
++            const uint8_t* pBuffer,
++            uint32_t nLength);
++
++#ifdef __cplusplus
++}
++#endif
+diff --git a/nfc/ccclient_md.c b/nfc/ccclient_md.c
+new file mode 100644
+index 0000000..436f2fa
+--- /dev/null
++++ b/nfc/ccclient_md.c
+@@ -0,0 +1,373 @@
++/*
++ * Copyright (c) 2007-2010 Inside Secure, All Rights Reserved.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++/*******************************************************************************
++
++Implementation of the standard CCClient trace client.
++
++*******************************************************************************/
++
++#include "ccclient.h"
++#include "ccclient_md.h"
++
++#include <linux/mutex.h>
++#include <net/sock.h>
++#include <linux/tcp.h>
++
++static unsigned long nInitialised = 0;
++
++bool_t CCInterlockedEnter()
++{
++   int nValue= test_and_set_bit(0, &nInitialised);
++
++   return (nValue == 0) ? W_FALSE : W_TRUE;
++}
++
++typedef struct __OSCriticalSection
++{
++   struct mutex mutex;
++
++} OSCriticalSection;
++
++void CCCreateCriticalSection(
++      CCCriticalSection* pCS)
++{
++   mutex_init( & ((OSCriticalSection*)pCS)->mutex);
++}
++
++void CCDestroyCriticalSection(
++      CCCriticalSection* pCS)
++{
++   mutex_destroy(& ((OSCriticalSection*)pCS)->mutex);
++}
++
++void CCEnterCriticalSection(
++      CCCriticalSection* pCS)
++{
++   mutex_lock(& ((OSCriticalSection*)pCS)->mutex);
++}
++
++void CCLeaveCriticalSection(
++      CCCriticalSection* pCS)
++{
++   mutex_unlock(& ((OSCriticalSection*)pCS)->mutex);
++}
++
++void CCInitializeTime(void)
++{
++}
++
++void CCGetAbsoluteRawTime(
++               char* pBuffer,
++               uint32_t nMaxLength)
++{
++   snprintf(pBuffer, nMaxLength, "%ld", (long) (jiffies * 1000 / HZ));
++}
++
++void CCGetRelativeTime(
++               char* pBuffer,
++               uint32_t nMaxLength)
++{
++   snprintf(pBuffer, nMaxLength, "%ld", (long) (jiffies * 1000 / HZ));
++}
++
++void CCPrintError(
++            const char* pString)
++{
++   printk(pString);
++}
++
++void CCDefaultPrintf(
++               uint32_t nTraceLevel,
++               const char* pString)
++{
++   printk(pString);
++}
++
++uint32_t CCStrLen(
++               const char* pString,
++               uint32_t nMaxLength)
++{
++   return (uint32_t)strnlen(pString, nMaxLength);
++}
++
++
++void CCStrCat(
++               char* pString,
++               uint32_t nMaxLength,
++               const char* pAppend)
++{
++   strncat(pString, pAppend, nMaxLength);
++}
++
++uint32_t CCVSPrintf(
++               char* pString,
++               uint32_t nMaxLength,
++               const char* pFormat,
++               va_list list)
++{
++   return (uint32_t)vsnprintf( pString, nMaxLength, pFormat, list);
++}
++
++typedef struct __OSSocket
++{
++   struct socket * socket;
++
++} OSSocket;
++
++
++uint32_t CCSocketCreate(
++               const char* pAddress,
++               CCSocket* pSocket)
++{
++   struct socket * socket;
++   struct sockaddr_in sockaddr;
++   int bTCPNoDelay = W_TRUE;
++   int error;
++   char * end;
++   uint32_t nInetAddr;
++   uint32_t nError = CC_SUCCESS;
++
++   /* create the socket */
++   error = sock_create(PF_INET, SOCK_STREAM, IPPROTO_TCP, &socket);
++
++   if (error < 0) {
++
++      printk(KERN_ERR "static_CCClientCreateSocket : sock_create() failed %d\n", error);
++      nError = CC_ERROR_SOCKET_OPERATION;
++
++      goto return_error;
++   }
++
++   /* set TCP_NODELAY option */
++   error = kernel_setsockopt(socket, SOL_TCP, TCP_NODELAY, (char *)&bTCPNoDelay, sizeof(bTCPNoDelay));
++
++   if (error < 0) {
++
++      printk(KERN_ERR "static_CCClientCreateSocket / kernel_setsockopt() failed %d ", error);
++      nError = CC_ERROR_SOCKET_OPERATION;
++
++      goto return_error;
++   }
++
++   /* establish TCP connection with the connection center */
++
++   nInetAddr = (uint32_t) simple_strtol(pAddress, &end, 10);
++
++   sockaddr.sin_family = AF_INET;
++   sockaddr.sin_addr.s_addr = nInetAddr;
++   sockaddr.sin_port = htons(14443);
++
++   error = kernel_connect(socket, (struct sockaddr *)&sockaddr, sizeof(sockaddr), 0);
++
++   if (error < 0) {
++      printk(KERN_ERR "static_CCClientCreateSocket / kernel_connect() failed %d ", error);
++
++      nError = CC_ERROR_CONNECTION_FAILURE;
++      goto return_error;
++   }
++
++   nError = CC_SUCCESS;
++
++
++return_error:
++
++   if(nError != CC_SUCCESS) {
++
++      if (socket != NULL) {
++         sock_release(socket);
++         socket = NULL;
++      }
++   }
++
++   ((OSSocket*)pSocket)->socket = socket;
++
++    return nError;
++}
++
++void CCSocketShutdownClose(
++               CCSocket* pSocket)
++{
++   if(((OSSocket*)pSocket)->socket != NULL)
++   {
++      kernel_sock_shutdown(((OSSocket*)pSocket)->socket, SHUT_RDWR);
++      sock_release(((OSSocket*)pSocket)->socket);
++      ((OSSocket*)pSocket)->socket = NULL;
++   }
++}
++
++int32_t CCSocketReceive(
++            CCSocket* pSocket,
++            uint8_t* pBuffer,
++            uint32_t nLength,
++            bool_t bWait)
++{
++   int32_t nOffset = 0;
++   int32_t res;
++   struct socket * socket = ((OSSocket*)pSocket)->socket;
++   int nFlags = 0;
++
++   if (bWait == W_FALSE)
++   {
++      nFlags = MSG_DONTWAIT;
++   }
++
++   while (nLength != 0)
++   {
++      struct msghdr msg;
++      struct kvec   iov;
++
++      msg.msg_name = 0;
++      msg.msg_namelen = 0;
++      msg.msg_control = NULL;
++      msg.msg_controllen = 0;
++      msg.msg_flags = nFlags;
++
++      iov.iov_base = (void *)  (pBuffer + nOffset);
++      iov.iov_len = (size_t)   nLength;
++
++      res = kernel_recvmsg(socket, &msg, &iov, 1,  nLength, nFlags);
++
++      if(res < 0)
++      {
++         if ((res == -EWOULDBLOCK) || (res == -EAGAIN))
++         {
++            res = 0;
++         }
++         else
++         {
++            return res;
++         }
++      }
++      else if(res == 0)
++      {
++         /* Socket gracefully shutdown */
++         return -1;
++      }
++
++      if(res == 0)
++      {
++         if((nOffset == 0) && (bWait == W_FALSE))
++         {
++            return 0;
++         }
++
++         nFlags = 0;
++      }
++      else
++      {
++         nOffset += res;
++         nLength -= res;
++      }
++   }
++
++   return 1;
++}
++
++bool_t CCSocketSend(
++            CCSocket* pSocket,
++            const uint8_t* pBuffer,
++            uint32_t nLength)
++{
++   int32_t res;
++   int32_t nOffset = 0;
++   struct socket * socket = ((OSSocket*)pSocket)->socket;
++   int flags = MSG_DONTWAIT;
++
++   while(nLength != 0)
++   {
++      struct msghdr msg;
++      struct kvec   iov;
++
++      msg.msg_name = 0;
++      msg.msg_namelen = 0;
++      msg.msg_control = NULL;
++      msg.msg_controllen = 0;
++      msg.msg_flags = flags;
++
++      iov.iov_base = (void *)  (pBuffer + nOffset);
++      iov.iov_len = (size_t)   nLength;
++
++      res =  kernel_sendmsg(socket, & msg, &iov, 1, nLength);
++
++      /* first write operation is always done non blocking,
++        but we want to send the whole message if we've been able to send the first part of it */
++
++      flags = 0;
++
++      if(res < 0)
++      {
++        return W_FALSE;
++      }
++
++      nOffset += res;
++      nLength -= res;
++   }
++
++   return W_TRUE;
++}
++
++void* CCSocketGetReceptionEvent(
++            CCSocket* pSocket)
++{
++   printk(__FUNCTION__ ); printk("\n");
++
++   return (void *) (uintptr_t) ((OSSocket*)pSocket)->socket;
++}
++
++void CCSocketSignalReceptionEvent(
++            CCSocket* pSocket)
++{
++   printk(__FUNCTION__ ); printk("\n");
++
++   /* FIXME */
++}
++
++void CCGetApplicationName(
++            char16_t* pBuffer)
++{
++   char16_t   aName[] = { 'o','n','f','c','-', 'l','i','n','u','x','-','d','r','i','v','e','r', 0 };
++
++   memcpy(pBuffer, aName, sizeof(aName));
++}
++
++void CCGetApplicationIdentifier(
++            char16_t* pBuffer)
++{
++   char16_t   aName[] = { '0', 0 };
++
++   memcpy(pBuffer, aName, sizeof(aName));
++}
++
++void * CCMalloc(uint32_t nSize)
++{
++   return kmalloc(nSize, GFP_KERNEL);
++}
++
++/**
++ * Frees a memory area previously allocated by CCMalloc()
++ *
++ * @param[in] pMemory  The address of the memory area to be freed
++ */
++void  CCFree(void * pMemory)
++{
++   kfree(pMemory);
++}
++
++void CCMemcpy(void * pDest, const void * pSrc, uint32_t nLength)
++{
++   memcpy(pDest, pSrc, nLength);
++}
+diff --git a/nfc/ccclient_md.h b/nfc/ccclient_md.h
+new file mode 100644
+index 0000000..f605d8f
+--- /dev/null
++++ b/nfc/ccclient_md.h
+@@ -0,0 +1,299 @@
++/*
++ * Copyright (c) 2009-2011 Inside Secure, All Rights Reserved.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#ifndef __CCCLIENT_MD_H
++#define __CCCLIENT_MD_H
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++
++typedef struct __CCCriticalSection
++{
++   uint8_t aDummy[64];   /* Anything large enough to contain a critical section on any OS */
++} CCCriticalSection;
++
++/**
++ * Check and set a flag in atomically.
++ *
++ * @return W_TRUE if the flag was already set, W_FALSE If the flag was not set.
++ */
++bool_t CCInterlockedEnter(void);
++
++/**
++ * Creates the critical section.
++ *
++ * @param[in]  pCS  The critical section.
++ */
++void CCCreateCriticalSection(
++         CCCriticalSection* pCS);
++
++/**
++ * Destroyes the critical section.
++ *
++ * @param[in]  pCS  The critical section.
++ */
++void CCDestroyCriticalSection(
++         CCCriticalSection* pCS);
++
++/**
++ * Enters the critical section.
++ *
++ * @param[in]  pCS  The critical section.
++ */
++void CCEnterCriticalSection(
++         CCCriticalSection* pCS);
++
++/**
++ * Leaves the critical section.
++ *
++ * @param[in]  pCS  The critical section.
++ */
++void CCLeaveCriticalSection(
++         CCCriticalSection* pCS);
++
++/**
++ * Initializes the time.
++ */
++void CCInitializeTime(void);
++
++/**
++ * Gets the absolute raw time.
++ *
++ * The function append the character 0 at the end of the string.
++ *
++ * @param[out]  pBuffer  The buffer where is stored the decimal value representing the time.
++ *
++ * @param[in]  nMaxLength  The maximum length in byte of the buffer.
++ */
++void CCGetAbsoluteRawTime(
++               char* pBuffer,
++               uint32_t nMaxLength);
++
++/**
++ * Gets the relative time in milliseconds.
++ *
++ * The origin is the call to CCInitializeTime().
++ * The function append the character 0 at the end of the string.
++ *
++ * @param[out]  pBuffer  The buffer where is stored the decimal value representing the time.
++ *
++ * @param[in]  nMaxLength  The maximum length in byte of the buffer.
++ */
++void CCGetRelativeTime(
++               char* pBuffer,
++               uint32_t nMaxLength);
++
++/**
++ * Prints a string on the default output.
++ *
++ * @param[in]  nTraceLevel  The trace level.
++ *
++ * @param[in]  pString  The zero ended string to print.
++ */
++void CCDefaultPrintf(
++               uint32_t nTraceLevel,
++               const char* pString);
++/**
++ * Returns the lengths in bytes of a zero ended string.
++ *
++ * @param[in]  pString  The string.
++ *
++ * @param[in]  nMaxLength  The string max length in bytes.
++ *
++ * @return  The length of the string.
++ **/
++uint32_t CCStrLen(
++               const char* pString,
++               uint32_t nMaxLength);
++
++/**
++ * Concatenates a string at the end of another string.
++ *
++ * @param[in]  pString  The string.
++ *
++ * @param[in]  nMaxLength  The string max length in bytes.
++ *
++ * @param[in]  pString  The string to append.
++ **/
++void CCStrCat(
++               char* pString,
++               uint32_t nMaxLength,
++               const char* pAppend);
++
++/**
++ * Formats a string.
++ *
++ * @param[in]  pString  The string buffer.
++ *
++ * @param[in]  nMaxLength  The string max length in bytes.
++ *
++ * @param[in]  pFormat  The format of the string.
++ *
++ * @param[in]  list  The list of parameters
++ *
++ * @return  The length of the formatted string.
++ **/
++uint32_t CCVSPrintf(
++               char* pString,
++               uint32_t nMaxLength,
++               const char* pFormat,
++               va_list list);
++
++typedef struct __CCSocket
++{
++   uint8_t aDummy[64];   /* Anything large enough to contain a socket and an event on any OS */
++} CCSocket;
++
++/**
++ * Creates a socket for the connection center.
++ *
++ * @param[in]  pAddress The CC address, use the local-loop address if null.
++ *
++ * @param[in]  pSocket  The socket structure.
++ *
++ * @return  CC_SUCCESS in case of success, an error cod otherwise.
++ **/
++uint32_t CCSocketCreate(
++               const char* pAddress,
++               CCSocket* pSocket);
++
++/**
++ * Shutdown and close a socket.
++ *
++ * @param[in]  pSocket  The socket structure.
++ **/
++void CCSocketShutdownClose(
++               CCSocket* pSocket);
++
++/**
++ * Receives data.
++ *
++ * If bWait is W_TRUE, the function blocks until the specified amount of data is received or an error occurs.
++ *
++ * If bWait is W_FALSE, if no data is available, the function returns 0.
++ * If some data is available, the function blocks until the specified amount of data is received or an error occurs.
++ *
++ * @param[in] pSocket The socket.
++ *
++ * @param[out] pBuffer  The buffer receiving the data.
++ *
++ * @param[in) nLength  The lenght in bytes of the buffer.
++ *
++ * @param[in] bWait  A boolean indicating if the function shall wait for the data.
++ *
++ * @return  0 no data available (bWait is W_FALSE).
++ *          >0 nLength bytes received.
++ *          <0 an error occured.
++ **/
++int32_t CCSocketReceive(
++            CCSocket* pSocket,
++            uint8_t* pBuffer,
++            uint32_t nLength,
++            bool_t bWait);
++
++/**
++ * Sends data.
++ *
++ * The function blocks until the specified amount of data is sent or an error occurs.
++ *
++ * @param[in] pSocket The socket.
++ *
++ * @param[in] pBuffer  The buffer to send.
++ *
++ * @param[in) nLength  The lenght in bytes of the buffer.
++ *
++ * @return  W_TRUE if the data is sent. W_FALSE if an error occured.
++ **/
++bool_t CCSocketSend(
++            CCSocket* pSocket,
++            const uint8_t* pBuffer,
++            uint32_t nLength);
++
++/**
++ * Returns the reception event of the socket.
++ *
++ * @param[in] pSocket The socket.
++ *
++ * @return  The reception event of the socket.
++ **/
++void* CCSocketGetReceptionEvent(
++            CCSocket* pSocket);
++
++/**
++ * Signals the reception event of the socket.
++ *
++ * @param[in] pSocket The socket.
++ **/
++void CCSocketSignalReceptionEvent(
++            CCSocket* pSocket);
++
++/**
++ * Returns the application name as a string.
++ *
++ * @param[out]  pBuffer  The application name encoded as a zero-ended unicode string.
++ **/
++void CCGetApplicationName(
++            char16_t* pBuffer);
++
++/**
++ * Returns the application identifier (ID) as a string.
++ *
++ * @param[out]  pBuffer  The application identifier encoded as a zero-ended unicode string.
++ **/
++void CCGetApplicationIdentifier(
++            char16_t* pBuffer);
++
++/**
++ * Prints an error message comming from the CC client library.
++ *
++ * @param[in] pString  The message to print. A zero-ended string without end of line.
++ */
++void CCPrintError(
++            const char* pString);
++
++/**
++ * Allocates a memory area of specified length bytes
++ *
++ * @param[in] nSize  The size of the memory area to allocate
++ */
++void * CCMalloc(
++            uint32_t nSize);
++
++/**
++ * Frees a memory area previously allocated by CCMalloc()
++ *
++ * @param[in] pMemory  The address of the memory area to be freed
++ */
++void  CCFree(void * pMemory);
++
++/**
++ * Copy nLength bytes from memory area pSrc to memory area pDest
++ *
++ * @param[out] pDest  The address of the memory area to be filled
++ *
++ * @param[in] pSrc  The address of the memory area to be copied
++ *
++ * @param[in] nLength  The number of bytes to copy
++ */
++void CCMemcpy(void * pDest, const void * pSrc, uint32_t nLength);
++
++
++#ifdef __cplusplus
++}
++#endif
++
++#endif /* __CCCLIENT_MD_H */
+diff --git a/nfc/open_nfc_custom.c b/nfc/open_nfc_custom.c
+new file mode 100644
+index 0000000..cae91d9
+--- /dev/null
++++ b/nfc/open_nfc_custom.c
+@@ -0,0 +1,578 @@
++/* -------------------------------------------------------------------------
++ * Copyright (C) 2010 Inside Secure
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ * ------------------------------------------------------------------------- */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/errno.h>
++#include <linux/cdev.h>
++#include <linux/fs.h>
++#include <linux/device.h>
++#include <linux/semaphore.h>
++#include <linux/kthread.h>
++#include <linux/slab.h>
++
++#include <asm/uaccess.h>
++
++#include "open_nfc_main.h"
++#include "ccclient.h"
++
++#define P_MAX_RX_BUFFER_SIZE  128
++#define P_COM_RESET_FLAG  0x00
++#define P_COM_DATA_FLAG   0x01
++
++struct open_nfc_custom_dev
++{
++   /* configuration stuff */
++
++   bool_t        configured;    /* set to W_TRUE if OPEN_NFC_IOC_CONFIGURE has been done */
++   uint32_t      cc_address;    /* connection center address */
++   char16_t      cc_uri[OPEN_NFC_IOC_MAX_CONFIG_LENGTH-4];
++
++   /* connection stuff */
++   void      * cc_instance;   /* connection context */
++
++   /* lock */
++
++   struct mutex   mutex;             /* mutex for concurrency */
++
++   uint8_t     rx_buffer[P_MAX_RX_BUFFER_SIZE];
++   uint8_t *   p_rx_data;
++   int         nb_available_bytes;
++   bool_t        initial_reset_done;
++   int         reset_pending;
++
++   struct semaphore    receive_sem;
++   wait_queue_head_t read_queue;
++   wait_queue_head_t   write_queue;
++
++   struct task_struct * receive_thread;
++};
++
++
++/**
++  * Function called when the user opens /dev/nfcc
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++int open_nfc_custom_open(struct inode *inode, struct file *filp)
++{
++   struct open_nfc_custom_dev * custom_dev;
++
++   /* allocate a custom device structure and initialize it */
++
++   custom_dev = kmalloc(sizeof(struct open_nfc_custom_dev), GFP_KERNEL);
++
++   if (custom_dev == NULL) {
++      return -ENOMEM;
++   }
++
++   memset(custom_dev, 0, sizeof(struct open_nfc_custom_dev));
++
++   sema_init(&custom_dev->receive_sem, 0);
++
++   init_waitqueue_head(&custom_dev->read_queue);
++   init_waitqueue_head(&custom_dev->write_queue);
++
++   mutex_init (&custom_dev->mutex);
++
++   filp->private_data = custom_dev;
++
++   return 0;
++}
++
++/**
++  * Function called when the user closes file
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++int open_nfc_custom_release(struct inode *inode, struct file *filp)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance)
++   {
++      printk(KERN_DEBUG "open_nfc_custom_release : CCClientDisconnect\n");
++
++      /* CCClientDisconnect(custom_dev->cc_instance); */
++   }
++
++   printk(KERN_DEBUG "open_nfc_custom_release : up(receive sem)\n");
++
++   up(&custom_dev->receive_sem);
++
++   if (custom_dev->receive_thread)
++   {
++      printk(KERN_DEBUG "open_nfc_custom_release : kthread_stop\n");
++
++      mutex_unlock(&custom_dev->mutex);
++
++      kthread_stop(custom_dev->receive_thread);
++
++      mutex_lock(&custom_dev->mutex);
++   }
++
++   printk(KERN_DEBUG "open_nfc_custom_release : kfree(custom_dev)\n");
++
++   CCClientClose(custom_dev->cc_instance);
++   custom_dev->cc_instance = NULL;
++
++   mutex_unlock(&custom_dev->mutex);
++
++   /* free the custom device context */
++   kfree (custom_dev);
++
++   return 0;
++}
++
++/**
++  * Function called when the user reads data
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++ssize_t open_nfc_custom_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
++{
++   struct open_nfc_custom_dev * custom_dev =filp->private_data;
++   ssize_t retval;
++
++   /* we allow read only if the connection with the connection center has been established */
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance == NULL)
++   {
++      printk(KERN_ERR "open_nfc_custom_read : not connected\n");
++
++      retval =  -ENOTCONN;
++      goto end;
++   }
++
++   retval = custom_dev->nb_available_bytes;
++
++   if (retval == 0)
++   {
++      /* no data available */
++      retval =  -EAGAIN;
++      goto end;
++   }
++
++   if (count >= retval)
++   {
++      if (copy_to_user(buf, custom_dev->p_rx_data, custom_dev->nb_available_bytes))
++      {
++         printk(KERN_ERR "open_nfc_custom_read : unable to access to user buffer. data lost\n");
++         retval = -EFAULT;
++      }
++   }
++   else
++   {
++      printk(KERN_ERR "open_nfc_custom_read : provided buffer too short. data lost\n");
++      retval = 0;
++   }
++
++   custom_dev->nb_available_bytes = 0;
++
++   /* increase the semaphore to wake up receive thread for next data reception */
++   up(&custom_dev->receive_sem);
++
++
++end:
++   mutex_unlock(&custom_dev->mutex);
++
++   return retval;
++}
++
++/**
++  * Function called when the user writes data
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++
++ssize_t open_nfc_custom_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++   void * temp;
++   int retval;
++
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance == NULL)
++   {
++      printk(KERN_ERR "open_nfc_custom_write  : not connected\n");
++
++      retval = -ENOTCONN;
++      goto end;
++   }
++
++   /* allocate a temporary kernel buffer to store user data */
++   temp = kmalloc(count, GFP_KERNEL);
++
++   if (temp == NULL)
++   {
++      printk(KERN_ERR "open_nfc_custom_write  : kmalloc failed\n");
++
++      /* no memory available... */
++      retval = -ENOMEM;
++      goto end;
++   }
++
++   if (copy_from_user(temp, buf, count) == 0)
++   {
++      if (CCClientSendDataEx(custom_dev->cc_instance, P_COM_DATA_FLAG, buf, count) != 0)
++      {
++         retval = count;
++      }
++      else
++      {
++         printk(KERN_ERR "open_nfc_custom_write : CCClientSendDataEx() failed");
++         retval = 0;
++      }
++   }
++   else
++   {
++      printk(KERN_ERR "open_nfc_custom_write  : copy_from_user failed\n");
++
++      retval = -EFAULT;
++   }
++
++   /* free the allocated buffer */
++   kfree(temp);
++
++end :
++
++   mutex_unlock(&custom_dev->mutex);
++
++   return retval;
++}
++
++/**
++  * Processes the OPEN_NFC_IOC_CONFIGURE ioctl
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++
++static char address[16];
++
++long open_nfc_custom_ioctl_configure(struct file *filp, unsigned int cmd, unsigned long arg)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++   struct open_nfc_ioc_configure config;
++   int retval;
++   int i;
++
++
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance != NULL)
++   {
++      printk(KERN_ERR "OPEN_NFC_IOC_CONFIGURE is not allowed after OPEN_NFC_IOC_CONNECT");
++      retval = -EISCONN;
++      goto end;
++   }
++
++   if (copy_from_user(&config, (void *) arg, sizeof(config)))
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_configure : copy_from_user failed\n");
++
++      retval = -EFAULT;
++      goto end;
++   }
++
++   /* config.length contains the number of byte used if the config.buffer array : here should be >= 4
++    * config.buffer[0] - config.buffer[3] contain the IP address of the connection center
++    */
++
++   if ((config.length < 4) || (config.length > OPEN_NFC_IOC_MAX_CONFIG_LENGTH))
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_configure : invalid IOCTL format\n");
++
++      retval = -EINVAL;
++      goto end;
++   }
++
++   custom_dev->cc_address = config.buffer[0];
++   custom_dev->cc_address = (uint32_t) (custom_dev->cc_address << 8) | config.buffer[1];
++   custom_dev->cc_address = (uint32_t) (custom_dev->cc_address << 8) | config.buffer[2];
++   custom_dev->cc_address = (uint32_t) (custom_dev->cc_address << 8) | config.buffer[3];
++
++   sprintf(address, "%d", custom_dev->cc_address);
++
++   CCClientSetAddress(address);
++
++   for (i=0; i<config.length - 4; i++)
++   {
++      custom_dev->cc_uri[i] = config.buffer[4+i];
++   }
++
++   custom_dev->configured = W_TRUE;
++
++   mutex_unlock(&custom_dev->mutex);
++
++   retval = 0;
++
++end:
++
++   printk(KERN_DEBUG "open_nfc_custom_ioctl_configure : return %d\n", retval);
++
++   return retval;
++}
++
++
++static int open_nfc_custom_cc_receive_thread (void * arg)
++{
++   struct open_nfc_custom_dev * custom_dev = (struct open_nfc_custom_dev *) arg;
++   int result;
++   bool_t wait = W_FALSE;
++   bool_t failure = W_FALSE;
++
++   printk(KERN_DEBUG "open_nfc_custom_cc_receive_thread : started\n");
++
++   while (kthread_should_stop() == W_FALSE)
++   {
++      result = CCClientReceiveData(custom_dev->cc_instance, custom_dev->rx_buffer,  P_MAX_RX_BUFFER_SIZE, & custom_dev->p_rx_data, W_TRUE);
++
++      mutex_lock(&custom_dev->mutex);
++
++      if(result > 0)
++      {
++         if(custom_dev->initial_reset_done)
++         {
++            if(custom_dev->p_rx_data[0] == 0) /* Answer to reset? */
++            {
++               printk(KERN_DEBUG "open_nfc_custom_cc_receive_thread : Reset confirmation received\n");
++
++               if(custom_dev->reset_pending > 0)
++               {
++                  custom_dev->reset_pending--;
++
++                  if (custom_dev->reset_pending == 0)
++                  {
++                     wake_up(&custom_dev->write_queue);
++                  }
++               }
++               else
++               {
++                  printk(KERN_ERR "open_nfc_custom_cc_receive_thread : An error occured in the protocol with the NFCC\n");
++               }
++            }
++            else
++            {
++               if(custom_dev->reset_pending == 0)
++               {
++                  custom_dev->nb_available_bytes = result - 1;
++                  custom_dev->p_rx_data++;
++
++                  /* wake up poll() */
++
++                  wake_up(&custom_dev->read_queue);
++
++                  /* must wait for the consumption of the data */
++                  wait = W_TRUE;
++               }
++            }
++         }
++         else
++         {
++            printk(KERN_DEBUG "discarding data received prior reset acknowledge\n");
++            result = 0;
++         }
++      }
++      else
++      {
++         printk(KERN_ERR "open_nfc_custom_cc_receive_thread : CCClientReceiveData failure\n");
++
++         failure = W_TRUE;
++         /* wake up poll() */
++         wake_up(&custom_dev->read_queue);
++      }
++
++      mutex_unlock(&custom_dev->mutex);
++
++      if (wait || failure)
++      {
++         /* wait until the received data has been read or the termination of the thread has been requested */
++         if (down_interruptible(&custom_dev->receive_sem) == -EINTR)
++         {
++            printk(KERN_ERR "down_interruptible failed (due to reception of a signal)");
++         }
++
++         wait = W_FALSE;
++      }
++   }
++
++   return 0;
++}
++
++
++/**
++  * Processes the OPEN_NFC_IOC_CONNECT ioctl
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++
++#define CC_I2C_PROTOCOL_VERSION_10     0x10
++static uint8_t g_nCCI2cProtocolVersions[] = { CC_I2C_PROTOCOL_VERSION_10 };
++
++const char16_t aURI[] = { 'c','c',':','n','f','c','c', '_', 'i', '2', 'c', 0 };
++
++
++long open_nfc_custom_ioctl_connect(struct file *filp, unsigned int cmd, unsigned long arg)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++   uint32_t error;
++   int retval;
++   uint8_t nNegotiatedVersion;
++
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance != NULL)
++   {
++      printk("open_nfc_custom_ioctl_connect : already connected");
++
++      retval = -EISCONN;
++      goto end;
++   }
++
++   error = CCClientOpen(aURI, W_FALSE, g_nCCI2cProtocolVersions, sizeof(g_nCCI2cProtocolVersions), &nNegotiatedVersion, &custom_dev->cc_instance);
++
++   if ((error != CC_SUCCESS) || (custom_dev->cc_instance == NULL))
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_connect : CCClientOpen failed\n");
++
++      /* the connection failed, return a negative value containing the error code */
++      retval = -error;
++      goto end;
++   }
++
++   /* the connection with the Connection Center has been established,
++      start the receive thread */
++
++   custom_dev->receive_thread = kthread_run(open_nfc_custom_cc_receive_thread,  custom_dev, "OpenNFCRx");
++
++   if (custom_dev->receive_thread == ERR_PTR(-ENOMEM))
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_connect : kthread_run() failed\n");
++
++      custom_dev->receive_thread = NULL;
++
++      retval = -ENOMEM;
++      goto end;
++   }
++
++   retval = 0;
++
++end:
++   mutex_unlock(&custom_dev->mutex);
++
++   return retval;;
++}
++
++
++/**
++  * Processes the OPEN_NFC_IOC_RESET ioctl
++  *
++  * @return 0 on success, a negative value on failure.
++  */
++
++long open_nfc_custom_ioctl_reset(struct file *filp, unsigned int cmd, unsigned long arg)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++   unsigned char reset_type = arg;
++   int retval;
++
++   mutex_lock(&custom_dev->mutex);
++
++   if (custom_dev->cc_instance == NULL)
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_reset : not connected\n");
++
++      retval = -ENOTCONN;
++      goto end;
++   }
++
++   if (CCClientSendDataEx(custom_dev->cc_instance, P_COM_RESET_FLAG, &reset_type, 1) == 0)
++   {
++      printk(KERN_ERR "open_nfc_custom_ioctl_reset : CCClientSendDataEx failed\n");
++
++      retval = -ENOTCONN;
++      goto end;
++   }
++
++   custom_dev->initial_reset_done = W_TRUE;
++   custom_dev->reset_pending++;
++
++   retval = 0;
++
++end:
++
++   mutex_unlock(&custom_dev->mutex);
++
++   return retval;
++}
++
++/**
++  * Process the poll()
++  *
++  * @return the poll status
++  */
++
++unsigned int open_nfc_custom_poll(struct file *filp, poll_table *wait)
++{
++   struct open_nfc_custom_dev * custom_dev = filp->private_data;
++   unsigned int mask = 0;
++
++   mutex_lock(&custom_dev->mutex);
++
++   poll_wait(filp, &custom_dev->read_queue, wait);
++   poll_wait(filp, &custom_dev->write_queue, wait);
++
++   if (custom_dev->reset_pending == 0)
++   {
++      mask = POLLOUT | POLLWRNORM;
++   }
++
++   if (custom_dev->nb_available_bytes)
++   {
++      mask |= POLLIN | POLLRDNORM;
++   }
++
++   mutex_unlock(&custom_dev->mutex);
++
++   return mask;
++}
++
++/**
++  * Specific initialization, when driver module is inserted.
++  *
++  * @return 0 if successfull, or error code
++  */
++int open_nfc_custom_init(void)
++{
++   return 0;
++}
++
++/**
++  * Specific cleanup, when driver module is removed.
++  *
++  * @return void
++  */
++void open_nfc_custom_exit(void)
++{
++}
++
++/* EOF */
+diff --git a/nfc/open_nfc_int.h b/nfc/open_nfc_int.h
+new file mode 100644
+index 0000000..e95788f
+--- /dev/null
++++ b/nfc/open_nfc_int.h
+@@ -0,0 +1,89 @@
++/* -------------------------------------------------------------------------
++ * Copyright (C) 2010 Inside Secure
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ * ------------------------------------------------------------------------- */
++
++/*
++ * Open NFC driver module.
++ *
++ */
++
++#include <linux/ioctl.h>
++
++ /* Set Open NFC major number.
++  *
++  * If set to 0, a free major number will be allocated for the driver.
++  *   If set to a value different from 0, the specified value will be used as a major value
++  */
++
++#define OPEN_NFC_MAJOR          0
++
++/*
++ * Use 'o' as magic number
++ *
++ * May be customized if conflict occurs
++ */
++
++#define OPEN_NFC_IOC_MAGIC     'o'
++
++/**
++ * OPEN_NFC_IOC_CONFIGURE configuration structure
++ *
++ * Customer implementation may increase the OPEN_NFC_IOC_MAX_CONFIG_LENGTH if needed
++ */
++
++#define OPEN_NFC_IOC_MAX_CONFIG_LENGTH      16
++
++struct open_nfc_ioc_configure {
++	int             length;	/* actual configuration length */
++	unsigned char   buffer[OPEN_NFC_IOC_MAX_CONFIG_LENGTH];	/* buffer containing the config value */
++};
++
++/**
++ * OPEN_NFC_IOC_CONFIGURE is used to pass configuration data to the Open NFC driver.
++ *
++ * In our driver implementation, this is used to pass the IP address of the connection center
++ *
++ * Customer implementation can use this IOCTL for any purpose
++ */
++
++#define OPEN_NFC_IOC_CONFIGURE   _IOW(OPEN_NFC_IOC_MAGIC, 0, struct open_nfc_ioc_configure)
++
++
++/**
++  * OPEN_NFC_IOC_CONNECT is used to request Open NFC driver to prepare to communicate with the NFC Controller.
++  *
++  * In our driver implementation, this is used to establish TCP connection with the connection center
++  *
++  * Customer implementation can use this IOCTL for any purpose
++  */
++
++#define OPEN_NFC_IOC_CONNECT   _IO(OPEN_NFC_IOC_MAGIC, 1)
++
++
++/**
++  * OPEN_NFC_IOC_RESET is used to request Open NFC driver to reset the NFC Controller.
++  *
++  * Note : The reset IOCTL is asynchronous. The Open NFC stack checks the completion of
++  * the reset by selecting the fd for writing (using select()).
++  */
++
++#define OPEN_NFC_IOC_RESET       _IO(OPEN_NFC_IOC_MAGIC, 2)
++
++
++#define OPEN_NFC_MAX_IOCTL_VALUE   2
++
++/* EOF */
+diff --git a/nfc/open_nfc_main.c b/nfc/open_nfc_main.c
+new file mode 100644
+index 0000000..44ad2d1
+--- /dev/null
++++ b/nfc/open_nfc_main.c
+@@ -0,0 +1,274 @@
++/* -------------------------------------------------------------------------
++ * Copyright (C) 2010 Inside Secure
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ * ------------------------------------------------------------------------- */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/errno.h>
++#include <linux/fs.h>
++#include <linux/device.h>
++
++#include <asm/uaccess.h>
++
++#include "open_nfc_main.h"
++#include "porting_types.h"
++
++MODULE_AUTHOR("Inside Secure");
++MODULE_LICENSE("GPL");
++
++int open_nfc_major =   OPEN_NFC_MAJOR;
++int open_nfc_minor =   0;
++
++void open_nfc_cleanup_module(void);
++
++static struct open_nfc_dev {
++
++    /* common stuff, should be kept unchanged */
++
++    struct cdev       cdev;               /* char device structure */
++    bool_t             cdev_registered;
++
++    struct class      * class;            /* sysfs class */
++    bool_t               class_registered;
++
++    struct device      device;               /* sysfs device */
++    bool_t               device_registered;
++} instance;
++
++
++/*
++ *  Function called when user opens the device
++ */
++int open_nfc_open(struct inode *inode, struct file *filp)
++{
++   return open_nfc_custom_open(inode, filp);
++}
++
++/*
++ *  Function called when user closes the device
++ */
++
++int open_nfc_release(struct inode *inode, struct file *filp)
++{
++   return open_nfc_custom_release(inode, filp);
++}
++
++/*
++ * function called when user performs a read operation
++ */
++
++ssize_t open_nfc_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos)
++{
++   return open_nfc_custom_read(filp, buf, count, f_pos);
++}
++
++/*
++ * function called when user performs a write operation
++ */
++
++ssize_t open_nfc_write(struct file *filp, const char __user *buf, size_t count,
++                loff_t *f_pos)
++{
++   return open_nfc_custom_write(filp, buf, count, f_pos);
++}
++
++/*
++ * function called when user performs a ioctl operation
++ */
++
++long open_nfc_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
++{
++   int retval = 0;
++   int err = 0;
++
++   /*
++    * extract the type and number bitfields, and don't decode
++    * wrong cmds: return ENOTTY (inappropriate ioctl) before access_ok()
++    */
++   if (_IOC_TYPE(cmd) != OPEN_NFC_IOC_MAGIC) return -ENOTTY;
++   if (_IOC_NR(cmd) > OPEN_NFC_MAX_IOCTL_VALUE) return -ENOTTY;
++
++   /*
++    * the direction is a bitmask, and VERIFY_WRITE catches R/W
++    * transfers. `Type' is user-oriented, while
++    * access_ok is kernel-oriented, so the concept of "read" and
++    * "write" is reversed
++    */
++
++   if (_IOC_DIR(cmd) & _IOC_READ)
++      err = !access_ok(VERIFY_WRITE, (void __user *)arg, _IOC_SIZE(cmd));
++   else if (_IOC_DIR(cmd) & _IOC_WRITE)
++      err =  !access_ok(VERIFY_READ, (void __user *)arg, _IOC_SIZE(cmd));
++   if (err) return -EFAULT;
++
++   switch(cmd) {
++
++     case OPEN_NFC_IOC_CONFIGURE:
++        retval = open_nfc_custom_ioctl_configure(filp, cmd, arg);
++      break;
++
++     case OPEN_NFC_IOC_CONNECT:
++        retval = open_nfc_custom_ioctl_connect(filp, cmd, arg);
++      break;
++
++     case OPEN_NFC_IOC_RESET:
++        retval = open_nfc_custom_ioctl_reset(filp, cmd, arg);
++      break;
++
++   }
++
++   return retval;
++}
++
++unsigned int open_nfc_poll(struct file *filp, poll_table *wait)
++{
++   return open_nfc_custom_poll(filp, wait);
++}
++
++
++struct file_operations open_nfc_fops = {
++   .owner =    THIS_MODULE,
++   .read =     open_nfc_read,
++   .write =    open_nfc_write,
++   .unlocked_ioctl =    open_nfc_ioctl,
++   .open =     open_nfc_open,
++   .release =  open_nfc_release,
++   .poll    =  open_nfc_poll
++};
++
++/*
++ * function called when user loads the driver
++ */
++
++int open_nfc_init_module(void)
++{
++   int result;
++   int devno;
++
++   printk(KERN_DEBUG "open_nfc_init_module\n");
++
++   if (open_nfc_major)  {
++
++      /* user supplied major number, register the region */
++
++      devno = MKDEV(open_nfc_major, open_nfc_minor);
++      result = register_chrdev_region(devno, 1, "open_nfc");
++   }
++   else {
++
++      /* automatic major number, allocate a region */
++
++      result = alloc_chrdev_region(&devno, open_nfc_minor, 1, "open_nfc");
++      open_nfc_major = MAJOR(devno);
++   }
++
++   if (result < 0) {
++
++      printk(KERN_ERR "open_nfc: can't get major %d\n", open_nfc_major);
++      return result;
++   }
++
++
++   /* reset the instance */
++   memset(& instance, 0, sizeof(instance));
++
++   /* register the char device */
++   cdev_init( & instance.cdev, &open_nfc_fops);
++   instance.cdev.owner = THIS_MODULE;
++
++   result = cdev_add( & instance.cdev, devno, 1);
++
++   if (result)
++   {
++      printk(KERN_ERR "open_nfc : can't register device");
++
++      open_nfc_cleanup_module();
++      return result;
++   }
++
++   instance.cdev_registered = 1;
++
++   /* register the nfc class */
++   instance.class = class_create(THIS_MODULE, "nfc");
++
++   if (IS_ERR(instance.class)) {
++
++      printk(KERN_ERR "open_nfc : can't create class");
++
++      result = PTR_ERR(instance.class);
++
++      open_nfc_cleanup_module();
++      return result;
++   }
++
++   open_nfc_custom_init();
++
++   instance.class_registered = 1;
++
++   /* add a device into the class */
++   device_create(instance.class, NULL, devno, NULL, "nfcc");
++
++   instance.device_registered = 1;
++
++   /* succeeded */
++   return 0;
++}
++
++
++/*
++ * function called when user unloads the driver
++ */
++
++void open_nfc_cleanup_module(void)
++{
++   int devno = MKDEV(open_nfc_major, open_nfc_minor);
++
++   printk(KERN_DEBUG "open_nfc_cleanup_module\n");
++
++   open_nfc_custom_exit();
++
++   /* remove the device from the class if successfully added */
++   if (instance.device_registered)
++   {
++      device_destroy(instance.class, devno);
++   }
++
++   /* unregister the device only if the registration succeeded */
++   if (instance.class_registered)
++   {
++      class_destroy(instance.class);
++   }
++
++   /* unregister the character device */
++   if (instance.cdev_registered)
++   {
++      cdev_del(&instance.cdev);
++   }
++
++   /* always unregister the region, since open_nfc_cleanup_module is not called if the registration failed */
++   unregister_chrdev_region(devno, 1);
++}
++
++module_init(open_nfc_init_module);
++module_exit(open_nfc_cleanup_module);
++
++
++/* EOF */
++
++
++
++
+diff --git a/nfc/open_nfc_main.h b/nfc/open_nfc_main.h
+new file mode 100644
+index 0000000..075c6ad
+--- /dev/null
++++ b/nfc/open_nfc_main.h
+@@ -0,0 +1,42 @@
++/* -------------------------------------------------------------------------
++ * Copyright (C) 2010 Inside Secure
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ * ------------------------------------------------------------------------- */
++
++/*
++ * Open NFC driver module.
++ *
++ */
++
++#include <linux/cdev.h>
++#include <linux/poll.h>
++
++#include "open_nfc_int.h"
++
++/* function prototypes */
++
++int open_nfc_custom_init(void);
++void open_nfc_custom_exit(void);
++int open_nfc_custom_open(struct inode *inode, struct file *filp);
++int open_nfc_custom_release(struct inode *inode, struct file *filp);
++ssize_t open_nfc_custom_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos);
++ssize_t open_nfc_custom_write(struct file *filp, const char __user *buf, size_t count, loff_t *f_pos);
++unsigned int open_nfc_custom_poll(struct file * filp, poll_table *wait);
++long open_nfc_custom_ioctl_configure(struct file *filp, unsigned int cmd, unsigned long arg);
++long open_nfc_custom_ioctl_connect(struct file *filp, unsigned int cmd, unsigned long arg);
++long open_nfc_custom_ioctl_reset(struct file *filp, unsigned int cmd, unsigned long arg);
++
++/* EOF */
+diff --git a/nfc/porting_types.h b/nfc/porting_types.h
+new file mode 100644
+index 0000000..f962518
+--- /dev/null
++++ b/nfc/porting_types.h
+@@ -0,0 +1,10 @@
++
++#include <linux/slab.h>
++
++typedef uint8_t   bool_t;
++#define W_FALSE ((bool_t) 0)
++#define W_TRUE  ((bool_t) 1)
++
++
++typedef uint16_t  char16_t;
++#define null      NULL

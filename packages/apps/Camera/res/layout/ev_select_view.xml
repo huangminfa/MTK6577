@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:background="@drawable/camera_background"
+  android:padding="6dip">
+ 
+     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:camera="http://schemas.android.com/apk/res/com.mediatek.camera"
+        android:id="@+id/control_bar"
+        android:layout_height="fill_parent"
+        android:layout_width="76dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="10dp"
+        android:layout_gravity="right|center_vertical">
+        <LinearLayout android:orientation="vertical"
+                android:gravity="top|center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="15dp">
+                <ImageView style="@style/ReviewControlIcon"
+                        android:id="@+id/btnEvSelCancel"
+                        android:src="@drawable/btn_ic_review_cancel"/>
+                <TextView style="@style/ReviewControlText"
+                    	android:layout_height="wrap_content"
+                		android:layout_width="wrap_content"
+                        android:text="@string/review_cancel" />
+        </LinearLayout>
+        
+        <LinearLayout style="@style/ReviewControlGroup"
+        		android:id="@+id/btnEvSelDoneGroup"
+        		android:gravity="top|center_horizontal"
+        		android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+				android:orientation="vertical"
+                android:layout_alignParentBottom="true">
+            <ImageView style="@style/ReviewControlIcon"
+                    android:id="@+id/btnEvSelDone"
+                    android:src="@drawable/btn_ic_review_done"/>
+            <TextView style="@style/ReviewControlText"
+                	android:layout_height="wrap_content"
+                	android:layout_width="wrap_content"
+                    android:text="@string/review_ok" />
+        </LinearLayout>
+    </RelativeLayout>
+    
+    <FrameLayout
+        android:id="@+id/thumbroot"
+        xmlns:android="http://schemas.android.com/apk/res/android"  
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"        
+        android:layout_toLeftOf="@id/control_bar"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"     
+        android:layout_marginBottom="5dp">
+    <LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/thumbnails"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout 
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"            
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight ="1">        
+        <com.android.camera.EVPickerItem
+            android:id="@+id/checkBoxEv0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"/>
+            </LinearLayout>
+        <LinearLayout 
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"            
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight ="1">
+	        <com.android.camera.EVPickerItem
+	            android:id="@+id/checkBoxEvMinus"
+	            android:layout_margin="2dp"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:adjustViewBounds="true"
+	            android:layout_weight ="1"/>           
+            <com.android.camera.EVPickerItem
+                android:id="@+id/checkBoxEvPlus"
+                android:layout_margin="2dp"                
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

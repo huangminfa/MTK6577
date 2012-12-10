@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="alert_delete_multiple">Ces éléments seront supprimés.</string>  
+    <string name="alert_delete_single">Cet élément sera supprimé.</string>  
+    <string name="already_exists">Existe déjà</string>  
+    <string name="app_name">Gestionnaire de fichiers</string>  
+    <string name="cancel">"Annuler"</string>  
+    <string name="copy">Copier</string>  
+    <string name="copy_deny">Aucune permission pour copier</string>  
+    <string name="create_folder">Créer un dossier</string>  
+    <string name="cut">Couper</string>  
+    <string name="cut_deny">Aucune permission pour couper</string>  
+    <string name="cut_fail">Echec de l\'action couper</string>  
+    <string name="delete">"Supprimer"</string>  
+    <string name="delete_deny">Aucune permission pour supprimer</string>  
+    <string name="delete_fail">Echec de la suppression</string>  
+    <string name="deleting">Suppression</string>  
+    <string name="deselect_all">Désélectionner tout</string>  
+    <string name="details">Détails</string>  
+    <string name="done">"OK"</string>  
+    <string name="edit">"Modifier"</string>  
+    <string name="empty_msg">(Dossier vide)</string>  
+    <string name="executable">Exécutable</string>  
+    <string name="insufficient_memory">Mémoire insuffisante</string>  
+    <string name="invalid_empty_name">Le nom du fichier ou du dossier ne peut être vide</string>  
+    <string name="invalid_file_name">Le nom du fichier ou dossier saisi est trop long</string>  
+    <string name="loading">Chargement</string>  
+    <string name="modified_time">Modifié</string>  
+    <string name="name">"Nom"</string>  
+    <string name="new_folder">Nouveau dossier</string>  
+    <string name="no">"Non"</string>  
+    <string name="ok">"OK"</string>  
+    <string name="paste">Coller</string>  
+    <string name="pasting">Collage en cours</string>  
+    <string name="paste_fail">Echec de la copie</string>  
+    <string name="paste_same_folder">Impossible de coller %s dans le même répertoire</string>  
+    <string name="readable">Lisible</string>  
+    <string name="rename">Renommer</string>  
+    <string name="save">Enregistrer</string>  
+    <string name="select_all">"Tout sélectionner"</string>  
+    <string name="send_file">Envoyer le fichier</string>  
+    <string name="share">"Partager"</string>  
+    <string name="size">Taille</string>  
+    <string name="sort_by">Trier par</string>  
+    <string name="support_fail" product="tablet">Non pris en charge par cet appareil</string>  
+    <string name="support_fail" product="default">Ceci n\'est pas compatible avec le téléphone</string>  
+    <string name="wait">Veuillez patienter...</string>  
+    <string name="writable">Modifiable</string>  
+    <string name="yes">"Oui"</string>  
+    <string name="confirm_rename">Confirmer Renommage</string>  
+    <string name="msg_rename_ext">En modifiant l\'extension du fichier, celui-ci peut ne plus être reconnu correctement. Souhaitez-vous continuer?</string>  
+    <string name="msg_unable_open_file">Impossible d\'ouvrir le fichier.</string>  
+    <string-array name="sort_by"> 
+        <item>Type</item>  
+        <item>Nom (A - Z)</item>  
+        <item>Taille (petit - grand)</item>  
+        <item>Chronologie (récent - ancien)</item> 
+    </string-array>  
+    <string name="more">Plus</string>  
+    <string name="selected">Sélectionné</string>  
+    <string name="msg_change_name">"Echec de l'opération, veuillez sélectionner un autre nom."</string>
+    <string name="invalid_char_prompt">Vous avez saisi un caractère invalide</string>
+    <string name="unmounted">%1$s est démonté</string>
+    <string name="path_not_exists">"%1$s n'existe pas"</string>
+</resources>

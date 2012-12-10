@@ -1,0 +1,61 @@
+
+-renamesourcefileattribute SourceFile
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,
+                SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
+
+-keepclassmembernames class * {
+    java.lang.String TYPE;		      
+}
+
+-keepclassmembernames class * {
+    android.os.Parcelable$Creator CREATOR;	      
+}
+
+-keepclassmembernames class * {
+     void main(java.lang.String[]);
+}
+
+-keep class android.**,!com.android.internal.telephony.**,com.android.internal.**,com.google.** {
+    *;
+}
+
+-keep class !com.mediatek.pushparser.**,com.mediatek.** {
+     *;
+}
+
+# Zygote preload classes
+-keep class com.android.internal.telephony.ITelephony$Stub$Proxy,com.android.internal.telephony.gsm.SmsMessage$PduParser {
+    *;
+}
+
+# Reason unknown class
+-keep class com.android.internal.telephony.CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler {
+    *;
+}
+
+-keep public class * {
+    public protected *;
+}
+
+-keepclassmembernames class * {
+    java.lang.Class class$(java.lang.String);
+    java.lang.Class class$(java.lang.String, boolean);
+}
+
+-keepclasseswithmembers class * {
+    native <methods>;
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}

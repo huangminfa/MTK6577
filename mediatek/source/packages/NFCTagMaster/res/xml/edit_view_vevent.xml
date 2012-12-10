@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="0dip" 
+    android:orientation="vertical" >
+    
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" 
+        android:orientation="vertical"
+        android:paddingLeft="0dip" 
+        android:paddingRight="0dip">
+        
+        <!-- Title -->
+    	<TextView android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item_label"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="5dip"
+        	android:text="@string/edit_view_vevent_title_label"/>
+    	<View android:layout_width="match_parent"
+        	android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        	android:background="@color/tag_info_lable_content_separator_color"/>
+    	<TextView android:id="@+id/edit_info_vevent_title"
+        	android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="0dip"/>
+        
+    	<!-- Start time -->
+    	<TextView android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item_label"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="20dip"
+        	android:text="@string/edit_view_vcard_start_time_label"/>
+    	<View android:layout_width="match_parent"
+        	android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        	android:background="@color/tag_info_lable_content_separator_color"/>
+    	<TextView android:id="@+id/edit_info_vevent_start_time"
+        	android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="0dip"
+        	android:inputType="phone"/>
+    
+    	<!-- End time -->
+    	<TextView android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item_label"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="20dip"
+        	android:text="@string/edit_view_vevent_end_time_label"/>
+    	<View android:layout_width="match_parent"
+        	android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        	android:background="@color/tag_info_lable_content_separator_color"/>
+    	<TextView android:id="@+id/edit_info_vevent_end_time"
+        	android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="0dip"/>
+    	
+    	<!-- Event location -->
+    	<TextView android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item_label"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="20dip"
+        	android:text="@string/edit_view_vevent_location_label"/>
+    	<View android:layout_width="match_parent"
+        	android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        	android:background="@color/tag_info_lable_content_separator_color"/>
+    	<TextView android:id="@+id/edit_info_vevent_location"
+        	android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="0dip"/>
+    	
+    	<!-- Event description -->
+    	<TextView android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item_label"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="20dip"
+        	android:text="@string/edit_view_vevent_description_label"/>
+    	<View android:layout_width="match_parent"
+        	android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        	android:background="@color/tag_info_lable_content_separator_color"/>
+    	<TextView android:id="@+id/edit_info_vevent_description"
+        	android:layout_width="match_parent" 
+        	android:layout_height="wrap_content"
+        	android:textAppearance="@style/info_item"
+        	android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        	android:layout_marginTop="0dip"/>
+    </LinearLayout>
+       
+    <LinearLayout android:id="@+id/edit_info_vevent_selector"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" 
+        android:layout_marginTop="20dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/btn_default_holo_light"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:layout_marginRight="10dip"
+        	android:src="@drawable/ic_tag_vevent"/>
+    	<TextView android:layout_width="0dip" 
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	android:textSize="20sp"
+        	android:text="@string/edit_view_vevent_select_desc"/>
+    </LinearLayout>
+    
+</LinearLayout>
+</ScrollView>

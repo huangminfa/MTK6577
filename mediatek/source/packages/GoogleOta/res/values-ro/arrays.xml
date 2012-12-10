@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="enquire_type">
+        <item>Actualizare acum</item>
+        <item>10 minute</item>
+        <item>30 minute</item>
+        <item>1 oră</item>
+        <item>3 ore</item>
+        <item>6 ore</item>
+        <item>1 zi</item>
+        <item>3 zile</item>
+        <item>6 zile</item>
+        <item>Nu întrebaţi niciodată</item>
+    </string-array>
+</resources>
+

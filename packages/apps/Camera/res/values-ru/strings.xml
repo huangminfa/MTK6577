@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="camera_error_title" msgid="6484667504938477337">Невозможно сохранить изображение</string>  
+    <string name="cannot_connect_camera" msgid="955440687597185163">Ошибка камеры.</string>  
+    <string name="camera_disabled" msgid="8923911090533439312">Невозможно подключиться к камере.</string>  
+    <string name="camera_label" msgid="6346560772074764302">"Камера"</string>
+    <string name="video_camera_label" msgid="2899292505526427293">Камера выключена по соображениям безопасности</string>  
+    <string name="gallery_camera_bucket_name" msgid="2924618424339240831">Видеокамера</string>  
+    <string name="gallery_camera_videos_bucket_name" msgid="3369151581398551623">Видео с камеры</string>  
+    <string name="wait" msgid="8600187532323801552">Ждите\u2026</string>  
+    <string name="no_storage" product="nosdcard" msgid="7335975356349008814">"Подключите USB-накопитель перед использованием камеры."</string>
+    <string name="no_storage" product="default" msgid="5137703033746873624">"Вставьте SD-карту перед использованием камеры."</string>
+    <string name="not_enough_space" product="nosdcard" msgid="6452370395538050134">"Ваша SD-карта заполнена."</string>  
+    <string name="not_enough_space" product="default" msgid="6655334407957844653">"Ваша SD-карта заполнена."</string>
+    <string name="preparing_sd" product="nosdcard" msgid="6104019983528341353">"Подготовка карты SD..."</string>  
+    <string name="preparing_sd" product="default" msgid="2914969119574812666">"Подготовка карты SD..."</string>
+    <string name="access_sd_fail" product="nosdcard" msgid="8147993984037859354">"Нет доступа к SD-карте."</string>  
+    <string name="access_sd_fail" product="default" msgid="1584968646870054352">"Нет доступа к SD-карте."</string>
+    <string name="confirm_restore_title" msgid="1229914538263792180">"Восстановить настройки по умолчанию"</string>
+    <string name="confirm_restore_message" msgid="6649481842684452641">"Восстановить настройки по умолчанию?"</string>
+    <string name="review_play" msgid="6378271587740884696">"Воспроизвести"</string>
+    <string name="review_cancel" msgid="8188009385853399254">"Отмена"</string>  
+    <string name="review_ok" msgid="1156261588693116433">"Готово"</string>  
+    <string name="review_retake" msgid="7804864054896088338">"ДРУГОЙ СНИМОК"</string>
+    <string name="camera_gallery_photos_text" msgid="6558048736561932758">"Галерея"</string>
+    <string name="switch_camera_id" msgid="837545176602471325">"Переключить камеру"</string>
+    <string name="time_lapse_title" msgid="4360632427760662691">"Режим замедленной съемки"</string>
+    <string name="pref_camera_id_title" msgid="6023059405578511534">"Выберите камеру"</string>
+    <string name="pref_camera_id_entry_back" msgid="5142699735103692485">"Задняя"</string>
+    <string name="pref_camera_id_entry_front" msgid="5668958706828733669">"Передняя"</string>
+    <string name="pref_camera_recordlocation_title" msgid="371208839215448917">"Геотеги"</string>
+    <string name="pref_camera_recordlocation_entry_off" msgid="8888142742988946038">"Выкл."</string>
+    <string name="pref_camera_recordlocation_entry_on" msgid="7954533529969575594">"Вкл."</string>
+    <string name="pref_video_quality_title" msgid="8245379279801096922">"Качество видео"</string>
+    <string name="pref_video_time_lapse_frame_interval_title" msgid="5262531404348504642">"Замедление"</string>
+    <string name="pref_camera_settings_category" msgid="2576236450859613120">"Настройки камеры"</string>
+    <string name="pref_camcorder_settings_category" msgid="460313486231965141">"Настройки видеокамеры"</string>
+    <string name="pref_camera_picturesize_title" msgid="4333724936665883006">"Размер фото"</string>
+    <string name="pref_camera_picturesize_entry_2592x1936" msgid="6980117304679164339">"5 Мпикс."</string>
+    <string name="pref_camera_picturesize_entry_2048x1536" msgid="4391030755438075447">"3 Мпикс."</string>
+    <string name="pref_camera_picturesize_entry_1600x1200" msgid="8081839485457681369">"2 Мпикс."</string>
+    <string name="pref_camera_picturesize_entry_1280x960" msgid="7820672028447972964">"1,3 Мпикс."</string>
+    <string name="pref_camera_picturesize_entry_1024x768" msgid="3705686683403524018">"1 Мпикс."</string>
+    <string name="pref_camera_picturesize_entry_640x480" msgid="5557572917973022995">"VGA"</string>
+    <string name="pref_camera_picturesize_entry_320x240" msgid="5729711026478753025">"QVGA"</string>
+    <string name="pref_camera_focusmode_title" msgid="2877248921829329127">"Режим фокусировки"</string>
+    <string name="pref_camera_focusmode_entry_auto" msgid="7374820710300362457">"Авто"</string>
+    <string name="pref_camera_focusmode_entry_infinity" msgid="3413922419264967552">"Бесконечность"</string>
+    <string name="pref_camera_focusmode_entry_macro" msgid="4424489110551866161">"Макро"</string>
+    <string name="pref_camera_flashmode_title" msgid="2287362477238791017">"Режим вспышки"</string>
+    <string name="pref_camera_flashmode_entry_auto" msgid="7288383434237457709">"Авто"</string>
+    <string name="pref_camera_flashmode_entry_on" msgid="5330043918845197616">----------------</string>  
+    <string name="pref_camera_flashmode_entry_off" msgid="867242186958805761">"Выкл."</string>
+    <string name="pref_camera_whitebalance_title" msgid="677420930596673340">"Баланс белого"</string>
+    <string name="pref_camera_whitebalance_entry_auto" msgid="6580665476983469293">"Авто"</string>
+    <string name="pref_camera_whitebalance_entry_incandescent" msgid="8856667786449549938">"Лампа накаливания"</string>
+    <string name="pref_camera_whitebalance_entry_daylight" msgid="2534757270149561027">"Дневной свет"</string>
+    <string name="pref_camera_whitebalance_entry_fluorescent" msgid="2435332872847454032">"Лампа дневного света"</string>
+    <string name="pref_camera_whitebalance_entry_cloudy" msgid="3531996716997959326">"Пасмурно"</string>
+    <string name="pref_camera_scenemode_title" msgid="1420535844292504016">"Режим съемки"</string>
+    <string name="pref_camera_scenemode_entry_auto" msgid="7113995286836658648">"Авто"</string>
+    <string name="pref_camera_scenemode_entry_action" msgid="616748587566110484">"Действие"</string>
+    <string name="pref_camera_scenemode_entry_night" msgid="7606898503102476329">"Ночь"</string>
+    <string name="pref_camera_scenemode_entry_sunset" msgid="181661154611507212">"Закат"</string>
+    <string name="pref_camera_scenemode_entry_party" msgid="907053529286788253">"Вечеринка"</string>
+    <string name="not_selectable_in_scene_mode" msgid="2970291701448555126">"Недоступно в режиме съемки"</string>
+    <string name="pref_restore_title" msgid="6479274979730178961">"Настройки камеры"</string>
+    <string name="pref_restore_detail" msgid="5732490002291044791">"Восстановить настройки по умолчанию"</string>
+    <string name="pref_exposure_title" msgid="1229093066434614811">"Экспозиция"</string>
+    <string name="dialog_ok" msgid="6263301364153382152">"ОК"</string>
+    <string name="spaceIsLow_content" product="nosdcard" msgid="4401325203349203177">"Место на вашей SD-карте заканчивается. Измените настройки качества или удалите ненужные изображения и другие файлы."</string>  
+    <string name="spaceIsLow_content" product="default" msgid="1732882643101247179">"Место на вашей SD-карте заканчивается. Измените настройки качества или удалите ненужные изображения и другие файлы."</string>
+    <string name="video_reach_size_limit" msgid="6179877322015552390">"Достигнут предельный размер видео."</string>
+    <string name="switch_to_camera_label" msgid="9148663083850199582">"Режим \"Фото\""</string>
+    <string name="switch_to_video_label" msgid="1167994386902254398">"Режим \"Видео\""</string>
+    <string name="switch_to_panorama_label" msgid="858801335653517864">"Режим \"Панорама\""</string>
+    <string name="share_picture_via" msgid="1375127849431890447">"Отправка картинки"</string>
+    <string name="share_video_via" msgid="5152302809166549015">"Отправка видео"</string>
+    <string name="no_picture_to_share" msgid="5352574090121328815">"Нет ни одного изображения."</string>
+    <string name="no_video_to_share" msgid="7567298642707627096">"Нет ни одного видео."</string>
+    <string name="pano_too_fast_prompt" msgid="2823839093291374709">"Очень быстро"</string>
+    <string name="pano_dialog_prepare_preview" msgid="4788441554128083543">"Обработка..."</string>
+    <string name="pano_dialog_panorama_failed" msgid="2155692796549642116">"Не удалось сохранить файл."</string>
+    <string name="pano_dialog_title" msgid="5755531234434437697">"Панорама"</string>
+    <string name="pano_capture_indication" msgid="8248825828264374507">"Создание панорамы..."</string>
+    <string name="pano_review_saving_indication_str" msgid="2054886016665130188">"Сохранение…"</string>
+    <string name="tap_to_focus" msgid="8863427645591903760">"Нажмите для фокусировки."</string>
+    <string name="pref_video_effect_title" msgid="8243182968457289488">"Эффекты"</string>
+    <string name="effect_none" msgid="3601545724573307541">"Без эффектов"</string>
+    <string name="effect_goofy_face_squeeze" msgid="1207235692524289171">"Сжатие"</string>
+    <string name="effect_goofy_face_big_eyes" msgid="3945182409691408412">"Большие глаза"</string>
+    <string name="effect_goofy_face_big_mouth" msgid="7528748779754643144">"Большой рот"</string>
+    <string name="effect_goofy_face_small_mouth" msgid="3848209817806932565">"Маленький рот"</string>
+    <string name="effect_goofy_face_big_nose" msgid="5180533098740577137">"Большой нос"</string>
+    <string name="effect_goofy_face_small_eyes" msgid="1070355596290331271">"Глаза в точку"</string>
+    <string name="effect_backdropper_space" msgid="7935661090723068402">"Космос"</string>
+    <string name="effect_backdropper_sunset" msgid="45198943771777870">"Закат"</string>
+    <string name="effect_backdropper_disco" msgid="8494822051982972854">"Диско"</string>
+    <string name="effect_backdropper_gallery" msgid="3271387403091819540">"Выбрать видео"</string>
+    <string name="bg_replacement_message" msgid="6828585054971662284">"Установите устройство на устойчивую поверхность и не допускайте его перемещения во время предварительного просмотра.\nКак только на экране предварительного просмотра отобразятся «живые эффекты», можно производить видеозапись."</string>
+    <string name="not_selectable_in_effect" msgid="7967729203855039239">"Недоступно при использовании эффекта."</string>
+    <string name="video_snapshot_hint" msgid="8159602664271448241">"Чтобы сделать снимок при видеосъемке, нажмите на экран просмотра."</string>
+    <string name="disable_video_snapshot_hint" msgid="4957723267826476079">"Невозможно сделать снимок при включенных спецэффектах."</string>
+    <string name="clear_effects" msgid="5485339175014139481">"Убрать эффекты"</string>
+    <string name="effect_silly_faces" msgid="8107732405347155777">"СМЕШНЫЕ РОЖИЦЫ"</string>
+    <string name="effect_background" msgid="6579360207378171022">"ФОН"</string>
+    <string name="accessibility_shutter_button" msgid="2664037763232556307">"Кнопка \"Затвор\""</string>
+    <string name="accessibility_review_thumbnail" msgid="8961275263537513017">"Недавние фото"</string>
+    <string name="accessibility_camera_picker" msgid="8807945470215734566">"Переключение на переднюю или заднюю камеру"</string>
+    <string name="accessibility_mode_picker" msgid="3278002189966833100">"Переключатель между режимами \"Фото\", \"Видео\" и \"Панорама\""</string>
+    <string name="accessibility_second_level_indicators" msgid="3855951632917627620">"Дополнительные настройки"</string>
+    <string name="accessibility_back_to_first_level" msgid="5234411571109877131">"Закрыть"</string>
+    <string name="accessibility_zoom_control" msgid="1339909363226825709">"Зум"</string>
+    <string name="accessibility_decrement" msgid="1411194318538035666">"Уменьшить %1$s"</string>
+    <string name="accessibility_increment" msgid="8447850530444401135">"Увеличить %1$s"</string>
+    <string name="accessibility_switch" msgid="6995966685498958895">"Переключить %1$s"</string>
+    <string name="pref_camera_capturemode_entry_normal">"Обычный"</string>  
+    <string name="pref_camera_hdr_on">"Вкл"</string>  
+    <string name="pref_camera_hdr_off">"Выкл"</string>  
+    <string name="pref_camera_iso_title">"ISO"</string>  
+    <string name="pref_camera_iso_entry_auto">"Автоматически"</string>  
+    <string name="pref_camera_saturation_title">"Насыщенность"</string>  
+    <string name="pref_camera_dip_entry_middle">"Среднее"</string>  
+    <string name="pref_camera_coloreffect_entry_none">"Не используется"</string>  
+    <string name="pref_camera_coloreffect_entry_mono">"Монохром"</string>  
+    <string name="pref_camera_coloreffect_entry_sepia">"Сепия"</string>  
+    <string name="pref_camera_coloreffect_entry_negative">"Негатив"</string>  
+    <string name="pref_camera_coloreffect_entry_posterize">"Постеризация"</string>  
+    <string name="pref_camera_coloreffect_entry_aqua">"Под водой"</string>  
+    <string name="pref_camera_coloreffect_entry_pastel">"Пастель"</string>  
+    <string name="pref_camera_coloreffect_entry_mosaic">"Мозаика"</string>  
+    <string name="pref_camera_coloreffect_entry_redtint">"Красный оттенок"</string>  
+    <string name="pref_camera_coloreffect_entry_bluetint">"Синий оттенок"</string>  
+    <string name="pref_camera_coloreffect_entry_greentint">"Зеленый оттенок"</string>  
+    <string name="pref_camera_selftimer_entry_off">"Выкл"</string>  
+    <string name="pref_camera_selftimer_entry_10">"10 с"</string>  
+    <string name="pref_camera_antibanding_entry_auto">"Автоматически"</string>  
+    <string name="pref_camera_eis_on">"Вкл"</string>  
+    <string name="pref_camera_eis_off">"Выкл"</string>  
+    <string name="pref_camera_recordaudio_entry_off">"Выкл"</string>  
+    <string name="pref_camera_recordaudio_entry_on">"Вкл"</string>  
+    <string name="pref_camera_video_duration_entry_10">"за 10 минут"</string>  
+    <string name="pref_camera_video_duration_entry_30">"за 30 минут"</string>  
+    <string name="capture_memory_not_enough">Недостаточно памяти, закройте другие приложения.</string>  
+    <string name="mav_dialog_save_failed">Не удалось сохранить изображение.</string>  
+    <string name="pref_camera_capturemode_enrty_fb">Красота лица</string>  
+    <string name="pref_camera_hdr_title">HDR</string>  
+    <string name="mav_dialog_title">MAV</string>  
+    <string name="switch_to_mav_label">Переключить на MAV</string>  
+    <string name="toast_autorama_how_to_capture">Нажмите кнопку затвора, чтобы сделать первый снимок, затем переместите камеру в одном направлении для наложения зоны фокусирования на желтый квадрат.</string>  
+    <string name="pref_camera_picturesize_entry_3264x2448">8 Мпикс</string>  
+    <string name="pref_camera_whitebalance_entry_twilight">"Сумерки"</string>  
+    <string name="pref_camera_whitebalance_entry_shade">"Затенение"</string>  
+    <string name="pref_camera_whitebalance_entry_warm_fluorescent">"Люмин. осв. (тепл.)"</string>  
+    <string name="pref_camera_whitebalance_entry_tungsten">"Лампа накаливания"</string>  
+    <string name="pref_camera_capturemode_entry_bestshot">"Лучшее фото"</string>  
+    <string name="pref_camera_capturemode_entry_evbracketshot">"Брекетинг экспозиции"</string>  
+    <string name="pref_camera_capturemode_entry_smileshot">"Улыбка"</string>  
+    <string name="pref_camera_burstshot_4">"4 снимка"</string>  
+    <string name="pref_camera_burstshot_8">"8 снимка"</string>  
+    <string name="pref_camera_burstshot_16">"16 снимка"</string>  
+    <string name="savingImage">"Сохранение картинки..."</string>  
+    <string name="pref_camera_exposuremeter_title">"Экспозамер"</string>  
+    <string name="pref_camera_exposuremeter_entry_center">Центр</string>  
+    <string name="pref_camera_exposuremeter_entry_spot">"Точечный"</string>  
+    <string name="pref_camera_exposuremeter_entry_average">"Усредненный"</string>  
+    <string name="pref_camera_focusmeter_default">"Точечный"</string>  
+    <string name="pref_camera_focusmeter_title">"Фокусировка"</string>  
+    <string name="pref_camera_focusmeter_dialogtitle">"Фокусировка"</string>  
+    <string name="pref_camera_focusmeter_entry_spot">"Одна зона"</string>  
+    <string name="pref_camera_focusmeter_entry_multi">"Много зон"</string>  
+    <string name="pref_camera_edge_title">"Резкость"</string>  
+    <string name="pref_camera_hue_title">"Оттенок"</string>  
+    <string name="pref_camera_brightness_title">"Яркость"</string>  
+    <string name="pref_camera_contrast_title">"Контраст"</string>  
+    <string name="pref_camera_dip_entry_low">"Низкое"</string>  
+    <string name="pref_camera_dip_entry_high">"Высокое"</string>  
+    <string name="pref_camera_coloreffect_title">Цветовой эффект</string>  
+    <string name="pref_camera_coloreffect_entry_solarize">"Экспозиция"</string>  
+    <string name="pref_camera_coloreffect_entry_whiteboard">"Белая доска"</string>  
+    <string name="pref_camera_coloreffect_entry_blackboard">"Мел на черной доске"</string>  
+    <string name="pref_camera_coloreffect_entry_sepiablue">"Зеленая сепия"</string>  
+    <string name="pref_camera_coloreffect_entry_sepiagreen">"Синяя сепия"</string>  
+    <string name="toast_mav_how_to_capture">Нажмите кнопку съемки и перемещайте камеру вправо</string>  
+    <string name="pref_camera_selftimer_title">"Автоспуск"</string>  
+    <string name="pref_camera_selftimer_entry_2">"2 с"</string>  
+    <string name="pref_camera_focusmode_entry_continuous">"Серия"</string>  
+    <string name="pref_camera_capturemode_entry_asd">Автоматическое определение сюжета</string>  
+    <string name="pref_camera_antibanding_title">"Подавление мерцания"</string>  
+    <string name="pref_camera_antibanding_entry_50hz">"50 Гц"</string>  
+    <string name="pref_camera_antibanding_entry_60hz">"60 Гц"</string>  
+    <string name="pref_camera_scenemode_entry_portrait">Портрет</string>  
+    <string name="pref_camera_scenemode_entry_landscape">Пейзаж</string>  
+    <string name="pref_camera_scenemode_entry_night_portrait">Ночной портрет</string>  
+    <string name="pref_camera_scenemode_entry_theatre">Театр</string>  
+    <string name="pref_camera_scenemode_entry_beach">Пляж</string>  
+    <string name="pref_camera_scenemode_entry_snow">Снег</string>  
+    <string name="pref_camera_scenemode_entry_steadyphoto">Устойчивая фотосъемка</string>  
+    <string name="pref_camera_scenemode_entry_fireworks">"Фейерверк"</string>  
+    <string name="pref_camera_scenemode_entry_sports">"Действие"</string>  
+    <string name="pref_camera_scenemode_entry_candlelight">"Свет свечи"</string>  
+    <string name="pref_camera_eis_title">"Электронная стабилизация изображения"</string>  
+    <string name="pref_camera_recordaudio_title">"Микрофон"</string>  
+    <string name="pref_camera_video_duration_title">Длительность видеосъемки</string>  
+    <string name="pref_camera_video_duration_entry_mms">
+    		<xliff:g id="duration" example="60">%1$d</xliff:g> с
+    </string>  
+    <string name="pref_camera_video_duration_entry_60">60 минут</string>  
+    <string name="toast_video_recording_pause_hint">При продолжительном нажатии на кнопку спуска запись приостанавливается</string>  
+    <string name="toast_video_recording_not_available">Перед использованием видеокамеры остановите другие приложения записи.</string>  
+    <string name="pref_video_quality_entry_low">"Низкое"</string>  
+    <string name="pref_video_quality_entry_high">"Высокое"</string>  
+    <string name="pref_video_quality_entry_fine">"Хорошее"</string>  
+    <string name="toast_autorama_how_to_capture_ics">Нажмите кнопку затвора, чтобы сделать первый снимок, затем переместите камеру в одном направлении для наложения зоны фокусирования на желтый квадрат.</string>  
+    <string name="pref_camera_normal_capture_title">"Режим захвата"</string>  
+    <string name="pref_video_quality_entry_medium">Среднее</string>  
+    <string name="savingvideo">Сохранение видео\u2026</string>
+    <string name="pref_camera_video_hd_recording_title">Режим аудио</string>  
+    <string name="pref_camera_video_hd_recording_normal">обычный</string>  
+    <string name="pref_camera_video_hd_recording_indoor">в помещении</string>  
+    <string name="video_live_effect_error">Ошибка в процессе записи!</string>
+    <string name="pref_camera_video_hd_recording_normal_ics">"Обычный"</string>  
+	  <string name="pref_camera_video_hd_recording_indoor_ics">Совещание</string>  
+    <string name="single3d_guide_shutter">Нажмите кнопку спуска для съемки 3D-изображения</string>  
+    <string name="single3d_guide_move">Переместите устройство вправо для перекрывания кадра</string>  
+    <string name="panorama3d_guide_shutter">Нажмите кнопку спуска для панорамного снимка в режиме 3D</string>  
+    <string name="panorama_guide_choose_direction">Переместите устройство в направлении съемки</string>  
+    <string name="panorama3d_guide_move">Переместите устройство вправо</string>  
+    <string name="panorama3d_guide_capture">Переместите устройство вправо для перекрывания двух линий</string>  
+    <string name="panorama_guide_shutter">Нажмите кнопку спуска для панорамного снимка в режиме</string>  
+    <string name="panorama_guide_capture">Переместите устройство для перекрывания двух линий</string>  
+    <string name="continuous_saving_pictures">Сохранение 
+        <xliff:g id="numbers" example="10">%1$d</xliff:g> изображений
+    </string>  
+    <string name="pref_camera_continuous_number_title">Номер снимка</string> 
+
+</resources>

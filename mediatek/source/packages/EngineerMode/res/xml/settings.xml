@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+<!--BatteryLog-->
+     <PreferenceCategory
+     	android:title="BatteryLog Settings">
+        <CheckBoxPreference
+                android:key="@string/BatteryLog"
+                android:title="@string/BatteryLog"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--TouchScreen-->
+     <PreferenceCategory
+     	android:title="TouchScreen Settings">
+        <CheckBoxPreference
+                android:key="@string/TouchScreen"
+                android:title="@string/TouchScreen"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--GPRS-->
+	  <PreferenceCategory
+     	android:title="GPRS Settings">
+        <CheckBoxPreference
+                android:key="@string/GPRS"
+                android:title="@string/GPRS"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--Audio-->
+	  <PreferenceCategory
+     	android:title="Audio Settings">
+        <CheckBoxPreference
+                android:key="@string/Audio"
+                android:title="@string/Audio"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--Camera-->
+	  <PreferenceCategory
+     	android:title="Camera Settings">
+        <CheckBoxPreference
+                android:key="@string/Camera"
+                android:title="@string/Camera"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--WiFi-->
+      <PreferenceCategory
+		android:title="WiFi Settings">
+	<CheckBoxPreference
+		android:key="@string/WiFi"
+		android:title="@string/WiFi"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--BT-->
+      <PreferenceCategory
+		android:title="BT Settings">
+	<CheckBoxPreference
+		android:key="@string/Bluetooth"
+		android:title="@string/Bluetooth"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--NetworkInfo-->
+      <PreferenceCategory
+		android:title="NetworkInfo Settings">
+	<CheckBoxPreference
+		android:key="@string/NetworkInfo"
+		android:title="@string/NetworkInfo"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--AutoAnswer-->
+      <PreferenceCategory
+		android:title="AutoAnswer Settings">
+	<CheckBoxPreference
+		android:key="@string/AutoAnswer"
+		android:title="@string/AutoAnswer"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+<!--YGPS-->
+      <PreferenceCategory
+		android:title="YGPS Settings">
+	<CheckBoxPreference
+		android:key="@string/YGPS"
+		android:title="@string/YGPS"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+
+<!--AGPS-->
+      <PreferenceCategory
+		android:title="AGPS Settings">
+	<CheckBoxPreference
+		android:key="@string/AGPS"
+		android:title="@string/AGPS"
+		android:defaultValue="true"/>
+      </PreferenceCategory>
+</PreferenceScreen>

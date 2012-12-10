@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">International Card Tester</string>
+    <string name="slot1">Slot 1</string>
+    <string name="slot2">Slot 2</string>
+    <string name="international">International</string>
+    <string name="CDMAonly">CDMA only</string>
+    <string name="GSMonly">GSM only</string>
+    <string name="GSM">GSM</string>
+    <string name="SecondSelection">Enable 2nd NW Select (Debug)</string>
+
+</resources>

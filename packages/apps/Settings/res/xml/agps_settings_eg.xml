@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+     <CheckBoxPreference
+        android:key="disable_agps_on_reboot"
+        android:title="@string/agps_disable_on_reboot"
+        android:defaultValue="true"
+        android:summaryOff="@string/agps_disable_on_reboot_summary"
+        android:summaryOn="@string/agps_disable_on_reboot_summary"
+        android:persistent="true" />
+	<CheckBoxPreference 
+	    android:key="location_agps_enable"
+		android:title="@string/agps_settings_enable" 
+		android:summaryOff="@string/agps_settings_enable_off"
+		android:summaryOn="@string/agps_settings_enable_on"
+		android:persistent="true" />
+	<CheckBoxPreference 
+	    android:key="agps_ni_iot"
+		android:title="@string/agps_ni_iot_enable" 
+		android:summaryOff="@string/agps_ni_iot_enable_off"
+		android:summaryOn="@string/agps_ni_iot_enable_on"
+		android:persistent="true" />
+	
+	<PreferenceCategory android:title="@string/Agps_Work_Mode_Setting" 
+		android:key="work_mode_category">		
+		<ListPreference
+	        android:key="si_mode" 
+	        android:title="@string/agps_SIMAB" 
+	        android:summary="@string/agps_SIMAB_summary" 
+	        android:entries="@array/agps_eng_si_mode_entries" 
+	        android:entryValues="@array/agps_eng_si_mode_entryvalues" 
+	        android:dialogTitle="@string/agps_SIMAB_listtitle" 
+	        android:persistent="true"/>	
+		<CheckBoxPreference 
+		    android:key="Network_Initiate" 
+			android:title="@string/Network_Initiate" 
+			android:summaryOff="@string/Network_Initiate_Summary_off" 
+			android:summaryOn="@string/Network_Initiate_Summary_on" 
+			android:persistent="true" />
+		<ListPreference 
+	        android:key="Network_Used"
+	        android:title="@string/Network_Used"
+	        android:dialogTitle="@string/Network_Used" 
+	        android:entries="@array/network_use_entry"
+	        android:entryValues="@array/network_use_entry"
+	        android:persistent="true" />
+		<ListPreference
+	        android:key="MOLR_settings" 
+	        android:title="@string/MOLR_Settings" 
+	        android:summary="@string/Selected_MOLR_Position_Type" 
+			android:entries="@array/molr_position_type_entrys" 
+	        android:entryValues="@array/molr_position_type_entryvalues"
+	        android:dialogTitle="@string/MOLR_Position_Type" 
+	        android:persistent="false"/>  
+		<PreferenceScreen
+	        android:key="CP_EM_settings" 
+	        android:title="@string/CP_EM_Settings" 
+	        android:summary="@string/CP_EM_Settings_Summary"/>
+	</PreferenceCategory>
+	
+	<PreferenceCategory android:title="@string/agps_category_profile" 
+		android:key="profile_category">
+		<ListPreference 
+			android:key="AGPS_Profile" 
+			android:title="@string/agps_profile_select_Title" 
+        	android:summary="@string/agps_profile_select_Summary" 
+        	android:dialogTitle="@string/agps_profile_select_Title" 
+        	android:persistent="false" />
+        <ListPreference
+	        android:key="SUPL_Capability_Type" 
+	        android:title="@string/supl_capability_list_title" 
+	        android:summary="@string/supl_capability_list_summary" 
+	        android:dialogTitle="@string/supl_capability_list_dialog_title" 
+	        android:entries="@array/supl_capability_entry" 
+	        android:entryValues="@array/supl_capability_entryvalues" 
+	        android:persistent="false"/>
+	    <PreferenceScreen
+        	android:key="advance_settings" 
+        	android:title="@string/agps_screen_profile_advance_title" 
+        	android:summary="@string/agps_screen_profile_advance_summary"/>
+        <CheckBoxPreference 
+		    android:key="CA_Enable" 
+			android:title="@string/CA_Enable_Title" 
+			android:summaryOff="@string/CA_enable_summary_off" 
+			android:summaryOn="@string/CA_enable_summary_on"
+			android:defaultValue="false"
+			android:persistent="true" />	
+        <CheckBoxPreference
+		    android:key="eCID_Enable"
+			android:title="@string/eCID_Enable_Title"
+			android:summaryOff="@string/eCID_enable_summary_off"
+			android:summaryOn="@string/eCID_enable_summary_on"
+			android:defaultValue="false"
+			android:persistent="true" />
+        <PreferenceScreen
+        	android:key="PROFILE_RESTORE" 
+        	android:title="@string/agps_screen_profile_reset_title" 
+        	android:summary="@string/agps_screen_profile_reset_summary"/>
+	</PreferenceCategory>	
+
+	<PreferenceCategory android:title="@string/CUSTOM_POLICY_Cat_Title"
+		android:key="custom_policy_category">
+		<CheckBoxPreference 
+		    android:key="custom_policy" 
+			android:title="@string/CUSTOM_POLICY_Title" 
+			android:summaryOff="@string/CUSTOM_POLICY_Summary_off" 
+			android:summaryOn="@string/CUSTOM_POLICY_Summary_on" 
+			android:persistent="true" />
+		<ListPreference
+	        android:key="custom_policy_list" 
+	        android:title="@string/CUSTOM_POLICY_Type_Title" 
+	        android:summary="@string/CUSTOM_POLICY_Type_Summary" 
+	        android:dialogTitle="@string/CUSTOM_POLICY_Type_Title" 
+	        android:persistent="false"/> 
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/GPS_AGENT_MODE_CAT_TITLE"
+		android:key="gps_agent_mode_category">
+		<CheckBoxPreference 
+		    android:key="gps_agent_enable" 
+			android:title="@string/GPS_AGENT_ENABLE_TITLE" 
+			android:summaryOff="@string/GPS_AGENT_ENABLE_Summary_off" 
+			android:summaryOn="@string/GPS_AGENT_ENABLE_Summary_on" 
+			android:persistent="false" />
+		<CheckBoxPreference
+	        android:key="gps_agent_SI_enable" 
+	        android:title="@string/GPS_AGENT_SI_ENABLE_TITLE" 
+			android:summaryOff="@string/GPS_AGENT_SI_ENABLE_Summary_off" 
+			android:summaryOn="@string/GPS_AGENT_SI_ENABLE_Summary_on"
+	        android:persistent="false"/> 
+	</PreferenceCategory>
+			
+	<PreferenceCategory android:title="@string/agps_category_timer">
+    <CheckBoxPreference
+        android:key="notify_timer"
+        android:title="@string/notify_timer_Title"
+        android:summaryOn="@string/notify_timer_summary_on"
+        android:summaryOff="@string/notify_timer_summary_off"
+				android:defaultValue="false"/>
+    
+    <ListPreference
+        android:key="notify_duration_list" 
+        android:title="@string/notify_duration_list_title" 
+        android:entries="@array/notify_duration_list_entries"
+        android:entryValues="@array/notify_duration_list_entriesValues"
+        android:dialogTitle="@string/notify_duration_list_dialogTitle"/>
+    
+    <ListPreference
+        android:key="verify_duration_list" 
+        android:title="@string/verify_duration_list_title" 
+        android:entries="@array/verify_duration_list_entries"
+        android:entryValues="@array/verify_duration_list_entriesValues"
+        android:dialogTitle="@string/verify_duration_list_dialogTitle"/>
+<!--			
+		<EditTextPreference  
+			android:key="notify_duration" 
+			android:title="@string/agps_timer_noifty_editbox_title" 
+			android:summary="@string/agps_timer_noifty_editbox_summary" 
+			android:dialogTitle="@string/agps_timer_noifty_editbox_dialog_title"/>
+		<EditTextPreference 
+			android:key="verify_duration" 
+			android:title="@string/agps_timer_verify_editbox_title" 
+			android:summary="@string/agps_timer_verify_editbox_summary" 
+			android:dialogTitle="@string/agps_timer_verify_editbox_dialog_title"/>
+			-->
+	</PreferenceCategory>
+	
+	<PreferenceCategory android:key="operation_category"  
+		android:title="@string/agps_category_operation">
+		<CheckBoxPreference 
+	    	android:key="EM_Indication" 
+			android:title="@string/agps_em_indication" 
+			android:summaryOff="@string/agps_em_indication_summary_off" 
+			android:summaryOn="@string/agps_em_indication_summary_on" 
+			android:defaultValue="false"/>
+		<CheckBoxPreference 
+	    	android:key="BEE" 
+			android:title="@string/agps_BEE_checkbox_title" 
+			android:summaryOff="@string/agps_BEE_checkbox_on_summary" 
+			android:summaryOn="@string/agps_BEE_checkbox_on_summary"/>
+		<PreferenceScreen
+        	android:key="issue_si" 
+        	android:title="@string/agps_eng_SIMAB_request" 
+        	android:summary="@string/agps_eng_SIMAB_summary_request"/>   	
+        <CheckBoxPreference 
+	    	android:key="Log_SUPL_to_File" 
+			android:title="@string/agps_log_SUPL_to_file" 
+			android:summaryOff="@string/agps_log_SUPL_to_file_enable" 
+			android:summaryOn="@string/agps_log_SUPL_to_file_enable" 
+			android:defaultValue="false"
+			android:persistent="false"/>
+        <CheckBoxPreference 
+	    	android:key="Log_to_File" 
+			android:title="@string/agps_log_to_file" 
+			android:summaryOff="@string/agps_log_to_file_enable" 
+			android:summaryOn="@string/agps_log_to_file_enable" 
+			android:defaultValue="false"/>
+		<CheckBoxPreference 
+	    	android:key="Log_to_UART" 
+			android:title="@string/agps_log_to_UART" 
+			android:summaryOff="@string/agps_log_to_UART_enable" 
+			android:summaryOn="@string/agps_log_to_UART_enable" 
+			android:defaultValue="false"/>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/MobileNetwork_Category">
+		<Preference 
+			android:key="mobile_dataConn"/>
+	</PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" 
+    android:layout_height="64dp"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:gravity="center_vertical"
+    android:orientation = "horizontal"
+    android:paddingRight="?android:attr/scrollbarSize">
+
+    <RelativeLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:layout_weight="1">
+        
+        <LinearLayout     android:layout_width="fill_parent" 
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation = "vertical"
+                        android:layout_marginLeft = "12dip"
+                        android:paddingRight="?android:attr/scrollbarSize">
+
+        <!-- line 1 -->
+        <TextView android:id="@+id/restore_list_item_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textSize="18sp"
+            />
+        
+        <TextView android:id="@+id/restore_list_item_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+<!--      
+    <CheckBox android:id="@+id/restore_list_item_chkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dip"
+        android:visibility = "gone"
+        android:focusable="false"
+        android:checked="true"
+        android:clickable="true"
+        android:gravity="center_vertical"/>
+ -->
+</LinearLayout>

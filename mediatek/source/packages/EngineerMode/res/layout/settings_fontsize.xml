@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="@string/settings_fontsize_text"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center" android:layout_margin="10dip">
+	</TextView>
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="horizontal"
+		android:id="@+id/LinearLayout" android:layout_margin="10dip">
+
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_small_text" android:layout_width="85dip"></TextView>
+		<EditText android:layout_height="wrap_content"
+			android:layout_width="120dip" android:id="@+id/settings_fs_small_edit"
+			android:inputType="number" android:digits="0123456789."></EditText>
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_small_bound" android:layout_width="match_parent"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="horizontal"
+		android:id="@+id/LinearLayout" android:layout_margin="10dip">
+
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_large_text" android:layout_width="85dip"></TextView>
+		<EditText android:layout_height="wrap_content"
+			android:layout_width="120dip" android:id="@+id/settings_fs_large_edit"
+			android:inputType="number" android:digits="0123456789."></EditText>
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_large_bound" android:layout_width="match_parent"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="horizontal"
+		android:id="@+id/LinearLayout" android:layout_margin="10dip">
+
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_extralarge_text"
+			android:layout_width="85dip"></TextView>
+		<EditText android:layout_height="wrap_content"
+			android:layout_width="120dip" android:id="@+id/settings_fs_extralarge_edit"
+			android:inputType="number" android:digits="0123456789."></EditText>
+		<TextView android:layout_height="wrap_content"
+			android:text="@string/settings_fs_extralarge_bound"
+			android:layout_width="match_parent"></TextView>
+	</LinearLayout>
+
+	<Button android:layout_width="80dip" android:layout_height="wrap_content"
+		android:layout_marginLeft="210dip" android:gravity="center"
+		android:text="@string/settings_fs_ok" android:id="@+id/settings_fs_ok">
+	</Button>
+
+</LinearLayout>

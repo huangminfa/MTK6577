@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <CheckBoxPreference
+        android:key="auto_launch_app"
+        android:persistent="true"
+        android:title="@string/settings_title_auto_launch" 
+        android:summary="@string/settings_summary_auto_launch"/>
+    <ListPreference
+        android:key="history_size"
+        android:title="@string/settings_title_history_size" 
+        android:summary="@string/settings_summary_history_size" 
+        android:persistent="false"
+        android:entries="@array/history_size_entry"
+        android:entryValues="@array/history_size_entry"/>
+    <CheckBoxPreference
+        android:key="show_advanced_writing"
+        android:persistent="true"
+        android:title="@string/settings_title_advanced_writing" 
+        android:summary="@string/settings_summary_advanced_writing"/>
+    <CheckBoxPreference
+        android:key="allow_system_app_for_app_tag"
+        android:dependency="show_advanced_writing"
+        android:persistent="true"
+        android:title="@string/settings_title_sys_app_tag" 
+        android:summary="@string/settings_summary_sys_app_tag"/>
+	<CheckBoxPreference
+        android:key="confirm_overwrite"
+        android:persistent="true"
+        android:defaultValue="true"
+        android:title="@string/settings_title_confirm_overwrite" 
+        android:summary="@string/settings_summary_confirm_overwrite"/>
+</PreferenceScreen>

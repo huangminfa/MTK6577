@@ -1,0 +1,16 @@
+<resources>
+	<item type="id" name="LinerLayout_comm_info"></item>
+	<item type="id" name="LinerLayout_file_sys_info"></item>
+	<item type="id" name="LinerLayout_partition_info"></item>
+	<item type="id" name="comm_info"></item>
+	<item type="id" name="file_sys_info"></item>
+	<item type="id" name="partition_info"></item>	
+	<!-- Power -->
+	<item type="id" name="LinerLayout_pmu_info_text"></item>
+	<item type="id" name="LinerLayout_pmu_reg"></item>	
+	<item type="id" name="pmu_info_text"></item>
+	<item type="id" name="pmu_btn_get"></item>
+	<item type="id" name="pmu_btn_set"></item>	
+	<item type="id" name="pmu_edit_addr"></item>
+	<item type="id" name="pmu_edit_val"></item>	
+</resources>

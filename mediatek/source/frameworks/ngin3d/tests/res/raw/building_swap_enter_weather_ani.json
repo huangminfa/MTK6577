@@ -1,0 +1,37 @@
+	 {"LayName": "weather_ani", "LayWidth": 217.000000, "LayHeight": 217.000000, "LayID": 167, "ParentID": 0, "LayIn": 6.51, "LayDur": 5.84, "CompIn": 0.00, "CompDur": 5.84, "NumEffects": 0,
+		"SourcePath": "//pc10110074/d$/AE_Project/LandscapeSweet_Slice/icon_moon.png",
+				 "AnchorPoint": { 
+					"X": -0.18, "Y": 2.21, "Z": 0.00
+					 }, 
+				 "Position": { 
+					"X": -40.00, "Y": 500.00, "Z": 100.00
+					 }, 
+				 "Scale": { 
+					"X": 100.00, "Y": 100.00, "Z": 100.00
+					 }, 
+				 "Orientation": { 
+					"Type":[ 0 , 0 ],
+					"Time":[ 0.16683 , 0.70070 ],
+					"X":[ 0.00 , 0.00 ],
+					"Y":[ 210.00 , 360.00 ],
+					"Z":[ 0.00 , 0.00 ],
+					"InTanX":[ 0.00 , 0.00 ],
+					"InTanY":[ 0.00 , 0.00 ],
+					"InTanZ":[ 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 ],
+					"OutTanY":[ 0.00 , 0.00 ],
+					"OutTanZ":[ 0.00 , 0.00 ]
+				}
+,				 "XRotation": { 
+					"Val": 0.00
+					 }, 
+				 "YRotation": { 
+					"Val": 0.00
+					 }, 
+				 "ZRotation": { 
+					"Val": 0.00
+					 }, 
+				 "Opacity": { 
+					"Val": 100.00
+					 } 
+	}

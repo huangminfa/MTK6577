@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    
+    <!-- The title of the NFC tag application -->
+    <string name="app_name">NxpSecureElement</string>
+	
+	<!-- -->
+	<string name="exit">Exit</string>
+
+    <!-- -->
+	<string name="select_category_title">Active Secure Element:</string>
+	<string name="se_label">Select SE</string>
+	<string name="layer_id_action_label">Change SE</string>	
+	
+	<!-- --> 
+    <string name="ce_quick_toggle_title">Card Emulation</string>
+    <string name="ce_on_quick_toggle_summary">Enabled</string>
+    <string name="ce_off_quick_toggle_summary">Disabled</string>
+    
+    <!-- -->
+    <string name="extended_category_title"> </string>
+
+    <!-- Title of a dialog presented to the user when they launch the Tag app with the NFC hardware disabled. -->
+    <string name="dialog_title_nfc_off">NFC turned off</string>
+
+    <!-- Dialog text telling the user they must turn on the NFC hardware to be able to scan tags -->
+    <string name="dialog_text_nfc_off">You must turn on NFC to scan tags.</string>
+
+    <!-- Button that takes the user to the settings panel so they can enable the NFC hardware -->
+    <string name="button_settings">Settings</string>
+    
+</resources>

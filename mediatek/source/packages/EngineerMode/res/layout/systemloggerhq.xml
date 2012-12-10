@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:orientation="vertical">
+	
+
+
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+
+	<TableLayout android:id="@+id/TableLayout01"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+<TextView android:text="@string/syslogger_hq_md_Text"
+				android:layout_marginLeft = "3pt" android:textColor="#FF00FF00"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/syslogger_hq_md" android:id="@+id/syslogger_hq_md"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+
+			
+<TextView android:text="@string/syslogger_hq_mobile_Text"
+				android:layout_marginLeft = "3pt" android:textColor="#FF00FF00"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/syslogger_hq_mobile" android:id="@+id/syslogger_hq_mobile"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>	
+		
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+
+	
+<TextView android:text="@string/syslogger_hq_network_Text"
+				android:layout_marginLeft = "3pt" android:textColor="#FF00FF00"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/syslogger_hq_network" android:id="@+id/syslogger_hq_network"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+	
+
+	</TableLayout>
+
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+
+
+<TextView android:text="@string/syslogger_hq_extmd_Text"
+				android:layout_marginLeft = "3pt" android:textColor="#FF00FF00"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:id="@+id/TextView_extmd"></TextView>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/syslogger_hq_extmd" android:id="@+id/syslogger_hq_extmd"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+
+	<TextView android:text="@string/syslogger_hq_sd_Text"
+		android:layout_marginLeft="3pt" android:textColor="#FFFFFF00"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+	<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<TextView android:text="@string/syslogger_hq_sd" android:id="@+id/syslogger_hq_sd"
+			android:layout_marginTop="4pt" android:layout_marginLeft="3pt"
+			android:textSize="8pt" android:textColor="#FFFFFFFF"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+	</TableRow>
+
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+		android:layout_marginTop="2pt" android:background="#FF909000">
+</View>
+
+<TextView android:text="@string/syslogger_hq_all_Text"
+				android:layout_marginLeft = "3pt" android:textColor="#FF00FF00"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/syslogger_hq_all" android:id="@+id/syslogger_hq_all"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+
+
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909000">
+</View>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:scrollbars="vertical"
+	android:id="@+id/syslogger_hq_tab">
+	
+<TextView android:id="@+id/syslogger_hq_info"
+				android:singleLine="false"
+				android:layout_marginTop = "5pt"
+				android:layout_marginLeft = "3pt" android:textColor="#FFFF0000"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+
+</ScrollView>
+</LinearLayout>

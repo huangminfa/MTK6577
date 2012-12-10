@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string-array name="param_2_status_entry"> 
+        <item>打开</item>  
+        <item>关闭</item> 
+    </string-array>  
+    <string-array name="param_audio_profile_entry"> 
+        <item>标准</item>  
+        <item>静音</item>  
+        <item>会议</item>  
+        <item>户外</item> 
+    </string-array> 
+</resources>

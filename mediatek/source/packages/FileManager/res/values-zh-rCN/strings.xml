@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="alert_delete_multiple">将会删除这些文件</string>  
+    <string name="alert_delete_single">将会删除该文件</string>  
+    <string name="already_exists">已存在</string>  
+    <string name="app_name">文件管理</string>  
+    <string name="cancel">取消</string>  
+    <string name="copy">复制</string>  
+    <string name="copy_deny">没有权限复制</string>  
+    <string name="create_folder">新建文件夹</string>  
+    <string name="cut">剪切</string>  
+    <string name="cut_deny">没有权限剪切</string>  
+    <string name="cut_fail">剪切失败</string>  
+    <string name="delete">删除</string>  
+    <string name="delete_deny">没有权限删除</string>  
+    <string name="delete_fail">删除失败</string>  
+    <string name="deleting">正在删除</string>  
+    <string name="deselect_all">取消全选</string>  
+    <string name="select_all">全选</string>
+    <string name="details">详情</string>  
+    <string name="done">完成</string>  
+    <string name="edit">编辑</string>  
+    <string name="empty_msg">空文件夹</string>  
+    <string name="executable">可执行</string>  
+    <string name="insufficient_memory">空间不足</string>  
+    <string name="invalid_empty_name">文件或文件夹名不能为空</string>  
+    <string name="invalid_file_name">输入的文件或文件夹名过长</string>  
+    <string name="loading">正在载入</string>  
+    <string name="modified_time">修改日期</string>  
+    <string name="name">名称</string>  
+    <string name="new_folder">新文件夹</string>  
+    <string name="no">否</string>  
+    <string name="ok">确定</string>  
+    <string name="paste">粘贴</string>  
+    <string name="pasting">正在复制</string>  
+    <string name="paste_fail">粘贴失败</string>  
+    <string name="paste_same_folder">目标文件夹与原文件夹 %s 相同，不可以粘贴</string>  
+    <string name="readable">可读</string>  
+    <string name="rename">重命名</string>  
+    <string name="save">保存</string>  
+    <string name="selected">选中</string>  
+    <string name="send_file">发送文件</string>  
+    <string name="share">分享</string>  
+    <string name="size">大小</string>  
+    <string name="sort_by">排序方式</string>  
+    <string name="support_fail" product="tablet">设备无法支持</string> 
+    <string name="support_fail" product="default">手机无法支持</string>  
+    <string name="wait">"请稍候..."</string>  
+    <string name="writable">可写</string>  
+    <string name="yes">是</string>  
+    <string name="confirm_rename">确认重命名</string>  
+    <string name="msg_rename_ext">您正在尝试修改文件扩展名，可能导致系统无法识别文件，确定要修改？</string>  
+    <string name="msg_unable_open_file">文件格式不支持</string>  
+    <string name="msg_change_name">操作失败，请更换一个名字</string>  
+    <string-array name="sort_by"> 
+        <item>类型</item>  
+        <item>名称 (A - Z)</item>  
+        <item>大小 (大 - 小)</item>  
+        <item>日期 (新 - 旧)</item> 
+    </string-array>  
+    <string name="more">展开</string> 
+    <string name="invalid_char_prompt">您输入了无效字符</string>
+    <string name="msg_create_fail">创件文件失败</string>
+    <string name="unmounted">%1$s 被卸载</string>
+    <string name="path_not_exists">%1$s 不存在</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="enquire_type">
+        <item>I-update ngayon</item>
+        <item>10 minuto</item>
+        <item>30 minuto</item>
+        <item>1 oras</item>
+        <item>3 oras</item>
+        <item>6 na oras</item>
+        <item>1 araw</item>
+        <item>3 araw</item>
+        <item>6 na araw</item>
+        <item>Huwag kailanman magtanong</item>
+    </string-array>
+</resources>
+

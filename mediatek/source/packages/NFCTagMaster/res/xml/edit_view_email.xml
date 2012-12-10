@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="0dip" 
+    android:orientation="vertical" >
+    
+    <LinearLayout android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:visibility="gone">
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:layout_marginTop="10dip"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/edit_view_email_description_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <EditText android:id="@+id/edit_info_email_description"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="20dip"/>
+    </LinearLayout>
+    
+    <TextView android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:layout_marginTop="10dip"
+        android:text="@string/edit_view_email_to_label"/>
+   	 <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:layout_marginTop="0dip"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    
+    <LinearLayout android:layout_width="match_parent" 
+    	android:orientation="horizontal" 
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="20dip"
+    	android:gravity="center"
+        android:layout_height="wrap_content">
+   	 	<EditText android:id="@+id/edit_info_email_to"
+        	android:layout_width="0dip" 
+        	android:layout_weight="1"
+        	android:layout_height="wrap_content"
+        	android:inputType="textEmailAddress"
+        	/>
+        <ImageView android:id="@+id/edit_info_email_selector"
+            android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:src="@drawable/ic_edit_info_sms_select"
+        	android:background="@drawable/flying_icon_bg"/>
+    </LinearLayout>
+    
+    
+    
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/edit_view_email_subject_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <EditText android:id="@+id/edit_info_email_subject"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="20dip" 
+        android:inputType="textEmailSubject"/>
+    
+    
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/edit_view_email_content_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <EditText android:id="@+id/edit_info_email_content"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="20dip" 
+        android:gravity="top"
+        android:lines="5"/>
+    
+</LinearLayout>
+</ScrollView>

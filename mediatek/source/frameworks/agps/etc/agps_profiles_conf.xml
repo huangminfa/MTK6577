@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<agps_profiles version="1">
+
+  <!--  slp_name: default slp name to be shown in AGPS
+	backup_slp_name_var: mui slp name variable in string.xml(optional) 
+	address: SLP address
+	show_type: whether show this profile or not, 0:always show  1:only show in engineer mode  2:show according to current operator
+   -->
+
+  <!-- CUSTOM-->
+  <agps_profile code="CUSTOM"
+      slp_name="CUSTOM"
+      backup_slp_name_var="CUSTOM_SPL_Name"
+      address="127.0.0.1"
+      port="0"
+      tls="0"
+      show_type="1"
+  />
+ 
+  <!-- NOKIA-->
+  <agps_profile code="NOKIA"
+      slp_name="NOKIA"
+      backup_slp_name_var="NOKIA_SPL_Name"
+      address="supl.nokia.com"
+      port="7275"
+      tls="1"
+      show_type="0"
+  />
+  
+  <!-- GOOGLE-->
+  <agps_profile code="GOOGLE"
+      slp_name="GOOGLE"
+      backup_slp_name_var="GOOGLE_SPL_Name"
+      address="supl.google.com"
+      port="7275"
+      tls="1"
+      show_type="0"
+  />
+
+  <!-- ORANGE 00-->
+  <agps_profile code="20800"
+      slp_name="ORANGE 00"
+      backup_slp_name_var="ORANGE00_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
+  />
+  <!-- ORANGE 01-->
+  <agps_profile code="20801"
+      slp_name="ORANGE 01"
+      backup_slp_name_var="ORANGE01_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
+  />
+  <!-- ORANGE 02-->
+  <agps_profile code="20802"
+      slp_name="ORANGE 02"
+      backup_slp_name_var="ORANGE02_SPL_Name"
+      address="agpss.orange.fr"
+      port="7275"
+      tls="1"
+      show_type="2"
+  />
+
+  <!-- CMCC-->
+  <agps_profile code="46000"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+
+  <!-- CMCC2-->
+  <agps_profile code="46002"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+  
+  <!-- CMCC TD-->
+  <agps_profile code="46007"
+      slp_name="China Mobile AGPS server"
+      backup_slp_name_var="CMCC_SPL_Name"
+      address="221.176.0.55"
+      port="7275"
+      tls="1"
+      show_type="2"
+      app_id="ap0004"
+      provider_id="221.176.0.55"
+      default_apn="CMCC WAP"
+      optional_apn="CMNET"
+      optional_apn_2=""
+      address_type="IPv4address:port"
+  />
+
+  <!-- CHUAN HWA
+  <agps_profile code="46692"
+      slp_name="Chunghwa"
+      backup_slp_name_var="CHUANHWA_SPL_Name"
+      address="10.1.101.137"
+      port="8025"
+      tls="0"
+      show_type="2"
+  />
+	-->
+	
+  <!-- China Unicom Test 
+  <agps_profile code="46001"
+      slp_name="China Unicom"
+      backup_slp_name_var="CU_SPL_Name"
+      address="172.0.0.1"
+      port="8025"
+      tls="0"
+      show_type="2"
+  />
+  -->
+    
+  <!-- Profile for CDMA-->
+  <cdma_profile name="CDMA1"
+  	mcp_enable="no"
+  	mcp_addr="10.199.2.165"
+  	mcp_port="6066"
+  	pde_addr_valid="no"
+  	pde_ip_type="0"
+  	pde_ip4_addr="11.11.11.11"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.016"
+  	pde_port="1111"
+  	pde_url_valid="no"
+  	pde_url_addr="www.mediatek.com"
+  />
+  
+  <cdma_profile name="CDMA2"
+  	mcp_enable="no"
+  	mcp_addr="2.2.2.2"
+  	mcp_port="222"
+  	pde_addr_valid="no"
+  	pde_ip_type="1"
+  	pde_ip4_addr="22.22.22.22"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.116"
+  	pde_port="2222"
+  	pde_url_valid="no"
+  	pde_url_addr="www.mediatek.com2"
+  />
+  
+  <cdma_profile name="CDMA3"
+  	mcp_enable="no"
+  	mcp_addr="3.3.3.3"
+  	mcp_port="333"
+  	pde_addr_valid="yes"
+  	pde_ip_type="1"
+  	pde_ip4_addr="33.33.33.33"
+  	pde_ip6_addr="001.002.003.004.005.006.007.008.009.010.011.012.013.014.015.226"
+  	pde_port="3333"
+  	pde_url_valid="no"
+  	pde_url_addr="www.mediatek.com3"
+  />
+    <!-- The following parameters are provided  for customer to 
+    configure A-GPS default value.
+   -->
+  <!--  
+  default_profile:
+      the default profile when device first boot up. please use slp_name for this parameter.
+      Available vaule: NOKIA, GOOGLE 
+  disable_after_reboot:
+      whether to enable A-GPS when device sencond boot up.
+      Available vaule: yes, no
+  ni_request:
+      whether enable network to request user position.
+      Available vaule: yes, no
+  agps_enable:
+      whether to permit enable A-GPS when the first boot up.
+      Available vaule: yes, no
+  log_file_max_num:
+      the max number of log file can be saved in /data/agps_supl/log.
+      Available vaule: 1~100
+  cp_gemini_pref_sim:
+      for cp gemini, set the preferred sim card to use. 
+      Available vaule: 1 (it means use sim1 as prefrerred) 
+      Available vaule: 2 (it means use sim2 as prefrerred)
+  network_used:
+      set to use A-GPS under local network or local & roaming network
+      Available vaule: 0, 1 (0 meas only local network; 1 means local & roaming network)
+      
+  default_cdma_profile:
+      the default CDMA profile when device first boot up. please use slp_name for this parameter.
+      Available value: CDMA1, CDMA2, CDMA3
+  sim_prefer:
+      choose a prefer SIM (SIM1 or SIM2) when two or more SIMs are ready for use
+      Available vaule: 1 (it means use sim1 as prefrerred) 
+      Available vaule: 2 (it means use sim2 as prefrerred)
+  sim1_up_cp:
+  		the default A-GPS protocol (Use User Plane (UP) or Control Plane (CP)) for SIM1
+  		Available value: 0 (it means the default protocol is UP for SIM1)
+  		Available value: 1 (it means the default protocol is CP for SIM1)
+  sim2_up_cp:
+  		the default A-GPS protocol (Use User Plane (UP) or Control Plane (CP)) for SIM2
+  		Available value: 0 (it means the default protocol is UP for SIM2)
+  		Available value: 1 (it means the default protocol is CP for SIM2)
+  -->
+  <agps_conf_para
+      default_profile="GOOGLE"
+      disable_after_reboot="no"
+      ni_request="yes"
+      agps_enable="no"
+      log_file_max_num="10"
+      cp_gemini_pref_sim="1"
+      network_used="0"
+      default_cdma_profile="CDMA1"
+      sim_prefer="1"
+      sim1_up_cp="0"
+      sim2_up_cp="0"
+  />
+</agps_profiles>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.systemui.statusbar.toolbar.ConfigurationSwitchPanel
+	xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/profile_switch"
+	android:orientation="horizontal" android:layout_width="match_parent"
+	android:layout_height="0dip" android:clickable="true"
+	android:layout_weight="1">
+
+</com.android.systemui.statusbar.toolbar.ConfigurationSwitchPanel>

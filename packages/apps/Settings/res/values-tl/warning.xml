@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <!-- Titles for battery warning dialog -->  
+    <string name="title_charger_over_voltage">Sobra sa Charger Voltage</string>  
+    <string name="title_battery_over_temperature">Sobra sa Temperatura ng Baterya</string>  
+    <string name="title_over_current_protection">Sobra sa Proteksyon ng Current</string>  
+    <string name="title_battery_over_voltage">Sobra sa Voltage ng Baterya</string>  
+    <string name="title_safety_timer_timeout">Sobra sa Oras ng Charge</string>  
+    <!-- Messages for battery warning dialog -->  
+    <string name="msg_charger_over_voltage">Sobra sa voltage ang charger mo, pakidiskonekta ang charger!</string>  
+    <string name="msg_battery_over_temperature">Sobra sa temperatura ang baterya mo, paki-alis ang baterya!</string>  
+    <string name="msg_over_current_protection">Sobra sa proteksiyon sa current ang baterya mo, paki-alis ang baterya!</string>  
+    <string name="msg_battery_over_voltage">Sobra sa voltage ang baterya mo, paki-alis ang baterya!</string>  
+    <string name="msg_safety_timer_timeout">Masyadng matagal ang oras ng charge, pakidiskonekta ang charger!</string>  
+    <string name="btn_ok_msg">paghalik</string>  
+    <string name="btn_cancel_msg">"Balewalain"</string> 
+</resources>

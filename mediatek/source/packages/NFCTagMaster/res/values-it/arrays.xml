@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string-array name="param_2_status_entry"> 
+        <item>"Attivo"</item>  
+        <item>Off</item> 
+    </string-array>  
+    <string-array name="param_2_status_value"> 
+        <item>1</item>  
+        <item>0</item> 
+    </string-array>  
+    <string-array name="param_audio_profile_entry"> 
+        <item>"Generali"</item>  
+        <item>""Silenzioso""</item>  
+        <item>Incontro</item>  
+        <item>Fuori</item> 
+    </string-array>  
+    <string-array name="param_audio_profile_value"> 
+        <item>mtk_audioprofile_general</item>  
+        <item>mtk_audioprofile_silent</item>  
+        <item>mtk_audioprofile_meeting</item>  
+        <item>mtk_audioprofile_outdoor</item> 
+    </string-array>  
+    <string-array name="history_size_entry"> 
+        <item>10</item>  
+        <item>20</item>  
+        <item>50</item>  
+        <item>100</item>  
+        <item>200</item>  
+        <item>500</item> 
+    </string-array> 
+</resources>

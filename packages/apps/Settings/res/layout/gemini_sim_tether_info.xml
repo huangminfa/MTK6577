@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/whole_view"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout 
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" 
+    	android:gravity="center_horizontal" 
+    	android:orientation="horizontal">
+    	<View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    	<Button android:id="@+id/add_btn" 
+			android:layout_width="0dip" 
+			android:layout_height="wrap_content" 
+			android:layout_weight="2" 
+			android:layout_marginTop="6dip"
+			android:layout_marginBottom="2dip"
+			android:gravity="center" 
+			android:text="@string/gemini_sim_tether_add_record"/>
+		<View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+	<View 
+    	android:layout_width="fill_parent" 
+    	android:layout_height="2dip" 
+    	android:background="?android:attr/listDivider"/>
+    <ScrollView 
+    	android:layout_width="match_parent"
+        android:layout_height="0dip" 
+        android:layout_weight="1"
+        android:id="@+id/scrollview_record">
+		<TextView  
+			android:id="@+id/no_record_notice"
+    		android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content" 
+    		android:paddingLeft="10dip"
+        	android:paddingRight="10dip"
+        	android:paddingTop="10dip"
+    		android:text="@string/gemini_sim_tether_norecord"
+    		android:textAppearance="?android:attr/textAppearanceMedium"
+    		android:textColor="?android:attr/textColorSecondary" />
+    </ScrollView>	
+    
+	<ListView android:id="@android:id/list" 
+		android:layout_width="match_parent" 
+		android:layout_height="match_parent" />
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Preference without 'Holo' will auto adjust its text size when not window title-->
+    <!-- 
+    <color name="main_background">#E3E3E3</color>
+     -->
+    <color name="main_background">#EEEEEE</color>
+    
+    <color name="read_tag_type_title_color">#000000</color>
+    <color name="read_tag_type_summary_color">#777777</color>
+    <color name="read_tag_info_item_label_color">#33B5E5</color>
+    <color name="tag_info_lable_content_separator_color">#33B5E5</color>
+    <color name="tag_info_item_color">#000000</color>
+    
+    <color name="action_button_separator_color">#bbbbbb</color>
+</resources>

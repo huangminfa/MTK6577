@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/ScrollView01"                  
+     android:layout_width="fill_parent"                  
+     android:layout_height="fill_parent">
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  android:paddingLeft="10dip">
+  <TextView android:id="@+id/stringprompt"
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFFFF">
+  </TextView>
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dip">
+    <TextView android:id="@+id/voicecall" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFFFF">
+              </TextView>
+    <TextView android:id="@+id/voicecallopr" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:maxWidth="100dip"
+              android:layout_marginLeft="4dip"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:textColor="#FFFFFFFF">
+    </TextView>
+  </LinearLayout>
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dip">
+    <TextView android:id="@+id/videocall" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFFFF">
+              </TextView>
+    <TextView android:id="@+id/videocallopr" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:maxWidth="100dip"
+              android:layout_marginLeft="4dip"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:textColor="#FFFFFFFF">
+    </TextView>
+  </LinearLayout>
+  
+    <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dip">
+    <TextView android:id="@+id/sms" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFFFF">
+              </TextView>
+    <TextView android:id="@+id/smsopr" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:maxWidth="100dip"
+              android:layout_marginLeft="4dip"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:textColor="#FFFFFFFF">
+    </TextView>
+  </LinearLayout>
+  
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="4dip">
+    <TextView android:id="@+id/data" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFFFF">
+              </TextView>
+    <TextView android:id="@+id/dataopr" 
+              android:layout_width="wrap_content" 
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dip"
+              android:maxWidth="100dip"
+              android:singleLine="true"
+              android:ellipsize="middle"
+              android:textColor="#FFFFFFFF">
+    </TextView>
+  </LinearLayout>
+  
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="alert_delete_multiple">Tyto položky budou odstraněny</string>  
+    <string name="alert_delete_single">Tato položka bude odstraněna</string>  
+    <string name="already_exists">již existuje</string>  
+    <string name="app_name">Správce souborů</string>  
+    <string name="cancel">Storno</string>  
+    <string name="copy">Kopírovat</string>  
+    <string name="copy_deny">Není oprávnění ke kopírování</string>  
+    <string name="create_folder">Vytvořit složku</string>  
+    <string name="cut">Vyjmout</string>  
+    <string name="cut_deny">Není oprávnění k vyjmutí</string>  
+    <string name="cut_fail">Vyjmutí se nezdařilo</string>  
+    <string name="delete">Odstranit</string>  
+    <string name="delete_deny">Není oprávnění k odstranění</string>  
+    <string name="delete_fail">Odstranění se nezdařilo</string>  
+    <string name="deleting">Odstraňování</string>  
+    <string name="deselect_all">Zrušit výběr</string>  
+    <string name="select_all">Vybrat vše</string>  
+    <string name="details">Podrobnosti</string>  
+    <string name="done">Hotovo</string>  
+    <string name="edit">Úpravy</string>  
+    <string name="empty_msg">(Prázdná složka)</string>  
+    <string name="executable">Spustitelný</string>  
+    <string name="insufficient_memory">Nedostatek paměti</string>  
+    <string name="invalid_empty_name">Název souboru nebo složky nemůže být prázdný</string>  
+    <string name="invalid_file_name">Určený název souboru nebo složky je příliš dlouhý</string>  
+    <string name="loading">Načítání</string>  
+    <string name="modified_time">Upraveno</string>  
+    <string name="name">Název</string>  
+    <string name="new_folder">Nová složka</string>  
+    <string name="no">Ne</string>  
+    <string name="ok">OK</string>  
+    <string name="paste">Vložit</string>  
+    <string name="pasting">Vkládání</string>  
+    <string name="paste_fail">Vložení se nezdařilo</string>  
+    <string name="paste_same_folder">Nelze vložit %s do stejného adresáře</string>  
+    <string name="readable">Pro čtení</string>  
+    <string name="rename">Přejmenovat</string>  
+    <string name="save">Uložit</string>  
+    <string name="selected">Vybráno</string>  
+    <string name="send_file">Odeslat soubor</string>  
+    <string name="share">Sdílet</string>  
+    <string name="size">Velikost</string>  
+    <string name="sort_by">Seřadit podle</string>  
+    <string name="support_fail" product="tablet">Nepodporováno zařízením</string>
+    <string name="support_fail" product="default">Nepodporováno telefonem</string>  
+    <string name="wait">Počkejte prosím\u2026</string>  
+    <string name="writable">Pro zápis</string>  
+    <string name="yes">Ano</string>  
+    <string name="confirm_rename">Potvrzení přejmenování</string>  
+    <string name="msg_rename_ext">Měníte příponu souboru, což může způsobit, že soubor nebude rozpoznán. Opravdu chcete tuto operaci provést?</string>  
+    <string name="msg_unable_open_file">Formát souboru není podporován.</string>  
+    <string-array name="sort_by"> 
+        <item>Typ</item>  
+        <item>Název (A - Z)</item>  
+        <item>Velikost (velká - malá)</item>  
+        <item>Čas (nová - stará)</item> 
+    </string-array>  
+    <string name="more">Více</string>  
+    <string name="msg_change_name">Operace se nezdařila, použijte jiný název.</string> 
+    <string name="invalid_char_prompt">Zadali jste neplatný znak</string>
+    <string name="unmounted">%1$s je odpojeno</string>
+    <string name="path_not_exists">%1$s neexistuje</string>
+</resources>

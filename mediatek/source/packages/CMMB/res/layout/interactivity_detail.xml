@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/bottom_pannel"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/previous"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/previous_row"
+            android:visibility="gone"
+            />
+        <Button
+            android:id="@+id/next"
+            android:layout_width="0dip" 
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next_row"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_pannel"
+        android:visibility="gone"
+        />
+    <TextView
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="6dip"
+        android:text="@string/no_interactivity"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:visibility="gone"
+        />
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="alert_delete_multiple">รายการเหล่านี้จะถูกลบ</string>  
+    <string name="alert_delete_single">รายการนี้จะถูกลบ</string>  
+    <string name="already_exists">มีอยู่แล้ว</string>  
+    <string name="app_name">ตัวจัดการไฟล์</string>  
+    <string name="cancel">ยกเลิก</string>  
+    <string name="copy">คัดลอก</string>  
+    <string name="copy_deny">ไม่อนุญาตให้คัดลอก</string>  
+    <string name="create_folder">สร้างโฟลเดอร์</string>  
+    <string name="cut">ตัด</string>  
+    <string name="cut_deny">ไม่อนุญาตให้ตัด</string>  
+    <string name="cut_fail">ไม่สามารถตัด</string>  
+    <string name="delete">ลบ</string>  
+    <string name="delete_deny">ไม่อนุญาตให้ลบ</string>  
+    <string name="delete_fail">ไม่สามารถลบ</string>  
+    <string name="deleting">กำลังลบ</string>  
+    <string name="deselect_all">เลิกเลือกทั้งหมด</string>  
+    <string name="details">รายละเอียด</string>  
+    <string name="done">เสร็จ</string>  
+    <string name="edit">แก้ไข</string>  
+    <string name="empty_msg">(โฟลเดอร์ว่าง)</string>  
+    <string name="executable">สามารถทำงานได้</string>  
+    <string name="insufficient_memory">หน่วยความจำไม่เพียงพอ</string>  
+    <string name="invalid_empty_name">ชื่อไฟล์หรือโฟลเดอร์ไม่สามารถว่างได้</string>  
+    <string name="invalid_file_name">ชื่อไฟล์หรือโฟลเดอร์ที่ระบุยาวเกินไป</string>  
+    <string name="loading">กำลังโหลด</string>  
+    <string name="modified_time">แก้ไข</string>  
+    <string name="name">ชื่อ</string>  
+    <string name="new_folder">โฟลเดอร์ใหม่</string>  
+    <string name="no">"ไม่"</string>  
+    <string name="ok">ตกลง</string>  
+    <string name="paste">วาง</string>  
+    <string name="pasting">กำลังวาง</string>  
+    <string name="paste_fail">ไม่สามารถวาง</string>  
+    <string name="paste_same_folder">ไม่สามารถวาง %s ไปยังไดเรกทอรีเดียวกัน</string>  
+    <string name="readable">สามารถอ่านได้</string>  
+    <string name="rename">เปลี่ยนชื่อ</string>  
+    <string name="save">บันทึก</string>  
+    <string name="select_all">เลือกทั้งหมด</string>  
+    <string name="send_file">ส่งไฟล์</string>  
+    <string name="share">แชร์</string>  
+    <string name="size">ขนาด</string>  
+    <string name="sort_by">เรียงตาม</string>  
+    <string name="support_fail" product="tablet">อุปกรณ์ไม่สนับสนุนข้อมูลนี้</string>  
+    <string name="support_fail" product="default">โทรศัพท์ไม่สนับสนุนชนิดนี้</string>  
+    <string name="wait">โปรดรอ\u2026</string>  
+    <string name="writable">สามารถเขียนได้</string>  
+    <string name="yes">"ใช่"</string>  
+    <string name="confirm_rename">ยืนยันการเปลี่ยนชื่อ</string>  
+    <string name="msg_rename_ext">คุณกำลังเปลี่ยนนามสกุลไฟล์ ซึ่งอาจทำให้ระบบไม่รู้จักไฟล์ คุณต้องการเปลี่ยนหรือไม่</string>  
+    <string name="msg_unable_open_file">ไม่สามารถเปิดไฟล์ได้</string>  
+    <string-array name="sort_by"> 
+        <item>ชนิด</item>  
+        <item>ชื่อ (A - Z)</item>  
+        <item>ขนาด (ใหญ่ - เล็ก)</item>  
+        <item>เวลา (ใหม่ - เก่า)</item> 
+    </string-array>  
+    <string name="more">เพิ่มเติม</string>  
+    <string name="selected">เลือกแล้ว</string>  
+    <string name="msg_change_name">การทำงานไม่สำเร็จ กรุณาใช้ชื่ออื่น</string>
+    <string name="invalid_char_prompt">คุณป้อนตัวอักษรที่ไม่ถูกต้อง</string>
+    <string name="unmounted">%1$s ไม่ได้ถูกเมาท์</string>
+    <string name="path_not_exists">%1$s ไม่มีอยู่ในระบบ</string>
+</resources>

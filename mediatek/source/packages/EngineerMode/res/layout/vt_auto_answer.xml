@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  	
+  	<TextView
+   	  android:layout_width="wrap_content"
+   	  android:layout_height="wrap_content"
+   	  android:layout_margin="10dip"
+   	  android:textAppearance="?android:attr/textAppearanceMedium"
+   	  android:text="@string/Latency">
+   	</TextView>
+   	
+   	<LinearLayout
+  	  android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dip"
+      android:orientation="horizontal">
+      
+      	<EditText
+      	  android:layout_width="120dip" 
+      	  android:layout_height="wrap_content"
+      	  android:id="@+id/VTAutoAnswer_Edit"
+      	  android:textAppearance="?android:attr/textAppearanceMedium"
+      	  android:inputType="number">
+      	</EditText>
+      	
+      	<Button 
+      	  android:id="@+id/VTAutoAnswer_Set_Btn" 
+      	  android:layout_width="120dip" 
+      	  android:layout_marginLeft="10dip"
+      	  android:layout_height="wrap_content"
+      	  android:textAppearance="?android:attr/textAppearanceMedium"
+      	  android:text="@string/Enable">
+      	</Button>
+      	
+  	</LinearLayout>
+   	
+  	
+</LinearLayout>

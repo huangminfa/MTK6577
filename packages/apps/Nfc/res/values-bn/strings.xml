@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+  <string name="app_name">এনএফসি সেবা</string>  
+  <string name="nfcUserLabel">এনএফসি</string>
+  <string name="touch">বিমের জন্য স্পর্শ করুন</string> 
+</resources>

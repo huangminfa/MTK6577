@@ -1,0 +1,57 @@
+########
+# Main #
+########
+# dex does not like code run through proguard optimize and preverify steps.
+-dontoptimize
+-dontpreverify
+
+######################
+# Optimization flags # 
+######################
+# see http://sourceforge.net/tracker/?func=detail&aid=2787465&group_id=54750&atid=474707
+-optimizations !code/simplification/arithmetic
+-optimizations !code/simplification/cast
+-allowaccessmodification
+
+#####################
+# Obfuscation flags #
+#####################
+-keepattributes *Annotation*,SourceFile,LineNumberTable
+# To prevent name conflict in incremental obfuscation.
+-useuniqueclassmembernames
+
+################
+# Keep classes #
+################
+
+# Some classes in the libraries extend package private classes to chare common functionality
+# that isn't explicitly part of the API
+-dontskipnonpubliclibraryclasses -dontskipnonpubliclibraryclassmembers
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# class$ methods are inserted by some compilers to implement .class construct,
+# see http://proguard.sourceforge.net/manual/examples.html#library
+-keepclassmembernames class * {
+    java.lang.Class class$(java.lang.String);
+    java.lang.Class class$(java.lang.String, boolean);
+}
+
+# Keep classes and methods that have the guava @VisibleForTesting annotation
+-keep @com.google.common.annotations.VisibleForTesting class *
+-keepclassmembers class * {
+@com.google.common.annotations.VisibleForTesting *;
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+  public *;
+}

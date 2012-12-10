@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ViewFlipper android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <ImageView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/longpress_conversationlist"/>
+            
+            <LinearLayout  android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/longpress_conversationlist_margin"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+            
+                <TextView style="@style/ClingTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/all_apps_cling_title"
+                    android:text="@string/long_press_conversationlist_title" />
+      
+	            <TextView style="@style/ClingText"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+	                android:text="@string/long_press_conversationlist_content"/>
+	            
+            </LinearLayout>
+            
+            <Button
+                style="@style/ClingButton"
+                android:id="@+id/shownext"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="bottom|right"
+                 android:onClick="showNext"
+                />    
+            
+        </FrameLayout>
+        
+          
+        <FrameLayout android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <ImageView android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/longpress_composer"/>
+            
+            <TextView style="@style/ClingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/long_press_composer_content"/>
+            <Button
+                style="@style/ClingButton"
+                android:id="@+id/dismillall"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_gravity="bottom|right"
+                android:onClick="dismissAll"
+                 />
+           
+        </FrameLayout>    
+        
+         <!-- android:onClick="dismissAllAppsCling" -->
+    </ViewFlipper>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:layout_marginTop="20dip"
+    android:gravity="center">
+    <TextView android:id="@+id/category_title"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+</LinearLayout>

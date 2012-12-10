@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application id="media3d">
+    <page id="portal">
+    </page>
+
+    <page id="weather">
+        <dragging id="dragging" max="800.0" threshold="0.03"/>
+        <font id="title" size="60"/>
+        <font id="titleWoUpdated" size="30"/>
+    </page>
+
+    <page id="photo">
+        <dragging id="dragging" max="600.0" threshold="0.1"/>
+        <image id="background" width="800" height="480"/>
+        <image id="temporary" width="80" height="48"/>
+        <image id="thumbnail" width="261" height="172"/>
+        <image id="portalThumbnail" width="186" height="124"/>
+    </page>
+
+    <page id="video">
+        <dragging id="dragging" max="600.0" threshold="0.1"/>
+        <image id="thumbnail" width="242" height="159"/>
+        <image id="portalThumbnail" width="200" height="120"/>
+    </page>
+
+</application>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.phone.VTCallStatus xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vtCallStatus"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/incall_status0_height" >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxWidth="80dip"
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/incall_status_text_size0" />
+
+    <TextView
+        android:id="@+id/numberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxWidth="80dip"
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/incall_status_text_size0" />
+
+    <TextView
+        android:id="@+id/operator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/simIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sim_name_border"
+        android:ellipsize="middle"
+        android:maxWidth="80dip"
+        android:singleLine="true"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/callStateLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingRight="@dimen/call_banner_side_padding"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/incall_call_banner_text_color"
+        android:textAllCaps="true"
+        android:background="@color/incall_call_state_label_background"
+        android:visibility="gone"/>
+
+</com.android.phone.VTCallStatus>

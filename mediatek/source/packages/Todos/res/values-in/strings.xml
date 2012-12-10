@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="app_name">Agenda</string>  
+    <string name="app_header">Rencana</string>  
+    <string name="todos_title">AGENDA</string>  
+    <string name="dones_title">Selesai</string>  
+    <string name="todo_details_title">Rincian Rencana</string>  
+    <string name="no_expire_date">Tidak ada tanggal kedaluwarsa</string>  
+    <string name="prompt_date_before_today">Waktu selesai tidak boleh lebih awal dari waktu saat ini</string>  
+    <string name="valid_date_range">Kisaran tanggal adalah 1970 hingga 1936</string>  
+    <string name="btn_done">Selesai</string>  
+    <string name="btn_cancel">Batal</string>  
+    <string name="todos_empty_info">Tidak ada item\n Sentuh untuk menambahkan Rencana baru</string>  
+    <string name="dones_empty_info">Tidak ada item</string>  
+    <string name="delete">Hapus</string>  
+    <string name="cancel">Batal</string>  
+    <string name="delete_item">Item ini akan dihapus</string>  
+    <string name="delete_selected_items">Item tersebut akan dihapus</string>  
+    <string name="done_time_format">Selesai pada %Y-%m-%d %H:%M</string>  
+    <string name="operator_failed">Gagal membatalkan favorit!</string>  
+    <string name="back_title">Catatan</string>  
+    <string name="back_message">Anda ingin selesai mengedit?</string>  
+    <string name="ok">OK</string>  
+    <string name="add_new_todo">Rencana Baru</string>  
+    <string name="edit_todo">Edit Rencana</string>  
+    <string name="todo_detail">Rincian Rencana</string>  
+    <string name="done_detail">Rincian Selesai</string> 
+</resources>

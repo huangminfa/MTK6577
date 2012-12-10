@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<com.android.settings.EpoProgressCategory 
+		android:title="@string/epo_profile_category"
+ 		android:key="epo_server_info_cat" >
+ 		<ListPreference android:key="profile_list" 
+			android:title="@string/epo_profile_title" 
+			android:persistent="false"/>
+		<EditTextPreference android:key="profile_name"
+			android:title="@string/epo_profile_name" 
+			android:summary="name" 
+			android:persistent="false"/>
+		<EditTextPreference android:key="profile_addr"
+			android:title="@string/epo_profile_address" 
+			android:summary="adderss" 
+			android:persistent="false"/>
+		<EditTextPreference android:key="profile_port"
+			android:title="@string/epo_profile_port" 
+			android:summary="port" 
+			android:persistent="false"/>
+		<EditTextPreference android:key="profile_username"
+			android:title="@string/epo_profile_usrname" 
+			android:summary="user name" 
+			android:persistent="false"/>
+		<EditTextPreference android:key="profile_password"
+			android:title="@string/epo_profile_password" 
+			android:password="true" 
+			android:persistent="false"/>
+ 	</com.android.settings.EpoProgressCategory>
+ 	
+ 	<PreferenceCategory android:title="@string/epo_update_settings">
+ 		<ListPreference android:key="update_period_list" 
+			android:title="@string/epo_update_period_title" 
+			android:summary="@string/epo_update_period_summary"
+			android:entries="@array/epo_update_period_title" 
+			android:entryValues="@array/epo_update_period_value" 
+			android:persistent="false"/>
+ 	</PreferenceCategory>
+ 	
+</PreferenceScreen>

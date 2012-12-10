@@ -1,0 +1,216 @@
+diff --git a/Android.mk b/Android.mk
+deleted file mode 100644
+index b45f78b..0000000
+--- a/Android.mk
++++ /dev/null
+@@ -1,151 +0,0 @@
+-LOCAL_PATH:= $(call my-dir)
+-
+-#
+-# libnfc
+-#
+-
+-include $(CLEAR_VARS)
+-
+-LOCAL_ARM_MODE := arm
+-
+-#phLibNfc
+-LOCAL_SRC_FILES:= \
+-	src/phLibNfc.c \
+-	src/phLibNfc_discovery.c \
+-	src/phLibNfc_initiator.c \
+-	src/phLibNfc_llcp.c \
+-	src/phLibNfc_Ioctl.c \
+-	src/phLibNfc_ndef_raw.c \
+-	src/phLibNfc_SE.c \
+-	src/phLibNfc_target.c
+-
+-#phHalNfc
+-LOCAL_SRC_FILES += src/phHal4Nfc_ADD.c
+-LOCAL_SRC_FILES += src/phHal4Nfc.c
+-LOCAL_SRC_FILES += src/phHal4Nfc_Emulation.c
+-LOCAL_SRC_FILES += src/phHal4Nfc_P2P.c
+-LOCAL_SRC_FILES += src/phHal4Nfc_Reader.c
+-
+-#phDnldNfc
+-LOCAL_SRC_FILES += src/phDnldNfc.c
+-
+-#phHciNfc
+-LOCAL_SRC_FILES += src/phHciNfc_AdminMgmt.c
+-LOCAL_SRC_FILES += src/phHciNfc.c
+-LOCAL_SRC_FILES += src/phHciNfc_CE_A.c
+-LOCAL_SRC_FILES += src/phHciNfc_CE_B.c
+-LOCAL_SRC_FILES += src/phHciNfc_DevMgmt.c
+-LOCAL_SRC_FILES += src/phHciNfc_Emulation.c
+-LOCAL_SRC_FILES += src/phHciNfc_Felica.c
+-LOCAL_SRC_FILES += src/phHciNfc_Generic.c
+-LOCAL_SRC_FILES += src/phHciNfc_IDMgmt.c
+-LOCAL_SRC_FILES += src/phHciNfc_ISO15693.c
+-LOCAL_SRC_FILES += src/phHciNfc_Jewel.c
+-LOCAL_SRC_FILES += src/phHciNfc_LinkMgmt.c
+-LOCAL_SRC_FILES += src/phHciNfc_NfcIPMgmt.c
+-LOCAL_SRC_FILES += src/phHciNfc_Pipe.c
+-LOCAL_SRC_FILES += src/phHciNfc_PollingLoop.c
+-LOCAL_SRC_FILES += src/phHciNfc_RFReaderA.c
+-LOCAL_SRC_FILES += src/phHciNfc_RFReaderB.c
+-LOCAL_SRC_FILES += src/phHciNfc_RFReader.c
+-LOCAL_SRC_FILES += src/phHciNfc_Sequence.c
+-LOCAL_SRC_FILES += src/phHciNfc_SWP.c
+-LOCAL_SRC_FILES += src/phHciNfc_WI.c
+-
+-#phLlcNfc
+-LOCAL_SRC_FILES += src/phLlcNfc.c
+-LOCAL_SRC_FILES += src/phLlcNfc_Frame.c
+-LOCAL_SRC_FILES += src/phLlcNfc_Interface.c
+-LOCAL_SRC_FILES += src/phLlcNfc_StateMachine.c
+-LOCAL_SRC_FILES += src/phLlcNfc_Timer.c
+-
+-#phFricNfc_Llcp
+-LOCAL_SRC_FILES += src/phFriNfc_Llcp.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpUtils.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpTransport.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpTransport_Connectionless.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpTransport_Connection.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpMac.c
+-LOCAL_SRC_FILES += src/phFriNfc_LlcpMacNfcip.c
+-
+-#phFriNfc_NdefMap
+-LOCAL_SRC_FILES += src/phFriNfc_FelicaMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_MifareStdMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_MifareULMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_MapTools.c
+-LOCAL_SRC_FILES += src/phFriNfc_TopazMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_TopazDynamicMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_DesfireMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_ISO15693Map.c
+-LOCAL_SRC_FILES += src/phFriNfc_NdefMap.c
+-LOCAL_SRC_FILES += src/phFriNfc_IntNdefMap.c
+-
+-#phFriNfc_NdefReg
+-LOCAL_SRC_FILES += src/phFriNfc_NdefReg.c
+-
+-#phFriNfc_SmtCrdFmt
+-LOCAL_SRC_FILES += src/phFriNfc_DesfireFormat.c
+-LOCAL_SRC_FILES += src/phFriNfc_MifULFormat.c
+-LOCAL_SRC_FILES += src/phFriNfc_MifStdFormat.c
+-LOCAL_SRC_FILES += src/phFriNfc_SmtCrdFmt.c
+-LOCAL_SRC_FILES += src/phFriNfc_ISO15693Format.c
+-
+-#phFriNfc_OvrHal
+-LOCAL_SRC_FILES += src/phFriNfc_OvrHal.c
+-
+-#phOsalNfc
+-LOCAL_SRC_FILES += Linux_x86/phOsalNfc_Timer.c
+-LOCAL_SRC_FILES += Linux_x86/phOsalNfc.c
+-LOCAL_SRC_FILES += Linux_x86/phOsalNfc_Utils.c
+-
+-#phDal4Nfc
+-LOCAL_SRC_FILES += Linux_x86/phDal4Nfc_uart.c
+-LOCAL_SRC_FILES += Linux_x86/phDal4Nfc.c
+-LOCAL_SRC_FILES += Linux_x86/phDal4Nfc_i2c.c
+-LOCAL_SRC_FILES += Linux_x86/phDal4Nfc_messageQueueLib.c
+-
+-LOCAL_CFLAGS += -DNXP_MESSAGING -DANDROID -DNFC_TIMER_CONTEXT -fno-strict-aliasing
+-
+-# Uncomment for Chipset command/responses
+-# Or use "setprop debug.nfc.LOW_LEVEL_TRACES" at run-time
+-# LOCAL_CFLAGS += -DLOW_LEVEL_TRACES
+-
+-# Uncomment for DAL traces
+-# LOCAL_CFLAGS += -DDEBUG -DDAL_TRACE
+-
+-# Uncomment for LLC traces
+-# LOCAL_CFLAGS += -DDEBUG -DLLC_TRACE
+-
+-# Uncomment for LLCP traces
+-# LOCAL_CFLAGS += -DDEBUG -DLLCP_TRACE
+-
+-# Uncomment for HCI traces
+-# LOCAL_CFLAGS += -DDEBUG -DHCI_TRACE
+-
+-#includes
+-LOCAL_CFLAGS += -I$(LOCAL_PATH)/inc
+-LOCAL_CFLAGS += -I$(LOCAL_PATH)/Linux_x86
+-LOCAL_CFLAGS += -I$(LOCAL_PATH)/src
+-
+-LOCAL_MODULE:= libnfc
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_SHARED_LIBRARIES := libcutils libnfc_ndef libdl libhardware
+-
+-include $(BUILD_SHARED_LIBRARY)
+-
+-#
+-# libnfc_ndef
+-#
+-
+-include $(CLEAR_VARS)
+-
+-LOCAL_SRC_FILES += src/phFriNfc_NdefRecord.c
+-
+-LOCAL_CFLAGS += -I$(LOCAL_PATH)/inc
+-LOCAL_CFLAGS += -I$(LOCAL_PATH)/src
+-
+-LOCAL_MODULE:= libnfc_ndef
+-LOCAL_MODULE_TAGS := optional
+-LOCAL_SHARED_LIBRARIES := libcutils
+-
+-include $(BUILD_SHARED_LIBRARY)
+diff --git a/CleanSpec.mk b/CleanSpec.mk
+deleted file mode 100644
+index 5a4aac6..0000000
+--- a/CleanSpec.mk
++++ /dev/null
+@@ -1,53 +0,0 @@
+-# Copyright (C) 2011 The Android Open Source Project
+-#
+-# Licensed under the Apache License, Version 2.0 (the "License");
+-# you may not use this file except in compliance with the License.
+-# You may obtain a copy of the License at
+-#
+-#      http://www.apache.org/licenses/LICENSE-2.0
+-#
+-# Unless required by applicable law or agreed to in writing, software
+-# distributed under the License is distributed on an "AS IS" BASIS,
+-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-# See the License for the specific language governing permissions and
+-# limitations under the License.
+-#
+-
+-# If you don't need to do a full clean build but would like to touch
+-# a file or delete some intermediate files, add a clean step to the end
+-# of the list.  These steps will only be run once, if they haven't been
+-# run before.
+-#
+-# E.g.:
+-#     $(call add-clean-step, touch -c external/sqlite/sqlite3.h)
+-#     $(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/STATIC_LIBRARIES/libz_intermediates)
+-#
+-# Always use "touch -c" and "rm -f" or "rm -rf" to gracefully deal with
+-# files that are missing or have been moved.
+-#
+-# Use $(PRODUCT_OUT) to get to the "out/target/product/blah/" directory.
+-# Use $(OUT_DIR) to refer to the "out" directory.
+-#
+-# If you need to re-do something that's already mentioned, just copy
+-# the command and add it to the bottom of the list.  E.g., if a change
+-# that you made last week required touching a file and a change you
+-# made today requires touching the same file, just copy the old
+-# touch step and add it to the end of the list.
+-#
+-# ************************************************
+-# NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
+-# ************************************************
+-
+-# For example:
+-#$(call add-clean-step, rm -rf $(OUT_DIR)/target/common/obj/APPS/AndroidTests_intermediates)
+-#$(call add-clean-step, rm -rf $(OUT_DIR)/target/common/obj/JAVA_LIBRARIES/core_intermediates)
+-#$(call add-clean-step, find $(OUT_DIR) -type f -name "IGTalkSession*" -print0 | xargs -0 rm -f)
+-#$(call add-clean-step, rm -rf $(PRODUCT_OUT)/data/*)
+-
+-# ************************************************
+-# NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
+-# ************************************************
+-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libnfc_intermediates/)
+-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libnfc_ndef_intermediates/)
+-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/libnfc.so)
+-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/libnfc_ndef.so)

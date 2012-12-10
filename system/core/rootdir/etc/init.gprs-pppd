@@ -1,0 +1,31 @@
+#!/system/bin/sh
+# An unforunate wrapper script 
+# so that the exit code of pppd may be retrieved
+
+
+# this is a workaround for issue #651747
+#trap "/system/bin/sleep 1;exit 0" TERM
+
+
+PPPD_PID=
+
+/system/bin/setprop "net.gprs.ppp-exit" ""
+
+ril3status=`getprop init.svc.ril3-daemon`
+/system/bin/log -t pppd $ril3status
+
+if [ "$ril3status" = "running" ]
+then
+    /system/bin/log -t pppd "Starting pppd_dt"
+    /system/bin/pppd_dt $*
+else
+    /system/bin/log -t pppd "Starting pppd general"
+    /system/bin/pppd $*
+fi
+
+PPPD_EXIT=$?
+PPPD_PID=$!
+
+/system/bin/log -t pppd "pppd exited with $PPPD_EXIT"
+
+/system/bin/setprop "net.gprs.ppp-exit" "$PPPD_EXIT"

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+>
+	<LinearLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	   
+	  android:orientation="vertical" 
+	  >
+	  
+	  	<TextView 
+	  	android:layout_marginLeft = "10dip"
+	  	android:id="@+id/BTRxTitle" 
+	  	android:text="@string/BTRxTitle"
+	  	android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		></TextView>
+	
+		
+		<!-- Rx Pattern type select -->
+		<LinearLayout android:id="@+id/LinearLayout" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:paddingTop="10dip"
+			android:layout_marginLeft = "10dip"
+			android:orientation="horizontal">
+	  
+		  	<TextView android:text="@string/RxPattern" 
+					android:id="@+id/RxPattern" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+					></TextView>
+		  	<Spinner android:id="@+id/RxPatternSpinner" 
+					android:layout_height="wrap_content" 
+					android:layout_width="180dip"></Spinner>
+		</LinearLayout>
+		
+		<!-- Rx Channel type select -->
+		<LinearLayout android:id="@+id/LinearLayout" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:paddingTop="10dip"
+			android:layout_marginLeft = "10dip"
+			android:orientation="horizontal">
+	  
+		  	<TextView android:text="@string/RxChannel" 
+					android:id="@+id/RxChannel" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+					></TextView>
+		  	<Spinner android:id="@+id/RxChannelSpinner" 
+					android:layout_height="wrap_content" 
+					android:layout_width="180dip"></Spinner>
+		</LinearLayout>
+		
+		<!--Frequency -->
+		<LinearLayout 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent" 
+			android:orientation="horizontal" 
+			android:layout_marginLeft = "10dip"
+			android:id="@+id/LinearLayout">
+			<TextView android:text="@string/RxFrequency" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+			></TextView>
+			<EditText 
+					android:id="@+id/RxFrequency" 
+					android:layout_width="180dip" 
+					android:layout_height="wrap_content"
+			></EditText>
+		</LinearLayout>
+		
+		<!-- Rx Packet type select -->
+		<LinearLayout android:id="@+id/LinearLayout" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:paddingTop="10dip"
+			android:layout_marginLeft = "10dip"
+			android:orientation="horizontal">
+	  
+		  	<TextView android:text="@string/RxPacketType" 
+					android:id="@+id/RxPacketType" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+					></TextView>
+		  	<Spinner android:id="@+id/RxPacketTypeSpinner" 
+					android:layout_height="wrap_content" 
+					android:layout_width="180dip"></Spinner>
+		</LinearLayout>
+		
+	
+		
+		<!--polling period value -->
+		<LinearLayout 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent" 
+			android:orientation="horizontal" 
+			android:layout_marginLeft = "10dip"
+			android:id="@+id/LinearLayout">
+			<TextView android:text="@string/RxPollPeriod" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+			></TextView>
+			<EditText 
+					android:id="@+id/RxPollPeriod" 
+					android:layout_width="180dip" 
+					android:layout_height="wrap_content"
+			></EditText>
+		
+		</LinearLayout>
+		<!--Access Code value -->
+		<LinearLayout 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent" 
+			android:orientation="horizontal" 
+			android:layout_marginLeft = "10dip"
+			android:id="@+id/LinearLayout">
+			<TextView android:text="@string/RxAccessCode" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+			></TextView>
+			<EditText 
+					android:id="@+id/RxAccessCode" 
+					android:layout_width="180dip" 
+					android:layout_height="wrap_content"
+			></EditText>
+		</LinearLayout>
+		
+		<!--data length value -->
+		<LinearLayout 
+			android:layout_height="wrap_content" 
+			android:layout_width="fill_parent" 
+			android:orientation="horizontal" 
+			android:layout_marginLeft = "10dip"
+			android:id="@+id/LinearLayout">
+			<TextView android:text="@string/RxDataLength" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+			></TextView>
+			<EditText 
+					android:id="@+id/RxDataLength" 
+					android:layout_width="180dip" 
+					android:layout_height="wrap_content"
+			></EditText>
+		</LinearLayout>
+		
+		<!-- Rx power control select -->
+		<LinearLayout android:id="@+id/LinearLayout" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:paddingTop="10dip"
+			android:layout_marginLeft = "10dip"
+			android:orientation="horizontal">
+	  
+		  	<CheckBox android:text="@string/RxPowerControl" 
+					android:id="@+id/RxPowerControl" 
+					android:layout_width="130dip" 
+					android:layout_height="wrap_content"
+					></CheckBox>
+		  	<Spinner android:id="@+id/RxPowerControlSpinner" 
+					android:layout_height="wrap_content" 
+					android:layout_width="120dip"></Spinner>
+			<Button android:text="@string/RxSetPwr" 
+					android:id="@+id/RxSetPwr" 
+					android:layout_width="60dip" 
+					android:layout_height="wrap_content"
+			></Button>
+		</LinearLayout>
+		
+		<!--Rx Written function -->
+		<CheckBox android:text="@string/RxWritten" 
+		android:id="@+id/RxWritten" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dip"
+		android:checked="false"></CheckBox>
+		
+		<!-- start/stop button-->
+		<LinearLayout android:id="@+id/LinearLayout" 
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:paddingTop="10dip"
+			android:layout_marginLeft = "10dip"
+			>
+	  
+		  	<Button android:text="@string/RxStart" 
+					android:id="@+id/RxStart" 
+					android:layout_width="155dip" 
+					android:layout_height="wrap_content"
+			></Button>
+			<Button android:text="@string/RxStop" 
+					android:id="@+id/RxStop" 
+					android:layout_width="155dip" 
+					android:layout_height="wrap_content"
+			></Button>
+		</LinearLayout>
+	  
+	</LinearLayout>
+</ScrollView>

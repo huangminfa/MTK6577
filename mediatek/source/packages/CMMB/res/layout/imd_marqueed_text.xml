@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">   
+        <ImageView android:id="@+id/half_control"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight ="true"		    
+		android:padding = "5dp"
+		android:scaleType="center"	        		
+		android:src="@drawable/ic_half_screen"
+		/>     
+	  <FrameLayout android:id="@+id/imd_content"
+	  android:layout_width="match_parent"
+	  android:layout_height="wrap_content"
+		        android:paddingLeft="12dp"
+		        android:paddingRight="12dp"	
+				android:layout_below="@id/half_control"
+	  			android:background="@color/player_control_bg">  
+		  <com.mediatek.cmmb.app.IMDDescriptionTextView android:id="@+id/description" 
+		        android:paddingTop="20dp"
+		        android:paddingBottom="20dp"	        
+		        android:layout_width="match_parent" 
+		        android:layout_height="wrap_content"
+		        />
+	  </FrameLayout>
+       
+</RelativeLayout>

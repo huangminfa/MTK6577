@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.preference.PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<android.preference.PreferenceCategory
+		android:title="@string/NetworkLocationSettings_title" android:key="@string/NetworkLocationSettings">
+		<android.preference.ListPreference
+			android:key="@string/networklocation_bindservice" android:title="@string/networklocation_bindservice_title"
+			android:summary="@string/networklocation_bindservice_summary"
+			android:dialogTitle="@string/networklocation_bindservice_listtitle"
+			android:entries="@array/networklocation_bindservice_entries"
+			android:entryValues="@array/networklocation_bindservice_entriesValues"
+			android:defaultValue="@string/networklocation_bindservice_entriesDefaultValues"
+			android:persistent="false" />
+		<android.preference.ListPreference
+			android:key="@string/geocoder_bindservice" android:title="@string/geocoder_bindservice_title"
+			android:summary="@string/geocoder_bindservice_summary"
+			android:dialogTitle="@string/geocoder_bindservice_listtitle"
+			android:entries="@array/geocoder_bindservice_entries"
+			android:entryValues="@array/geocoder_bindservice_entriesValues"
+			android:defaultValue="@string/geocoder_bindservice_entriesDefaultValues"
+			android:persistent="false" />
+		<android.preference.PreferenceScreen
+        	android:key="@string/use_limit" 
+        	android:title="@string/use_limit_title" 
+        	android:summary="@string/use_limit_sum"/>
+		<android.preference.ListPreference
+			android:key="@string/networklocation_reportfrequency" android:title="@string/networklocation_reportfrequency_title"
+			android:summary="@string/networklocation_reportfrequency_summary"
+			android:dialogTitle="@string/networklocation_reportfrequency_listtitle"
+			android:entries="@array/networklocation_reportfrequency_entries"
+			android:entryValues="@array/networklocation_reportfrequency_entriesValues"
+			android:defaultValue="@string/networklocation_reportfrequency_entriesDefaultValues"
+			android:persistent="false" />
+		<android.preference.CheckBoxPreference
+			android:key="@string/networklocation_testmodel" android:title="@string/networklocation_testmodel_title"
+			android:summaryOff="@string/networklocation_testmodel_Summary_off"
+			android:summaryOn="@string/networklocation_testmodel_Summary_on"
+			android:persistent="false" />
+	</android.preference.PreferenceCategory>
+</android.preference.PreferenceScreen>

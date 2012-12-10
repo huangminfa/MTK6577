@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label" msgid="3070921713463294774">"Download"</string>
+    <string name="download_title_sorted_by_date" msgid="5898014492155434221">"Download - Ordinati per data"</string>
+    <string name="download_title_sorted_by_size" msgid="1417193166677094813">"Download - Ordinati per dimensione"</string>
+    <string name="no_downloads" msgid="1029667411186146836">"Nessun download."</string>
+    <string name="missing_title" msgid="830115697868833773">"&lt;Sconosciuto&gt;"</string>
+    <string name="button_sort_by_size" msgid="7331549713691146251">"Ordina per dimensione"</string>
+    <string name="button_sort_by_date" msgid="8800842892684101528">"Ordina per data"</string>
+    <string name="download_queued" msgid="104973307780629904">"In coda"</string>
+    <string name="download_running" msgid="4656462962155580641">"In corso"</string>
+    <string name="download_success" msgid="7006048006543495236">"Completato"</string>
+    <string name="download_error" msgid="3107369653921738690">"Non riuscito"</string>
+    <string name="dialog_title_not_available" msgid="4479021195995400471">"Download non riuscito"</string>
+    <string name="dialog_failed_body" msgid="587545111677064427">"Riprovare il download del file più tardi o eliminarlo dalla coda?"</string>
+    <string name="dialog_title_queued_body" msgid="3062862079904954824">"File non ancora disponib."</string>
+    <string name="dialog_queued_body" msgid="2506935748423351902">"Questo file è in coda per un futuro download."</string>
+    <string name="dialog_file_missing_body" msgid="2783781332668129395">"Impossibile trovare il file scaricato."</string>
+    <string name="dialog_insufficient_space_on_external" msgid="7534108515812329821">"Impossibile terminare il download. Spazio insufficiente nella memoria esterna."</string>
+    <string name="dialog_insufficient_space_on_cache" msgid="8387210487235302129">"Impossibile terminare il download. Spazio insufficiente nella memoria interna per i download."</string>
+    <string name="dialog_cannot_resume" msgid="7704082031608361756">"Download interrotto. Impossibile ripristinarlo."</string>
+    <string name="dialog_file_already_exists" msgid="2663737850617642888">"Impossibile eseguire il download. File di destinazione già esistente."</string>
+    <string name="dialog_media_not_found" msgid="5308602145105720991">"Impossibile eseguire il download. Il supporto esterno non è disponibile."</string>
+    <string name="download_no_application_title" msgid="3501359021635168387">"Impossibile aprire il file"</string>
+    <string name="remove_download" msgid="6372920256257247857">"Rimuovi"</string>
+    <string name="delete_download" msgid="76629022653866471">"Elimina"</string>
+    <string name="keep_queued_download" msgid="5144882786014818569">"Conserva"</string>
+    <string name="cancel_running_download" msgid="5232704030969221112">"Annulla"</string>
+    <string name="retry_download" msgid="7617100787922717912">"Riprova"</string>
+    <string name="deselect_all" msgid="7986832738563338661">"Deseleziona tutto"</string>
+    <string name="select_all" msgid="5854385570247421586">"Seleziona tutto"</string>
+    <string name="selected_count" msgid="2101564570019753277">"Selezionati <xliff:g id="NUMBER">%1$d</xliff:g> di <xliff:g id="TOTAL">%2$d</xliff:g>"</string>
+    <string name="download_share_dialog" msgid="3355867339806448955">"Condividi tramite"</string>
+     
+    <!-- Status messages -->
+    <string name="download_error_insufficient_memory">Memoria insufficiente</string>
+    <string name="download_error_invalid_descriptor">Descrittore non valido</string>
+    <string name="download_error_invalid_ddversion">DDVersion non valido</string>
+    <string name="download_error_attribute_mismatch">Mancata corrispondenza attributi</string>
+    <string name="download_paused">In pasua</string>
+    
+    <!-- Dialog messages -->
+    <!-- ALert dialog title to show authenticate -->
+    <string name="authenticate_dialog_title">Inserire nome utente e password.</string>
+    <string name="username">Nome</string>
+    <string name="password">Password</string>
+    <string name="action">"Accedi"</string>
+    <string name="cancel">"Annulla"</string>
+    <string name="ok">OK</string>
+    
+    <!-- Prompt dialog to show oma download information -->
+    <string name="confirm_oma_download_title">Confermare il download?</string>
+    <string name="oma_download_name">Nome:</string>
+    <string name="oma_download_vendor">Fornitore:</string>
+    <string name="oma_download_type">Tipo:</string>
+    <string name="oma_download_size">Formato:</string>
+    <string name="oma_download_description">Descrizione:</string>
+    <string name="oma_download_content_not_supported" product="tablet">Contenuto non supportato sul dispositivo. Nessuna applicazione può aprire il file. Eseguire il download?</string>  
+    <string name="oma_download_content_not_supported" product="default">Il contenuto non è supportato dal telefono. Non è stata trovata nessuna applicazione per aprire questo file. Si desidera comunque scaricarlo?</string>
+    <string name="confirm_oma_download_next_url">Download completato. Link all\'URL successivo?</string>
+    
+    <!-- Add to support Reusme download  -->
+    <string name="pause">Pausa</string>
+    <string name="resume">Riprendi</string>
+    
+    <!-- Add to show delete download failed  -->
+    <string name="delete_failed_with_SDcard">Impossibile eliminare file. Scheda SD non disponibile</string>
+    
+    <string name="share_download">Condividi</string>
+</resources>

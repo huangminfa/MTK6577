@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright Statement:
+
+    This software/firmware and related documentation ("MediaTek Software") are
+    protected under relevant copyright laws. The information contained herein
+    is confidential and proprietary to MediaTek Inc. and/or its licensors.
+    Without the prior written permission of MediaTek inc. and/or its licensors,
+    any reproduction, modification, use or disclosure of MediaTek Software,
+    and information contained herein, in whole or in part, shall be strictly prohibited.
+
+    MediaTek Inc. (C) 2012. All rights reserved.
+
+    BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+    THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+    RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER ON
+    AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+    NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+    SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+    SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES TO LOOK ONLY TO SUCH
+    THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. RECEIVER EXPRESSLY ACKNOWLEDGES
+    THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES
+    CONTAINED IN MEDIATEK SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK
+    SOFTWARE RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
+    STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND
+    CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE,
+    AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+    OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY RECEIVER TO
+    MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+
+    The following software/firmware and/or related documentation ("MediaTek Software")
+    have been modified by MediaTek Inc. All revisions are subject to any receiver's
+    applicable license agreements with MediaTek Inc.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="not_add_more_text">"Δεν είναι δυνατή η προσθήκη περισσότερου κειμένου"</string>  
+    <string name="message_compose_foward_profix">Προώθ.</string>  
+    <string name="message_compose_reply_profix">Απ.</string>  
+    <!-- message compose add attachment -->  
+    <string name="attach_image">Φωτογραφία</string>  
+    <string name="attach_video">Βίντεο</string>  
+    <string name="attach_sound">Μουσική</string>  
+    <string name="attach_contact">Επαφές</string>  
+    <string name="attach_file">Αρχείο</string>  
+    <string name="attach_calender">Ημερολόγιο</string>  
+    <string name="attach_error_occurred">Καμία εφαρμογή δεν υποστηρίζει αυτό το είδος συνημμένου.</string>  
+    <!-- Toast for telling user the email service stopped when low storage -->  
+    <string name="low_storage_service_stop">Η υπηρεσία E-mail διακόπηκε λόγω χαμηλού χώρου αποθήκευσης</string>  
+    <!-- Toast for hint user to delete unused emails to reclaim storage -->  
+    <string name="low_storage_hint_delete_mail">Μπορείτε να διαγράψετε Ε-mail ή εφαρμογές που δεν χρησιμοποιείτε για επανάκτηση του χώρου αποθήκευσης</string>  
+    <!-- Toast for telling user the email service started when storage ok-->  
+    <string name="low_storage_service_start">Έγινε επανεκκίνηση της υπηρεσίας Ε-mail επειδή τώρα ο χώρος αποθήκευσης επαρκεί</string>  
+    <!-- Toast for telling user can not download attachment due to low storage -->  
+    <string name="low_storage_attachment_cannot_download">Δεν είναι δυνατή η λήψη συνημμένου λόγω περιορισμένου χώρου αποθήκευσης</string>  
+    <!-- Toast for telling user can not view attachment due to low storage -->  
+    <string name="low_storage_attachment_cannot_view">Δεν είναι δυνατή η προβολή συνημμένου λόγω περιορισμένου χώρου αποθήκευσης</string>  
+    <!-- Download remaining of the message when view a partial downloaded message -->  
+    <string name="download_remaining">Υπόλοιπο λήψης</string>  
+    <string name="downloading_remaining">Γίνεται φόρτωση …</string>  
+    <!-- Dialog title when user syncing manually without active network -->  
+    <string name="unable_to_connect">Δεν είναι δυνατή η σύνδεση</string>  
+    <!-- Dialog text when user syncing manually without active network  -->  
+    <string name="need_connection_prompt">"Απαιτείται σύνδεση σε δίκτυο για τη χρήση αυτής της εφαρμογής. Ενεργοποιήστε το δίκτυο κινητής τηλεφωνίας ή το WiFi από τις "Ρυθμίσεις"."</string>  
+    <!-- Button text in the connection alert dialog -->  
+    <string name="connection_settings">"Ρυθμίσεις"</string>  
+    <!-- limit of attachment number, when share more than 100+ attachments -->  
+    <string name="too_many_attachments">Δεν είναι δυνατή η επισύναψη πολλών συνημμένων. Μόνο τα πρώτα 
+        <xliff:g id="currentCount">%1$d</xliff:g> συνημμένα θα προστεθούν.
+    </string>  
+    <!-- limit of attachment number, when the current number >100 -->  
+    <string name="not_add_more_attachments">Δεν είναι δυνατή η προσθήκη περισσότερων συνημμένων. Υπάρχει όριο 
+        <xliff:g id="maxLimit">%1$d</xliff:g> συνημμένων.
+    </string>  
+    <string name="attachment_overflow">Υπερχείλιση συνημμένων</string>  
+    <!-- String which used to show toast when some attachment cannot be attached -->  
+    <string name="cannot_add_this_attachment">Δεν είναι δυνατή η προσθήκη αυτού του συνημμένου</string>  
+    <string name="loading_attachment">Φόρτωση συνημμένων...</string> 
+    <!-- Open eml message -->  
+    <string name="open_message_parsing">Ανάλυση του μηνύματος...</string>  
+    <string name="open_message_update_db">Ενημέρωση βάσης δεδομένων...</string>  
+    <string name="open_message_update_ui">Φόρτωση του μηνύματος...</string>  
+    <string name="please_wait">Η ενέργεια εκτελείται. Περιμένετε...</string> 
+    <string name="delete_message_dialog_title">Διαγραφή μηνύματος.</string>  
+    <string name="delete_message_confirm">Να διαγραφεί αυτό το μήνυμα;</string> 
+    <string name="attachment_info_deleted">"Δεν είναι δυνατή η αποθήκευση ή το άνοιγμα αυτού του συνημμένου, επειδή αυτό το συνημμένο ενδέχεται να έχει διαγραφεί."</string>  
+    <string name="send_failed_ticker">Ο λογαριασμός 
+        <xliff:g id="account_name">%s</xliff:g> απέτυχε στην αποστολή E-mail.
+    </string>  
+    <!-- Notification title when email sent fails [CHAR LIMIT=30]-->  
+    <string name="send_failed_title">Αποτυχία αποστολής E-mail</string>  
+    <string name="always_bcc_myself">Πάντα ιδιαίτ. κοιν. σε εμένα</string>  
+    <string name="always_bcc_myself_summary">Πάντα ιδιαίτ. κοιν. σε εμένα κατά τη σύνταξη, απάντηση και προώθηση</string> 
+    <string name="general_preference_auto_download_remaining_label">Αυτόματες λήψεις που απομένουν</string>  
+    <string name="general_preference_auto_download_remaining_summary">Σώμα αυτόματων λήψεων που απομένει κατά την κύλιση προς τα κάτω</string>
+    <string name="edit_compose_quoted_text_label">Ενσωματωμένη απόκριση</string> 
+    <string name="remote_search_failed">Η αναζήτηση του διακομιστή απέτυχε!</string>
+</resources>

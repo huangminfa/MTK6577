@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/device_mgr">
+    
+        <ListPreference
+            android:key="sms_auto_reg"
+            android:title="@string/device_mgr_sms_auto_reg"
+            android:summary="Disabled"
+            android:persistent="true"
+            android:entries="@array/device_mgr_entries"
+            android:entryValues="@array/device_mgr_values" />
+                   
+       
+</PreferenceScreen>
+

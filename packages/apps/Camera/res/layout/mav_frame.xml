@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.android.camera.ui.RotateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mav_indicator"
+    android:layout_width="wrap_content"
+	android:layout_height="match_parent" >
+	<RelativeLayout 
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:paddingLeft="90dp" >
+	    <FrameLayout
+	        android:id="@+id/up_background"
+	        android:layout_width="253dp"
+	        android:layout_height="match_parent"
+	        android:background="@color/mav_text_background"
+	        android:layout_above="@+id/mav_capture_indicator">                   
+		    <TextView android:id="@+id/text_indicator"
+		        android:layout_width="253dp"
+		        android:layout_height="wrap_content"
+		        android:paddingTop="30dp"
+		        android:paddingLeft="30dp"
+		        android:paddingRight="30dp"
+		        android:paddingBottom="50dp"
+		        android:layout_gravity="bottom"/>
+	    </FrameLayout>
+	    <FrameLayout
+	        android:id="@id/mav_capture_indicator"
+	        android:layout_height="40dp"
+	        android:layout_width="253dp"
+	        android:layout_above="@+id/down_background" >
+		     <ImageView android:id="@+id/center_indicator"
+		         android:layout_width="match_parent"
+		         android:layout_height="wrap_content" />
+		     <ImageView android:id="@+id/center_start"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_gravity="left|center"
+		         android:paddingLeft="8dp"/>
+		     <ImageView android:id="@+id/center_done"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_gravity="right|center"
+		         android:paddingRight="8dp"/>
+	    </FrameLayout>
+	    <ImageView android:id="@id/down_background"
+	        android:layout_width="253dp"
+	        android:layout_height="40dp"
+	        android:background="@color/mav_text_background"
+	        android:layout_alignParentBottom="true"/>
+		<ProgressBar android:id="@+id/mav_progress"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="102dp"
+		    android:layout_above="@id/down_background"
+		    android:visibility="gone" />    
+	</RelativeLayout>
+</com.android.camera.ui.RotateLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="proxy_error">
+        <item>地址字段不能为空</item>
+        <item>端口字段不能为空</item>
+        <item>无效地址</item>
+        <item>无效端口</item>
+    </string-array>
+</resources>

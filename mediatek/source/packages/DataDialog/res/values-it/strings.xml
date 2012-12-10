@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DataDialog</string>
+    <string name="dialog_content">Modificare la connessione dati per la transazione MMS?</string>
+    <string name="dialog_title">Modifica connessione dati</string>
+    <string name="dialog_continue">Continua</string>
+    <string name="dialog_cancel">Annulla</string>
+</resources>

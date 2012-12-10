@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+  
+  android:layout_height="wrap_content" android:orientation="vertical" android:layout_width="fill_parent">
+
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">
+		<Button android:layout_height="wrap_content" android:id="@+id/Sim1" android:text="@string/SIM1" android:layout_width="120dip"></Button>
+		<Button android:layout_height="wrap_content" android:id="@+id/Sim2" android:text="@string/SIM2" android:layout_width="120dip"></Button>
+	</LinearLayout>
+
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="vertical" android:id="@+id/LinearLayout">
+		<EditText android:layout_height="wrap_content" android:id="@+id/IMEI_VALUE" android:layout_width="fill_parent" android:numeric="decimal" android:maxLength="15"></EditText>
+		<Button android:layout_height="wrap_content" android:id="@+id/IMEI" android:text="@string/IMEI" android:layout_width="120dip"></Button>
+	</LinearLayout>
+
+  	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="vertical" android:id="@+id/LinearLayout">
+  	     <TextView android:id="@+id/DefSIMText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone"  android:text="@string/DefSIMText" />
+		<RadioGroup  android:id="@+id/DefSIM"  android:layout_width="wrap_content"  android:layout_height="wrap_content"  android:orientation="horizontal" android:visibility="gone"  android:layout_x="20px"  android:layout_y="40px">   
+		    <RadioButton android:id="@+id/SIM1Enabled" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"  android:text="@string/default_sim1" ></RadioButton>
+		    <RadioButton android:id="@+id/SIM2Enabled" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"  android:text="@string/default_sim2" ></RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+	
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">
+		<Button android:layout_height="wrap_content" android:id="@+id/Attached" android:text="@string/GPRS_Attached" android:layout_width="120dip"></Button>
+		<Button android:layout_height="wrap_content" android:id="@+id/Detached" android:text="@string/GPRS_Detached" android:layout_width="120dip"></Button>
+    </LinearLayout>
+    
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">		
+		<Button android:layout_height="wrap_content" android:id="@+id/FastDormancy" android:text="@string/GPRS_FD" android:layout_width="120dip"></Button>
+		<Button android:layout_height="wrap_content" android:id="@+id/ConfigFD" android:text="@string/GPRS_ConfigFD" android:layout_width="120dip"></Button>
+	</LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">		
+		<RadioGroup  android:id="@+id/GprsAttachType"  android:layout_width="wrap_content"  android:layout_height="212px"  android:orientation="vertical"  android:layout_x="20px"  android:layout_y="40px">   
+		    <RadioButton      android:id="@+id/GprsAlwaysAttach"    android:layout_width="wrap_content"      android:layout_height="wrap_content"      android:text="@string/GPRS_ALWAYS_ATTACH"></RadioButton>
+		    <RadioButton      android:id="@+id/GprsWhenNeeded"      android:layout_width="wrap_content"      android:layout_height="wrap_content"      android:text="@string/GPRS_WHEN_NEEDED"></RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal">		
+		<Button android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/always_mode_continue" android:text="@string/GPRS_ALWAYS_ATTACH_CONTINUE" android:layout_width="wrap_content"></Button>
+		<Button android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/when_needed_continue" android:text="@string/GPRS_WHEN_NEEDED_CONTINUE" android:layout_width="wrap_content"></Button>
+        <Button android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/not_specify" android:text="@string/GPRS_CANCEL_SPECIFY" android:layout_width="wrap_content"></Button>
+	</LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">		
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout">
+			<EditText android:id="@+id/GprsFdOnTimer" android:numeric="integer" android:layout_height="wrap_content" android:layout_width="60dip"></EditText>
+			<Button android:text="@string/GPRS_FD_SCREEN_ON" android:id="@+id/SendFdOnTimer" android:layout_height="wrap_content" android:layout_width="fill_parent"></Button>
+		</LinearLayout>
+    </LinearLayout>		
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">		
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout">
+			<EditText android:id="@+id/GprsFdOffTimer" android:numeric="integer" android:layout_height="wrap_content" android:layout_width="60dip"></EditText>
+			<Button android:text="@string/GPRS_FD_SCREEN_OFF" android:id="@+id/SendFdOffTimer" android:layout_height="wrap_content" android:layout_width="fill_parent"></Button>
+		</LinearLayout>				
+	</LinearLayout>
+	
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/LinearLayout">
+		<RadioGroup android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/PDPSelect">
+			<RadioButton android:layout_height="wrap_content" android:id="@+id/FirstPDP" android:text="@string/GPRS_1st_PDP" android:layout_weight="1" android:layout_width="fill_parent"></RadioButton>
+			<RadioButton android:layout_height="wrap_content" android:text="@string/GPRS_2nd_PDP" android:id="@+id/SecondPDP" android:layout_weight="1" android:layout_width="fill_parent"></RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+	
+	<LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout" android:layout_width="fill_parent">
+		<View android:layout_width="fill_parent" android:id="@+id/SpacerTop" android:layout_height="1dip" android:layout_marginBottom="6dip" android:layout_marginTop="6dip" android:background="#00FF00"></View>
+	</LinearLayout>
+	
+	<TableLayout android:layout_height="wrap_content" android:id="@+id/TableLayout" android:layout_width="fill_parent">
+		<LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout" android:layout_width="fill_parent">
+			<RadioGroup android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:id="@+id/UsageSelect">
+				<RadioButton android:layout_height="wrap_content" android:id="@+id/Primary" android:text="@string/GPRS_As_Primary" android:layout_weight="1" android:layout_width="fill_parent"></RadioButton>
+				<RadioButton android:layout_height="wrap_content" android:id="@+id/Secondary" android:text="@string/GPRS_As_Secondary" android:layout_weight="1" android:layout_width="fill_parent"></RadioButton>
+			</RadioGroup>
+		</LinearLayout>
+		<LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout" android:layout_width="fill_parent">
+			<Spinner android:id="@+id/ContextNumber" android:layout_height="wrap_content" android:layout_width="240dip"></Spinner>
+		</LinearLayout>
+		<LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout" android:layout_width="fill_parent" android:orientation="horizontal">
+			<Button android:text="@string/GPRS_Activate_PDP" android:id="@+id/Activate" android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/GPRS_Deactivate_PDP" android:id="@+id/Deactivate" android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+		</LinearLayout>
+		<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout">
+			<EditText android:text="@string/GPRS_1000" android:id="@+id/DataLength" android:numeric="integer" android:layout_height="wrap_content" android:layout_width="120dip"></EditText>
+			<Button android:text="@string/GPRS_Send_Data" android:id="@+id/SendData" android:layout_height="wrap_content" android:layout_width="120dip"></Button>
+		</LinearLayout>
+	</TableLayout>
+<!--	
+	<LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout" android:layout_width="fill_parent">
+		<View android:layout_width="fill_parent" android:id="@+id/SpacerTop" android:layout_height="1dip" android:layout_marginBottom="6dip" android:layout_marginTop="6dip" android:background="#00FF00"></View>
+	</LinearLayout>
+-->
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="9095072584761066851">"সার্টিফিকেট ইনস্টলার"</string>
+    <string name="pick_file_title" msgid="540508675168568249">"একটি সার্টিফিকেট বেছে নিন"</string>
+    <string name="pkcs12_password_dialog_title" msgid="4698023326961869428">" PKCS12 কি স্টোর থেকে এক্সট্র্যাক্ট করুন"</string>
+    <string name="extracting_pkcs12" msgid="5687649614233029807">"এক্সট্র্যাক্ট করা হচ্ছে…"</string>
+    <string name="pkcs12_file_password_dialog_title" msgid="8102721384767269510">" %s থেকে এক্সট্র্যাক্ট করুন"</string>
+    <string name="name_credential_dialog_title" msgid="277729846491554437">"সার্টিফিকেটের নাম দিন"</string>
+    <string name="credential_name" msgid="1974979771369744378">"সার্টিফিকেটের নাম:"</string>
+    <string name="credential_password" msgid="5251535810456146069">"সার্টিফিকেট এক্সট্র্যাক্ট করার জন্য পাসওয়ার্ড প্রবেশ করান"</string>
+    <string name="credential_info" msgid="2436768402308470397">"প্যাকেজের মধ্যে রয়েছে:"</string>
+    <string name="p12_description" msgid="4128352087331630024">"PKCS12 কিস্টোরে সার্টিফিকেট।"</string>
+    <string name="one_userkey" msgid="3500697912370644881">"একটি ব্যবহারকারী কি"</string>
+    <string name="one_usercrt" msgid="7690798336332403106">"একটি ব্যবহারকারী সার্টিফিকেট"</string>
+    <string name="one_cacrt" msgid="2667950425420663146">"একটি সিএ সার্টিফিকেট"</string>
+    <string name="n_cacrts" msgid="2141498640685639208">"%d সিএ সার্টিফিকেট"</string>
+    <string name="password_error" msgid="1441470604400783036">"সঠিক পাসওয়ার্ড প্রবেশ করান"</string>
+    <string name="password_empty_error" msgid="5805075735548023047">"পাসওয়ার্ড প্রবেশ করান"</string>
+    <string name="name_empty_error" msgid="7655653930227877414">"নাম প্রবেশ করান"</string>
+    <string name="name_char_error" msgid="4674369917792581202">"এমন একটি নাম প্রবেশ করান যাতে কেবল বর্ণ ও সংখ্যা রয়েছে।"</string>
+    <string name="storage_error" msgid="3375395655677579149">"সার্টিফিকেট সংরক্ষণ করতে সক্ষম নয়। আবার চেষ্টা করতে ওকে-তে ক্লিক করুন।"</string>
+    <string name="unable_to_save_cert" msgid="864273038676458624">"সার্টিফিকেট সংরক্ষণ করতে সক্ষম নয়। প্রমাণ-পত্রের সংরক্ষণাগার সক্রিয় নয় অথবা সথাযথভাবে ইনিশিয়ালাইজ করা হয়নি।"</string>
+    <string name="cert_not_saved" msgid="4037698479662830270">"সার্টিফিকেট ইনস্টল করা হয়নি।"</string>
+    <string name="no_cert_to_saved" msgid="5708884372817309068">"ইনস্টল করার জন্য কোন সার্টিফিকেট নেই।"</string>
+    <string name="intent_parse_error" msgid="145359819508990047">"ইটেন্ট পার্স করতে অক্ষম: %s"</string>
+    <string name="cert_is_added" msgid="6996557598167000500">"<xliff:g id="credential">%s</xliff:g> ইনস্টল করা হয়েছে।"</string>
+    <string name="cert_too_large_error" msgid="8806716564341320607">"ইনস্টল করতে ব্যর্থ হয়েছে। সার্টিফিকেটের আকার অনেক বড়।"</string>
+    <string name="cert_missing_error" msgid="4220080091005628628">"ইনস্টল করতে ব্যর্থ হয়েছে। সার্টিফিকেট ফাইল খুজে পায়নি।"</string>
+    <string name="cert_read_error" msgid="9120813657318906215">"ইনস্টল করতে ব্যর্থ হয়েছে। সার্টিফিকেট ফাইল পড়তে পারেনি।"</string>
+    <string name="no_cert_file_found" product="nosdcard" msgid="3555332946357131929">"ইউএসবি স্টোরেজে কোন সার্টিফিকেট ফাইল পাওয়া যায়নি।"</string>
+    <string name="no_cert_file_found" product="default" msgid="1942077544887243999">"এসডি কার্ডে কোন সার্টিফিকেট  ফাইল পাওয়া যায়নি।"</string>
+    <string name="sdcard_not_present" product="nosdcard" msgid="9197143240492611196">"ইউএসবি স্টোরেজ নেই।"</string>
+    <string name="sdcard_not_present" product="default" msgid="1567335300760018448">"এসডি কার্ড নেই।"</string>
+</resources>

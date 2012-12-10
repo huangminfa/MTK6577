@@ -1,0 +1,25 @@
+<resources><item type="id" name="LinerLayout_Satellate"></item>
+<item type="id" name="LinerLayout_Info"></item>
+<item type="id" name="LinerLayout_NMEA"></item>
+<item type="id" name="LinerLayout_GPStest"></item>
+<item type="id" name="Button_NMEA_start"></item>
+<item type="id" name="Button_NMEA_clear"></item>
+<item type="id" name="Button_NMEA_save"></item>
+<item type="id" name="Button_GPStest_start"></item>
+<item type="id" name="EditView_GPStest_times"></item>
+<item type="id" name="EditView_GPStest_interval"></item>
+<item type="id" name="TextView_GPStest_times"></item>
+<item type="id" name="TextView_GPStest_interval"></item>
+<item type="id" name="txt_NmeaLog"></item>
+<item type="id" name="Button_NMEA_stop"></item>
+<item type="id" name="txt_CurrentTimesTag"></item>
+<item type="id" name="txt_CurrentTimes"></item>
+<item name="CheckBox_Need3DFix" type="id"></item>
+<item type="id" name="txt_last_ttff_tag"></item>
+<item type="id" name="txt_Reconnect_Countdown_tag"></item>
+<item type="id" name="txt_last_ttff"></item>
+<item name="txt_Reconnect_Countdown" type="id"></item>
+<item type="id" name="Button_GPStest_stop"></item>
+<item name="txt_mean_ttff" type="id"></item>
+<item type="id" name="txt_NmeaHint"></item>
+</resources>

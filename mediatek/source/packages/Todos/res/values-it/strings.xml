@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="app_name">Da fare</string>  
+    <string name="app_header">Da fare</string>  
+    <string name="todos_title">DA FARE</string>  
+    <string name="dones_title">"Fine"</string>  
+    <string name="todo_details_title">Dettagli Da fare</string>  
+    <string name="no_expire_date">Nessuna data di scadenza</string>  
+    <string name="prompt_date_before_today">Il tempo di completamento non può essere inferiore al tempo attuale</string>  
+    <string name="valid_date_range">"L'intervallo date è dal 1970 al 1936"</string>  
+    <string name="btn_done">"Fine"</string>  
+    <string name="btn_cancel">Annulla</string>  
+    <string name="todos_empty_info">Nessun elemento\n Toccare per aggiungere un nuovo Da fare</string>  
+    <string name="dones_empty_info">Nessun elemento</string>  
+    <string name="delete">"Elimina"</string>  
+    <string name="cancel">Annulla</string>  
+    <string name="delete_item">Questo elemento verrà eliminato</string>  
+    <string name="delete_selected_items">Questi elementi verranno eliminati</string>  
+    <string name="done_time_format">Fatto il giorno %Y-%m-%d %H:%M</string>  
+    <string name="operator_failed">Eliminazione dai preferiti non riuscita!</string>  
+    <string name="back_title">Nota</string>  
+    <string name="back_message">Abbandonare la modifica attuale?</string>  
+    <string name="ok">OK</string>  
+    <string name="add_new_todo">Nuovo Da fare</string>  
+    <string name="edit_todo">Modifica Da fare</string>  
+    <string name="todo_detail">Dettaglio Da fare</string>  
+    <string name="done_detail">Dettaglio Fatto</string> 
+</resources>

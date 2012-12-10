@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC menu</string>
+        
+    <string name="entrance_ewallet">Orange eWallet</string>
+    <string name="entrance_writing">Tag writing</string>
+    <string name="entrance_settings">Settings</string>
+    <string name="entrance_history">Tag history</string>
+    
+    <string name="label_activity_tag_write">Tag writing</string>
+    <string name="history_tab_label_read">Tag read</string>
+    <string name="history_tab_label_write">Tag written</string>
+    <string name="msg_turn_on_nfc">NFC has not been turned on yet.Turn it on now?</string>
+    
+    <!-- Tag write -->
+    <string name="label_edit_tag_activity">Write a tag</string> 
+    <string name="label_write_tag_activity">TagWriter</string> 
+    <string name="label_lock_tag">Lock this tag after writing</string>    
+    <string name="text_write_btn">Start writing</string>    
+    <string name="write_stage_title_done">Done</string>
+    <string name="write_stage_title_done_count">Done (%1$d)</string>
+    <string name="write_status_scan">Please tap your tag with the back of your mobile device.</string>
+    <string name="write_status_writing">Writing&#8230;</string>
+    <string name="write_status_done">Your information has been correctly written into your tag.</string>
+    <string name="write_status_not_empty">The tag already contains some information.\n\n 
+        Do you want to remove it permanently and rewrite your tag?</string>
+    <string name="write_status_title_not_empty">Tag not empty</string>
+    <string name="write_status_message_too_big">The content size you want to write is too big. \n\n 
+        Message size:\t %1$d bits \n\n Tag capability:\t %2$d bits\n\n
+        Change the tag or reduce the content.</string>
+    <string name="write_status_title_message_too_big">Content size too big</string>
+    <string name="write_status_error">Tag written operation did not finish correctly.\n\n %1$s\n\n Do you wish to try again?</string>
+    
+    <string name="btn_text_ok">OK</string>
+    <string name="btn_text_retry">Retry</string>
+    <string name="msg_lock_tag_warning">The tag will be locked and read-only after writing. 
+    	This is a one-way process and cannot be reverted! Sure to do this?</string>
+    
+    <string name="write_error_readonly">The tag is read only.</string>
+    <string name="write_error_not_support_ndef">The tag does not support NDEF format.</string>
+    <string name="write_error_exception">Exception happened while writing.</string>
+    
+    <string name="history_list_empty">No history to show</string>
+    <string name="msg_turn_on_nfc_before_write">You must turn on NFC before writing a tag. 
+                Turn it on now?</string>
+    
+    <!-- Tag read -->
+    <string name="label_read_tag_activity">New tag read</string> 
+    <string name="text_read_btn">Preview</string> 
+    
+    <!-- Plain text -->
+    <string name="tag_title_text">Write a note</string>    
+    <string name="edit_view_text_title">CONTENT</string> 
+    <string name="edit_view_text_hint">Enter text you want to save into tag</string>    
+    <string name="read_view_text_title">Content</string>
+    <string name="read_view_type_info_text_title">Note tag</string>
+    <string name="read_view_type_info_text_summary">The below content is saved in tag read history.</string>
+    <string name="read_view_button_action_str_text">OK</string>
+    <string name="history_item_summary_text">Plain text</string>
+        
+    <!-- Phone number -->
+    <string name="tag_title_phone_num">Write a call</string>    
+    <string name="edit_view_phone_description_label">NAME</string> 
+    <string name="edit_view_ussd_description_label">ACCOUNT INFORMATION</string> 
+    <string name="edit_view_phone_number_label">NUMBER</string>   
+    <string name="read_view_phone_description_label">NAME</string> 
+    <string name="read_view_phone_number_label">NUMBER</string>
+    <string name="read_view_type_info_phone_title">Call tag</string>
+    <string name="read_view_type_info_phone_summary">Press the icon or below button to call.</string>
+    <string name="read_view_button_action_str_phone">Make the call</string>
+  	<string name="history_item_summary_phone">Telephone</string>
+  	<string name="edit_view_phone_selector_desc">Select from Contact</string>
+
+  	<!-- vCard -->
+  	<string name="tag_title_vcard">Write a contact</string>   
+  	<string name="edit_view_vcard_select_desc">Select or create contact</string>     
+    <string name="read_view_type_info_vcard_title">Contact tag</string>
+    <string name="read_view_type_info_vcard_summary">Press the icon or below button to save.</string>
+    <string name="read_view_button_action_str_vcard">Save to People</string>
+  	<string name="history_item_summary_vcard">Contact</string>
+
+  	<string name="vcard_category_title_name">NAME</string>
+  	<string name="vcard_category_title_phone">PHONE</string>
+  	<string name="vcard_category_title_email">EMAIL</string>
+  	<string name="vcard_category_title_im">IM</string>
+  	<string name="vcard_category_title_nickname">NICKNAME</string>
+  	<string name="vcard_category_title_website">WEBSITE</string>
+  	<string name="vcard_category_title_sip_address">INTERNET CALL</string>
+  	<string name="vcard_category_title_postal_address">ADDRESS</string>
+  	<string name="vcard_category_title_note">NOTE</string>
+  	<string name="vcard_category_title_organization">ORGANIZATION</string>
+
+  	<!-- vEvent -->    
+  	<string name="tag_title_vevent">Write a calendar event</string>
+  	<string name="edit_view_vevent_select_desc">Select from Calendar</string>     
+  	<string name="edit_view_vevent_title_label">EVENT</string>
+  	<string name="edit_view_vcard_start_time_label">STARTS</string> 
+  	<string name="edit_view_vevent_end_time_label">ENDS</string>     
+  	<string name="edit_view_vevent_location_label">LOCATION</string>    
+  	<string name="edit_view_vevent_description_label">DESCRIPTION</string> 
+  	<string name="read_view_type_info_vevent_title">Calendar tag</string>
+    <string name="read_view_type_info_vevent_summary">Press the icon or below button to save.</string>
+    <string name="read_view_button_action_str_vevent">Save to Calendar</string>
+  	<string name="history_item_summary_vevent">Calendar</string>   
+  	    
+  	<!-- SMS -->    
+  	<string name="tag_title_sms">Write a SMS</string>
+  	<string name="edit_view_sms_receiver_label">TO</string>
+  	<string name="edit_view_sms_content_label">MESSAGE</string> 
+  	<string name="edit_view_sms_attachment_label">ATTACHMENT</string> 
+  	<string name="edit_view_sms_subject_label">SUBJECT</string> 
+  	<string name="read_view_type_info_sms_title">SMS tag</string>  
+  	<string name="read_view_type_info_sms_summary">Press the icon or below button to preview the SMS content.</string>
+  	<string name="read_view_button_action_str_sms">Open</string> 
+  	<string name="history_item_summary_sms">SMS</string> 
+  	
+  	<string name="edit_view_sms_menu_add_subject">Add subject</string>
+  	<string name="edit_view_sms_menu_add_attach">Add attachment</string>
+  	<string name="mms_add_attach_dialog_title">Attach</string>
+  	<string name="mms_attach_image">Picture</string>
+  	<string name="mms_attach_audio">Audio</string> 
+  	<string name="mms_attach_ringtone">Ringtone</string> 
+  	<string name="mms_select_ringtone_title">Select Ringtone</string> 
+  	
+  	<!-- URL -->
+  	<string name="tag_title_url">Write an URL</string>
+  	<string name="edit_view_url_desc_label">LABEL(Optional)</string>
+  	<string name="edit_view_url_address_label">WEB ADDRESS</string> 
+  	<string name="edit_view_url_bookmark_desc">Select from bookmark</string> 
+  	<string name="read_view_type_info_url_title">URL tag</string>  
+  	<string name="read_view_type_info_url_summary">Press the icon or below button to open.</string>
+  	<string name="read_view_button_action_str_url">Open the URL</string> 
+  	<string name="history_item_summary_url">URL</string>   
+  	<string name="label_bookmark_list_activity">Bookmarks</string>  
+  	    
+  	<!-- Email -->    
+  	<string name="tag_title_email">Write an Email</string>
+  	<string name="edit_view_email_to_label">TO</string>
+  	<string name="edit_view_email_subject_label">SUBJECT</string>
+  	<string name="edit_view_email_content_label">CONTENT</string>
+  	<string name="read_view_type_info_email_title">Email tag</string>
+  	<string name="read_view_type_info_email_summary">Press the icon or below button to open the Email content.</string>
+  	<string name="read_view_button_action_str_email">Open</string>
+  	<string name="history_item_summary_email">Email</string>
+  	<string name="edit_view_email_description_label">DESCRIPTION(Optional)</string>
+  	 
+  	<!-- Parameters -->    
+  	<string name="read_view_param_title">Task info</string>
+  	<string name="edit_view_param_title">TASK ITEMS</string>
+  	<string name="tag_title_param">Write a task</string>
+  	<string name="history_item_summary_param">Task</string>
+  	<string name="read_view_type_info_param_title">Task tag</string>  
+  	<string name="read_view_type_info_param_summary">Press the icon or below button to execute the task.</string>
+  	<string name="read_view_button_action_str_param">Execute</string>
+  	<string name="param_wifienabler_title">WiFi</string>
+  	<string name="param_btenabler_title">Bluetooth</string>
+  	<string name="param_audio_profile_title">Audio profile</string> 
+  	<string name="param_airplanemode_title">Airplane mode</string>
+  	<string name="param_autorotate_title">Auto-rotate</string>
+  	<string name="param_dataconn_title">Data enabled</string>
+  	<string name="param_progress_enable_param">Executing task, wait a moment please</string>
+  	 
+  	<!-- Application / Midlet -->
+  	<string name="tag_title_app">Write an application</string>
+  	<string name="app_select_activity_label">Application selector</string>
+  	<string name="edit_view_app_selector_title">Select an application</string>
+  	<string name="edit_view_selected_app_name_label">SELECTED APPLICATION</string>
+  	<string name="edit_view_app_package_name_label">PACKAGE NAME</string>
+  	<string name="history_view_app_info_intag_label">INFORMATION FROM TAG</string>
+  	<string name="history_view_app_name_intag_label">APP NAME::</string>
+  	<string name="history_view_app_package_intag_label">PACKAGE NAME:</string>
+  	<string name="history_view_app_local_info_label">APPLICATION INFO</string>
+  	<string name="history_view_app_not_installed">Could not find related application in local device.</string>
+  	<string name="history_item_summary_app">Application</string>
+  	<string name="read_view_type_info_app_title">Application tag</string>
+  	<string name="read_view_type_info_app_summary">Press the icon or below button to launch the application.</string>
+  	<string name="read_view_button_action_str_app">Launch</string>
+  	<string name="app_download_confirm_message">The application <b>%1$s</b> does not exist on device. 
+  	    \n\n Do you wish to download it from the market now?</string>
+  	<string name="app_download_fail_message">Launch market fail. Make sure it is already installed.</string>
+  	
+  	<!-- Unknown -->    
+  	<string name="read_view_type_info_unknown_title">Unsupported tag</string>
+  	<string name="read_view_type_info_unknown_summary">Press the icon or below button to close.</string>
+  	<string name="read_view_button_action_str_unknown">Close</string>
+  	
+  	<!-- Empty -->    
+  	<string name="read_view_type_info_empty_title">Empty tag</string>
+  	<string name="read_view_button_action_str_empty">Begin to write</string>
+  	<string name="read_view_empty_type_label">Tag type</string>
+  	<string name="read_view_empty_size_label">Tag size (bits)</string>   
+  	<string name="read_view_empty_type_unknown">Unknown</string>   
+  	
+    <!-- Error code -->
+    <string name="error_select_too_much_phone_number">Now only one number is supported, just take the first one.</string>
+    <string name="error_phone_empty_number">Empty phone number will be invalid.</string>
+    <string name="error_vcard_empty_name_number">Please input valid name and at least one phone number or email address</string>
+    <string name="error_vcard_empty_vcard">Fail to get vCard info from tag. VCard info is null.</string>
+    <string name="error_vevent_empty_vevent">Fail to get vEvent info from tag.</string>
+    <string name="error_sms_invalid_receiver">Invalid receiver list</string>    
+    <string name="error_sms_empty_receiver_or_content">Please input valid SMS receiver and content/subject.</string>  
+    <string name="error_url_empty_addr">Please input or select a valid URL.</string>
+    <string name="error_email_empty_to">Please input or select valid Email receivers.</string>   
+    <string name="error_email_empty_subject">Please input valid Email subject.</string>
+    <string name="error_email_empty_content">Please input valid Email content.</string>
+    <string name="error_param_empty_content">Please select some parameter to write.</string>
+    <string name="error_app_empty_package">Please select a valid application.</string>
+    <string name="error_app_found_no_app">Can not find needed application in this device.</string>
+    <string name="error_tag_can_not_be_locked">Info write success, but this tag can not be made read-only.</string>
+        
+    <!-- History -->
+    <string name="history_menu_view">Preview</string>
+    <string name="history_menu_delete">Delete</string>
+    <string name="history_menu_clear">Clear</string>
+    <string name="history_view_label_read">Tag read history</string>
+    <string name="history_view_label_write">Tag written history</string>
+    
+    <!-- Settings -->
+    <string name="label_settings_activity">Settings</string>
+    <string name="label_system_settings_btn">System NFC settings</string>
+    <string name="settings_title_auto_launch">Auto-launch app</string>
+    <string name="settings_summary_auto_launch">Launch application automatically when a tag is read.</string>
+    <string name="settings_title_history_size">History size</string>
+    <string name="settings_summary_history_size">Set the number of tag read &amp; written to keep in the history.</string>
+    <string name="settings_title_advanced_writing">Advanced tag writing</string>
+    <string name="settings_summary_advanced_writing">Enable the tag writing of Email, App and Task.</string>
+    <string name="settings_title_confirm_overwrite">Confirm overwrite</string>
+    <string name="settings_summary_confirm_overwrite">When writing into a non-empty tag, wait for user\'s confirmation.</string>
+    <string name="settings_title_sys_app_tag">Advanced app tag writing</string>
+    <string name="settings_summary_sys_app_tag">Allow selecting a system application when writing an app tag.</string>
+    
+	<string name="title_default">Title</string>
+	<string name="summary_default">Summary</string>
+</resources>

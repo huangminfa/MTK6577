@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mediatek.widgetdemos.folders3d"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.INTERNET" />
+	
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/folder_open"
+        android:label="@string/app_name" 
+        android:hardwareAccelerated="true">
+
+        <receiver android:name=".FoldersProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/folders_provider_info" />
+        </receiver>
+
+        <activity android:name=".FoldersActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.mediatek.widgetdemos.folders3d.TweakListActivity" />
+    </application>
+
+</manifest>

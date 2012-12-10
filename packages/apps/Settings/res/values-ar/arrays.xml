@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+/*
+**
+** Copyright 2007 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string-array name="timezone_filters"> 
+        <item msgid="5296756001147094692">أمريكا</item>  
+        <item msgid="3005562397632768392">أوروبا</item>  
+        <item msgid="5696915123093701218">أفريقيا</item>  
+        <item msgid="4439789052790868249">آسيا</item>  
+        <item msgid="956915953069815961">أستراليا</item>  
+        <item msgid="5345178126174698955">الباسفيك</item>  
+        <item msgid="8392017019801393511">"الكل"</item> 
+    </string-array>  
+    <string-array name="screen_timeout_entries"> 
+        <item msgid="3342301044271143016">15 ثانية</item>  
+        <item msgid="8881760709354815449">30 ثانية</item>  
+        <item msgid="7589406073232279088">"دقيقة واحدة"</item>  
+        <item msgid="7001195990902244174">2 دقيقتان</item>  
+        <item msgid="7489864775127957179">5 دقائق</item>  
+        <item msgid="2314124409517439288">"10 دقائق"</item>  
+        <item msgid="6864027152847611413">"30 دقيقة"</item> 
+    </string-array>  
+    <string-array name="dream_timeout_entries"> 
+        <item msgid="3149294732238283185">أبدًا</item>  
+        <item msgid="2194151041885903260">15 ثانية</item>  
+        <item msgid="5892295237131074341">30 ثانية</item>  
+        <item msgid="3538441365970038213">"دقيقة واحدة"</item>  
+        <item msgid="412343871668955639">2 دقيقتان</item>  
+        <item msgid="5076853889688991690">5 دقائق</item>  
+        <item msgid="1903860996174927898">"10 دقائق"</item>  
+        <item msgid="6415509612413178727">"30 دقيقة"</item> 
+    </string-array>  
+    <string-array name="lock_after_timeout_entries"> 
+        <item msgid="8929270399652145290">في الحال</item>  
+        <item msgid="6736512735606834431">5 ثوانٍ</item>  
+        <item msgid="8044619388267891375">15 ثانية</item>  
+        <item msgid="1822002388249545488">30 ثانية</item>  
+        <item msgid="8538071621211916519">"دقيقة واحدة"</item>  
+        <item msgid="5663439580228932882">2 دقيقتان</item>  
+        <item msgid="49888496216106852">5 دقائق</item>  
+        <item msgid="9002737361305019353">"10 دقائق"</item>  
+        <item msgid="4322676235684793329">"30 دقيقة"</item> 
+    </string-array>  
+    <string-array name="entries_font_size"> 
+        <item msgid="8166647333858618801">"صغير"</item>  
+        <item msgid="1932071435506638315">"عادي"</item>  
+        <item msgid="38373998008112077">"كبير"</item>  
+        <item msgid="8900150849165146792">"كبير جدًا"</item> 
+    </string-array>  
+    <string-array name="tts_rate_entries"> 
+        <item msgid="6041212618892492920">بطيء جدًا</item>  
+        <item msgid="2361722960903353554">بطيء</item>  
+        <item msgid="1145554631248513562">"عادي"</item>  
+        <item msgid="7553665153391107454">سريع</item>  
+        <item msgid="2538100882620724753">فائق السرعة</item> 
+    </string-array>  
+    <string-array name="tts_pitch_entries"> 
+        <item msgid="7526050907652687351">منخفض جدًا</item>  
+        <item msgid="2692137425242433765">منخفض</item>  
+        <item msgid="3332408460740717754">"عادي"</item>  
+        <item msgid="4907380534957572531">عال</item>  
+        <item msgid="4699640516390840297">مرتفع جداً</item> 
+    </string-array>  
+    <string-array name="wifi_status"> 
+        <item msgid="1922181315419294640"/>  
+        <item msgid="8934131797783724664">جار البحث\u2026</item>  
+        <item msgid="8513729475867537913">جارٍ التوصيل\u2026</item>  
+        <item msgid="515055375277271756">جارِ المصادقة\u2026</item>  
+        <item msgid="1943354004029184381">جارٍ الحصول على عنوان IP\u2026</item>  
+        <item msgid="4221763391123233270">متصل</item>  
+        <item msgid="624838831631122137">متوقف مؤقتًا</item>  
+        <item msgid="7979680559596111948">جارِ قطع الاتصال\u2026</item>  
+        <item msgid="1634960474403853625">غير متصل</item>  
+        <item msgid="746097431216080650">غير ناجح</item> 
+    </string-array>  
+    <string-array name="wifi_status_with_ssid"> 
+        <item msgid="7714855332363650812"/>  
+        <item msgid="8878186979715711006">جار البحث\u2026</item>  
+        <item msgid="355508996603873860">جار الاتصال بـ 
+            <xliff:g id="network_name">%1$s</xliff:g>\u2026
+        </item>  
+        <item msgid="554971459996405634">جار المصادقة مع 
+            <xliff:g id="network_name">%1$s</xliff:g>\u2026
+        </item>  
+        <item msgid="7928343808033020343">جار الحصول على عنوان IP من 
+            <xliff:g id="network_name">%1$s</xliff:g>\u2026
+        </item>  
+        <item msgid="8937994881315223448">تم الاتصال بـ 
+            <xliff:g id="network_name">%1$s</xliff:g> 
+        </item>  
+        <item msgid="1330262655415760617">متوقف مؤقتًا</item>  
+        <item msgid="7698638434317271902">جار إلغاء الاتصال مع 
+            <xliff:g id="network_name">%1$s</xliff:g>\u2026
+        </item>  
+        <item msgid="197508606402264311">غير متصل</item>  
+        <item msgid="8578370891960825148">غير ناجح</item> 
+    </string-array>  
+    <!-- no translation found for wifi_security:0 (8491993170197127709) -->  
+    <!-- no translation found for wifi_security:1 (6524315248437318854) -->  
+    <!-- no translation found for wifi_security:2 (1532568756571457140) -->  
+    <!-- no translation found for wifi_security:3 (3620707702811709779) -->  
+    <!-- no translation found for wifi_security_no_eap:0 (2084555984818107151) -->  
+    <!-- no translation found for wifi_security_no_eap:1 (397579322683471524) -->  
+    <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->  
+    <string-array name="wifi_eap_method"> 
+        <item msgid="1160193392455075561">"PEAP"</item>  
+        <item msgid="7981731051382306293">"طبقة النقل الآمنة"</item>  
+        <item msgid="2892994535305020162">"TTLS"</item> 
+    </string-array>  
+    <string-array name="wifi_p2p_wps_setup"> 
+        <item msgid="5085064298144493867">اضغط على الزر</item>  
+        <item msgid="1624323946324499595">PIN من الجهاز النظير</item>  
+        <item msgid="5366790421523328066">PIN من هذا الجهاز</item> 
+    </string-array>  
+    <string-array name="wifi_p2p_status"> 
+        <item msgid="1701505390737218306">متصل</item>  
+        <item msgid="3189211552661432651">تمت الدعوة</item>  
+        <item msgid="3206450250360237549">غير ناجح</item>  
+        <item msgid="7785896708926971207">"متواجد"</item>  
+        <item msgid="2330782789550628803">خارج النطاق</item> 
+    </string-array>  
+    <string-array name="bluetooth_visibility_timeout_entries"> 
+        <item msgid="8151962652413645395">2 دقيقتان</item>  
+        <item msgid="8675215713017289017">5 دقائق</item>  
+        <item msgid="477015974247590543">1 ساعة</item>  
+        <item msgid="5198271470953124739">مهلة لا تنتهي</item> 
+    </string-array>  
+    <string-array name="wifi_signal"> 
+        <item msgid="2245412278046491293">ضعيف</item>  
+        <item msgid="5615082285463430971">مقبول</item>  
+        <item msgid="3565079809875324621">جيد</item>  
+        <item msgid="5702329417707689835">ممتاز</item> 
+    </string-array>  
+    <string-array name="wifi_sleep_policy_entries"> 
+        <item msgid="3269131034472904310">دائمًا</item>  
+        <item msgid="844721238536786870">عند التوصيل بالتيار الكهربي فقط</item>  
+        <item msgid="2990218920631468642">مطلقًا (يزيد استخدام البيانات)</item> 
+    </string-array>  
+    <string-array name="wifi_sleep_policy_entries_wifi_only"> 
+        <item msgid="2124319326282651391">دائمًا</item>  
+        <item msgid="7433294150916905997">عند التوصيل بالتيار الكهربي فقط</item>  
+        <item msgid="1390404486722375028">أبدًا</item> 
+    </string-array>  
+    <string-array name="wifi_frequency_band_entries"> 
+        <item msgid="624340809384223320">تلقائي</item>  
+        <item msgid="6670588712989942178">5 جيجا هرتز فقط</item>  
+        <item msgid="2715516524973207876">2.4 جيجا هرتز فقط</item> 
+    </string-array>  
+    <string-array name="usage_stats_display_order_types"> 
+        <item msgid="2100172576767439288">وقت الاستخدام</item>  
+        <item msgid="3703676222230317933">إحصاء التشغيل</item>  
+        <item msgid="2502754479975776899">اسم التطبيق</item> 
+    </string-array>  
+    <string-array name="wifi_eap_entries"> 
+        <item msgid="8615575908717909498">PEAP</item>  
+        <item msgid="8667872640594311615">TLS</item>  
+        <item msgid="7182812872984827322">TTLS</item>  
+        <item>البطاقة</item>  
+        <item/> 
+    </string-array>  
+    <string-array name="wifi_phase2_entries"> 
+        <item msgid="1818786254010764570">"لا شيء"</item>  
+        <item msgid="6189918678874123056">PAP</item>  
+        <item msgid="1524112260493662517">MSCHAP</item>  
+        <item msgid="5923246669412752932">MSCHAPV2</item>  
+        <item msgid="8651992560135239389">GTC</item> 
+    </string-array>  
+    <string-array name="wifi_network_setup"> 
+        <item msgid="3318069057130819160">إيقاف</item>  
+        <item msgid="3564693183575724416">اضغط على الزر</item>  
+        <item msgid="7468724146672456026">PIN من نقطة الوصول</item>  
+        <item msgid="7364462169350112617">PIN من هذا الجهاز</item> 
+    </string-array>  
+    <string-array name="wifi_ip_settings"> 
+        <item msgid="3906714200993111074">DHCP</item>  
+        <item msgid="628395202971532382">ثابت</item> 
+    </string-array>  
+    <string-array name="wifi_proxy_settings"> 
+        <item msgid="4473276491748503377">"لا شيء"</item>  
+        <item msgid="8673874894887358090">يدوي</item> 
+    </string-array>  
+    <string-array name="emergency_tone_entries"> 
+        <item msgid="5165439859689033665">إيقاف</item>  
+        <item msgid="3165868966179561687">"تنبيه"</item>  
+        <item msgid="6038758039030476855">الاهتزاز</item> 
+    </string-array>  
+    <string-array name="apn_auth_entries"> 
+        <item msgid="3856896061242872146">"لا شيء"</item>  
+        <item msgid="5756844015743664882">PAP</item>  
+        <item msgid="535934025797984365">CHAP</item>  
+        <item msgid="8383098660619805783">PAP أو CHAP</item> 
+    </string-array>  
+    <string-array name="apn_protocol_entries"> 
+        <item msgid="4852355456199302715">ipv4</item>  
+        <item msgid="4394161344888484571">IPv6</item>  
+        <item msgid="8084938354605535381">IPv4/IPv6</item> 
+    </string-array>  
+    <string-array name="bearer_entries"> 
+        <item msgid="1770285336669531300">LTE</item>  
+        <item msgid="3044323519470167625">eHRPD</item>  
+        <item msgid="6848428671997893147">غير محددة</item> 
+    </string-array>  
+    <string-array name="app_install_location_entries"> 
+        <item msgid="8151497958991952759">وحدة التخزين الداخلية بالجهاز</item>  
+        <item msgid="3738430123799803530">بطاقة SD قابلة للإزالة</item>  
+        <item msgid="4498124044785815005">السماح للنظام بالتحديد</item> 
+    </string-array>  
+    <string-array name="vibrate_entries"> 
+        <item msgid="3388952299521009213">دائمًا</item>  
+        <item msgid="6293147072807231256">أبدًا</item>  
+        <item msgid="1276641209451816572">في الوضع الصامت فقط</item>  
+        <item msgid="8418930333779132418">فقط في حالة عدم تشغيل الوضع الصامت</item> 
+    </string-array>  
+    <string-array name="long_press_timeout_selector_titles"> 
+        <item msgid="3511504869290423954">قصير</item>  
+        <item msgid="2560532955514699713">الوسط</item>  
+        <item msgid="2372711992605524591">طويل</item> 
+    </string-array>  
+    <string-array name="hdcp_checking_titles"> 
+        <item msgid="441827799230089869">عدم البحث</item>  
+        <item msgid="6042769699089883931">بحث عن محتوى DRM فقط</item>  
+        <item msgid="9174900380056846820">بحث دائما</item> 
+    </string-array>  
+    <string-array name="hdcp_checking_summaries"> 
+        <item msgid="505558545611516707">لا تستخدم البحث بـ HDCP</item>  
+        <item msgid="3878793616631049349">استخدام البحث بـ HDCP عن محتوى DRM فقط</item>  
+        <item msgid="45075631231212732">استخدام البحث بـ HDCP دائمًا</item> 
+    </string-array>  
+    <string-array name="window_animation_scale_entries"> 
+        <item msgid="8134156599370824081">إيقاف الرسوم المتحركة</item>  
+        <item msgid="6624864048416710414">مقياس الرسوم المتحركة 0.5x</item>  
+        <item msgid="2219332261255416635">مقياس الرسوم المتحركة 1x</item>  
+        <item msgid="3544428804137048509">مقياس الرسوم المتحركة 1.5x</item>  
+        <item msgid="3110710404225974514">مقياس الرسوم المتحركة 2x</item>  
+        <item msgid="4402738611528318731">مقياس الرسوم المتحركة 5x0.</item>  
+        <item msgid="6189539267968330656">مقياس الرسوم المتحركة 10x</item> 
+    </string-array>  
+    <string-array name="transition_animation_scale_entries"> 
+        <item msgid="8464255836173039442">إيقاف الرسوم المتحركة</item>  
+        <item msgid="3375781541913316411">مقياس الرسوم المتحركة 0.5x</item>  
+        <item msgid="1991041427801869945">مقياس الرسوم المتحركة 1x</item>  
+        <item msgid="4012689927622382874">مقياس الرسوم المتحركة 1.5x</item>  
+        <item msgid="3289156759925947169">مقياس الرسوم المتحركة 2x</item>  
+        <item msgid="7705857441213621835">مقياس الرسوم المتحركة 5x0.</item>  
+        <item msgid="6660750935954853365">مقياس الرسوم المتحركة 10x</item> 
+    </string-array>  
+    <string-array name="app_process_limit_entries"> 
+        <item msgid="3401625457385943795">الحد القياسي</item>  
+        <item msgid="4071574792028999443">لا توجد عمليات خلفية</item>  
+        <item msgid="4810006996171705398">عملية واحدة بأقصى تقدير</item>  
+        <item msgid="8586370216857360863">عمليتان بأقصى تقدير</item>  
+        <item msgid="836593137872605381">3 عمليات بأقصى تقدير</item>  
+        <item msgid="7899496259191969307">4 عمليات بأقصى تقدير</item> 
+    </string-array>  
+    <string-array name="vpn_types_long"> 
+        <item msgid="2732002039459078847">PPTP VPN</item>  
+        <item msgid="3799752201662127867">L2TP/IPSec VPN مع المفاتيح المشتركة مسبقًا</item>  
+        <item msgid="4725504331295252103">L2TP/IPSec VPN مع الشهادات</item>  
+        <item msgid="7526551163264034377">IPSec VPN مع المفاتيح المشتركة مسبقًا ومصادقة Xauth</item>  
+        <item msgid="8064740940687465039">IPSec VPN مع الشهادات ومصادقة Xauth</item>  
+        <item msgid="4946199982372391490">IPSec VPN مع الشهادات والمصادقة المختلطة</item> 
+    </string-array>  
+    <string-array name="vpn_states"> 
+        <item msgid="8621078286418985762">غير متصل</item>  
+        <item msgid="6692305604213080515">جارِ التهيئة\u2026</item>  
+        <item msgid="8001704909356800092">جارٍ التوصيل\u2026</item>  
+        <item msgid="4039737283841672166">متصل</item>  
+        <item msgid="4042143101664725090">المهلة</item>  
+        <item msgid="7664124146786465092">غير ناجح</item> 
+    </string-array>  
+    <!-- Add for HDMI begin -->  
+    <string-array name="hdmi_video_resolution_entries"> 
+        <item>تلقائي</item> 
+        <item>720P</item>  
+        <item>480P</item> 
+    </string-array>  
+    <!-- Add for HMDI end -->  
+    <string-array name="gemini_sim_info_number_display_format_entries"> 
+        <item>أول 4 أرقام</item>  
+        <item>آخر 4 أرقام</item>  
+        <item>عدم العرض</item> 
+    </string-array>  
+    <string-array name="gemini_sim_roaming_reminder_entries"> 
+        <item>مرة واحدة</item>  
+        <item>دائمًا</item>  
+        <item>"مطلقًا"</item> 
+    </string-array>  
+    <string-array name="gsm_umts_network_preferences_choices"> 
+        <item>GSM/WCDMA (الوضع التلقائي)</item>  
+        <item>WCDMA فقط</item>  
+        <item>GSM فقط</item> 
+    </string-array>  
+    <string-array name="wpa_security"> 
+        <item>"فتح"</item>  
+        <item>"WEP"</item>  
+        <item>"WPA/WPA2-PSK"</item>  
+        <item>"802.1x EAP"</item> 
+    </string-array>  
+    <string-array name="wapi_security"> 
+        <item>"فتح"</item>  
+        <item>شهادة WAPI</item>  
+        <item>"WAPI شهادة"</item> 
+    </string-array>  
+    <string-array name="molr_position_type_entrys"> 
+        <item>UP فقط</item>  
+        <item>CP فقط</item>  
+        <item>CP+UP (CP مفضل)</item> 
+    </string-array>  
+    <string-array name="molr_position_type_entryvalues"> 
+        <item>UP فقط</item>  
+        <item>CP فقط</item>  
+        <item>CP+UP (CP مفضل)</item> 
+    </string-array>  
+    <string-array name="epo_update_period_title"> 
+        <item>10 دقائق</item>  
+        <item>1 ساعة</item>  
+        <item>6 ساعات</item>  
+        <item>1 يوم</item>  
+        <item>3 أيام</item>  
+        <item>7 أيام</item>  
+        <item>14 يوم</item>  
+        <item>30 يومًا</item> 
+    </string-array>  
+    <string-array name="wifi_security"> 
+        <item msgid="1435933968767043814">"فتح"</item>  
+        <item msgid="6318432659048829665">شهادة WAPI</item>  
+        <item msgid="2966395706508338179">"WPA/WPA2 PSK"</item>  
+        <item msgid="9098390198768443435">"802.1x EAP"</item>  
+        <item>"WAPI PSK"</item>  
+        <item>"WAPI شهادة"</item> 
+    </string-array>  
+    <string-array name="wifi_security_wfa"> 
+        <item>Open</item>
+        <item>WEP</item>
+        <item>WPA PSK</item>
+        <item>WPA2 PSK</item>
+        <item>802.1x EAP</item>
+        <item>WAPI PSK</item>
+        <item>WAPI Certificate</item>
+    </string-array>  
+    <string-array name="wpa_security_wfa"> 
+        <item>"فتح"</item>  
+        <item>WEP</item>  
+        <item>WPA PSK</item>  
+        <item>WPA2 PSK</item>  
+        <item>802.1x EAP</item> 
+    </string-array>  
+    <string-array name="auto_time_entries"> 
+        <item>استخدام الوقت المعين بالشبكة</item>  
+        <item>استخدم الوقت المُعيّن بـ GPS</item>  
+        <item>إيقاف</item> 
+    </string-array>  
+    <string-array name="agps_qop_acc_type_entries"> 
+        <item>قيمة - K</item>  
+        <item>متر</item> 
+    </string-array>  
+    <string-array name="agps_eng_si_mode_entries"> 
+        <item>SI-MA</item>  
+        <item>SI-MB</item>  
+        <item>STANDALONE</item> 
+    </string-array>  
+    <string-array name="agps_eng_si_mode_entryvalues"> 
+        <item>MA</item>  
+        <item>MB</item>  
+        <item/> 
+    </string-array>  
+    <string-array name="agps_eng_set_id_list_entry"> 
+        <item>IMSI</item>  
+        <item>IPV4</item> 
+    </string-array>  
+    <string-array name="agps_eng_set_id_list_entryvalues"> 
+        <item>IMSI</item>  
+        <item>ipv4</item> 
+    </string-array>  
+    <string-array name="supl_capability_entry"> 
+        <item>RRLP</item>  
+        <item>RRC</item>  
+        <item>RRLP+RRC</item> 
+    </string-array>  
+    <string-array name="supl_capability_entryvalues"> 
+        <item>RRLP</item>  
+        <item>RRC</item>  
+        <item>RRLP+RRC</item> 
+    </string-array>  
+    <string-array name="molor_type"> 
+        <item>تقدير الموقع</item>  
+        <item>بينات مساعدة</item> 
+    </string-array>  
+    <string-array name="sim_prefer"> 
+        <item>تفضيل SIM1</item>  
+        <item>تفضيل SIM2</item> 
+    </string-array>  
+    <string-array name="network_use_entry"> 
+        <item>الرئيسية فقط</item>  
+        <item>الرئيسية + التجوال</item> 
+    </string-array>  
+    <string-array name="networklocation_bindservice_entries"> 
+        <item>جوجل</item>  
+        <item>MediaTek</item> 
+    </string-array>  
+    <string-array name="networklocation_bindservice_entriesValues"> 
+        <item>com.google.android.location.NetworkLocationProvider</item>  
+        <item>com.mediatek.android.location.NetworkLocationProvider</item> 
+    </string-array>  
+    <string-array name="geocoder_bindservice_entries"> 
+        <item>جوجل</item>  
+        <item>MediaTek</item> 
+    </string-array>  
+    <string-array name="geocoder_bindservice_entriesValues"> 
+        <item>com.google.android.location.GeocodeProvider</item>  
+        <item>com.mediatek.android.location.PrivateInnerGeocodeProvider</item> 
+    </string-array>  
+    <string-array name="networklocation_reportfrequency_entries"> 
+        <item>10 ثوانٍ</item>  
+        <item>20 ثانية</item>  
+        <item>30 ثانية</item>  
+        <item>60 ثانية</item> 
+    </string-array>  
+    <string-array name="notify_duration_list_entries"> 
+        <item>0 ثانية</item>  
+        <item>ثانية واحدة</item>  
+        <item>2 ثانيتان</item>  
+        <item>ثلاث ثوانٍ</item>  
+        <item>4 ثوان</item>  
+        <item>5 ثوانٍ</item>  
+        <item>6 ثوان</item>  
+        <item>7 ثوانٍ</item>  
+        <item>8 ثوان</item> 
+    </string-array>  
+    <string-array name="verify_duration_list_entries"> 
+        <item>0 ثانية</item>  
+        <item>ثانية واحدة</item>  
+        <item>2 ثانيتان</item>  
+        <item>ثلاث ثوانٍ</item>  
+        <item>4 ثوان</item>  
+        <item>5 ثوانٍ</item>  
+        <item>6 ثوان</item>  
+        <item>7 ثوانٍ</item>  
+        <item>8 ثوان</item> 
+    </string-array>  
+    <string-array name="wifi_connect_type_entries"> 
+        <item>الاتصال تلقائيًّا</item>  
+        <item>الاتصال يدويًّا</item>  
+        <item>السؤال دائمًا</item> 
+    </string-array>  
+    <string-array name="wifi_hotspot_disable_policy_entries"> 
+        <item>دائمًا</item>  
+        <item>إيقاف عند الخمول لمدة 5 دقائق</item>  
+        <item>إيقاف عند الخمول لمدة 10 دقائق</item> 
+    </string-array> 
+    <string-array name="wifi_ap_security"> 
+        <item>تشغيل</item>  
+        <item>WPA PSK</item>  
+        <item>WPA2 PSK</item> 
+    </string-array>
+
+    <string-array name="silent_mode_entries"> 
+        <item>إيقاف</item>  
+        <item>الاهتزاز</item>  
+        <item>"كتم الصوت"</item> 
+    </string-array> 
+
+    <string-array name = "wifi_WEP_security_type">
+        <item>تلقائي</item>
+        <item>WEP ASCII</item>
+        <item>WEP hexadecimal</item>
+    </string-array> 
+</resources>

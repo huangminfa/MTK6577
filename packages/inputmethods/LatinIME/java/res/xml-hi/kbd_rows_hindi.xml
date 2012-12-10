@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
+>
+    <include
+        latin:keyboardLayout="@xml/kbd_key_styles" />
+
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyLabel="ौ"	latin:keyUpperCaseLabel="औ"/>
+		<Key latin:keyLabel="ै"	latin:keyUpperCaseLabel="ऐ" latin:keyHintLabel="1" latin:moreKeys="1,१"/>
+		<Key latin:keyLabel="ा"	latin:keyUpperCaseLabel="आ" latin:keyHintLabel="2" latin:moreKeys="2,२"/>
+		<Key latin:keyLabel="ी"	latin:keyUpperCaseLabel="ई" latin:keyHintLabel="3" latin:moreKeys="3,३"/>
+		<Key latin:keyLabel="ू"	latin:keyUpperCaseLabel="ऊ" latin:keyHintLabel="4" latin:moreKeys="4,४"/>
+		<Key latin:keyLabel="ब"	latin:keyUpperCaseLabel="भ" latin:keyHintLabel="5" latin:moreKeys="5,५"/>
+		<Key latin:keyLabel="ह"	latin:keyUpperCaseLabel="ः" latin:keyHintLabel="6" latin:moreKeys="6,६"/>
+		<Key latin:keyLabel="ग"	latin:keyUpperCaseLabel="घ" latin:keyHintLabel="7" latin:moreKeys="7,७"/>
+		<Key latin:keyLabel="द"	latin:keyUpperCaseLabel="ध" latin:keyHintLabel="8" latin:moreKeys="8,८"/>
+		<Key latin:keyLabel="ज"	latin:keyUpperCaseLabel="झ" latin:keyHintLabel="9" latin:moreKeys="9,९"/>
+		<Key latin:keyLabel="ड"	latin:keyUpperCaseLabel="ढ" latin:keyHintLabel="0" latin:moreKeys="0,०"/>
+	</Row>
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyLabel="ो" latin:keyUpperCaseLabel="ओ" />
+		<Key latin:keyLabel="े" latin:keyUpperCaseLabel="ए" />
+		<Key latin:keyLabel="्" latin:keyUpperCaseLabel="अ" />
+		<Key latin:keyLabel="ि" latin:keyUpperCaseLabel="इ" />
+		<Key latin:keyLabel="ु" latin:keyUpperCaseLabel="उ" />
+		<Key latin:keyLabel="प" latin:keyUpperCaseLabel="फ" />
+		<Key latin:keyLabel="र"	latin:keyUpperCaseLabel="ृ" />
+		<Key latin:keyLabel="क" latin:keyUpperCaseLabel="ख" />
+		<Key latin:keyLabel="त" latin:keyUpperCaseLabel="थ" />
+		<Key latin:keyLabel="च" latin:keyUpperCaseLabel="छ" />
+		<Key latin:keyLabel="ट" latin:keyUpperCaseLabel="ठ" />
+	</Row>
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyStyle="shiftKeyStyle" latin:keyWidth="14%p"
+			latin:visualInsetsRight="1%p" />
+		<Key latin:keyLabel="ं" latin:keyUpperCaseLabel="ँ" />
+		<Key latin:keyLabel="म" latin:keyUpperCaseLabel="ज्ञ" />
+		<Key latin:keyLabel="न" latin:keyUpperCaseLabel="ण" />
+		<Key latin:keyLabel="व" latin:keyUpperCaseLabel="क्ष" />
+		<Key latin:keyLabel="ल" latin:keyUpperCaseLabel="ळ" />
+		<Key latin:keyLabel="स" latin:keyUpperCaseLabel="श" />
+		<Key latin:keyLabel="य" latin:keyUpperCaseLabel="ष" />
+		<Key latin:keyLabel="़" latin:keyUpperCaseLabel="ॅ" />
+		<Key latin:keyStyle="deleteKeyStyle" latin:keyWidth="fillBoth"
+			latin:visualInsetsLeft="1%p" />
+	</Row>
+    <include
+        latin:keyboardLayout="@xml/kbd_qwerty_row4" />
+</merge>

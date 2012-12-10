@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="toast_autorama_how_to_capture">کیمرہ کو ایک رخ پر اسطرح موڑیں کہ تصویر کےلیے درکار منظر پیلے چوکور میں آ جائے۔</string>  
+    <string name="capture_memory_not_enough">حافظہ کافی نہيں ہے، برائے مہربانی دوسرے اضافی پروگرام بند کریں۔</string>  
+    <!-- The text shown in the dialog when mav saving failed [CHAR LIMIT=40] -->  
+    <string name="mav_dialog_save_failed">تصویر محفوظ کرنے سے قاصر۔</string>  
+    <!-- General strings -->  
+    <!-- title for the dialog showing the error of camera hardware -->  
+    <string name="camera_error_title">کیمرے کی غلطی</string>  
+    <!-- message for the dialog showing the error of camera hardware -->  
+    <string name="cannot_connect_camera">کیمرہ متصل کرنے سے قاصر۔</string>  
+    <!-- message for the dialog showing the camera is disabled because of security policies. Camera cannot be used. -->  
+    <string name="camera_disabled">کیمرے کو حفاظتی پالیسیوں کی وجہ سے غیرفعال کیا گیا ہے۔</string>  
+    <!-- label for the icon meaning 'show me all the images that were taken with the camera' -->  
+    <string name="camera_label">کیمرہ</string>  
+    <!-- label for the 'video recording application shown in the top level 'all applications' -->  
+    <string name="video_camera_label">کیم کارڈر</string>  
+    <!-- label for the folder that contains Camera pictures in the gallery -->  
+    <string name="gallery_camera_bucket_name">کیمرے کی تصویریں</string>  
+    <!-- label for the folder that contains Camera videos in the gallery -->  
+    <string name="gallery_camera_videos_bucket_name">کیمرے کی ویڈیو</string>  
+    <!-- alert to the user to wait for some operation to complete -->  
+    <string name="wait">برائے مہربانی u2026</string>  
+    <!-- alert to the user that USB storage must be available before using the camera [CHAR LIMIT=NONE] -->  
+    <string name="no_storage" product="nosdcard">کیمرہ استعمال کرنے سے قبل USB ذخیرہ ماؤنٹ کریں۔</string>  
+    <!-- alert to the user that an SD card must be installed before using the camera -->  
+    <string name="no_storage" product="default">تصویر محفوظ کرنے سے قاصر۔</string>  
+    <!-- alert to the user that the USB storage is too full to complete the operation [CHAR LIMIT=NONE] -->  
+    <string name="not_enough_space" product="nosdcard">آپ کا SD کارڈ بھر گيا ہے۔</string>  
+    <!-- alert to the user that the SD card is too full to complete the operation -->  
+    <string name="not_enough_space" product="default">Your SD card is full.</string>  
+    <!-- alert to the user that the USB storage is being disk-checked [CHAR LIMIT=30] -->  
+    <string name="preparing_sd" product="nosdcard">SD کارڈ تیار کررہا ہے\u2026</string>  
+    <!-- alert to the user that the SD card is being disk-checked -->  
+    <string name="preparing_sd" product="default">Preparing SD card\u2026</string>  
+    <!-- alert to the user that the camera fails to read or write the USB storage. [CHAR LIMIT=NONE] -->  
+    <string name="access_sd_fail" product="nosdcard">کارڈ تک رسائی کرنے سے قاصرSD۔</string>  
+    <!-- alert to the user that the camera fails to read or write the SD card. -->  
+    <string name="access_sd_fail" product="default">Couldn\'t access SD card.</string>  
+    <!-- Confirmation dialog when restoring settings -->  
+    <string name="confirm_restore_title">ڈیفالٹ بحال کریں</string>  
+    <string name="confirm_restore_message">کیمرے کی ڈیفالٹ ترتیبات بحال کریں؟</string>  
+    <!-- button in review mode indicating that the video just taken should be played [CHAR LIMIT=10] -->  
+    <string name="review_play">چلائيں</string>  
+    <!-- button in review mode indicating that the photo taking, video recording, and panorama saving session should be canceled [CHAR LIMIT=10] -->  
+    <string name="review_cancel">منسوخ</string>  
+    <!-- button in review mode indicating that the taken photo/video is OK to be attached/uploaded [CHAR LIMIT=10] -->  
+    <string name="review_ok">ہوگیا</string>  
+    <!-- button in review mode indicate the user want to retake another photo/video for attachment [CHAR LIMIT=10] -->  
+    <string name="review_retake">دوبارہ لیں</string>  
+    <!-- Button indicating to go to the image gallery -->  
+    <string name="camera_gallery_photos_text">گیلری</string>  
+    <!-- Button indicating to switch to another camera -->  
+    <string name="switch_camera_id">کیمرہ تبدیل کریں</string>  
+    <!-- A lable that overlays on top of the preview frame to indicate the camcorder is in time lapse mode [CHAR LIMIT=35] -->  
+    <string name="time_lapse_title">وقت کے لیپس کی ریکارڈنگ</string>  
+    <!-- Settings screen, camera selection dialog title. Users can select a camera from the phone (front-facing or back-facing). [CHAR LIMIT=20] -->  
+    <string name="pref_camera_id_title">کیمرہ منتخب کریں</string>  
+    <string name="pref_camera_id_default" translatable="false">0</string>  
+    <!-- In select camera setting, back facing camera. [CHAR LIMIT=14] -->  
+    <string name="pref_camera_id_entry_back">واپس</string>  
+    <!-- In select camera setting, front-facing camera. [CHAR LIMIT=14] -->  
+    <string name="pref_camera_id_entry_front">اگلا</string>  
+    <!-- Settings screen, setting title text -->  
+    <string name="pref_camera_recordlocation_title">مقام ذخیرہ کریں</string>  
+    <string name="pref_camera_recordlocation_default" translatable="false">none</string>  
+    <!-- Settings screen, Record location dialog choices -->  
+    <string name="pref_camera_recordlocation_entry_off">بند</string>  
+    <string name="pref_camera_recordlocation_entry_on">آن</string>  
+    <!-- The Video quality settings in preference [CHAR LIMIT=21] -->  
+    <string name="pref_video_quality_title">ویڈيو کا معیار</string>  
+    <!-- The default quality value is QUALITY_MTK_HIGH (720p) -->  
+    <string name="pref_video_quality_default" translatable="false">10</string>  
+    <!-- Video quality setting entry. Videos will be recorded in 1080p quality. [CHAR LIMIT=24] -->  
+    <string name="pref_video_quality_entry_1080p" translatable="false">HD</string>  
+    <!-- Video quality setting entry. Videos will be recorded in 720p quality. [CHAR LIMIT=24] -->  
+    <string name="pref_video_quality_entry_720p" translatable="false">Fine</string>  
+    <!-- Video quality setting entry. Videos will be recorded in 480p quality. [CHAR LIMIT=24] -->  
+    <string name="pref_video_quality_entry_480p" translatable="false">SD</string>  
+    <!-- mediatek video quality -->  
+    <string name="pref_video_quality_entry_low" translatable="false">کم</string>  
+    <string name="pref_video_quality_entry_medium" translatable="false">درمیانہ</string>  
+    <string name="pref_video_quality_entry_high" translatable="false">اعلی</string>  
+    <!-- Describes the preference dialog for choosing interval between frame capture for
+    time lapse recording. Appears at top of the dialog. [CHAR LIMIT=30] -->  
+    <string name="pref_video_time_lapse_frame_interval_title">وقت گزرنے کا دورانیہ</string>  
+    <string name="pref_video_time_lapse_frame_interval_default" translatable="false">0</string>  
+    <!-- The time interval between frame capture for time lapse recording -->  
+    <string name="pref_video_time_lapse_frame_interval_entry_1000" translatable="false">1s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_1500" translatable="false">1.5s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_2000" translatable="false">2s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_2500" translatable="false">2.5s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_3000" translatable="false">3s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_5000" translatable="false">5s</string>  
+    <string name="pref_video_time_lapse_frame_interval_entry_10000" translatable="false">10s</string>  
+    <!-- Settings screen, Camera setting category title -->  
+    <string name="pref_camera_settings_category">کیمرے کی ترتیبات</string>  
+    <!-- Settings screen, Camcorder setting category title -->  
+    <string name="pref_camcorder_settings_category">کیم کارڈر کی ترتیبات</string>  
+    <!-- Settings screen, Picture size title -->  
+    <string name="pref_camera_picturesize_title">تصویر کا سائز</string>  
+    <!-- Settings screen, Picture size dialog radio button choices -->  
+    <string name="pref_camera_picturesize_entry_3264x2448">8M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_2592x1936">5M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_2048x1536">3M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_1600x1200">2M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_1280x960">1.3M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_1024x768">1M پکسل</string>  
+    <string name="pref_camera_picturesize_entry_640x480">VGA</string>  
+    <string name="pref_camera_picturesize_entry_320x240">QVGA</string>  
+    <!-- Default focus mode setting.-->  
+    <string name="pref_camera_focusmode_default" translatable="false">continuous-picture</string>  
+    <!-- Settings screen, Focus mode title -->  
+    <string name="pref_camera_focusmode_title">فوکس کی وضع</string>  
+    <!-- Settings screen, Focue mode dialog radio button choices -->  
+    <string name="pref_camera_focusmode_entry_auto">خودکار</string>  
+    <string name="pref_camera_focusmode_entry_infinity">لامحدود</string>  
+    <string name="pref_camera_focusmode_entry_macro">میکرو</string>  
+    <!-- Default flash mode setting.-->  
+    <string name="pref_camera_flashmode_default" translatable="false">auto</string>  
+    <!-- Value for flash off setting-->  
+    <string name="pref_camera_flashmode_no_flash" translatable="false">no_flash</string>  
+    <!-- Settings screen, Flash mode title -->  
+    <string name="pref_camera_flashmode_title">فلیش کی وضع</string>  
+    <!-- Settings screen, Flash mode dialog radio button choices -->  
+    <string name="pref_camera_flashmode_entry_auto">خودکار</string>  
+    <string name="pref_camera_flashmode_entry_on">----------------</string>  
+    <string name="pref_camera_flashmode_entry_off">بند</string>  
+    <!-- Default videocamera flash mode setting.-->  
+    <string name="pref_camera_video_flashmode_default" translatable="false">off</string>  
+    <!-- Default white balance setting. -->  
+    <string name="pref_camera_whitebalance_default" translatable="false">auto</string>  
+    <!-- Settings screen, white balance title -->  
+    <string name="pref_camera_whitebalance_title">سفید توازن</string>  
+    <!-- Settings screen, White balance dialog radio button choices -->  
+    <string name="pref_camera_whitebalance_entry_auto">خودکار</string>  
+    <string name="pref_camera_whitebalance_entry_incandescent">انکینڈیسنٹ</string>  
+    <string name="pref_camera_whitebalance_entry_daylight">دن کی روشنی</string>  
+    <string name="pref_camera_whitebalance_entry_fluorescent">فلوریسنٹ</string>  
+    <string name="pref_camera_whitebalance_entry_cloudy">ابرآلود</string>  
+    <string name="pref_camera_whitebalance_entry_twilight">شام</string>  
+    <string name="pref_camera_whitebalance_entry_shade">چھاؤں</string>  
+    <string name="pref_camera_whitebalance_entry_warm_fluorescent">گرم فلوریسنٹ</string>  
+    <string name="pref_camera_whitebalance_entry_tungsten">ٹنگسٹن</string>  
+    <!-- Default scene mode setting. -->  
+    <string name="pref_camera_scenemode_default" translatable="false">auto</string>  
+    <!-- Settings screen, Select Scene mode -->  
+    <string name="pref_camera_scenemode_title">سین وضع</string>  
+    <!-- Settings menu, scene mode choices -->  
+    <string name="pref_camera_scenemode_entry_auto">خودکار</string>  
+    <!-- Scene mode that takes an image quickly with little motion blur. -->  
+    <string name="pref_camera_scenemode_entry_action">عمل</string>  
+    <!-- Scene mode that takes long exposures to capture night scenes without flash. -->  
+    <string name="pref_camera_scenemode_entry_night">رات</string>  
+    <!-- Scene mode optimized for taking images in the sunset. -->  
+    <string name="pref_camera_scenemode_entry_sunset">مغرب</string>  
+    <!-- Scene mode optimized for taking indoor low-lights pictures. [CHAR LIMIT=16] -->  
+    <string name="pref_camera_scenemode_entry_party">پارٹی</string>  
+    <!-- Toast after trying to select a setting that is not allowed to change in scene mode [CHAR LIMIT=NONE] -->  
+    <string name="not_selectable_in_scene_mode">سین وضع میں قابل انتخاب نہيں۔</string>  
+    <!-- Restore settings item in preference -->  
+    <string name="pref_restore_title">کیمرے کی ترتیبات</string>  
+    <string name="pref_restore_detail">ڈیفالٹ بحال کریں</string>  
+    <!-- Exposure settings in preference -->  
+    <string name="pref_exposure_title">ایکسپوژر</string>  
+    <string name="pref_exposure_default" translatable="false">0</string>  
+    <!-- Dialog "OK" button. Dismisses dialog. -->  
+    <string name="dialog_ok">ٹھیک ہے</string>  
+    <!-- Low-memory dialog message [CHAR LIMT=NONE] -->  
+    <string name="spaceIsLow_content" product="nosdcard">آپ کے SD کارڈ میں جگہ ختم ہورہی ہے۔ کوالٹی ترتیب تبدیل کریں یا کچھ تصویریں یا دوسری فائليں مٹائيں۔</string>  
+    <!-- Low-memory dialog message [CHAR LIMIT=NONE] -->  
+    <string name="spaceIsLow_content" product="default">Your SD card is running out of space. Change the quality setting or delete some images or other files.</string>  
+    <!-- The messsage shown when video record reaches size limit. -->  
+    <string name="video_reach_size_limit">سائز کی حد تجاوز۔</string>  
+    <!-- The text of menu item to switch the mode to Camera. [CHAR LIMIT=NONE] -->  
+    <string name="switch_to_camera_label">کیمرے پر تبدیل کریں</string>  
+    <!-- The text of menu item to switch the mode to Video. [CHAR LIMIT=NONE] -->  
+    <string name="switch_to_video_label">ویڈيو پر تبدیل کریں</string>  
+    <!-- The text of menu item to switch the mode to Panorama. [CHAR LIMIT=NONE] -->  
+    <string name="switch_to_panorama_label">پینوراما</string>  
+    <string name="setting_increment" translatable="false">&gt;</string>  
+    <string name="setting_decrement" translatable="false">&lt;</string>  
+    <!-- Title of the dialog showing a list of applications that can share the captured picture. [CHAR LIMIT=30] -->  
+    <string name="share_picture_via">تصویر تقسیم بذریعہ</string>  
+    <!-- Title of the dialog showing a list of applications that can share the captured video. [CHAR LIMIT=30] -->  
+    <string name="share_video_via">ویڈيو تقسیم بذریعہ</string>  
+    <!-- Toast saying that there is no picture to share. [CHAR LIMIT=30] -->  
+    <string name="no_picture_to_share">تقسیم کرنے کے لئے کوئی تصویر نہيں۔</string>  
+    <!-- Toast saying that there is no video to share. [CHAR LIMIT=30] -->  
+    <string name="no_video_to_share">تقسیم کرنے کے لئے کوئی ویڈیو نہيں۔</string>  
+    <!-- The text shown when the panorama panning speed is to fast [CHAR LIMIT=12] -->  
+    <string name="pano_too_fast_prompt">بہت تیز</string>  
+    <!-- The text shown in the progress dialog when panorama preview is generating in the background [CHAR LIMIT=30] -->  
+    <string name="pano_dialog_prepare_preview">پینوراما تیار کررہا ہے</string>  
+    <!-- The text shown in the dialog when panorama saving failed [CHAR LIMIT=40] -->  
+    <string name="pano_dialog_panorama_failed">پینوراما محفوظ کرنے سے قاصر۔</string>  
+    <!-- The text shown on the dialog title in the dialogs for Panorama [CHAR LIMIT=12] -->  
+    <string name="pano_dialog_title">پینوراما</string>  
+    <!-- The text shown on the top-left corner of the screen to indicate the capturing is on going [CHAR LIMIT=27] -->  
+    <string name="pano_capture_indication">پینوراما کھینچ رہا ہے</string>  
+    <!-- The text shown on the bottom-left corner of the screen to indicate that the saving is in process [CHAR LIMIT=13] -->  
+    <string name="pano_review_saving_indication_str">محفوظ کررہا ہے/u2026</string>  
+    <!-- Toast telling users tapping on the viewfinder will trigger autofocus [CHAR LIMIT=28] -->  
+    <string name="tap_to_focus">فوکس کرنے کے لئے چھوئيں</string>  
+    <!-- Default effect setting that clears the effect. -->  
+    <string name="pref_video_effect_default" translatable="false">none</string>  
+    <!-- Title of video effect setting popup window -->  
+    <string name="pref_video_effect_title">اثرات</string>  
+    <!-- Effect setting item that clear the effect. [CHAR LIMIT=14] -->  
+    <string name="effect_none">کوئی نہيں</string>  
+    <!-- Effect setting item that squeezes the face. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_squeeze">گھسائيں</string>  
+    <!-- Effect setting item that makes eyes big. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_big_eyes">بڑی آنکھیں</string>  
+    <!-- Effect setting item that makes mouth big. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_big_mouth">بڑا منہ</string>  
+    <!-- Effect setting item that makes mouth small. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_small_mouth">چھوٹا منہ</string>  
+    <!-- Effect setting item that makes nose big. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_big_nose">بڑی ناک</string>  
+    <!-- Effect setting item that makes eyes small. [CHAR LIMIT=14] -->  
+    <string name="effect_goofy_face_small_eyes">چھوٹی آنکھیں</string>  
+    <!-- Effect setting item that replaces background with Android in Space. [CHAR LIMIT=14] -->  
+    <string name="effect_backdropper_space">خلا میں</string>  
+    <!-- Effect setting item that replaces background with a sunset. [CHAR LIMIT=14] -->  
+    <string name="effect_backdropper_sunset">مغرب</string>  
+    <!-- Effect setting item that replaces background with a disco effect. [CHAR LIMIT=14] -->  
+    <string name="effect_backdropper_disco">ڈسکو</string>  
+    <!-- Effect setting item that replaces background with video from gallery. [CHAR LIMIT=14] -->  
+    <string name="effect_backdropper_gallery">اپنا منتخب کريں</string>  
+    <!-- Message displayed in overlay during background replacement training [CHAR LIMIT=180]-->  
+    <string name="bg_replacement_message">اپنے آلے کو ایک مستحکم سطح پر رکھیں اور یقینی بنائیں کہ منظر میں کوئی حرکت نہ ہو۔ \n جب منظر میں رواں اثرات ظاہر ہوتے ہیں تو، ویڈیو ریکارڈ کیا جاسکتا ہے۔</string>  
+    <!-- Toast after trying to select a setting that is not allowed to change in effect [CHAR LIMIT=50] -->  
+    <string name="not_selectable_in_effect">اّثر آن ہونے پر قابل انتخاب نہیں۔</string>  
+    <!-- Toast telling users tapping on the viewfinder will take a picture [CHAR LIMIT=65] -->  
+    <string name="video_snapshot_hint">پیش نظر اسکرین چھو کر ویڈیو ریکارڈرنگ کے دوران تصویر کھینچيں۔</string>  
+    <!-- Toast telling users video snapshot is disabled when the effects are on and a user tries to tap on the viewfinder [CHAR LIMIT=65] -->  
+    <string name="disable_video_snapshot_hint">خصوصی اثرات آن ہونے پر ویڈیو اسنیپ شاٹ کو غیرفعال کیا جاتا ہے۔</string>  
+    <!-- A button in effect setting popup to clear the effect. [CHAR LIMIT=26] -->  
+    <string name="clear_effects">اثرات صاف کریں</string>  
+    <!-- Title of category for silly face effects. [CHAR LIMIT=26] -->  
+    <string name="effect_silly_faces">عجیب شکلیں</string>  
+    <!-- Title of category for background replacement effects. [CHAR LIMIT=26] -->  
+    <string name="effect_background">پس منظر</string>  
+    <!-- The shutter button. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_shutter_button">شٹر کا بٹن</string>  
+    <!-- The button to review the thumbnail. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_review_thumbnail">حالیہ ترین تصویر</string>  
+    <!-- The front/back camera switch. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_camera_picker">اگلا اور پچھلا کیمرہ کا سوئچ</string>  
+    <!-- The mode picker to switch between camera, video and panorama. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_mode_picker">کیمرہ، ویڈیو یا پینوراما منتخب کنندہ</string>  
+    <!-- The button to switch to the second-level indicators of the camera settings. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_second_level_indicators">مزید ترتیب کے کنٹرول</string>  
+    <!-- The button to back to the first-level indicators of the camera settings. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_back_to_first_level">ترتیب کے کنٹرول بند کریں</string>  
+    <!-- The zoom control button. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_zoom_control">زوم کنٹرول</string>  
+    <!-- The decrement button in camera preference such as exposure, picture size. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_decrement">کم کریں %1$s</string>  
+    <!-- The increment button in camera preference such as exposure, picture size. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_increment">پڑھائيں %1$s</string>  
+    <!-- The on/off switch in camera settings, such as store location. [CHAR LIMIT = NONE] -->  
+    <string name="accessibility_switch">%1$s سوئچ</string>  
+    <!-- TODO: remove the string as it is a work-around solution to bypass the default speak of the element type. -->  
+    <string name="empty" translatable="false">" "</string>  
+    <string name="pref_camera_normal_capture_default" translatable="false">"Normal"</string>  
+    <string name="pref_camera_normal_capture_title" translatable="false">"کیپچر موڈ"</string>  
+    <string name="pref_camera_capturemode_entry_normal">عام</string>  
+    <string name="pref_camera_capturemode_enrty_fb">چہرے کی خوبصورتی</string>  
+    <string name="pref_camera_capturemode_entry_bestshot">بہترین شاٹ</string>  
+    <string name="pref_camera_capturemode_entry_evbracketshot">EV بریکٹ شاٹ</string>  
+    <string name="pref_camera_capturemode_entry_smileshot">مسکراہٹ کا شاٹ</string>  
+    <string name="pref_camera_burstshot_4">4 شاٹ</string>  
+    <string name="pref_camera_burstshot_8">8 شاٹ</string>  
+    <string name="pref_camera_burstshot_16">16 شاٹ</string>  
+    <string name="pref_camera_hdr_title">HDR</string>  
+    <string name="pref_camera_hdr_default" translatable="false">off</string>  
+    <string name="pref_camera_hdr_on">آن</string>  
+    <string name="pref_camera_hdr_off">آف</string>  
+    <string name="mav_dialog_title">MAV</string>  
+    <string name="switch_to_mav_label">MAV پر تبدیل کریں</string>  
+    <!-- Toast/alert that the image is being saved to the SD card -->  
+    <string name="savingImage">تصویر محفوظ کررہا ہے\u2026</string>  
+    <!--  ISO -->  
+    <string name="pref_camera_iso_entry_auto">خودکار</string>  
+    <!-- AE meter -->  
+    <string name="pref_camera_exposuremeter_title">AE میٹر</string>  
+    <string name="pref_camera_exposuremeter_entry_center">مرکز</string>  
+    <string name="pref_camera_exposuremeter_entry_spot">اسپاٹ</string>  
+    <string name="pref_camera_exposuremeter_entry_average">اوسط</string>  
+    <!-- AF meter -->  
+    <string name="pref_camera_focusmeter_default">اسپاٹ</string>  
+    <string name="pref_camera_focusmeter_title">فوکس وضع</string>  
+    <string name="pref_camera_focusmeter_dialogtitle">فوکس وضع</string>  
+    <string name="pref_camera_focusmeter_entry_spot">انفرادی زون</string>  
+    <string name="pref_camera_focusmeter_entry_multi">متعدد زون</string>  
+    <!-- Face detection mode -->  
+    <!-- Edge,Hue, Sat, Brightness, Contrast -->  
+    <string name="pref_camera_edge_title">نفاست</string>  
+    <string name="pref_camera_hue_title">رنگ</string>  
+    <string name="pref_camera_saturation_title">لبریزی</string>  
+    <string name="pref_camera_brightness_title">اجلاپن</string>  
+    <string name="pref_camera_contrast_title">کانٹراسٹ</string>  
+    <string name="pref_camera_dip_entry_low">کم</string>  
+    <string name="pref_camera_dip_entry_middle">درمیانہ</string>  
+    <string name="pref_camera_dip_entry_high">اعلی</string>  
+    <!-- color effect -->  
+    <string name="pref_camera_coloreffect_default" translatable="false">none</string>  
+    <!-- Settings screen, Select Color effect title -->  
+    <string name="pref_camera_coloreffect_title">رنگ کا اثر</string>  
+    <!-- Settings screen, Color effect dialog radio button choices -->  
+    <string name="pref_camera_coloreffect_entry_none">کوئی نہيں</string>  
+    <string name="pref_camera_coloreffect_entry_mono">مونو</string>  
+    <string name="pref_camera_coloreffect_entry_sepia">سیپیا</string>  
+    <string name="pref_camera_coloreffect_entry_negative">منفی</string>  
+    <!-- Color effect that overexposes and reverses some of the tones. -->  
+    <string name="pref_camera_coloreffect_entry_solarize">سولرائز</string>  
+    <string name="pref_camera_coloreffect_entry_posterize">پوسٹرائز</string>  
+    <string name="pref_camera_coloreffect_entry_whiteboard">سفید بورڈ</string>  
+    <string name="pref_camera_coloreffect_entry_blackboard">بلیک بورڈ</string>  
+    <string name="pref_camera_coloreffect_entry_aqua">ایکوا</string>  
+    <string name="pref_camera_coloreffect_entry_pastel">پیسٹل</string>  
+    <string name="pref_camera_coloreffect_entry_mosaic">موزیک</string>  
+    <string name="pref_camera_coloreffect_entry_redtint">لال ٹنٹ</string>  
+    <string name="pref_camera_coloreffect_entry_bluetint">نیلا ٹنٹ</string>  
+    <string name="pref_camera_coloreffect_entry_greentint">ہرا ٹنٹ</string>  
+    <string name="pref_camera_coloreffect_entry_sepiablue">سیپیا نیلا</string>  
+    <string name="pref_camera_coloreffect_entry_sepiagreen">سیپیا ہرا</string>  
+    <string name="pref_camera_exposure_default">0</string>  
+    <string name="toast_mav_how_to_capture">شٹر بٹن دبائیں اور کیمرے کو دائیں طرف لے جائیں</string>  
+    <!-- self timer -->  
+    <string name="pref_camera_selftimer_title">خودکار ٹائمر</string>  
+    <string name="pref_camera_selftimer_entry_off">آف</string>  
+    <string name="pref_camera_selftimer_entry_2">2 سیکنڈ</string>  
+    <string name="pref_camera_selftimer_entry_10">10 سیکنڈ</string>  
+    <!-- focus mode -->  
+    <string name="pref_camera_focusmode_entry_continuous">مسلسل</string>  
+    <!-- ASD capture mode -->  
+    <string name="pref_camera_capturemode_entry_asd">خودکار سین پہچاننا</string>  
+    <!--  anti-flicker -->  
+    <string name="pref_camera_antibanding_title">اینٹی فلکر</string>  
+    <string name="pref_camera_antibanding_entry_auto">خودکار</string>  
+    <string name="pref_camera_antibanding_entry_50hz">50Hz</string>  
+    <string name="pref_camera_antibanding_entry_60hz">60Hz</string>  
+    <!-- Scene mode Mediatek plus -->  
+    <!-- Scene mode that takes an image with as little noise as possible so details of the subject are maintained. -->  
+    <string name="pref_camera_scenemode_entry_portrait">پورٹریٹ</string>  
+    <!-- Scene mode that takes an image of a landscape assuming all subjects are relatively far from the phone. -->  
+    <string name="pref_camera_scenemode_entry_landscape">لینڈاسکیپ</string>  
+    <!-- Scene mode that takes night shots with long exposure and flash to illuminate the subject while still capturing darker detail in the background. -->  
+    <string name="pref_camera_scenemode_entry_night_portrait">رات کی پورٹریٹ</string>  
+    <!-- Scene mode to be used in a stage show. -->  
+    <string name="pref_camera_scenemode_entry_theatre">تھیٹر</string>  
+    <!-- Scene mode optimized for taking images on the beach. -->  
+    <string name="pref_camera_scenemode_entry_beach">ساحل</string>  
+    <!-- Scene mode optimized for taking images in the snow. -->  
+    <string name="pref_camera_scenemode_entry_snow">برف</string>  
+    <!-- Scene mode for taking a photo as sharp as possible. -->  
+    <string name="pref_camera_scenemode_entry_steadyphoto">مستحکم تصویر</string>  
+    <!-- Scene mode optimized for taking images of fireworks. -->  
+    <string name="pref_camera_scenemode_entry_fireworks">پٹاخے</string>  
+    <string name="pref_camera_scenemode_entry_sports">کھیل</string>  
+    <string name="pref_camera_scenemode_entry_candlelight">موم بتی کی روشنی</string>  
+    <!-- Video Camera -->  
+    <!-- EIS setting -->  
+    <string name="pref_camera_eis_title">EIS</string>  
+    <string name="pref_camera_eis_default" translatable="false">off</string>  
+    <string name="pref_camera_eis_on">آن</string>  
+    <string name="pref_camera_eis_off">آف</string>  
+    <!-- microphone switch -->  
+    <string name="pref_camera_recordaudio_default" translatable="false">on</string>  
+    <string name="pref_camera_recordaudio_title">مائکروفون</string>  
+    <string name="pref_camera_recordaudio_entry_off">آف</string>  
+    <string name="pref_camera_recordaudio_entry_on">آن</string>  
+    <!-- Focus mode for video -->  
+    <!-- Default value for Video focus mode -->  
+    <string name="pref_camera_video_focusmode_default" translatable="false">infinity</string>  
+    <!-- Video Duration -->  
+    <!-- Default video duration setting. A numerical value.-->  
+    <string name="pref_camera_video_duration_default" translatable="false">10</string>  
+    <!-- Settings screen, Video duration title -->  
+    <string name="pref_camera_video_duration_title">ویڈیو کا دورانیہ</string>  
+    <!-- Settings screen, Video duration dialog radio button choices -->  
+    <string name="pref_camera_video_duration_entry_mms"> 
+        <xliff:g id="duration" example="60">%1$d</xliff:g> سیکنڈ
+    </string>  
+    <string name="pref_camera_video_duration_entry_10">10 منٹ</string>  
+    <string name="pref_camera_video_duration_entry_30">30 منٹ</string>  
+    <string name="pref_camera_video_duration_entry_60">60 منٹ</string>  
+    <!-- pause recording hint -->  
+    <string name="toast_video_recording_pause_hint">ریکارڈنگ روکنے کے لئے شٹر کا بٹن زیادہ دیر کے لئے دبائيں</string>  
+    <!-- recording is not available -->  
+    <string name="toast_video_recording_not_available">ویڈیو کیمرہ استعمال کرنے سے پہلے ریکارڈنگ کے دوسرے اضافی پروگرام روک دیں۔</string>  
+    <string name="pref_video_quality_entry_fine">فائن</string>  
+    <string name="toast_autorama_how_to_capture_ics">کیمرہ کو ایک رخ پر اسطرح موڑیں کہ تصویر کےلیے درکار منظر پیلے چوکور میں آ جائے۔</string>  
+    <string name="savingvideo">\u2026 ویڈیو محفوظ کر رہا ہے</string>
+    <string name="pref_camera_video_hd_recording_title"> آڈیو موڈ</string>  
+    <string name="pref_camera_video_hd_recording_normal"> عام</string>  
+    <string name="pref_camera_video_hd_recording_indoor"> اندرونی</string>  
+    <string name="video_live_effect_error"> ریکارڈنگ کے دوران نقص!</string>
+    <string name="pref_camera_video_hd_recording_normal_ics">نارمل</string>  
+	  <string name="pref_camera_video_hd_recording_indoor_ics">میٹنگ</string>  
+    <string name="single3d_guide_shutter">‎3D‏ تصویر لینا شروع کرنے ‏کیلئے شٹر دبائیں</string>  
+    <string name="single3d_guide_move">فریم سے آگے جانے کیلئے ‏آلے کو دائیں جانب حرکت دیں‏</string>  
+    <string name="panorama3d_guide_shutter">مسلسل 3D مناظر لینا شروع کرنے کیلئے شٹر دبائیں</string>  
+    <string name="panorama_guide_choose_direction">آلے کو اپنی تصویر والی سمت ‏میں حرکت دیں</string>  
+    <string name="panorama3d_guide_move">آلے کو دائیں جانب حرکت دیں</string>  
+    <string name="panorama3d_guide_capture">دو لائنوں سے آگے جانے ‏کیلئے آلے کو دائیں جانب ‏حرکت دیں</string>  
+    <string name="panorama_guide_shutter">مسلسل مناظر لینا شروع کرنے کیلئے شٹر دبائیں</string>  
+    <string name="panorama_guide_capture">دو لائنوں سے آگے جانے ‏کیلئے آلے کو دائیں جانب ‏حرکت دیں</string>  
+    <string name="continuous_saving_pictures"> 
+        <xliff:g id="numbers" example="10">%1$d</xliff:g> ‎تصویریں محفوظ ہورہی ‏ہیں
+    </string>  
+    <string name="pref_camera_continuous_number_title">نمبر حاصل کریں</string> 
+
+</resources>

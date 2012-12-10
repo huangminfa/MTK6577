@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="0dip" 
+    android:orientation="vertical" >
+    
+    <LinearLayout android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:id="@+id/editor_view_vcard_detail"
+        android:orientation="vertical" 
+        android:layout_marginTop="10dip"
+        android:gravity="center_vertical">
+    	
+    </LinearLayout>
+    
+    <LinearLayout android:id="@+id/edit_info_vcard_selector"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" 
+        android:layout_marginTop="20dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/btn_default_holo_light"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical">
+        <ImageView 
+            android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:layout_marginRight="10dip"
+        	android:src="@drawable/ic_tag_vcard"/>
+    	<TextView android:layout_width="0dip" 
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	android:textSize="20sp"
+        	android:text="@string/edit_view_vcard_select_desc"/>
+    </LinearLayout>
+    
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YGPS</string>
+    <string name="copyrightinfo_fulltext">
+
+Copyright (C) 2009  Ludwig M Brinckmann ludwigbrinckmann@gmail.com
+
+The source code for this application is available from 
+http://www.yunnanexplorer.com/
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see http://www.gnu.org/licenses/.
+
+This program incorporates code by J Latimer released under the following license:
+
+ Copyright (C) 2008 Jon Larimer jlarimer@gmail.com
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+
+    
+    </string>
+    <string name="menu_copyright">Copyright</string> 
+    <string name="menu_ublox">Initialise GPS Chip</string> 
+    <string name="menu_settings">Ublox Settings</string> 
+
+<string name="menu_showloc">Show Location</string>
+<string name="menu_hideloc">Hide Location</string>
+<string name="menu_info">Info</string>
+<string name="menu_satellite">Satellite</string>
+<string name="title_time">Time:</string>
+<string name="time"></string>
+<string name="title_lat">Latitude:</string>
+<string name="latitude"></string>
+<string name="title_lon">Longitude:</string>
+<string name="first_latitude_text">First Latitude:</string>
+<string name="first_longtitude_text">First Longitude:</string>
+<string name="longitude"></string>
+<string name="title_alt">Altitude:</string>
+<string name="altitude"></string>
+<string name="title_acc">Accuracy:</string>
+<string name="accuracy"></string>
+<string name="title_bear">Bearing:</string>
+<string name="bearing"></string>
+<string name="title_speed">Speed:</string>
+<string name="speed"></string>
+<string name="nema"></string>
+<string name="debug"></string>
+<string name="title_ttff">TTFF:</string>
+<string name="title_fix">Fix:</string>
+<string name="ttff"></string>
+<string name="fix"></string>
+<string name="title_provider">Provider:</string>
+<string name="title_status">Status:</string>
+<string name="provider"></string>
+<string name="status"></string>
+<string name="title_distance">Distance:</string>
+<string name="distance"></string>
+<string name="title_date">Date:</string>
+<string name="date"></string>
+<string name="title_chip_version">Chip version:</string>
+<string name="chipversion">UNKNOWN&#160;&#160;&#160;</string>
+<string name="title_mnl_version">MNL version:</string>
+<string name="mnlversion">UNKNOWN&#160;&#160;&#160;</string>
+<string name="hot">hot</string>
+<string name="warm">warm</string>
+<string name="cold">cold</string>
+<string name="full">full</string>
+<string name="restart">AGPS restart</string>
+<string name="satellites">Satellites</string>
+<string name="information">Information</string>
+
+<string name="GPStest">GPS Test</string><string name="NMEALog">NMEA Log</string>
+<string name="NMEA_start">start</string>
+<string name="NMEA_clear">clear</string>
+<string name="NMEA_save">save</string>
+<string name="NMEA_stop">stop</string><string name="NMEA_hint">The NMEA log below is being saved:</string><string name="GPStest_start">Start</string>
+<string name="GPStest_times">Times 0 - 999:</string>
+<string name="GPStest_interval">Interval 0 - 999(s):</string>
+<string name="NoSdCard">Please check the SD card.</string>
+
+<string name="GPStest_currenttimes">Current Times:</string>
+<string name="Need_3D_Fix">Need 3D Fix</string>
+<string name="Last_TTFF">Last TTFF:</string>
+<string name="Reconnect_Countdown">Reconnect Countdown:</string>
+<string name="GPStest_stop">Stop</string>
+<string name="GPStest_mean_ttff">Mean TTFF:</string>
+
+<string name="NMEA_DBG_DBG">Android</string>
+<string name="NMEA_DBG_NMEA">Android</string>
+<string name="NMEA_DBG_DBG_FILE">Android</string>
+<string name="NMEA_DBG_NMEA_FILE">Android</string>
+
+<string name="HOT_STILL">Android</string>
+
+<string name="GPS_HW_TEST">Android</string>
+<string name="GPS_JAMMING_SCAN">JAM scan</string>
+
+</resources>

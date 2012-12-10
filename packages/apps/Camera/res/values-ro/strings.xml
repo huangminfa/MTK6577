@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="camera_error_title" msgid="6484667504938477337">Eroare cameră</string>  
+    <string name="cannot_connect_camera" msgid="955440687597185163">Imposibil de conectat la cameră.</string>  
+    <string name="camera_disabled" msgid="8923911090533439312">Camera a fost dezactivată din cauza politicilor de securitate.</string>  
+    <string name="camera_label" msgid="6346560772074764302">"Cameră foto"</string>  
+    <string name="video_camera_label" msgid="2899292505526427293">Cameră video</string>  
+    <string name="gallery_camera_bucket_name" msgid="2924618424339240831">Imagini cameră</string>  
+    <string name="gallery_camera_videos_bucket_name" msgid="3369151581398551623">Videoclipuri cameră</string>  
+    <string name="wait" msgid="8600187532323801552">Aşteptaţi\u2026</string>  
+    <string name="no_storage" product="nosdcard" msgid="7335975356349008814">"Înainte de a utiliza camera foto, montaţi dispozitivul de stocare USB."</string>  
+    <string name="no_storage" product="default" msgid="5137703033746873624">"Introduceţi un card SD înainte de a utiliza camera foto."</string>  
+    <string name="not_enough_space" product="nosdcard" msgid="6452370395538050134">"Cardul SD este plin."</string>  
+    <string name="not_enough_space" product="default" msgid="6655334407957844653">"Cardul SD este plin."</string>  
+    <string name="preparing_sd" product="nosdcard" msgid="6104019983528341353">"Se pregăteşte cardul SD..."</string>  
+    <string name="preparing_sd" product="default" msgid="2914969119574812666">"Se pregăteşte cardul SD..."</string>  
+    <string name="access_sd_fail" product="nosdcard" msgid="8147993984037859354">"Nu s-a putut accesa cardul SD."</string>  
+    <string name="access_sd_fail" product="default" msgid="1584968646870054352">"Nu s-a putut accesa cardul SD."</string>  
+    <string name="confirm_restore_title" msgid="1229914538263792180">"Restabiliţi valorile prestabilite"</string>  
+    <string name="confirm_restore_message" msgid="6649481842684452641">"Reveniţi la setările prestabilite ale camerei foto?"</string>  
+    <string name="review_play" msgid="6378271587740884696">"Redaţi"</string>  
+    <string name="review_cancel" msgid="8188009385853399254">"Anulaţi"</string>  
+    <string name="review_ok" msgid="1156261588693116433">"Terminat"</string>  
+    <string name="review_retake" msgid="7804864054896088338">"ALTĂ FOTOGRAFIE"</string>  
+    <string name="camera_gallery_photos_text" msgid="6558048736561932758">"Galerie"</string>  
+    <string name="switch_camera_id" msgid="837545176602471325">"Schimbaţi camera foto"</string>  
+    <string name="time_lapse_title" msgid="4360632427760662691">"Înregistrare cu filmare lentă"</string>  
+    <string name="pref_camera_id_title" msgid="6023059405578511534">"Select. camera foto"</string>  
+    <string name="pref_camera_id_entry_back" msgid="5142699735103692485">"Înapoi"</string>  
+    <string name="pref_camera_id_entry_front" msgid="5668958706828733669">"Frontal"</string>  
+    <string name="pref_camera_recordlocation_title" msgid="371208839215448917">"Stocaţi locaţia"</string>  
+    <string name="pref_camera_recordlocation_entry_off" msgid="8888142742988946038">"Dezactivat"</string>  
+    <string name="pref_camera_recordlocation_entry_on" msgid="7954533529969575594">"Activat"</string>  
+    <string name="pref_video_quality_title" msgid="8245379279801096922">"Calitate video"</string>  
+    <string name="pref_video_time_lapse_frame_interval_title" msgid="5262531404348504642">"Interval filmare lentă"</string>  
+    <string name="pref_camera_settings_category" msgid="2576236450859613120">"Setările camerei foto"</string>  
+    <string name="pref_camcorder_settings_category" msgid="460313486231965141">"Setările camerei video"</string>  
+    <string name="pref_camera_picturesize_title" msgid="4333724936665883006">"Dimensiune fotografie"</string>  
+    <string name="pref_camera_picturesize_entry_2592x1936" msgid="6980117304679164339">"5 MP"</string>  
+    <string name="pref_camera_picturesize_entry_2048x1536" msgid="4391030755438075447">"3 MP"</string>  
+    <string name="pref_camera_picturesize_entry_1600x1200" msgid="8081839485457681369">"2 MP"</string>  
+    <string name="pref_camera_picturesize_entry_1280x960" msgid="7820672028447972964">"1,3 MP"</string>  
+    <string name="pref_camera_picturesize_entry_1024x768" msgid="3705686683403524018">"1 MP"</string>  
+    <string name="pref_camera_picturesize_entry_640x480" msgid="5557572917973022995">"VGA"</string>  
+    <string name="pref_camera_picturesize_entry_320x240" msgid="5729711026478753025">"QVGA"</string>  
+    <string name="pref_camera_focusmode_title" msgid="2877248921829329127">"Mod focus"</string>  
+    <string name="pref_camera_focusmode_entry_auto" msgid="7374820710300362457">"Automat"</string>  
+    <string name="pref_camera_focusmode_entry_infinity" msgid="3413922419264967552">"Infinit"</string>  
+    <string name="pref_camera_focusmode_entry_macro" msgid="4424489110551866161">"Macro"</string>  
+    <string name="pref_camera_flashmode_title" msgid="2287362477238791017">"Mod flash"</string>  
+    <string name="pref_camera_flashmode_entry_auto" msgid="7288383434237457709">"Automat"</string>  
+    <string name="pref_camera_flashmode_entry_on" msgid="5330043918845197616">----------------</string>  
+    <string name="pref_camera_flashmode_entry_off" msgid="867242186958805761">"Dezactivată"</string>  
+    <string name="pref_camera_whitebalance_title" msgid="677420930596673340">"Balanţă de alb"</string>  
+    <string name="pref_camera_whitebalance_entry_auto" msgid="6580665476983469293">"Automat"</string>  
+    <string name="pref_camera_whitebalance_entry_incandescent" msgid="8856667786449549938">"Incandescent"</string>  
+    <string name="pref_camera_whitebalance_entry_daylight" msgid="2534757270149561027">"Lumină de zi"</string>  
+    <string name="pref_camera_whitebalance_entry_fluorescent" msgid="2435332872847454032">"Fluorescent"</string>  
+    <string name="pref_camera_whitebalance_entry_cloudy" msgid="3531996716997959326">"Înnorat"</string>  
+    <string name="pref_camera_scenemode_title" msgid="1420535844292504016">"Mod Scenă"</string>  
+    <string name="pref_camera_scenemode_entry_auto" msgid="7113995286836658648">"Automat"</string>  
+    <string name="pref_camera_scenemode_entry_action" msgid="616748587566110484">"Acţiune"</string>  
+    <string name="pref_camera_scenemode_entry_night" msgid="7606898503102476329">"Noapte"</string>  
+    <string name="pref_camera_scenemode_entry_sunset" msgid="181661154611507212">"Apus de soare"</string>  
+    <string name="pref_camera_scenemode_entry_party" msgid="907053529286788253">"Petrecere"</string>  
+    <string name="not_selectable_in_scene_mode" msgid="2970291701448555126">"Nu este selectabil în modul scenă."</string>  
+    <string name="pref_restore_title" msgid="6479274979730178961">"Setările camerei foto"</string>  
+    <string name="pref_restore_detail" msgid="5732490002291044791">"Restabiliţi valorile prestabilite"</string>  
+    <string name="pref_exposure_title" msgid="1229093066434614811">"Expunere"</string>  
+    <string name="dialog_ok" msgid="6263301364153382152">"OK"</string>  
+    <string name="spaceIsLow_content" product="nosdcard" msgid="4401325203349203177">"Cardul SD rămâne fără spaţiu de stocare. Editaţi setarea de calitate sau ştergeţi câteva imagini sau alte fişiere."</string>  
+    <string name="spaceIsLow_content" product="default" msgid="1732882643101247179">"Cardul SD rămâne fără spaţiu de stocare. Editaţi setarea de calitate sau ştergeţi câteva imagini sau alte fişiere."</string>  
+    <string name="video_reach_size_limit" msgid="6179877322015552390">"Dimensiune limită depăşită."</string>  
+    <string name="switch_to_camera_label" msgid="9148663083850199582">"Comutaţi la Cameră foto"</string>  
+    <string name="switch_to_video_label" msgid="1167994386902254398">"Comutaţi la camera video"</string>  
+    <string name="switch_to_panorama_label" msgid="858801335653517864">"Comutaţi la panoramă"</string>  
+    <string name="share_picture_via" msgid="1375127849431890447">"Distribuiţi fotografia prin"</string>  
+    <string name="share_video_via" msgid="5152302809166549015">"Distribuiţi videoclipul prin"</string>  
+    <string name="no_picture_to_share" msgid="5352574090121328815">"Nicio imagine de distribuit."</string>  
+    <string name="no_video_to_share" msgid="7567298642707627096">"Niciun videoclip de distrib."</string>  
+    <string name="pano_too_fast_prompt" msgid="2823839093291374709">"Prea repede"</string>  
+    <string name="pano_dialog_prepare_preview" msgid="4788441554128083543">"Se pregăteşte panorama"</string>  
+    <string name="pano_dialog_panorama_failed" msgid="2155692796549642116">"Panorama nu a putut fi salvată."</string>  
+    <string name="pano_dialog_title" msgid="5755531234434437697">"Panoramă"</string>  
+    <string name="pano_capture_indication" msgid="8248825828264374507">"Se capturează panorama"</string>  
+    <string name="pano_review_saving_indication_str" msgid="2054886016665130188">"Se salvează.."</string>  
+    <string name="tap_to_focus" msgid="8863427645591903760">"Atingeţi pentru a focaliza."</string>  
+    <string name="pref_video_effect_title" msgid="8243182968457289488">"Efecte"</string>  
+    <string name="effect_none" msgid="3601545724573307541">"Niciunul"</string>  
+    <string name="effect_goofy_face_squeeze" msgid="1207235692524289171">"Comprimare"</string>  
+    <string name="effect_goofy_face_big_eyes" msgid="3945182409691408412">"Ochi mari"</string>  
+    <string name="effect_goofy_face_big_mouth" msgid="7528748779754643144">"Gură mare"</string>  
+    <string name="effect_goofy_face_small_mouth" msgid="3848209817806932565">"Gură mică"</string>  
+    <string name="effect_goofy_face_big_nose" msgid="5180533098740577137">"Nas mare"</string>  
+    <string name="effect_goofy_face_small_eyes" msgid="1070355596290331271">"Ochi mici"</string>  
+    <string name="effect_backdropper_space" msgid="7935661090723068402">"În spaţiu"</string>  
+    <string name="effect_backdropper_sunset" msgid="45198943771777870">"Apus de soare"</string>  
+    <string name="effect_backdropper_disco" msgid="8494822051982972854">"Disco"</string>  
+    <string name="effect_backdropper_gallery" msgid="3271387403091819540">"Propriu"</string>  
+    <string name="bg_replacement_message" msgid="6828585054971662284">"Aşezaţi dispozitivul pe o suprafaţă stabilă şi asiguraţi-vă că nu există mişcare în timpul examinării.\nCând efectele în direct apar în examinare, videoclipul poate fi înregistrat."</string>  
+    <string name="not_selectable_in_effect" msgid="7967729203855039239">"Nu este selectabil când efectul este activat."</string>  
+    <string name="video_snapshot_hint" msgid="8159602664271448241">"Pozaţi în timpul înregistrării atingând ecranul previzualizare."</string>  
+    <string name="disable_video_snapshot_hint" msgid="4957723267826476079">"Instant. video este dezact. când efectele speciale sunt pornite."</string>  
+    <string name="clear_effects" msgid="5485339175014139481">"Ştergeţi efectul"</string>  
+    <string name="effect_silly_faces" msgid="8107732405347155777">"FEŢE PROSTUŢE"</string>  
+    <string name="effect_background" msgid="6579360207378171022">"FUNDAL"</string>  
+    <string name="accessibility_shutter_button" msgid="2664037763232556307">"Butonul Declanşaţi"</string>  
+    <string name="accessibility_review_thumbnail" msgid="8961275263537513017">"Cea mai recentă fotografie"</string>  
+    <string name="accessibility_camera_picker" msgid="8807945470215734566">"Comutator pentru camera foto din faţă şi din spate"</string>  
+    <string name="accessibility_mode_picker" msgid="3278002189966833100">"Selector pentru modurile cameră foto, cameră video sau panoramă"</string>  
+    <string name="accessibility_second_level_indicators" msgid="3855951632917627620">"Mai multe comenzi pentru setări"</string>  
+    <string name="accessibility_back_to_first_level" msgid="5234411571109877131">"Închideţi comenzile pentru setări"</string>  
+    <string name="accessibility_zoom_control" msgid="1339909363226825709">"Comandă mărire/micşorare"</string>  
+    <string name="accessibility_decrement" msgid="1411194318538035666">"Reduceţi %1$s"</string>  
+    <string name="accessibility_increment" msgid="8447850530444401135">"Măriţi %1$s"</string>  
+    <string name="accessibility_switch" msgid="6995966685498958895">"Comutator %1$s"</string>  
+    <string name="pref_camera_capturemode_entry_normal">"Normală"</string>  
+    <string name="pref_camera_hdr_on">"Activat"</string>  
+    <string name="pref_camera_hdr_off">"Dezactivată"</string>  
+    <string name="pref_camera_iso_title">ISO</string>  
+    <string name="pref_camera_iso_entry_auto">"Automat"</string>  
+    <string name="pref_camera_saturation_title">Saturație</string>  
+    <string name="pref_camera_dip_entry_middle">Mediu</string>  
+    <string name="pref_camera_coloreffect_entry_none">"Niciunul"</string>  
+    <string name="pref_camera_coloreffect_entry_mono">"Mono"</string>  
+    <string name="pref_camera_coloreffect_entry_sepia">"Sepia"</string>  
+    <string name="pref_camera_coloreffect_entry_negative">"Negativ"</string>  
+    <string name="pref_camera_coloreffect_entry_posterize">"Poster"</string>  
+    <string name="pref_camera_coloreffect_entry_aqua">"Apă"</string>  
+    <string name="pref_camera_coloreffect_entry_pastel">"Pastel"</string>  
+    <string name="pref_camera_coloreffect_entry_mosaic">"Mozaic"</string>  
+    <string name="pref_camera_coloreffect_entry_redtint">"Tentă roşie"</string>  
+    <string name="pref_camera_coloreffect_entry_bluetint">"Tentă albastră"</string>  
+    <string name="pref_camera_coloreffect_entry_greentint">"Tentă verde"</string>  
+    <string name="pref_camera_selftimer_entry_off">"Dezactivată"</string>  
+    <string name="pref_camera_selftimer_entry_10">10 secunde</string>  
+    <string name="pref_camera_antibanding_entry_auto">"Automat"</string>  
+    <string name="pref_camera_eis_on">"Activat"</string>  
+    <string name="pref_camera_eis_off">"Dezactivată"</string>  
+    <string name="pref_camera_recordaudio_entry_off">"Dezactivată"</string>  
+    <string name="pref_camera_recordaudio_entry_on">"Activat"</string>  
+    <string name="pref_camera_video_duration_entry_10">"10 minute"</string>  
+    <string name="pref_camera_video_duration_entry_30">"30 de minute"</string>  
+    <string name="capture_memory_not_enough">Memoria este insuficientă, închideţi alte aplicaţii.</string>  
+    <string name="mav_dialog_save_failed">Imposibil de salvat imaginea.</string>  
+    <string name="pref_camera_capturemode_enrty_fb">Frumuseţe figură</string>  
+    <string name="pref_camera_hdr_title">HDR</string>  
+    <string name="mav_dialog_title">MAV</string>  
+    <string name="switch_to_mav_label">Comutare la MAV</string>  
+    <string name="toast_autorama_how_to_capture">Apăsaţi pe butonul obturator pentru a realiza prima imagine şi apoi mutaţi camera într-o direcţie pentru a suprapune zona de focalizare pe pătratul galben.</string>  
+    <string name="pref_camera_picturesize_entry_3264x2448">8 megapixeli</string>  
+    <string name="pref_camera_whitebalance_entry_twilight">Amurg</string>  
+    <string name="pref_camera_whitebalance_entry_shade">"Umbre"</string>  
+    <string name="pref_camera_whitebalance_entry_warm_fluorescent">Lumină fluorescentă caldă</string>  
+    <string name="pref_camera_whitebalance_entry_tungsten">Tungsten</string>  
+    <string name="pref_camera_capturemode_entry_bestshot">Cea mai bună fotografie</string>  
+    <string name="pref_camera_capturemode_entry_evbracketshot">Fotografie cu încadrare EV</string>  
+    <string name="pref_camera_capturemode_entry_smileshot">Fotografie zâmbet</string>  
+    <string name="pref_camera_burstshot_4">4 fotografii</string>  
+    <string name="pref_camera_burstshot_8">8 fotografii</string>  
+    <string name="pref_camera_burstshot_16">16 fotografii</string>  
+    <string name="savingImage">"Se salvează fotografia..."</string>  
+    <string name="pref_camera_exposuremeter_title">Dozare AE</string>  
+    <string name="pref_camera_exposuremeter_entry_center">centru</string>  
+    <string name="pref_camera_exposuremeter_entry_spot">Punct</string>  
+    <string name="pref_camera_exposuremeter_entry_average">Medie</string>  
+    <string name="pref_camera_focusmeter_default">Punct</string>  
+    <string name="pref_camera_focusmeter_title">Dozare focalizare</string>  
+    <string name="pref_camera_focusmeter_dialogtitle">Mod focalizare</string>  
+    <string name="pref_camera_focusmeter_entry_spot">Zonă unică</string>  
+    <string name="pref_camera_focusmeter_entry_multi">Mai multe zone</string>  
+    <string name="pref_camera_edge_title">Claritate</string>  
+    <string name="pref_camera_hue_title">Nuanţă</string>  
+    <string name="pref_camera_brightness_title">Luminozitate</string>  
+    <string name="pref_camera_contrast_title">Contrast</string>  
+    <string name="pref_camera_dip_entry_low">Minim</string>  
+    <string name="pref_camera_dip_entry_high">Maxim</string>  
+    <string name="pref_camera_coloreffect_title">Efect de culoare</string>  
+    <string name="pref_camera_coloreffect_entry_solarize">"Expunere"</string>  
+    <string name="pref_camera_coloreffect_entry_whiteboard">Tablă albă</string>  
+    <string name="pref_camera_coloreffect_entry_blackboard">Tablă neagră</string>  
+    <string name="pref_camera_coloreffect_entry_sepiablue">Sepia albastru</string>  
+    <string name="pref_camera_coloreffect_entry_sepiagreen">Sepia verde</string>  
+    <string name="toast_mav_how_to_capture">Apăsaţi pe butonul obturator şi mutaţi camera la dreapta.</string>  
+    <string name="pref_camera_selftimer_title">Cronometru automat</string>  
+    <string name="pref_camera_selftimer_entry_2">2 secunde</string>  
+    <string name="pref_camera_focusmode_entry_continuous">continuu</string>  
+    <string name="pref_camera_capturemode_entry_asd">Detectare automată scenă</string>  
+    <string name="pref_camera_antibanding_title">Anti-tremur</string>  
+    <string name="pref_camera_antibanding_entry_50hz">50 Hz</string>  
+    <string name="pref_camera_antibanding_entry_60hz">60 Hz</string>  
+    <string name="pref_camera_scenemode_entry_portrait">Portret</string>  
+    <string name="pref_camera_scenemode_entry_landscape">Vedere</string>  
+    <string name="pref_camera_scenemode_entry_night_portrait">Portret nocturn</string>  
+    <string name="pref_camera_scenemode_entry_theatre">Teatru</string>  
+    <string name="pref_camera_scenemode_entry_beach">Plajă</string>  
+    <string name="pref_camera_scenemode_entry_snow">Zăpadă</string>  
+    <string name="pref_camera_scenemode_entry_steadyphoto">Fotografie stabilă</string>  
+    <string name="pref_camera_scenemode_entry_fireworks">Artificii</string>  
+    <string name="pref_camera_scenemode_entry_sports">"Acţiune"</string>  
+    <string name="pref_camera_scenemode_entry_candlelight">"Lumină lumânare"</string>  
+    <string name="pref_camera_eis_title">EIS</string>  
+    <string name="pref_camera_recordaudio_title">Microfon</string>  
+    <string name="pref_camera_video_duration_title">Durată video</string>  
+    <string name="pref_camera_video_duration_entry_mms">
+    		<xliff:g id="duration" example="60">%1$d</xliff:g> secunde
+    </string>  
+    <string name="pref_camera_video_duration_entry_60">60 de minute</string>  
+    <string name="toast_video_recording_pause_hint">Apăsaţi lung pe butonul obturator pentru a plasa în pauză înregistrarea</string>  
+    <string name="toast_video_recording_not_available">Opriţi alte aplicaţii de înregistrare înainte de a utiliza camera video.</string>  
+    <string name="pref_video_quality_entry_low">Minim</string>  
+    <string name="pref_video_quality_entry_high">Maxim</string>  
+    <string name="pref_video_quality_entry_fine">"Fin"</string>  
+    <string name="toast_autorama_how_to_capture_ics">Apăsaţi pe butonul obturator pentru a realiza prima imagine şi apoi mutaţi camera într-o direcţie pentru a suprapune zona de focalizare pe pătratul galben.</string>  
+    <string name="pref_camera_normal_capture_title">"Mod captură"</string>  
+    <string name="pref_video_quality_entry_medium">Mediu</string>  
+    <string name="savingvideo">Se salvează videoclipul\u2026</string>
+     <string name="pref_camera_video_hd_recording_title">Mod audio</string>  
+    <string name="pref_camera_video_hd_recording_normal">normal</string>  
+    <string name="pref_camera_video_hd_recording_indoor">interior</string>  
+    <string name="video_live_effect_error">Eroare în timpul înregistrării!</string>
+    <string name="pref_camera_video_hd_recording_normal_ics">Normal</string>  
+	  <string name="pref_camera_video_hd_recording_indoor_ics">Întâlnire</string>  
+    <string name="single3d_guide_shutter">Apăsaţi pe obturator pentru a începe capturarea imaginii 3D</string>  
+    <string name="single3d_guide_move">Deplasaţi dispozitivul spre dreapta pentru a suprapune cadrul</string>  
+    <string name="panorama3d_guide_shutter">Apăsaţi pe obturator pentru a începe capturarea panoramei 3D</string>  
+    <string name="panorama_guide_choose_direction">Deplasaţi dispozitivul spre direcţia de capturare</string>  
+    <string name="panorama3d_guide_move">Deplasaţi dispozitivul spre dreapta</string>  
+    <string name="panorama3d_guide_capture">Deplasaţi dispozitivul spre dreapta pentru a suprapune cele două linii</string>  
+    <string name="panorama_guide_shutter">Apăsaţi pe obturator pentru a începe capturarea panoramei</string>  
+    <string name="panorama_guide_capture">Deplasaţi dispozitivul pentru a suprapune cele două linii</string>  
+    <string name="continuous_saving_pictures">Se salvează 
+        <xliff:g id="numbers" example="10">%1$d</xliff:g> (de) imagini
+    </string>  
+    <string name="pref_camera_continuous_number_title">Număr captură</string> 
+
+</resources>

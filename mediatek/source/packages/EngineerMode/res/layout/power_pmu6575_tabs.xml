@@ -1,0 +1,94 @@
+<FrameLayout android:id="@+id/FrameLayout01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout android:orientation="vertical"
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:id="@id/LinerLayout_pmu_info_text" android:visibility="visible">
+		<ScrollView android:id="@+id/ScrollView01"
+			android:layout_width="fill_parent" android:layout_height="0px"
+			android:layout_weight="1">
+			<TextView android:layout_width="fill_parent" android:id="@+id/pmu_info_text"
+				android:scrollbars="vertical" android:layout_height="fill_parent">
+			</TextView>
+		</ScrollView>
+
+	</LinearLayout>
+   
+  		
+	<LinearLayout android:orientation="vertical"
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:id="@id/LinerLayout_pmu_reg" android:visibility="visible">
+		
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_marginTop="5dip">
+		
+    <Spinner android:layout_height="wrap_content" 
+		 android:layout_width="290dip" 
+		 android:layout_marginLeft="10dip" 
+		 android:id="@+id/pmu_bank_spinner" 
+  		android:layout_marginTop="10dip"></Spinner>
+  	</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_marginTop="5dip">
+
+			<TextView android:text="@string/address6575_text"
+				android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/address6575_text" android:layout_width="140dip"
+				android:layout_height="wrap_content"></TextView>
+			<TextView android:text="@string/value6575_text"
+				android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/value6575_text" android:layout_width="140dip"
+				android:layout_height="wrap_content"></TextView>
+
+			
+		</LinearLayout>
+				
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_marginTop="1dip">
+
+			<EditText android:singleLine="true" android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/pmu_edit_addr" android:layout_width="140dip"
+				android:layout_height="wrap_content" android:maxLength="2"></EditText>
+			<EditText android:singleLine="true" android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/pmu_edit_val" android:layout_width="140dip" android:maxLength="3"
+				android:layout_height="wrap_content"></EditText>
+
+			
+		</LinearLayout>		
+				
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_marginTop="5dip">
+
+			<Button android:text="@string/pmu_btn_get"
+				android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/pmu_btn_get" android:layout_width="140dip"
+				android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/pmu_btn_set"
+				android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/pmu_btn_set" android:layout_width="140dip"
+				android:layout_height="wrap_content"></Button>
+
+			
+		</LinearLayout>
+		
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_marginTop="5dip">
+
+			<TextView android:text="@string/warning_text"
+				android:layout_marginLeft="10dip" android:layout_marginTop="1dip"
+				android:id="@+id/warning_text" android:layout_width="wrap_content"
+				android:layout_height="wrap_content"></TextView>			
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+
+</FrameLayout>

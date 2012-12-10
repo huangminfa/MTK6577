@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:orientation="vertical"
+  android:layout_height="wrap_content">
+ 
+ <LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_marginTop="10dip">
+		 		
+	<Spinner android:layout_height="wrap_content" 
+		 android:layout_width="240dip" 
+		 android:layout_marginLeft="10dip" 
+		 android:id="@+id/MSDC_Host_spininer" 
+  		android:layout_marginTop="10dip"></Spinner>
+	  
+	<TextView android:text="@string/MSDC_Current_cmd_spininer" 
+			android:layout_marginLeft="0dip"
+			android:layout_marginTop="10dip"			
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></TextView>
+  	<Spinner android:layout_height="wrap_content" 
+  		android:layout_width="240dip" 
+  		android:layout_marginLeft="10dip" 
+  		android:id="@+id/MSDC_Current_cmd_spininer" 
+  		android:layout_marginTop="2dip"></Spinner>
+  		
+  	<TextView android:text="@string/MSDC_Current_data_spininer" 
+			android:layout_marginLeft="0dip"
+			android:layout_marginTop="20dip"			
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></TextView>
+  	<Spinner android:layout_height="wrap_content" 
+  		android:layout_width="240dip" 
+  		android:layout_marginLeft="10dip" 
+  		android:id="@+id/MSDC_Current_data_spininer" 
+  		android:layout_marginTop="2dip"></Spinner>  
+  		 	
+  <View android:layout_marginLeft="10dip" 
+  		android:layout_marginTop="20dip"
+  			android:layout_height="1dip" 
+  			android:layout_width="240dip"
+			android:background="#FF909090">
+</View>	
+  <LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginTop="10dip">	
+				
+	<Button android:text="@string/MSDC_Get" 
+		android:layout_marginLeft="10dip" 
+		android:layout_marginTop="10dip"
+		android:id="@+id/MSDC_Get" 
+		android:layout_width="110dip" 
+		android:layout_height="wrap_content"></Button>
+		
+	<Button android:text="@string/MSDC_Set" 
+		android:layout_marginLeft="20dip" 
+		android:layout_marginTop="10dip"
+		android:id="@+id/MSDC_Set" 
+		android:layout_width="110dip" 
+		android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+</LinearLayout>
+
+		
+</LinearLayout>
+
+</ScrollView>

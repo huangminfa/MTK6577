@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/Title">
+        <ImageView android:id="@+id/icon" android:layout_width="wrap_content"
+            android:layout_height="@dimen/HeaderIconSize"
+            android:layout_alignParentLeft="true" android:layout_centerInParent="true"
+            android:src="@drawable/ic_launcher_todo" />
+
+        <TextView android:id="@+id/head" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_toRightOf="@id/icon"
+            android:layout_centerInParent="true" android:gravity="center"
+            android:textStyle="bold" android:text="@string/app_header"
+            android:textColor="@color/HeaderTextColor" android:textSize="@dimen/HeaderTextSize" />
+
+        <TextView android:id="@+id/number" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true" android:gravity="center"
+            android:paddingRight="@dimen/NumbersMarginRight" android:textStyle="bold"
+            android:textColor="@color/NumbersTextColor" android:textSize="@dimen/NumberTextSize" />
+        <ImageButton style="@style/TodoImgButton"
+            android:layout_alignParentRight="true" android:src="@drawable/ic_todo_add_new"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <ListView android:id="@+id/list_todos" android:layout_width="fill_parent"
+        android:layout_height="match_parent" android:layout_weight="1" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/bottom_default" style="@style/Title.Bottom"
+        android:layout_gravity="bottom">
+
+        <ImageButton android:id="@+id/btn_new_todo" style="@style/TodoImgButton"
+            android:layout_centerInParent="true" android:src="@drawable/todo_add_new" />
+
+        <ImageButton android:id="@+id/btn_search" style="@style/TodoImgButton"
+            android:layout_centerInParent="true" android:src="@drawable/ic_todo_search"
+            android:visibility="gone" />
+
+        <ImageButton android:id="@+id/btn_done_list" style="@style/TodoImgButton"
+            android:layout_alignParentRight="true" android:src="@drawable/ic_todo_calendar_view"
+            android:layout_marginRight="@dimen/ButtonMarginEdge"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/bottom_edit" style="@style/Title.Bottom"
+        android:layout_gravity="bottom" android:gravity="center"
+        android:visibility="gone">
+        <ImageButton android:id="@+id/btn_select_all" style="@style/TodoImgButton"
+            android:src="@drawable/todo_select_all" android:layout_weight="1" />
+
+        <ImageButton android:id="@+id/btn_disselect_all" style="@style/TodoImgButton"
+            android:src="@drawable/todo_deselect_all" android:layout_weight="1" />
+
+        <ImageButton android:id="@+id/btn_change_state" style="@style/TodoImgButton"
+            android:src="@drawable/ic_todo_done" android:layout_weight="1" />
+
+        <ImageButton android:id="@+id/btn_delete" style="@style/TodoImgButton"
+            android:src="@drawable/todo_delete" android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+	<PreferenceCategory
+            android:title="@string/select_category_title">                
+            
+        <ListPreference
+            android:key="se_list_preference"
+            android:title="@string/se_label"
+            android:entries="@array/layer_id"
+            android:entryValues="@array/entryvalues_layer_id"
+            android:dialogTitle="@string/layer_id_action_label" />
+		
+		<com.nxp.nfc.se.MyPreference
+            android:key="set_get_se"
+            android:title="Get Selected SE"/>
+				
+		<CheckBoxPreference
+            android:key="toggle_ce"
+            android:title="@string/ce_quick_toggle_title"
+            android:summaryOn="@string/ce_on_quick_toggle_summary"
+            android:summaryOff="@string/ce_off_quick_toggle_summary"/>
+        
+        <com.nxp.nfc.se.MyPreference
+            android:key="active_swp"
+            android:title="Active SWP"/>
+            		
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:title="@string/extended_category_title">
+
+        <com.nxp.nfc.se.MyPreference
+            android:key="exit"
+            android:title="Exit Application"/>
+
+    </PreferenceCategory>
+    
+</PreferenceScreen>

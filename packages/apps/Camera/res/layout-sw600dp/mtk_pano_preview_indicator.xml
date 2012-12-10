@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+	<RelativeLayout android:id="@+id/pano_view"
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:visibility="gone"
+	  android:layout_width="match_parent"
+	  android:layout_height="match_parent"
+	  android:gravity="center"
+	  >
+		 <ImageView 
+		        android:id="@+id/center_window"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+				android:layout_centerInParent="true"
+				android:paddingTop="160dip"
+				android:paddingBottom="160dip"
+				android:paddingLeft="240dip"
+				android:paddingRight="240dip"
+				android:src="@drawable/ic_pano_normal_window"/>  	        
+		 <ImageView 
+		        android:id="@+id/pano_left"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:layout_gravity="center_vertical"
+		        android:layout_centerVertical = "true"
+				android:layout_toLeftOf="@+id/center_window"
+				android:src="@drawable/pano_left_indicator"/>
+		 <ImageView 
+		        android:id="@+id/pano_right"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+				android:layout_centerVertical = "true"
+				android:layout_toRightOf="@+id/center_window"
+				android:src="@drawable/pano_right_indicator"/>		
+		 <ImageView 
+		        android:id="@+id/pano_up"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:layout_centerHorizontal = "true"
+				android:layout_above="@+id/center_window"
+				android:src="@drawable/pano_up_indicator"/>
+		 <ImageView 
+		        android:id="@+id/pano_down"
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:layout_centerHorizontal = "true"	        
+				android:layout_below="@+id/center_window"
+				android:src="@drawable/pano_down_indicator"/>	
+	</RelativeLayout>
+  	 <ImageView 
+	        android:id="@+id/navi_window"
+            android:visibility="gone"			
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:src="@drawable/ic_pano_navi_window"/>  
+</RelativeLayout>
+

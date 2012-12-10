@@ -1,0 +1,1 @@
+../../../../../mediatek/source/kernel/include/linux/rtpm_prio.h

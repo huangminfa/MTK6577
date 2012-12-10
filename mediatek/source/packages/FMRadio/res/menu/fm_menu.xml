@@ -1,0 +1,19 @@
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item android:id="@+id/fm_search"       
+          android:title="@string/optmenu_search"
+          android:enabled="false"/>
+    
+    <item android:id="@+id/fm_RDS_setting"      
+          android:title="@string/optmenu_rds_settings"
+          android:enabled="false"/>
+    
+    <item android:id="@+id/fm_record"
+          android:title="@string/optmenu_record"
+          android:enabled="false"/>
+    
+    <item android:id="@+id/fm_exit"       
+          android:title="@string/optmenu_exit"
+          android:enabled="false"/>          
+    </menu>

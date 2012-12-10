@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:settings="http://schemas.android.com/apk/res/com.mediatek.engineermode">
+    
+    <PreferenceCategory
+        android:key="general_settings"
+        android:title="@string/gemini_general_settings_title">
+
+    <com.mediatek.engineermode.digitalstandard.NetworkModePreference
+        android:key="gsm_umts_preferred_network_mode_key"
+        android:title="@string/gemini_gsm_umts_network_preferences_title"
+        android:summary="@string/gemini_gsm_umts_network_preferneces_summary"
+        android:entries="@array/gsm_umts_network_preferences_choices"
+        android:entryValues="@array/gsm_umts_network_preferences_values"
+        android:dialogTitle="@string/gemini_gsm_umts_network_preferences_dialogtitle" />
+    
+    <PreferenceScreen
+        android:key="gsm_umts_preferred_network_mode_gemini_key"
+        android:title="@string/gemini_gsm_umts_network_preferences_title"
+        android:summary="@string/gemini_gsm_umts_network_preferneces_summary">
+            <intent
+            		android:action="android.intent.action.MAIN"
+            		android:targetPackage="com.mediatek.engineermode"
+            		android:targetClass="com.mediatek.engineermode.digitalstandard.NetworkModeSettings" />
+    </PreferenceScreen>
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="78565911793142902">"שירות Nfc"</string>
+    <string name="nfcUserLabel" msgid="7708535817084357357">"Nfc"</string>
+    <string name="touch" msgid="4727218133711188355">"גע כדי להקרין"</string>
+</resources>

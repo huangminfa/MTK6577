@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="64dip"
+    android:paddingLeft="@dimen/tag_info_item_left_cut"
+    android:paddingRight="@dimen/tag_info_item_left_cut"
+    android:layout_marginTop="0dip"
+    android:layout_marginBottom="0dip"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <TextView android:layout_width="0dip" 
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textAppearance="@style/info_item"
+        android:text="@string/param_audio_profile_title"/>
+    <Spinner android:id="@+id/param_spinner_status_selector" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:entries="@array/param_audio_profile_entry"
+        />
+    
+    <View android:layout_width="30dip" 
+        android:layout_height="52dip"/>
+    
+    <CheckBox android:id="@+id/param_spinner_chbox"
+        android:layout_width="wrap_content" 
+        android:layout_marginRight="0dip"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

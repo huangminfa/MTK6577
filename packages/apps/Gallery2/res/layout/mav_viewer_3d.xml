@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.android.gallery3d.mpo.MAVView3D android:id="@+id/mavview3d"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+    />
+    <ProgressBar android:id="@+id/mavviewer_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+    />
+    
+    <ImageButton
+            android:id="@+id/ib_toggle_stereo_mode"
+            android:src="@drawable/ic_3d"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dip"
+            android:layout_marginRight="50dip"
+            />
+    
+    <include
+            layout="@layout/mav_first_run"
+            android:id="@+id/firstrun"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    
+</RelativeLayout>

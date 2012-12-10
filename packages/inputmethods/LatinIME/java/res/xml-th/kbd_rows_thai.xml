@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
+>
+    <include
+        latin:keyboardLayout="@xml/kbd_key_styles" />
+
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyLabel="ๅ" latin:keyUpperCaseLabel="๑" />
+		<Key latin:keyLabel="ๆ" latin:keyUpperCaseLabel="๒" />
+		<Key latin:keyLabel="ภ" latin:keyUpperCaseLabel="๓" />
+		<Key latin:keyLabel="ถ" latin:keyUpperCaseLabel="๔" />
+		<Key latin:keyLabel="ุ" latin:keyUpperCaseLabel="ู" />
+		<Key latin:keyLabel="ึ" latin:keyUpperCaseLabel="฿" />
+		<Key latin:keyLabel="ค" latin:keyUpperCaseLabel="๕" />
+		<Key latin:keyLabel="ต" latin:keyUpperCaseLabel="๖" />
+		<Key latin:keyLabel="จ" latin:keyUpperCaseLabel="๗" />
+		<Key latin:keyLabel="ข" latin:keyUpperCaseLabel="๘" />
+		<Key latin:keyLabel="ช" latin:keyUpperCaseLabel="๙" />
+	</Row>
+
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyLabel="ไ" latin:keyUpperCaseLabel="๐" />
+		<Key latin:keyLabel="ำ" latin:keyUpperCaseLabel="ฎ" />
+		<Key latin:keyLabel="พ" latin:keyUpperCaseLabel="ฑ" />
+		<Key latin:keyLabel="ะ" latin:keyUpperCaseLabel="ธ" />
+		<Key latin:keyLabel="ั" latin:keyUpperCaseLabel="ํ" />
+		<Key latin:keyLabel="ี" latin:keyUpperCaseLabel="๊" />
+		<Key latin:keyLabel="ร" latin:keyUpperCaseLabel="ณ" />
+		<Key latin:keyLabel="น" latin:keyUpperCaseLabel="ฯ" />
+		<Key latin:keyLabel="ย" latin:keyUpperCaseLabel="ญ" />
+		<Key latin:keyLabel="บ" latin:keyUpperCaseLabel="ฐ" />
+		<Key latin:keyLabel="ฃ" latin:keyUpperCaseLabel="ฅ" />
+	</Row>
+
+	<Row latin:keyWidth="9.09%p">
+		<Key latin:keyLabel="ฟ" latin:keyUpperCaseLabel="ฤ" />
+		<Key latin:keyLabel="ห" latin:keyUpperCaseLabel="ฆ" />
+		<Key latin:keyLabel="ก" latin:keyUpperCaseLabel="ฏ" />
+		<Key latin:keyLabel="ด" latin:keyUpperCaseLabel="โ" />
+		<Key latin:keyLabel="เ" latin:keyUpperCaseLabel="ฌ" />
+		<Key latin:keyLabel="้" latin:keyUpperCaseLabel="็" />
+		<Key latin:keyLabel="่" latin:keyUpperCaseLabel="๋" />
+		<Key latin:keyLabel="า" latin:keyUpperCaseLabel="ษ" />
+		<Key latin:keyLabel="ส" latin:keyUpperCaseLabel="ศ" />
+		<Key latin:keyLabel="ว" latin:keyUpperCaseLabel="ซ" />
+		<Key latin:keyLabel="ง" latin:keyUpperCaseLabel="." />
+	</Row>
+        
+	<Row latin:keyWidth="8.5%p">
+		<Key latin:keyStyle="shiftKeyStyle" latin:keyWidth="11.75%p"
+			latin:visualInsetsRight="1%p" />
+		<Key latin:keyLabel="ผ" latin:keyUpperCaseLabel="ศ" />
+		<Key latin:keyLabel="ป" latin:keyUpperCaseLabel="ษ" />
+		<Key latin:keyLabel="แ" latin:keyUpperCaseLabel="ฉ"/>
+		<Key latin:keyLabel="อ" latin:keyUpperCaseLabel="ฮ"/>
+		<Key latin:keyLabel="ิ" latin:keyUpperCaseLabel="ฺ"/>
+		<Key latin:keyLabel="ื" latin:keyUpperCaseLabel="์"/>
+		<Key latin:keyLabel="ท" latin:keyUpperCaseLabel="ฒ"/>
+		<Key latin:keyLabel="ม" latin:keyUpperCaseLabel="ฬ"/>
+		<Key latin:keyLabel="ฝ" latin:keyUpperCaseLabel="ฦ"/>
+		<Key latin:keyStyle="deleteKeyStyle" latin:keyWidth="fillBoth"
+			latin:visualInsetsLeft="1%p" />
+	</Row>
+	
+    <include
+        latin:keyboardLayout="@xml/kbd_qwerty_row4" />
+</merge>

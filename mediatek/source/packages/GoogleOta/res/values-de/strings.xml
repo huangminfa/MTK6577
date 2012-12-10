@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Systemaktualisierungen</string>
+    
+    <string name="notification_content_title">Firmware-Aktualisierung</string>
+    <string name="notification_content_text_completed">Download erfolgreich</string> 
+    
+    <string name="new_version_query">Suche nach Aktualisierungen…</string>
+    <string name="no_new_version">System ist auf dem neuesten Stand.</string>
+    <string name="unknown_error_content">Leider ist ein unbekannter Fehler aufgetreten; bitte beenden und erneut versuchen.</string>
+    <string name="network_error">Netzwerkverbindung fehlgeschlagen</string>
+    <string name="network_error_content">Netzwerkverbindung fehlgeschlagen; erneut versuchen.</string>
+    <string name="server_error_title">Serververbindung fehlgeschlagen</string>
+    <string name="server_error_content">Serververbindung muss über GPRS-Netz erfolgen; bitte entsprechend einstellen.</string>
+    <string name="insufficient_space_title">Speicherplatz reicht nicht aus</string>
+    <string name="error_sdcard">SD-Karteninfo</string>
+    <string name="unmount_sdcard">SD-Karte nicht richtig eingelegt; bitte überprüfen.</string>
+    <string name="sdcard_crash_or_unmount">SD-Kartenfehler. Bitte SD-Karte prüfen und erneut versuchen.</string>
+    <string name="insufficient_space">Zu wenig Speicherplatz auf der SD-Karte.</string>
+    
+    <string name="btn_retry">Wiederholen</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_resume">Fortsetzen</string>
+    <string name="btn_download">Download</string>
+    <string name="btn_ok">OK</string>  
+    <string name="btn_cancel">Abbrechen</string>
+    <string name="ver_content">Die Firmware-Aktualisierung kann die Stabilität verbessern und Fehler beheben. Aktualisierung auf Version</string>
+    
+    <string name="cancel_download_title">Download abbrechen</string>
+    <string name="cancel_download_content">Durch diese Aktion wird die heruntergeladene Datei verworfen.</string>
+    <string name="cancel_download_positive_btn">Ja</string>
+    <string name="cancel_download_negative_btn">Nein</string>
+    
+    <string name="update_prompt">Während der Aktualisierung kann das Gerät nicht genutzt werden. Bitte warten Sie ein paar Minuten ab.</string>
+    
+    <string name="not_support_version">Ihr Ziel unterstützt keine Aktualisierung über das Netzwerk</string>
+    <string name="need_target_info">Keine Zieldaten zur Prüfung</string>
+    <string name="delta_has_deleted">Paket wurde gelöscht; Sie müssen die aktuellste Version erneut abfragen.</string>
+    
+    <string name="package_error_title">Installation fehlgeschlagen</string>
+    <string name="package_error_message_invalid">Paketfehler. Bitte Aktualisierung prüfen und erneut herunterladen.</string>
+    <string name="package_error_message_insuff" product="tablet">Nicht genügend Speicher auf Gerät.</string>      
+    <string name="package_error_message_insuff" product="default">Zu wenig Speicherplatz im Telefon</string>
+    <string name="package_error_message_crash">Benutzerdaten können nicht abgerufen werden</string>
+    <string name="package_error_message_full">Vollständiges Paket zur teilweisen Änderung erforderlich.</string>    
+    <string name="updateSuccess" product="tablet">Herzlichen Glückwunsch! Ihr Gerät wurde erfolgreich auf Version 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g> aktualisiert.
+    </string>
+    <string name="updateSuccess" product="default">Glückwunsch! Ihr Telefon wurde erfolgreich auf Version 
+        <xliff:g id="Version" Beispiel="gb.p37">%s</xliff:g> aktualisiert.
+    </string>  
+    <string name="updateFailed">Aktualisierung auf Version 
+        <xliff:g id="Version" Beispiel="gb.p37">%s</xliff:g> fehlgeschlagen.
+    </string>  
+    <string name="updateResultTitle">Systemaktualisierung</string>  
+    <string name="package_unzip">Package unzipping...</string>  
+    <string name="package_unzip_error">Unzip error</string>  
+    <string name="unknown_error">Unknown error</string>  
+    <string name="insufficient_space_content">There is no enough storage space! This installation need at least 
+        <xliff:g id="deltasize" example="3.5M">%s</xliff:g>. Check your app manager to release extra space please.
+    </string>  
+    <string name="downloading_title">"Wird heruntergeladen…"</string>  
+</resources>

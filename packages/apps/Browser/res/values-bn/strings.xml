@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <!-- The name of the application. -->  
+    <string name="application_name">ব্রাউজার</string>  
+    <!-- Displayed with a file picker to choose a file to upload -->  
+    <string name="choose_upload">আপলোডের জন্য ফাইল নির্বাচন করুন</string>  
+    <!-- Toast to show the user after they try to open the file picker but no apps on the
+         system can provide a file [CHAR-LIMIT=NONE]-->  
+    <string name="uploads_disabled">ফাইল আপলোড নিষ্ক্রিয়।</string>  
+    <!-- Name of menu item of a new tab.  Also used in the title bar when displaying a new tab -->  
+    <string name="new_tab">নতুন ট্যাব</string>  
+    <!-- Name of menu item of a new incognito tab.  Also used in the
+         title bar when displaying a new tab [CHAR LIMIT=30] -->  
+    <string name="new_incognito_tab">নতুন ছদ্মবেশী ট্যাব</string>  
+    <!-- Name of tab containing bookmarks -->  
+    <string name="tab_bookmarks">বুকমার্ক</string>  
+    <!-- Name of tab containing the user's most visited websites, organized by number of visits -->  
+    <string name="tab_most_visited">সবচেয়ে বেশি দেখা</string>  
+    <!-- Name of tab containing the user's complete history, organized by time of last visit -->  
+    <string name="tab_history">ইতিহাস</string>  
+    <!-- Name of tab containing the user's saved pages, organized by time created [CHAR LIMIT=20] -->  
+    <string name="tab_snapshots">সংরক্ষিত পৃষ্ঠা</string>  
+    <!-- Toast shown when a history item's star is clicked, converting it to a bookmark -->  
+    <string name="added_to_bookmarks">বুকমার্কে যোগ করা হয়েছে।</string>  
+    <!-- Toast shown when a history item's star is clicked off, removing its bookmark -->  
+    <string name="removed_from_bookmarks">বুকমার্ক থেকে সরানো হয়েছে।</string>  
+    <!-- Sign-in dialog -->  
+    <!-- This is used as the title of a dialog which is used to sign in to a secure site.
+            "%s1"is replaced with the host and "%s2" with realm -->  
+    <string name="sign_in_to">সাইন ইন করুন 
+        <xliff:g id="hostname">%s1</xliff:g> \" 
+        <xliff:g id="realm">%s2</xliff:g>\"
+    </string>  
+    <!-- Prompt for an input box that allows the user to enter their login name -->  
+    <string name="username">নাম</string>  
+    <!-- Prompt for an input box that allows the user to enter their password -->  
+    <string name="password">পাসওয়ার্ড</string>  
+    <!-- The label on the "sign in" button -->  
+    <string name="action">সাইন ইন করুন</string>  
+    <!-- The name of the bookmarks and history search suggestion source.  -->  
+    <string name="bookmarks_search">ব্রাউজার</string>  
+    <!-- Label for a cancel button.  It is used for multiple cancel buttons in different contexts -->  
+    <string name="cancel">বাতিল করুন</string>  
+    <!-- Label for a confirm button.  Used in multiple contexts. -->  
+    <string name="ok">ঠিক আছে</string>  
+    <!-- Displayed on the title bar while the page is loading -->  
+    <string name="title_bar_loading">লোড হচ্ছে\u2026</string>  
+    <!-- Menu item -->  
+    <string name="page_info">পৃষ্ঠা তথ্য</string>  
+    <!-- Label for a button on an SSL error dialog that allows the user to see
+        Page info screen for the current page -->  
+    <string name="page_info_view">পৃষ্ঠা তথ্য দেথুন</string>  
+    <!-- Page Info dialog strings -->  
+    <!-- Noun.  The url for the current page. Displayed on the Page Info
+            screen. -->  
+    <string name="page_info_address">ঠিকানা:</string>  
+    <!-- SSL Error dialogs -->  
+    <string name="ssl_warnings_header">এই সাইটের নিরাপত্তা সনদে সমস্যা আছে।</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user continue
+            and view the page despite the error -->  
+    <string name="ssl_continue">অব্যাহত করুন</string>  
+    <!-- Title for an SSL error dialog  -->  
+    <string name="security_warning">নিরাপত্তা সতর্কতা</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user view the
+        certificate -->  
+    <string name="view_certificate">সনদ দেখুন</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user go back to
+         the last page they were on instead of continuing to the new page. [CHAR-LIMIT=20] -->  
+    <string name="ssl_go_back">পেছনে</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_untrusted">এই সনদ বিশ্বস্ত কর্তৃপক্ষ থেকে নয়।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_mismatch">এই সাইটের নাম সনদের দেওয়া নামের সাথে মিলে না।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_expired">এই সনদের মেয়াদ শেষ হয়ে গেছে।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_not_yet_valid">এই সনদ এখনও বৈধ নয়।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_date_invalid">এই সনদে তারিখ বৈধ নয়।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_invalid">এই সনদ অবৈধ।</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_unknown">সনদে অজানা ত্রুটি।</string>  
+    <!-- Toast informing the user that loading has stopped for the current page. -->  
+    <string name="stopping">থামছে\u2026</string>  
+    <!-- Menu item to stop the current page from loading. -->  
+    <string name="stop">বন্ধ করুন</string>  
+    <!-- Menu item to reload or refresh the current page. -->  
+    <string name="reload">রিফ্রেশ করুন</string>  
+    <!-- Menu item to go back to the previous page -->  
+    <string name="back">পেছনে</string>  
+    <!-- Menu item to go to the next page (only useful if the user has previously hit back.) -->  
+    <string name="forward">ফরোয়ার্ড করুন</string>  
+    <!-- Button label to confirm saving a bookmark. -->  
+    <string name="save">ঠিক আছে</string>  
+    <!-- Button label to cancel saving a bookmark. -->  
+    <string name="do_not_save">বাতিল করুন</string>  
+    <!-- Field label in Bookmark dialog box: refers to URL of the page to bookmark -->  
+    <string name="location">ঠিকানা</string>  
+    <!-- Field label in Bookmark dialog box: refers to the account to save the bookmark to -->  
+    <string name="account">একাউন্ট</string>  
+    <!-- Field label in Bookmark dialog box: refers to the folder in which to save the bookmark -->  
+    <string name="containing_folder">যোগ করুন</string>  
+    <!-- Default name for a new folder and label for a button that allows the user to create a new folder
+         in the add bookmark dialog -->  
+    <string name="new_folder">নতুন ফোল্ডার</string>  
+    <!-- Context menu item to edit a folder [CHAR LIMIT=50] -->  
+    <string name="edit_folder">ফোল্ডার সম্পাদনা করুন</string>  
+    <!-- Context menu item to delete a folder [CHAR LIMIT=50] -->  
+    <string name="delete_folder">ফোল্ডার মুছে ফেলুন</string>  
+    <!-- Label stating that the currently open folder has no subfolders
+         in the add bookmark dialog [CHAR-LIMIT=none]-->  
+    <string name="no_subfolders">কোনো সাবফোল্ডার নেই।</string>  
+    <!-- Menu item to use the top level bookmarks folder to save a bookmark in. [CHAR-LIMIT=30]-->  
+    <string name="add_to_bookmarks_menu_option">বুকমার্ক</string>  
+    <!-- Menu item to save the newly created bookmark to the home screen. [CHAR-LIMIT=30]-->  
+    <string name="add_to_homescreen_menu_option">হোম স্ক্রিন সেট করুন</string>  
+    <!-- Menu item to open a picker to determine which folder to save a bookmark in. [CHAR-LIMIT=30]-->  
+    <string name="add_to_other_folder_menu_option">অন্যান্য ফোল্ডার</string>  
+    <!-- Field label in Bookmark dialog box: title that the user wishes to use for the bookmark -->  
+    <string name="name">লেবেল</string>  
+    <!-- Initial value in Location field in Bookmark dialog box -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string name="http">http://</string>  
+    <!-- Menu item that opens a dialog to save a bookmark for the current page [CHAR LIMIT=30] -->  
+    <string name="save_to_bookmarks">বুকমার্ক সংরক্ষণ করুন</string>  
+    <!-- Title of the dialog to bookmark a page -->  
+    <string name="bookmark_this_page">এই পৃষ্ঠা বুকমার্ক করুন</string>  
+    <!-- Option on bookmark dialog to remove the bookmark [CHAR LIMIT=30] -->  
+    <string name="remove">সরিয়ে ফেলুন</string>  
+    <!-- Menu item on the bookmarks page, to edit an existing bookmark -->  
+    <string name="edit_bookmark">বুকমার্ক সম্পাদনা করুন</string>  
+    <!-- Context menu item to create a shortcut to the bookmark on the desktop [CHAR LIMIT=50] -->  
+    <string name="create_shortcut_bookmark">হোমে শর্টকাট যোগ করুন</string>  
+    <!-- Context menu item to open the currently highlighted bookmark -->  
+    <string name="open_bookmark">খুলুন</string>  
+    <!-- Menu item to remove the currently highlighted bookmark-->  
+    <string name="remove_bookmark">বুকমার্ক মুছে ফেলুন</string>  
+    <!-- Context menu item to remove a history item from bookmarks -->  
+    <string name="remove_from_bookmarks">বুকমার্ক থেকে সরিয়ে ফেলুন</string>  
+    <!-- Menu item to remove the currently highlighted history entry from the list of previously visited sites -->  
+    <string name="remove_history_item">ইতিহাস থেকে সরিয়ে ফেলুন</string>  
+    <!-- Context menu item for setting the bookmark/history item as the homepage -->  
+    <string name="set_as_homepage">হোমপেজ হিসেবে সেট করুন</string>  
+    <!-- Toast informing the user that their action to save a bookmark has succeeded -->  
+    <string name="bookmark_saved">বুকমার্কে সংরক্ষণ করুন।</string>  
+    <!-- Toast informing the user that their action to save a bookmark did not succeed -->  
+    <string name="bookmark_not_saved">বুকমার্ক সংরক্ষণ করতে পারছে না।</string>  
+    <!-- Toast confirming that the homepage has been set -->  
+    <string name="homepage_set">হোমপেজ সেট করা হয়েছে।</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with empty Name field -->  
+    <string name="bookmark_needs_title">"বুকমার্কের অবশ্যই একটি নাম থাকতে হবে।"</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with empty Location field -->  
+    <string name="bookmark_needs_url">"বুকমার্কের অবশ্যই একটি অবস্থান থাকতে হবে।"</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with invalid URL -->  
+    <string name="bookmark_url_not_valid">এই ইউআরএল বৈধ নয়।</string>  
+    <!-- Error that appears in the Bookmark dialog when user selects OK with a URL of a type we cannot bookmark -->  
+    <string name="bookmark_cannot_save_url">এই ইউআরএলকে বুকমার্ক করা যাচ্ছে না।</string>  
+    <!-- Menu item in the page that displays all bookmarks. It brings up a
+            dialog that allows the user to bookmark the page that the browser is
+            currently on, but is not visible because the bookmarks page is 
+            showing. -->  
+    <string name="bookmark_page">সর্বশেষে দেখা পৃষ্ঠাটি বুকমার্ক করুন</string>  
+    <!-- Menu item in the page that displays all bookmarks.  Switches to
+            a grid view which shows thumbnails [CHAR LIMIT=20] -->  
+    <string name="bookmark_thumbnail_view">থামনেইল</string>  
+    <!-- Menu item in the page that displays all bookmarks.  Switches to a
+            list view which shows titles [CHAR LIMIT=20] -->  
+    <string name="bookmark_list_view">তালিকা</string>  
+    <!-- Summary text under the New Bookmark item on the Bookmarks screen.
+            Tells the user that if they select this item, it will bring up a
+            dialog to bookmark the page that the browser is currently viewing,
+            though it is not currently being displayed, since they are viewing
+            the bookmarks screen. -->  
+    <string name="current_page">থেকে\u0020</string>  
+    <!-- Confirmation dialog message confirming that the user wishes to delete
+            the bookmark they selected for deletion -->  
+    <string name="delete_bookmark_warning">\" 
+        <xliff:g id="bookmark">%s</xliff:g>\" বুকমার্কটি মুছে ফেলবেন?
+    </string>  
+    <!-- Context menu item to open every bookmark in a folder in new tabs [CHAR LIMIT=50] -->  
+    <string name="open_all_in_new_window">সব নতুন ট্যাবে খুলুন</string>  
+    <!-- Menu item to open a dialog which allows the user to enter a url or do search-->  
+    <string name="goto_dot">যান</string>  
+    <!-- Menu item to switch to text selection mode for copy and paste. -->  
+    <string name="select_dot">টেক্সট নির্বাচন করুন</string>  
+    <!-- Menu item to open the bookmarks page. This is a shorter version that
+            is displayed with an icon -->  
+    <string name="bookmarks">বুকমার্ক</string>  
+    <!-- Secondary name for the Activity "BrowserBookmarksPage" -->  
+    <string name="shortcut_bookmark">বুকমার্ক</string>  
+    <!-- Title for the activity asking the user to select a bookmark [CHAR LIMIT=50] -->  
+    <string name="shortcut_bookmark_title">একটি বুকমার্ক নির্বাচন করুন</string>  
+    <!-- Menu item to display the History of previously visited pages -->  
+    <string name="history">ইতিহাস</string>  
+    <!-- Menu item for viewing downloads from the browser -->  
+    <string name="menu_view_download">ডাউনলোড</string>  
+    <!-- Context menu item for copying the url of the current page from the
+            title bar -->  
+    <string name="copy_page_url">পেইজ ইউআরএল কপি করুন</string>  
+    <!-- Menu item -->  
+    <string name="share_page">পৃষ্ঠা শেয়ার করুন</string>  
+    <!-- Menu item for saving a page for offline reading. This is a view-only snapshot of the page. [CHAR LIMIT=50] -->  
+    <string name="menu_save_snapshot">অফলাইনে পড়ার জন্য সংরক্ষণ করুন</string>  
+    <!-- Toast informing the user that saving the page for offline reading has failed. [CHAR LIMIT=50] -->  
+    <string name="snapshot_failed">অফলাইনে পড়ার জন্য সংরক্ষণ করা যাচ্ছে না।</string>  
+    <!-- The number of bookmarks in a folder [CHAR LIMT=50] -->  
+    <string name="contextheader_folder_bookmarkcount"> 
+        <xliff:g id="bookmark_count">%d</xliff:g> বুকমার্ক
+    </string>  
+    <!-- No bookmarks in the folder [CHAR LIMIT=50] -->  
+    <string name="contextheader_folder_empty">ফোল্ডার শূন্য</string>  
+    <!-- Context Menu item open the currently selected link in the current
+            window.-->  
+    <string name="contextmenu_openlink">খুলুন</string>  
+    <!-- Context Menu item to open the currently selected link in a new
+            window. -->  
+    <string name="contextmenu_openlink_newwindow">নতুন ট্যাবে খুলুন</string>  
+    <!-- Context Menu item to open the currently selected link in a new
+         background window. [CHAR LIMIT=50] -->  
+    <string name="contextmenu_openlink_newwindow_background">নতুন ব্যাকগ্রাউন্ড ট্যাবে খুলুন</string>  
+    <!-- Context Menu item to save the webpage referred to by this link to the
+            SD card (external storage) -->  
+    <string name="contextmenu_savelink">লিঙ্ক সংরক্ষণ করুন</string>  
+    <!-- Context Menu item to send the url of the selected link to someone else,
+            via Gmail or another app [CHAR LIMIT=50] -->  
+    <string name="contextmenu_sharelink">লিঙ্ক শেয়ার করুন</string>  
+    <!-- Context Menu item -->  
+    <string name="contextmenu_copy">কপি করুন</string>  
+    <!-- Context Menu item to copy the url of the selected link to the
+            clipboard -->  
+    <string name="contextmenu_copylink">লিঙ্ক ইউআরএল কপি করুন</string>  
+    <!-- Context Menu item to save the image to external storage -->  
+    <string name="contextmenu_download_image">ছবি সংরক্ষণ করুন</string>  
+    <!-- Context Menu item to view the image by itself in the browser -->  
+    <string name="contextmenu_view_image">ছবি দেখুন</string>  
+    <!-- Context Menu item to set the image as the home screen wallpaper -->  
+    <string name="contextmenu_set_wallpaper">ওয়ালপেপার হিসেবে সেট করুন</string>  
+    <!-- Context Menu item to open the dialer app with the selected phone number
+            -->  
+    <string name="contextmenu_dial_dot">ডায়াল করুন\u2026</string>  
+    <!-- Context Menu item to add the selected phone number to the address book.
+            -->  
+    <string name="contextmenu_add_contact">পরিচিতজন যোগ করুন</string>  
+    <!-- Context Menu item to send an email using the selected email address.-->  
+    <string name="contextmenu_send_mail">ইমেইল পাঠান</string>  
+    <!-- Context Menu item to show the currently selected address in the Maps
+            application -->  
+    <string name="contextmenu_map">মানচিত্র</string>  
+    <!-- Title of the dialog used for selecting the application that should be
+            used for sharing a link (e.g. Gmail or another app). See also
+            contextmenu_sharelink above -->  
+    <string name="choosertitle_sharevia">শেয়ার করুন</string>  
+    <!-- Used as the title of dialogs in the Browser Settings confirming that
+            the user wants to clear (cache, history, or cookie data) -->  
+    <string name="clear">মুছুন</string>  
+    <!-- Part of a sentence that says "Replace <url of existing bookmark> with
+            <url of new bookmark>?" -->  
+    <string name="replace">প্রতিস্থাপন করুন</string>  
+    <!-- Title displayed when the bookmarks page is shown -->  
+    <string name="browser_bookmarks_page_bookmarks_text">বুকমার্ক</string>  
+    <!-- Settings screen strings -->  
+    <!-- Menu item to open the Settings screen -->  
+    <string name="menu_preferences">সেটিং</string>  
+    <!-- Settings screen, section title -->  
+    <string name="pref_content_title">পৃষ্ঠার বিষয়বস্তু</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_load_images">ছবি লোড করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_load_images_summary">ওয়েব পৃষ্ঠায় ছবি দেখান</string>  
+    <!-- Settings label [CHAR LIMIT=30] -->  
+    <string name="pref_content_block_popups">পপ-আপ ব্লক করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_javascript">জাভাস্ক্রিপ্ট সক্রিয় করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_open_in_background">ব্যাকগ্রাউন্ডে খুলুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_plugins">প্লাগ-ইন সক্রিয় করুন</string>  
+    <!-- Plugin options -->  
+    <string-array name="pref_content_plugins_choices"> 
+        <item>সবসময় চালু</item>  
+        <item>চাহিদার ভিত্তিতে</item>  
+        <item>বন্ধ করুন</item> 
+    </string-array>  
+    <!-- Settings summary [CHAR LIMIT=50]-->  
+    <string name="pref_content_open_in_background_summary">বর্তমান ট্যাবের পেছনে নতুন ট্যাব খুলুন</string>  
+    <!-- Settings label [CHAR LIMIT=50] -->  
+    <string name="pref_content_homepage">হোমপেজ সেট করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_search_engine">সার্চ ইঞ্জিন সেট করুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_search_engine_summary">সার্চ ইঞ্জিন নির্বাচন করুন</string>  
+    <!-- Settings button label that to pick what to set the homepage to [CHAR LIMIT=40] -->  
+    <string name="pref_set_homepage_to">সেট করুন</string>  
+    <string-array name="pref_homepage_choices"> 
+        <!-- Setting choice to set the homepage to the current page [CHAR LIMIT=40] -->  
+        <item>বর্তমান পৃষ্ঠা</item>  
+        <!-- Setting choice to set the homepage to a blank page [CHAR LIMIT=40] -->  
+        <item>খালি পৃষ্ঠা</item>  
+        <!-- Setting choice to set the homepage to the default page [CHAR LIMIT=40] -->  
+        <item>ডিফল্ট পৃষ্ঠা</item>  
+        <!-- Setting choice to set the homepage to the "Most Visited" homepage feature, which is a list of most visited sites [CHAR LIMIT=40] -->  
+        <item>সবচেয়ে বেশি দেখা সাইট</item>  
+        <!-- Setting choice to set the homepage to a user entered URL [CHAR LIMIT=40] -->  
+        <item>অন্যান্য</item> 
+    </string-array>  
+    <!-- Settings label -->  
+    <string name="pref_content_autofit">অটো-ফিট পৃষ্ঠা</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_autofit_summary">স্ক্রিনে ফিট করতে ওয়েবপৃষ্ঠা ফরমেট করুন</string>  
+    <!-- Settings screen & section title for "General settings". These include things like
+         configuring bookmark syncing to Google servers and form auto fill settings. [CHAR-LIMIT=32] -->  
+    <string name="pref_general_title">সাধারণ</string>  
+    <!-- Settings category for sync under general settings. This includes bookmark sync with Chrome [CHAR-LIMIT=50] -->  
+    <string name="pref_general_sync_title">সিঙ্ক করুন</string>  
+    <!-- Settings category for autofill under general. [CHAR-LIMIT=50] -->  
+    <string name="pref_general_autofill_title">অটো-ফিল</string>  
+    <!-- Checkbox setting for enabling/disabling the form AutoFill feature [CHAR-LIMIT=32] -->  
+    <string name="pref_autofill_enabled">অটো-ফিল ফরম</string>  
+    <!-- Settings summary for the form AutoFill feature. [CHAR-LIMIT=none] -->  
+    <string name="pref_autofill_enabled_summary">এক স্পর্শে ওয়েব ফরম পূরণ করুন</string>  
+    <!-- Label for option that when clicked opens the AutoFill settings screen. Also used as the title of that AutoFill Settings screen. [CHAR-LIMIT=32] -->  
+    <string name="pref_autofill_profile_editor">অটো-ফিল টেক্সট</string>  
+    <!-- Summary for the AutoFill Settings preference [CHAR-LIMIT=none] -->  
+    <string name="pref_autofill_profile_editor_summary">ওয়েব ফরম অটো-ফিল করতে টেক্সট সেট আপ করুন</string>  
+    <!-- Auto login preference title [CHAR-LIMIT=32] -->  
+    <string name="pref_autologin_title">অটোমেটিক গুগল সাইনইন</string>  
+    <!-- Message shown during auto login [CHAR-LIMIT=none] -->  
+    <string name="pref_autologin_progress"> 
+        <xliff:g>%s</xliff:g> ব্যবহার করে গুগল সাইটে সাইনইন করছে
+    </string>  
+    <!-- Auto-login bar description [CHAR-LIMIT=40] -->  
+    <string name="autologin_bar_text">সাইনইন করুন</string>  
+    <!-- Login button [CHAR-LIMIT=10] -->  
+    <string name="autologin_bar_login_text">সাইন ইন করুন</string>  
+    <!-- Hide button [CHAR-LIMIT=10] -->  
+    <string name="autologin_bar_hide_text">লুকান</string>  
+    <!-- Login failure text [CHAR-LIMIT=25] -->  
+    <string name="autologin_bar_error">সাইনইন করতে পারছে না।</string>  
+    <!-- Heading for the AutoFill profile editor to tell the user what AutoFill does and why they should fill out the profile. [CHAR-LIMIT=None] -->  
+    <string name="autofill_profile_editor_heading">ওয়েব ফরমে আপনি যে টেক্সট অটো-ফিল করতে তা টাইপ করুন।</string>  
+    <!-- String for the user's full name in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_name">পুরো নাম:</string>  
+    <!-- String for the user's e-mail address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_email_address">ইমেইল:</string>  
+    <!-- String for the user's company name in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_company_name">কোম্পানির নাম:</string>  
+    <!-- String for the first line of the user's address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_address_line_1">ঠিকানা লাইন ১:</string>  
+    <!-- String to suggest to the user the kind of data to be used for the first line of the address. CHAR-LIMIT=64] -->  
+    <string name="autofill_profile_editor_address_line_1_hint">স্ট্রিট ঠিকানা, পি.ও. বক্স, প্রযত্নে</string>  
+    <!-- String for the second line of the user's address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_address_line_2">ঠিকানা লাইন ২:</string>  
+    <!-- String to suggest to the user the kind of data to be used for the second line of the address. CHAR-LIMIT=64] -->  
+    <string name="autofill_profile_editor_address_line_2_hint">অ্যাপার্টমেন্ট, স্যুইট, ইউনিট, বিল্ডিং, ফ্লোর ইত্যাদি।</string>  
+    <!-- String for the user's city or town in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_city">শহর/নগর:</string>  
+    <!-- String for the user's state or province or region in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_state">অঙ্গরাজ্য/প্রদেশ/অঞ্চল:</string>  
+    <!-- String for the user's zip code in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_zip_code">জিপ কোড:</string>  
+    <!-- String for the user's country in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_country">দেশ:</string>  
+    <!-- String for the user's phone number in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_phone_number">ফোন:</string>  
+    <!-- String to display in an error tooltip to inform the user the phone number they provided is not valid. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_phone_number_invalid">অকার্যকর ফোন নম্বর।</string>  
+    <!-- Button text to save the AutoFill profile [CHAR-LIMIT=20] -->  
+    <string name="autofill_profile_editor_save_profile">সংরক্ষণ করুন</string>  
+    <!-- Toast message displayed when the profile has been successfully saved [CHAR-LIMIT=none] -->  
+    <string name="autofill_profile_successful_save">অটো-ফিল টেক্সট সংরক্ষিত।</string>  
+    <!-- Toast message displayed when the profile has been successfully deleted [CHAR-LIMIT=none] -->  
+    <string name="autofill_profile_successful_delete">অটো-ফিল টেক্সট মুছে গেছে।</string>  
+    <!-- Button text to delete all the AutoFill profile data [CHAR-LIMIT=20] -->  
+    <string name="autofill_profile_editor_delete_profile">সরিয়ে ফেলুন</string>  
+    <!-- Text on a dialog shown to the user when they are prompted to set up the autofill feature [CHAR-LIMIT=NONE] -->  
+    <string name="autofill_setup_dialog_message">এই ব্রাউজার এই ফরমের মত ওয়েব ফরম স্বয়ংক্রিয়ভাবে পূরণ করতে পারে। আপনি কি অটো-ফিল টেক্সট সেট আপ করতে চান?</string>  
+    <!-- Toast message displayed when the user decides to not set up autofill at this time. We want to remind them that they can configure
+         it through the Browser Settings menu. [CHAR-LIMIT=NONE] -->  
+    <string name="autofill_setup_dialog_negative_toast">আপনি সবসময়ই আপনার অটো-ফিল টেক্সট সেট করতে পারেন ব্রাউজার&gt; সেটিং&gt; জেনারেল স্ক্রিন।</string>  
+    <!-- Text on a checkbox in the "setup autofill" dialog which is shown to the user when they are prompted to set up the autofill feature.
+         The checkbox allows them to specify they would like to disable the feature altogether [CHAR-LIMIT=NONE] -->  
+    <string name="disable_autofill">অটো-ফিল নিষ্ক্রিয় করুন</string>  
+    <!-- Settings screen, section title [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_security_title">গোপনীয়তা ও নিরাপত্তা</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_cache">ক্যাশ মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_cache_summary">স্থানীয়ভাবে ক্যাশ করা বিষয়বস্তু ও ডাটাবেইজ মুছুন।</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_cache_dlg">স্থানীয়ভাবে ক্যাশ করা বিষয়বস্তু ও ডাটাবেইজ মুছে ফেলবেন?</string>  
+    <!-- Cookie settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_cookies_title">কুকি</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_cookies">সকল কুকি ডাটা মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_cookies_summary">সব ব্রাউজার কুকি মুছুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_cookies_dlg">সব কুকি মুছে ফেলবেন?</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_history">ইতিহাস মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_history_summary">ব্রাউজার নেভিগেশন ইতিহাস মুছুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_history_dlg">ব্রাউজার নেভিগেশন ইতিহাস মুছে ফেলবেন?</string>  
+    <!-- Formdata settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_formdata_title">ফরম ডাটা</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_form_data">ডাটা ফরম মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_form_data_summary">সংরক্ষিত সকল ডাটা ফরম মুছুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_form_data_dlg">সংরক্ষিত সকল ডাটা ফরম মুছে ফেলবেন?</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_passwords">পাসওয়ার্ড মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_passwords_summary">সংরক্ষিত সকল পাসওয়ার্ড মুছুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_passwords_dlg">সংরক্ষিত সকল পাসওয়ার্ড মুছে ফেলবেন?</string>  
+    <!-- Location settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_location_title">লোকেশন</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_enable_geolocation">লোকেশন সক্রিয় করুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_enable_geolocation_summary">আপনার লোকেশনে প্রবেশ করার অনুরোধ জানাতে সাইটগুলোকে অনুমতি দিন</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_geolocation_access">লোকেশনে প্রবেশাধিকার মুছুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_geolocation_access_summary">সব ওয়েবসাইটের জন্য লোকেশনে প্রবেশাধিকার মুছুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_geolocation_access_dlg">ওয়েবসাইটের লোকেশনে প্রবেশাধিকার মুছে ফেলবেন?</string>  
+    <!-- Passwords settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_security_passwords_title">পাসওয়ার্ড</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_remember_passwords">পাসওয়ার্ড মনে রাখুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_remember_passwords_summary">ওয়েবসাইটের ব্যবহারকারী নাম ও পাসওয়ার্ড সংরক্ষণ করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_save_form_data">ফরম ডটা মনে রাখুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_save_form_data_summary">আমার টাইপ করা ডাটা পরবর্তীতে ব্যবহারের জন্য মনে রাখুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_show_security_warning">নিরাপত্তা সতর্কতা দেখান</string>  
+    <!-- Settings summmary -->  
+    <string name="pref_security_show_security_warning_summary">সাইটের নিরাপত্তা নিয়ে কোনো সমস্যা থাকরে সতর্কতা দেখান</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_accept_cookies">কুকি গ্রহণ করুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_accept_cookies_summary">কুকির ডাটা পড়তে ও সংরক্ষণ করতে সাইটগুলোকে অনুমতি দিন</string>  
+    <!-- Settings text size options; appear in Text size dialog box [CHAR LIMIT=30] -->  
+    <string-array name="pref_text_size_choices"> 
+        <item>ক্ষুদ্র</item>  
+        <item>ছোট</item>  
+        <item>স্বাভাবিক</item>  
+        <item>বড়</item>  
+        <item>বিশাল</item> 
+    </string-array>  
+    <!-- Label for minimum font size [CHAR LIMIT=30] -->  
+    <string name="pref_min_font_size">ফন্টের সর্বনিম্ন সাইজ</string>  
+    <!-- Label for the current minimum font size value [CHAR LIMIT=6] -->  
+    <string name="pref_min_font_size_value"> 
+        <xliff:g id="font_size">%d</xliff:g> পয়েন্ট
+    </string>  
+    <!-- Label for text scaling (percent) [CHAR LIMIT=30] -->  
+    <string name="pref_text_zoom">টেক্সট স্কেলিং</string>  
+    <!-- Label for zoom on double-tap (percent) [CHAR LIMIT=30] -->  
+    <string name="pref_zoom_on_double_tap">ডাবল-ট্যাপে জুম করুন</string>  
+    <!-- Label for whether or not to force-enable user scalablity (aka, zoom) [CHAR LIMIT=30] -->  
+    <string name="pref_force_userscalable">জুম সক্রিয়করণ চালু করুন</string>  
+    <!-- Summary for whether or not to force-enable user scalablity (aka, zoom) [CHAR LIMIT=30] -->  
+    <string name="pref_force_userscalable_summary">জুম আচরণ নিয়ন্ত্রণে ওয়েবসাইটের অনুরোধ অগ্রাহ্য করুন</string>  
+    <!-- Inverted screen category under accessibility settings [CHAR LIMIT=50] -->  
+    <string name="pref_inverted_category">ইনভার্টেট স্ক্রিন রেন্ডারিং</string>  
+    <!-- Title for the inverted screen feature. This causes the screen to render with inverted colors (black becomes white and vice versa) [CHAR LIMIT=40] -->  
+    <string name="pref_inverted">ইনভার্টেট রেন্ডারিং</string>  
+    <!-- Summary for the inverted screen feature. [CHAR LIMIT=120] -->  
+    <string name="pref_inverted_summary">কালো সাদা হয়ে যায় এবং এর বিপরীত হয়</string>  
+    <!-- Title for the inverted screen contrast. Change the contrast value from 1.0 to 3.0. [CHAR LIMIT=30] -->  
+    <string name="pref_inverted_contrast">বৈপরীত্য</string>  
+    <!-- Settings label -->  
+    <string name="pref_default_zoom">ডিফল্ট জুম</string>  
+    <!-- Settings default zoom options; appear in default zoom dialog box -->  
+    <string-array name="pref_default_zoom_choices"> 
+        <item>দূর</item>  
+        <item>মধ্যম</item>  
+        <item>কাছে</item> 
+    </string-array>  
+    <!-- Title of dialog for setting the default zoom -->  
+    <string name="pref_default_zoom_dialogtitle">ডিফল্ট জুম</string>  
+    <!-- Do not translate -->  
+    <!-- Settings label -->  
+    <string name="pref_content_load_page">ওভারভিউ আকারে পৃষ্ঠাগুলো খুলুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_load_page_summary">নতুন খোলা পৃষ্ঠার ওভারভিউ দেখান</string>  
+    <!-- Settings screen, section title [CHAR LIMIT=50] -->  
+    <string name="pref_extras_title">উচ্চতর</string>  
+    <!-- Settings label -->  
+    <string name="pref_extras_website_settings">ওয়েবসাইট সেটিং</string>  
+    <!-- Settings summary -->  
+    <string name="pref_extras_website_settings_summary">একেকটি ওয়েবসাইটের জন্য উচ্চতর সেটিং</string>  
+    <!-- Settings category label [CHAR-LIMIT=50] -->  
+    <string name="pref_extras_reset_default_title">ডিফল্ট রিসেট করুন</string>  
+    <!-- Settings label -->  
+    <string name="pref_extras_reset_default">ডিফল্টে রিসেট করুন</string>  
+    <!-- Settings summary -->  
+    <string name="pref_extras_reset_default_summary">ডিফল্ট সেটিং পুনরুদ্ধার করুন</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_extras_reset_default_dlg">ডিফল্ট ভ্যালুতে সেটিং ফেরত যাবে?</string>  
+    <!-- Title for a group of settings -->  
+    <string name="pref_development_title">ডিবাগ</string>  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not tranlsate.  Development option -->  
+    <!-- Do not translate. Development option to reset the prologin time [CHAR LIMIT=20] -->  
+    <!-- Settings screen, setting option name -->  
+    <string name="pref_default_text_encoding">টেক্সট এনকোডিং</string>  
+    <!-- Options in the Default encoding dialog box -->  
+    <string-array name="pref_default_text_encoding_choices"> 
+        <item>ল্যাটিন-১ (ISO-8859-1)</item>  
+        <item>ইউনিকোড (UTF-8)</item>  
+        <item>চাইনিজ (GBK)</item>  
+        <item>চাইনিজ (Big5)</item>  
+        <item>জাপানিজ (ISO-2022-JP)</item>  
+        <item>জাপানিজ (SHIFT_JIS)</item>  
+        <item>জাপানিজ (EUC-JP)</item>  
+        <!-- No need to translate a EUC-KR part, and there is no string length limits. -->  
+        <item>কোরিয়ান (EUC-KR)</item>  
+        <!-- TODO: We should add a lot more encodings.  --> 
+    </string-array>  
+    <!-- Dialog box title -->  
+    <string name="pref_default_text_encoding_dialogtitle">টেক্সট এনকোডিং</string>  
+    <!-- Do not translate. Actual encoding values. Must be valid text encodings understandable from WebKit. -->  
+    <!-- Settings screen, setting option name -->  
+    <string name="pref_default_font_family">ফন্ট</string>  
+    <!-- Options in the Default font dialog box -->  
+    <string-array name="pref_default_font_family_choices"> 
+        <item>স্যানস-সেরিফ</item>  
+        <item>সেরিফ</item>  
+        <item>কার্সিভ</item> 
+    </string-array>  
+    <!-- Dialog box title -->  
+    <string name="pref_default_font_family_dialogtitle">ফন্ট</string>  
+    <!-- Do not translate. Actual encoding values. Must be valid font family understandable from WebKit. -->  
+    <!-- Title for accessibility settings [CHAR LIMIT=25] -->  
+    <string name="pref_accessibility_title">প্রবেশযোগ্যতা</string>  
+    <!-- Font size settings category under accessibility settings [CHAR LIMIT=50] -->  
+    <string name="pref_font_size_category">টেক্সট সাইজ</string>  
+    <!-- Title for lab settings [CHAR LIMIT=25] -->  
+    <string name="pref_lab_title">ল্যাব</string>  
+    <!-- Title for lab quick controls feature [CHAR LIMIT=40] -->  
+    <string name="pref_lab_quick_controls">কুইক কন্ট্রোল</string>  
+    <!-- Summary for lab quick controls feature [CHAR LIMIT=120] -->  
+    <string name="pref_lab_quick_controls_summary">কুইক কন্ট্রোল খুলতে বাম বা ডান প্রান্ত থেকে থাম স্লাইড করে অ্যাপ ও ইউআরএল বার গোপন করুন</string>  
+    <!-- Title for the "Instant search" lab feature [CHAR LIMIT=40] -->  
+    <string name="pref_use_instant_search">গুগল ইনস্ট্যান্ট</string>  
+    <!-- Summary for the "Instant search" lab feature [CHAR LIMIT=120] -->  
+    <string name="pref_use_instant_search_summary">গুগল অনুসন্ধান ব্যবহার করার সময় গুগল ইনস্ট্যান্ট ব্যবহার করুন যাতে আপনার টাইপ করার সময়ই ফলাফল দেখায় (এতে ডাটা ব্যবহার বৃদ্ধি পেতে পারে)।</string>  
+    <!-- Title for the fullscreen lab feature [CHAR LIMIT=40] -->  
+    <string name="pref_lab_fullscreen">ফুলক্রিন</string>  
+    <!-- Summary for the fullscreen lab feature [CHAR LIMIT=120] -->  
+    <string name="pref_lab_fullscreen_summary">স্ট্যাটাস বার গোপন করতে ফুলস্ক্রিন মোড ব্যবহার করুন</string>  
+    <!-- Title for bandwidth management preference [CHAR LIMIT=25] -->  
+    <string name="pref_data_title">ব্যান্ডইউথ ম্যানেজমেন্ট</string>  
+    <!-- Title for search preloading [CHAR LIMIT=40] -->  
+    <string name="pref_data_preload_title">অনুসন্ধানের ফলাফল প্রিলোড হচ্ছে</string>  
+    <!-- Search preloading options [CHAR LIMIT=20] -->  
+    <string-array name="pref_data_preload_choices"> 
+        <item>কখনও না</item>  
+        <item>কেবল ওয়াই-ফাই</item>  
+        <item>সবসময়</item> 
+    </string-array>  
+    <!-- Do not translate -->  
+    <!-- Summary for search preloading [CHAR LIMIT=80] -->  
+    <string name="pref_data_preload_summary">ব্রাউজারকে অনুমতি দিন ব্যাকগ্রাউন্ডে হাই কন্ফিডেন্স অনুসন্ধান ফলাফল প্রিলোড করতে</string>  
+    <!-- Title of dialog for search preloading [CHAR LIMIT=40] -->  
+    <string name="pref_data_preload_dialogtitle">অনুসন্ধানের ফলাফল প্রিলোড হচ্ছে</string>  
+    <!-- Title for a dialog displayed when the browser has a data connectivity
+            problem -->  
+    <string name="browserFrameNetworkErrorLabel">সংযোগে সমস্যা</string>  
+    <!-- Title for a dialog displayed when the browser runs into a file label
+            error -->  
+    <string name="browserFrameFileErrorLabel">ফাইলে সমস্যা</string>  
+    <!-- Dialog box title -->  
+    <string name="browserFrameFormResubmitLabel"/>  
+    <!-- Dialog box message -->  
+    <string name="browserFrameFormResubmitMessage">আপনি যে পৃষ্ঠা দেখতে চেষ্টা করছেন তাতে এমন ডাটা আছে যা ইতিমধ্যে জমা দেওয়া হয়েছে (\"পোস্টডাটা\")। আপনি যদি ডাটা পুনরায় পাঠান, তাহলে পৃষ্ঠায় ফরমের যে কোনো একশনের (অনুসন্ধান বা অনলাইনে ক্রয়)পুনরাবৃত্তি হবে।</string>  
+    <!-- Dialog box title -->  
+    <string name="loadSuspendedTitle">সংযোগ নেই</string>  
+    <!-- Dialog box message -->  
+    <string name="loadSuspended">ব্রাউজার এই পৃষ্ঠা ডাউনলোড করতে পারছে না কারণ কোনো ইন্টারনেট সংযোগ নেই।</string>  
+    <!-- Menu item -->  
+    <string name="clear_history">ইতিহাস মুছুন</string>  
+    <!-- History screen title; appears in title bar -->  
+    <string name="browser_history">সম্প্রতি দেখা বিভিন্ন পৃষ্ঠা</string>  
+    <!-- Appears on History screen if no history is found -->  
+    <string name="empty_history">ব্রাউজার ইতিহাস নেই।</string>  
+    <!-- Menu option to load the user's home page [CHAR LIMIT=30] -->  
+    <string name="go_home">হোমপেজ</string>  
+    <!-- Displayed at the top of the bookmarks page.  When clicked, it bookmarks the page the browser is currently showing -->  
+    <string name="add_new_bookmark">বুকমার্ক যোগ করুন</string>  
+    <!-- Verb placed in front of a screenshot of a web page that, when clicked,
+            will add that page to bookmarks -->  
+    <string name="add_bookmark_short">যোগ করুন</string>  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- Do not translate.  This string is not displayed in UI (no badge is selected for go to). -->  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- This is the hint text shown in the Go To widget, before text is entered. -->  
+    <string name="search_hint">ইউআরএল অনুসন্ধান করুন বা টাইপ করুন</string>  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- This is the button label in the "Go To" UI. -->  
+    <string name="search_button_text">যান</string>  
+    <!-- The string used to describe the browser as a searchable item within system search settings. -->  
+    <string name="search_settings_description">বুকমার্ক ও ওয়েব ইতিহাস</string>  
+    <!-- Pop-up window dialog -->  
+    <!-- Message for a dialog informing the user that the site is attempting to
+            display a popup window -->  
+    <string name="popup_window_attempt">এই সাইটকে পপআপ উইন্ডো খোলার অনুমতি দেবেন?</string>  
+    <!-- Label for a button to allow a particular popup window to open -->  
+    <string name="allow">অনুমতি দিন</string>  
+    <!-- Label for a button to disallow a particular popup from opening -->  
+    <string name="block">ব্লক করুন</string>  
+    <!-- Title for a dialog informing the user that they cannot open any more
+            windows because the limit has been reached. -->  
+    <string name="too_many_windows_dialog_title">ট্যাব সীমায় পৌঁছেছে</string>  
+    <!-- Message in a dialog telling the user that they cannot open any more
+            windows because the limit has been reached. -->  
+    <string name="too_many_windows_dialog_message">একটি ট্যাব বন্ধ না করা পর্যন্ত নতুন ট্যাব খোলা যাবে না।</string>  
+    <!-- Title for a dialog informing the user that they cannot open a subwindow
+            because only one can be open at a time. -->  
+    <string name="too_many_subwindows_dialog_title">পপআপ ইতিমধ্যে আছে</string>  
+    <!-- Message for a dialog informing the user that they cannot open a
+            subwindow because only one can be open at a time. -->  
+    <string name="too_many_subwindows_dialog_message">এক সময়ে কেবল একটি পপআপ খোলা যাবে।</string>  
+    <!-- Download History UI strings -->  
+    <!-- Dialog title [CHAR LIMIT=25] -->  
+    <string name="download_no_sdcard_dlg_title" product="nosdcard">ইউএসবি স্টোরেজ নেই</string>  
+    <!-- Dialog title -->  
+    <string name="download_no_sdcard_dlg_title" product="default">এসডি কার্ড নেই</string>  
+    <!-- Dialog message [CHAR LIMIT=NONE] -->  
+    <string name="download_no_sdcard_dlg_msg" product="nosdcard"> 
+        <xliff:g id="filename">%s</xliff:g> ডাউনলোড করতে এসডি কার্ড প্রয়োজন।
+    </string>  
+    <!-- Dialog message -->  
+    <string name="download_no_sdcard_dlg_msg" product="default">An SD card is required to download 
+        <xliff:g id="filename">%s</xliff:g>.
+    </string>  
+    <!-- Title for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything [CHAR LIMIT=25] -->  
+    <string name="download_sdcard_busy_dlg_title" product="nosdcard">এসডি কার্ড নেই</string>  
+    <!-- Title for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything -->  
+    <string name="download_sdcard_busy_dlg_title" product="default">SD card unavailable</string>  
+    <!-- Message for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything.  Informs
+            the user how to enable SD card storage [CHAR LIMIT=NONE] -->  
+    <string name="download_sdcard_busy_dlg_msg" product="nosdcard">"এসডি কার্ড ব্যস্ত। ডাউনলোডের অনুমতি দিতে নোটিফিকেশনে 'ইউএসবি স্টোরেজ বন্ধ করুন'-এ স্পর্শ করুন।"</string>  
+    <!-- Message for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything.  Informs
+            the user how to enable SD card storage -->  
+    <string name="download_sdcard_busy_dlg_msg" product="default">The SD card is busy. To allow downloads, touch Turn Off USB Storage in the notification.</string>  
+    <!-- Toast for a download which cannot begin because the URL is not http or https -->  
+    <string name="cannot_download">কেবল ডাউনলোড করবে \"http\" বা \"https\" ইউআরএল।</string>  
+    <!-- Message in the list of items which have received download requests
+            telling their status.  This message states that the download has not
+            yet begun -->  
+    <string name="download_pending">ডাউনলোড শুরু করছে \u2026</string>  
+    <!-- Do not translate.  Testing only -->  
+    <!-- Do not translate.  Testing only -->  
+    <!-- The default homepage. If it starts with "http://www.google" and the
+            user signs up the device with a Google sites account, the site's
+            domain will be appended. -->  
+    <!-- The default url for the instant_base_page. -->  
+    <!--  The default homepage for op02 -->  
+    <!-- Bookmarks -->  
+    <!--  The build-in bookmark for op01 -->  
+    <!--  The build-in bookmark for yahoo -->  
+    <!-- Bookmark name for Picasa website -->  
+    <!-- The description of the suggestion that lets the user search the web for the query currently
+         in the text field. -->  
+    <string name="search_the_web">ওয়েব অনুসন্ধান করুন</string>  
+    <!-- HTML5 dialogs -->  
+    <!-- Used as a status bar notification when the browser is running out of space trying to allocate or increase the database quota for an HTML5 databae or application cache. -->  
+    <string name="webstorage_outofspace_notification_title">ব্রাউজার স্টোরেজ পূর্ণ</string>  
+    <string name="webstorage_outofspace_notification_text">জায়গা খালি করতে স্পর্শ করুন।</string>  
+    <!-- Used in the Browser Settings -->  
+    <string name="webstorage_clear_data_title">সংরক্ষিত ডাটা মুছুন</string>  
+    <!-- Confirmation dialog when the user ask to clear all data for an origin -->  
+    <string name="webstorage_clear_data_dialog_message">এই ওয়েবসাইটে সংরক্ষিত সব ডাটা মুছে ফেলবেন?</string>  
+    <string name="webstorage_clear_data_dialog_ok_button">ঠিক আছে</string>  
+    <string name="webstorage_clear_data_dialog_cancel_button">বাতিল করুন</string>  
+    <!-- Strings used in the summary of origins -->  
+    <string name="webstorage_origin_summary_mb_stored" product="tablet">আপনার ডিভাইসে সংরক্ষিত এমবি</string>  
+    <string name="webstorage_origin_summary_mb_stored" product="default">আপনার ফোনে সংরক্ষিত এমবি</string>  
+    <!-- String shown in a progress view while a video is loading, before it starts playing -->  
+    <string name="loading_video">ভিডিও লোড হচ্ছে\u2026</string>  
+    <!-- Geolocation -->  
+    <!-- Permissions prompt -->  
+    <string name="geolocation_permissions_prompt_message"> 
+        <xliff:g id="websiteorigin" example="maps.google.com">%s</xliff:g> আপনার লোকেশন জানতে চায়
+    </string>  
+    <string name="geolocation_permissions_prompt_share">লোকেশন শেয়ার করুন</string>  
+    <string name="geolocation_permissions_prompt_dont_share">প্রত্যাখান করুন</string>  
+    <string name="geolocation_permissions_prompt_remember">অগ্রাধিকার মনে রাখুন</string>  
+    <!-- Permissions prompt toast -->  
+    <string name="geolocation_permissions_prompt_toast_allowed">এই সাইটের আপনার লোকেশনে প্রবেশাধিকার আছে। এটি পরিবর্তন করুন সেটিং&gt;উচ্চতর&gt; ওয়েবসাইট স্ক্রিন।</string>  
+    <string name="geolocation_permissions_prompt_toast_disallowed">এই সাইটের আপনার লোকেশনে প্রবেশাধিকার নেই। এটি পরিবর্তন করুন সেটিং&gt;উচ্চতর&gt; ওয়েবসাইট স্ক্রিন।</string>  
+    <!-- Settings -> Advanced -> Website settings -> <origin> -->  
+    <string name="geolocation_settings_page_title">লোকেশনে প্রবেশাধিকার মুছুন</string>  
+    <string name="geolocation_settings_page_summary_allowed">এই সাইটের বর্তমানে আপনার লোকেশনে প্রবেশাধিকার আছে</string>  
+    <string name="geolocation_settings_page_summary_not_allowed">এই সাইটের বর্তমানে আপনার লোকেশনে প্রবেশাধিকার নেই</string>  
+    <!-- Settings page dialog -->  
+    <string name="geolocation_settings_page_dialog_message">এই ওয়েবসাইটের লোকেশনে প্রবেশাধিকার মুছে ফেলবেন?</string>  
+    <string name="geolocation_settings_page_dialog_ok_button">ঠিক আছে</string>  
+    <string name="geolocation_settings_page_dialog_cancel_button">বাতিল করুন</string>  
+    <!-- Label for the menu item in the website settings activity used to clear data stored by all websites -->  
+    <string name="website_settings_clear_all">সব মুছুন</string>  
+    <string name="website_settings_clear_all_dialog_message">সব ওয়েবসাইট ও লোকেশনের অনুমতি মুছে ফেলবেন?</string>  
+    <string name="website_settings_clear_all_dialog_ok_button">ঠিক আছে</string>  
+    <string name="website_settings_clear_all_dialog_cancel_button">বাতিল করুন</string>  
+    <!-- Text in the progress dialog when we are setting an image as the home screen wallpaper. -->  
+    <string name="progress_dialog_setting_wallpaper">ওয়ালপেপার সেট হচ্ছে\u2026</string>  
+    <!-- The default state to the "up to parent folder" button in the bookmarks UI. This
+         is displayed when the user is at the highest level and cannot go up [CHAR LIMIT=16] -->  
+    <string name="defaultBookmarksUpButton">বুকমার্ক</string>  
+    <!-- The string that is displayed when there are no bookmarks to display.
+         This is centered in the middle of the screen [CHAR LIMIT=NONE] -->  
+    <string name="empty_bookmarks_folder">বুকমার্ক নেই</string>  
+    <!-- Access point for RLZ tracking. -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string name="rlz_access_point">Y1</string>  
+    <!-- Title for a dialog asking the user which account to sync their bookmarks to [CHAR LIMIT=32] -->  
+    <string name="account_chooser_dialog_title" msgid="4833571985009544332">একটি একাউন্ট বাছাই করুন</string>  
+    <!-- Title for a dialog asking the user what they want to do with their bookmarks when adding a sync account [CHAR-LIMIT=32] -->  
+    <string name="import_bookmarks_dialog_title">গুগল একাউন্টের সাথে সিঙ্ক করুন</string>  
+    <!-- Description for a dialog asking the user what they want to do with their bookmarks when adding a sync account [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_description">এই ডিভাইসের বুকমার্ক গুগল একাউন্টের সাথে এখনও সংশ্লিষ্ট নেই। এসব বুকমার্কগুলোকে একটি একাউন্টে যোগ করে এগুলোকে সংরক্ষণ করুন। এসব বুকমার্কগুলোকে সিঙ্ক করতে না চাইলে এগুলো মুছে ফেলুন।</string>  
+    <!-- Description for selecting the account to add bookmarks to and begin syncing with [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_select_add_account">এই ডিভাইসের বর্তমান বুকমার্কগুলো যোগ করুন এবং গুগল একাউন্টের সাথে সিঙ্ক শুরু করুন</string>  
+    <!-- Description for selecting the account to sync with and delete local bookmarks [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_delete_select_account">এই ডিভাইসের বর্তমান বুকমার্কগুলো মুছে ফেলুন এবং গুগল একাউন্টের সাথে সিঙ্ক শুরু করুন</string>  
+    <!-- Description confirming user's choice to delete bookmarks [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_confirm_delete">এই ডিভাইসের বর্তমান বুকমার্কগুলো মুছে ফেলে বুকমার্কগুলো 
+        <xliff:g id="Googleaccount" example="account@example.com">%s</xliff:g>-এর সাথে সিঙ্ক শুরু করবেন?
+    </string>  
+    <!-- Description confirming user's choice to add bookmarks to an account [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_confirm_add">এই ডিভাইসের বর্তমান বুকমার্কগুলো যোগ করে বুকমার্কগুলো 
+        <xliff:g id="Googleaccount" example="account@example.com">%s</xliff:g>-এর সাথে সিঙ্ক শুরু করবেন?
+    </string>  
+    <!-- Button allowing users to remove all of their existing bookmarks when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_remove">বুকমার্ক মুছে ফেলুন</string>  
+    <!-- Sync bookmarks wizard option to go to the next screen [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_next">পরবর্তী</string>  
+    <!-- Sync bookmarks wizard option to go to the previous screen [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_previous">পূর্ববর্তী</string>  
+    <!-- Sync bookmarks wizard option to cancel sync setup [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_cancel">বাতিল করুন</string>  
+    <!-- Sync bookmarks wizard option to finish sync setup [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_done">সম্পন্ন</string>  
+    <!-- Button allowing users to import all of their existing bookmarks into an account when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_add">গুগল একাউন্টের সাথে বুকমার্কগুলো যোগ করুন</string>  
+    <!-- Button allowing users to import all of their existing bookmarks into an account when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_import">আপনার অ্যান্ড্রয়েড বুকমার্কগুলো 
+        <xliff:g id="Googleaccount" example="account@example.com">%s</xliff:g>-এর বুকমার্কগুলোর সাথে যোগ করুন
+    </string>  
+    <!-- Url Selection Action Mode -->  
+    <!-- Menu item to share URL selection [CHAR LIMIT=30] -->  
+    <string name="menu_share_url">শেয়ার করুন</string>  
+    <!-- Toast to inform the user that the maximum number of tabs has been
+         reached. [CHAR LIMIT=50] -->  
+    <string name="max_tabs_warning">আর কোনো ট্যাব নেই</string>  
+    <!-- The label used by the instant search labs feature when shown in
+         the search engines list (Preferences->Advanced->Set search engine
+         [CHAR LIMIT=80] -->  
+    <string name="instant_search_label">ইনস্ট্যান্টসহ (ল্যাব) গুগল</string>  
+    <!-- Font size preview label in settings [CHAR LIMIT=30] -->  
+    <string name="preview">প্রাকবীক্ষণ</string>  
+    <!-- Name for the user's unsynced, local bookmarks [CHAR LIMIT=50] -->  
+    <string name="local_bookmarks">স্থানীয়</string>  
+    <!-- Popup menu checkbox that allows the user to request the desktop version of a webpage [CHAR LIMIT=50] -->  
+    <string name="ua_switcher_desktop">ডেস্কটপ সাইটের অনুরোধ করুন</string>  
+    <!-- Preload permission label [CHAR LIMIT=40] -->  
+    <string name="permission_preload_label">পূর্বেলোড করা ফলাফল</string>  
+    <!-- Empty text for the "saved pages" tab that is shown when no saved pages exist. [CHAR LIMIT=None] -->  
+    <string name="empty_snapshots_folder">সংরক্ষিত পৃষ্ঠা নেই।</string>  
+    <!-- Menu option to delete the currently selected saved page [CHAR LIMIT=50] -->  
+    <string name="remove_snapshot">সংরক্ষিত পৃষ্ঠা মুছে ফেলুন</string>  
+    <!-- Popup menu option to load the live version of a saved page [CHAR LIMIT=20] -->  
+    <string name="snapshot_go_live">লাইভ হোন</string>  
+    <!--  Accessibility content descriptions -->  
+    <!-- Content description for back button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_back">পেছনে</string>  
+    <!-- Content description for forward button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_forward">ফরোয়ার্ড হোন</string>  
+    <!-- Content description for refresh button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_refresh">পৃষ্ঠা রিফ্রেশ করুন</string>  
+    <!-- Content description for stop button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_stop">পৃষ্ঠা লোড বন্ধ করুন</string>  
+    <!-- Content description for add bookmark button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_addbookmark">পৃষ্ঠা বুকমার্ক করুন</string>  
+    <!-- Content description for search button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_search">অনুসন্ধান করুন</string>  
+    <!-- Content description for voice search button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_voice">ভয়েস অনুসন্ধান শুরু করুন</string>  
+    <!-- Content description for bookmarks button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_bookmarks">বুকমার্ক</string>  
+    <!-- Content description for close tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_closetab">ট্যাব বন্ধ করুন</string>  
+    <!-- Content description for new tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_newtab">নতুন ট্যাব খুলুন</string>  
+    <!-- Content description for new incognito tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_newincognitotab">নতুন ছদ্মবেশী ট্যাব খুলুন</string>  
+    <!-- Content description for clear button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_clear">ইনপুট মুছুন</string>  
+    <!-- Content description for user agent switcher [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_uaswitch">ব্যবহারকারী এজেন্ট সুইচ করুন</string>  
+    <!-- Content description for go button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_go">যান</string>  
+    <!-- Content description for tab switcher button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_navscreen">পেইজ ম্যানেজার</string>  
+    <!-- Content description for overflow menu button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_more">আরো অপশন</string>  
+    <!-- Content description for incognito state [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_state_incognito">ছদ্মবেশী পৃষ্ঠা</string>  
+    <!-- Content description for frozen state [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_state_frozen">সংরক্ষিত পৃষ্ঠা</string>  
+    <!-- Content description for tab switcher transition [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_transition_navscreen">ট্যাব ম্যানেজমেন্ট</string>  
+    <!-- M: Strings for Add "Home" item in option menu -->  
+    <string name="home">হোম</string>  
+    <!-- M: Strings for Add "Close" item in option menu -->  
+    <string name="close">বন্ধ করুন</string>  
+    <!-- M: Strings for Add "Option" title for "Close" option menu -->  
+    <string name="option">অপশন</string>  
+    <!-- M: Strings for Add "Minimize" item in "Close" option menu -->  
+    <string name="minimize">ছোট করুন</string>  
+    <!-- M: Strings for Add "Quit" item in "Close" option menu -->  
+    <string name="quit">প্রস্থান</string>  
+    <!-- M: Strings for download path setting preference category title for OP01 integrated with File Manager -->  
+    <string name="pref_download_title">ডাউনলোড সেটিং</string>  
+    <!-- M: Strings for download path setting preference item title for OP01 integrated with File Manager -->  
+    <string name="pref_extras_set_download_directory_title">ডাউনলোড নির্দেশিকা সেট করুন</string>  
+    <!-- M: site navigation start @{ -->  
+    <!-- The default homepage. If it starts with "http://www.google" and the
+            user signs up the device with a Google sites account, the site's
+            domain will be appended. -->  
+    <string name="sitenavigation_add">ওয়েবসাইট যোগ করুন</string>  
+    <!-- Name of tab containing the user's most visited websites, organized by number of visits -->  
+    <string name="tab_site_navigation">সাইট নেভিগেশন</string>  
+    <string-array name="pref_homepage_choices_site_navigation"> 
+        <!-- Setting choice to set the homepage to the current page [CHAR LIMIT=40] -->  
+        <item>বর্তমান পৃষ্ঠা</item>
+        <!-- Setting choice to set the homepage to a blank page [CHAR LIMIT=40] -->  
+        <item>খালি পৃষ্ঠা</item>
+        <!-- Setting choice to set the homepage to the default page [CHAR LIMIT=40] -->  
+        <item>ডিফল্ট পৃষ্ঠা</item>
+        <!-- Setting choice to set the homepage to the "Most Visited" homepage feature, which is a list of most visited sites [CHAR LIMIT=40] -->  
+        <item>সবচেয়ে বেশি দেখা সাইট</item>
+        <!-- Setting choice to set the homepage to the "Site Navigation" homepage feature, which is a list of site navigation sites [CHAR LIMIT=40] -->  
+        <item>সাইট নেভিগেশন</item>
+        <!-- Setting choice to set the homepage to a user entered URL [CHAR LIMIT=40] -->  
+        <item>অন্যান্য</item>
+    </string-array>  
+    <!-- Content description for site navigation transition [CHAR LIMIT=NONE] -->  
+    <!-- Predefined websites Site Navigation for default operator, six of them -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string-array name="predefined_websites_default_optr"> 
+        <item>Hao123</item>  
+        <item>http://www.hao123.com/</item>  
+        <item>site_navigation_default_default1</item>  
+        <item>Google</item>  
+        <item>http://www.google.cn/</item>  
+        <item>site_navigation_default_default2</item>  
+        <item>Baidu</item>  
+        <item>http://www.baidu.com/</item>  
+        <item>site_navigation_default_default3</item>  
+        <item>Sina</item>  
+        <item>http://www.sina.com.cn/</item>  
+        <item>site_navigation_default_default4</item>  
+        <item>Sohu</item>  
+        <item>http://www.sohu.com/</item>  
+        <item>site_navigation_default_default5</item>  
+        <item>Yahoo</item>  
+        <item>http://www.yahoo.com/</item>  
+        <item>site_navigation_default_default6</item> 
+    </string-array>  
+    <!-- Predefined websites Site Navigation for Operator#01, seven of them -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string-array name="predefined_websites_op01"> 
+        <item>about:blank</item>  
+        <item>about:blank1</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank2</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank3</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank4</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank5</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank6</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank7</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank8</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank9</item>  
+        <item>sitenavigation_thumbnail_default</item> 
+    </string-array>  
+    <!-- @} -->  
+    <!-- For DM read & write homepage permission -->  
+    <string name="permlab_readHomepage">ব্রাউজারে হোমপেইজ পড়ুন</string>  
+    <string name="permdesc_readHomepage">আপনার হস্তক্ষেপ ছাড়াই ব্রাউজারে হোম পেজের তথ্য পড়ার জন্য অ্যাপ্লিকেশনকে অনুমতি দিন।</string>  
+    <string name="permlab_writeHomepage">ব্রাউজারে হোমপেইজ পরিমার্জন করুন</string>  
+    <string name="permdesc_writeHomepage">আপনার হস্তক্ষেপ ছাড়াই ব্রাউজারে হোম পেজের তথ্য পরিমার্জনের জন্য অ্যাপ্লিকেশনকে অনুমতি দিন।</string>  
+    <!-- Alert dialog title for duplicate bookmark-->  
+    <string name="duplicated_bookmark">ডুপ্লিকেট বুকমার্ক</string>  
+    <!-- Alert dialog message telling the user the bookmark have same name or url already exists -->  
+    <string name="duplicated_bookmark_warning">বুকমার্কটির নাম বা লোকেশন ইতিমধ্যে বিদ্যমান নাম বা লোকেশনের মতই, ওভাররাইট করবেন?</string>  
+    <!-- Search Engine Settings label -->  
+    <!-- Settings summary -->  
+    <string name="pref_content_search_engine_consistency">সার্চ ইঞ্জিন সামঞ্জস্যতা</string>  
+    <string name="pref_search_engine_unify">সার্চ ইঞ্জিন একত্রিত করুন</string>  
+    <string name="pref_search_engine_unify_summary">কুইকসার্চবক্সে সার্চ ইঞ্জিনের পরিবর্তন প্রয়োগ করুন।</string>  
+    <!-- M: Support download or open content -->  
+    <string name="download_or_open_content">কোন অপারেশন আপনি নির্বাচন করবেন?</string>  
+    <string name="save_content">সংরক্ষণ করুন</string>  
+    <string name="open_content">চালু করুন</string>  
+    <!-- M: No voice search alert dialog -->  
+    <string name="no_voice_search_alert_dialog_title">কণ্ঠ অনুসন্ধান</string>  
+    <string name="no_voice_search_alert_dialog_msg">ভয়েস অনুসন্ধান নেই কারণ কোনো ভয়েস সার্চ অ্যাপ্লিকেশন নেই। প্রথমে এটি ইনস্টল করুন।</string>  
+    <string name="make_primary">এ বিষয়ে আর আমাকে স্মরণ করিয়ে দেবেন না</string>  
+    <string name="dialog_title">ডাটা সংযোগ পরিবর্তন করুন</string>  
+    <string name="wifi_failover_gprs_content">ওয়াই-ফাই নেই, মোবাইল নেটওয়ার্ক সংযুক্ত করতে চেষ্টা করবেন?</string>  
+    <!-- M: Site navigation menu and dialog -->  
+    <string name="delete">মুছুন</string>  
+    <string name="edit">সম্পাদনা করুন</string>  
+    <string name="add">যোগ করুন</string>  
+    <string name="delete_site_navigation_msg">এই আইটেম মুছে ফেলবেন?</string>  
+    <string name="site_navigation_name">নাম</string>  
+    <string name="site_navigation_address">ঠিকানা</string>  
+    <string name="website_needs_title">"ওয়েবসাইটের অবশ্যই একটি নাম থাকতে হবে।"</string>  
+    <string name="website_needs_url">"ওয়েবসাইটের অবশ্যই একটি অবস্থান থাকতে হবে।"</string>  
+    <string name="site_navigation_cannot_save_url">এই ইউআরএল কোনো ওয়েবসাইট হতে পারে না।</string>  
+    <string name="add_site_navigation">ওয়েবসাইট যোগ করুন</string>  
+    <string name="edit_site_navigation">সাইট নেভিগেশন সম্পাদনা করুন</string>  
+    <string name="site_navigation_edit_button">সম্পাদনা করুন</string>  
+    <string name="save_webpage">সংরক্ষণ করুন</string>  
+    <string name="duplicate_site_navigation_url">এই ইউআরএল ইতিমধ্যে আছে।</string> 
+    <string name="duplicated_folder_warning">ফোল্ডারটির নাম ইতিমধ্যে বিদ্যমান।</string> 
+
+    <!-- M: Option menu change string: Bookmarks -> Bookmarks/History -->
+    <string name="bookmarks_history">বকমরক/ইতহস</string>
+</resources> 

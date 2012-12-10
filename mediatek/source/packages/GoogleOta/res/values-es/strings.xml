@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Actualizaciones del sistema</string>
+    
+    <string name="notification_content_title">Actualización de firmware</string>
+    <string name="notification_content_text_completed">Descarga correcta</string> 
+    
+    <string name="new_version_query">Buscando actualización...</string>
+    <string name="no_new_version">El sistema está actualizado.</string>
+    <string name="unknown_error_content">Se produjo un error desconocido. Salga e inténtelo de nuevo.</string>
+    <string name="network_error">Error de conexión de red.</string>
+    <string name="network_error_content">Error de conexión de red. Inténtelo de nuevo</string>
+    <string name="server_error_title">Error de conexión del servidor</string>
+    <string name="server_error_content">La conexión con el servidor debe utilizar una red GPRS. Establézcala.</string>
+    <string name="insufficient_space_title">Espacio insuficiente</string>
+    
+    <string name="error_sdcard">Información de tarjeta SD</string>
+    <string name="unmount_sdcard">Error al montar la tarjeta SD. Compruébela.</string>
+    <string name="sdcard_crash_or_unmount">Error en la tarjeta SD. Compruebe la tarjeta SD e inténtelo de nuevo.</string>
+    <string name="insufficient_space">Espacio insuficiente la tarjeta SD.</string>
+    
+    <string name="btn_retry">Reintentar</string>
+    <string name="btn_pause">Pausar</string>
+    <string name="btn_resume">Reanudar</string>
+    <string name="btn_download">Descargar</string>
+    <string name="btn_ok">Aceptar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="ver_content">La actualización del firmware puede mejorar la estabilidad de la máquina y solucionar errores. Actualice a la versión</string>
+    
+    <string name="cancel_download_title">Cancelar descarga</string>
+    <string name="cancel_download_content">Esta operación descartara el archivo descargado.</string>
+    <string name="cancel_download_positive_btn">Sí</string>
+    <string name="cancel_download_negative_btn">No</string>
+    
+    <string name="update_prompt">Durante la actualización, todas las operaciones se deshabilitarán. Esta operación tardará unos minutos.</string>
+    
+    <string name="not_support_version">El destino no admite la función Por ondas</string>
+    <string name="need_target_info">No hay información de destino para comprobar.</string>
+    <string name="delta_has_deleted">El paquete se ha eliminado. Necesita solicitar una nueva versión de nuevo.</string>
+    
+    <string name="package_error_title">Error de instalación.</string>
+    <string name="package_error_message_invalid">Error de paquete. Busque la actualización y descárguela de nuevo.</string>
+    <string name="package_error_message_insuff" product="tablet">Espacio insuficiente en el dispositivo.</string>      
+    <string name="package_error_message_insuff" product="default">Espacio suficiente en el teléfono</string>
+    <string name="package_error_message_crash">No se puede acceder a los datos de usuario.</string>
+    <string name="package_error_message_full">Se necesita paquete completo para cambiar la partición..</string>    
+    <string name="updateSuccess" product="tablet">¡Enhorabuena! El dispositivo se ha actualizado correctamente a la versión 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>
+    <string name="updateSuccess" product="default">¡Enhorabuena! El teléfono se ha actualizado correctamente a la versión 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>  
+    <string name="updateFailed">No se pudo actualizar a la versión 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>  
+    <string name="updateResultTitle">Actualización del sistema</string>  
+    <string name="package_unzip">Package unzipping...</string>  
+    <string name="package_unzip_error">Unzip error</string>  
+    <string name="unknown_error">Unknown error</string>  
+    <string name="insufficient_space_content">There is no enough storage space! This installation need at least 
+        <xliff:g id="deltasize" example="3.5M">%s</xliff:g>. Check your app manager to release extra space please.
+    </string>  
+    <string name="downloading_title">"Descargando..."</string>  
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="wallpaper_label">बुलबुले</string>  
+    <string name="wallpaper_author">Google</string>  
+    <string name="wallpaper_description">कुछ बुलबुले देखें</string> 
+</resources>

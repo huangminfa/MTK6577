@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string-array name="enquire_type"> 
+        <item>هم اکنون به روز رسانی شود</item>  
+        <item>10 دقيقه</item>  
+        <item>30 دقيقه</item>  
+        <item>1 ساعت</item>  
+        <item>3 ساعت</item>  
+        <item>6 ساعت</item>  
+        <item>1 روز</item>  
+        <item>3 روز</item>  
+        <item>6 روز</item>  
+        <item>هرگز نپرس</item> 
+    </string-array>  
+</resources>

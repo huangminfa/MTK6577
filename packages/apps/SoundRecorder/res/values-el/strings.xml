@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="app_name" msgid="5955735546071433666">"Πρόγραμμα εγγραφής ήχου"</string>  
+    <string name="recording" msgid="4426791467211376099">"Εγγραφή"</string>  
+    <string name="recording_stopped" msgid="1580278719585249612">"Η εγγραφή διακόπηκε"</string>  
+    <string name="storage_is_full" msgid="416039755956726221">"Ο αποθηκευτικός χώρος είναι πλήρης"</string>  
+    <string name="max_length_reached" msgid="6398215743584093353">"Έχετε φθάσει στη μέγιστη διάρκεια"</string>  
+    <string name="insert_sd_card" product="nosdcard" msgid="8212754638456591792">"Προσαρ. τον χώρο αποθήκ. USB"</string>  
+    <string name="insert_sd_card" product="default" msgid="2251831579676114197">"Εισαγάγετε μια κάρτα SD"</string>  
+    <string name="min_available" msgid="5493947690062988925">" 
+        <xliff:g id="MINUTES">%d</xliff:g> λεπτά διαθέσιμα"
+    </string>  
+    <string name="sec_available" msgid="2297020788861694399">" 
+        <xliff:g id="SECONDS">%d</xliff:g> δευτ. διαθέσιμα"
+    </string>  
+    <string name="accept" msgid="1888285552128743656">"Τέλος"</string>  
+    <string name="discard" msgid="761613433029406319">"Απόρριψη"</string>  
+    <string name="button_ok" msgid="3004911343723076226">"OK"</string>  
+    <!-- no translation found for audio_db_title_format (7912182366970749312) -->  
+    <string name="unknown_artist_name" msgid="5567811106415855219">"Άγνωστος καλλιτέχνης"</string>  
+    <skip/>  
+    <string name="audio_db_album_name" msgid="9072588113803264440">"Εγγραφές ήχου"</string>  
+    <string name="audio_db_playlist_name" msgid="5592939050047058162">"Οι εγγραφές μου"</string>  
+    <string name="error_sdcard_access" product="nosdcard" msgid="7292601458300337571">"Δεν ήταν δυνατή η πρόσβαση στον χώρο αποθήκευσης USB"</string>  
+    <string name="error_sdcard_access" product="default" msgid="8005660724361043509">"Δεν είναι δυνατή η πρόσβαση στην κάρτα SD"</string>  
+    <string name="error_mediadb_new_record" msgid="2225774949947938064">"Δεν είναι δυνατή η αποθήκευση του εγγεγραμμένου ήχου"</string>  
+    <string name="ok">OK</string>  
+    <string name="error_app_recorder_occupied">Το πρόγραμμα εγγραφής χρησιμοποιείται από άλλη εφαρμογή.</string>  
+    <string name="error_app_failed_title">Αποτυχία εγγραφής</string>  
+    <string name="tell_save_record_success">Αποθήκευση επιτυχής</string>  
+    <string name="save_record">Αποθήκευση</string>  
+    <string name="spaceIsLow_content">Ο χώρος της κάρτας SD εξαντλείται. Διακόψτε την εγγραφή ή διαγράψτε στοιχεία από την κάρτα SD.</string>  
+    <string name="cancel">Άκυρο</string>  
+    <string name="recording_format_high">Υψηλή</string>  
+    <string name="recording_format_mid">Μεσαία</string>  
+    <string name="recording_format_low">Χαμηλή</string>  
+    <string name="three_mins_avail_total">"3 λεπτά διαθέσιμα συνολικά"</string>  
+    <string name="alert_delete_multiple">Αυτά τα στοιχεία θα διαγραφούν</string>  
+    <string name="alert_delete_single">Αυτό το στοιχείο θα διαγραφεί</string>  
+    <string name="delete">Διαγραφή</string>  
+    <string name="deleting">Διαγραφή</string>  
+    <string name="no_recording_file">(Δεν υπάρχει αρχείο εγγραφής)</string>  
+    <string name="recording_file_list">Λίστα αρχείων εγγραφής</string>  
+    <string name="recording_paused">Η εγγραφή είναι σε παύση</string>  
+    <string name="voice_quality">Ποιότητα φωνής</string>  
+    <string name="recording_mode">Λειτουργία εγγραφής</string>  
+    <string name="select_voice_quality">Επιλογή ποιότητας φωνής</string>  
+    <string name="select_recording_mode">Επιλογή λειτουργίας εγγραφής</string>  
+    <string name="recording_mode_nomal">Κανονική</string>  
+    <string name="recording_mode_meeting">Λειτουργία συνεδρίου</string>  
+    <string name="recording_mode_lecture">Διάλεξη</string>  
+    <string name="time_available"> 
+        <xliff:g id="minutes">%d</xliff:g> λεπτά 
+        <xliff:g id="seconds">%d</xliff:g>δ διαθέσιμα
+    </string>  
+    <string name="audio_db_title_format"> 
+        <xliff:g id="format">yyyy-MM-dd HH:mm:ss</xliff:g> 
+    </string> 
+</resources>

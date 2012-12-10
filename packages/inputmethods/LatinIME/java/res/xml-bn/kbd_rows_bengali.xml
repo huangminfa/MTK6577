@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge
+    xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
+>
+    <include
+        latin:keyboardLayout="@xml/kbd_key_styles" />
+
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyLabel="\u0994" latin:keyUpperCaseLabel="\u09CC" />
+		<Key latin:keyLabel="\u0990" latin:keyUpperCaseLabel="\u09C8" />
+		<Key latin:keyLabel="\u0986" latin:keyUpperCaseLabel="\u09BE" />
+		<Key latin:keyLabel="\u0988" latin:keyUpperCaseLabel="\u09C0" />
+		<Key latin:keyLabel="\u098A" latin:keyUpperCaseLabel="\u09C2" />
+		<Key latin:keyLabel="\u09AD" latin:keyUpperCaseLabel="\u09AC" />
+		<Key latin:keyLabel="\u0999" latin:keyUpperCaseLabel="\u09B9" />
+		<Key latin:keyLabel="\u0998" latin:keyUpperCaseLabel="\u0997" />
+		<Key latin:keyLabel="\u09A7" latin:keyUpperCaseLabel="\u09A6" />
+		<Key latin:keyLabel="\u09B7" latin:keyUpperCaseLabel="\u099E" />
+	</Row>
+	
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyLabel="\u0993" latin:keyUpperCaseLabel="\u09CB" latin:keyXPos="5.0%p" />
+		<Key latin:keyLabel="\u098F" latin:keyUpperCaseLabel="\u09C7" />
+		<Key latin:keyLabel="\u0985" latin:keyUpperCaseLabel="\u09C7" />
+		<Key latin:keyLabel="\u0987" latin:keyUpperCaseLabel="\u09BF" />
+		<Key latin:keyLabel="\u0989" latin:keyUpperCaseLabel="\u09C1" />
+		<Key latin:keyLabel="\u09AB" latin:keyUpperCaseLabel="\u09AA" />
+		<Key latin:keyLabel="\u09DF" latin:keyUpperCaseLabel="\u09AF" />
+		<Key latin:keyLabel="\u0996" latin:keyUpperCaseLabel="\u0995" />
+		<Key latin:keyLabel="\u09A5" latin:keyUpperCaseLabel="\u09A4" latin:keyXPos="85.0%p" />
+	</Row>
+        
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyStyle="shiftKeyStyle" latin:keyWidth="15%p"
+			latin:visualInsetsRight="1%p" />
+		<Key latin:keyLabel="\u099D" latin:keyUpperCaseLabel="\u099C" />
+		<Key latin:keyLabel="\u0981" latin:keyUpperCaseLabel="\u0982"/>
+		<Key latin:keyLabel="\u09A3" latin:keyUpperCaseLabel="\u09AE"/>
+		<Key latin:keyLabel="\u0964" latin:keyUpperCaseLabel="\u09A8"/>
+		<Key latin:keyLabel="\u099B" latin:keyUpperCaseLabel="\u099A"/>
+		<Key latin:keyLabel="\u09B0" latin:keyUpperCaseLabel="\u09B2"/>
+		<Key latin:keyLabel="\u09B6" latin:keyUpperCaseLabel="\u09B8"/>
+		<Key latin:keyStyle="deleteKeyStyle" latin:keyWidth="fillBoth"
+			latin:visualInsetsLeft="1%p" />
+	</Row>
+	
+    <include
+        latin:keyboardLayout="@xml/kbd_qwerty_row4" />
+</merge>

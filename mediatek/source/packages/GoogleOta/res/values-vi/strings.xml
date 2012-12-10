@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">C.nhật hệ thống</string>
+    
+    <string name="notification_content_title">Cập nhật firmware</string>
+    <string name="notification_content_text_completed">Tải về thành công</string> 
+    
+    <string name="new_version_query">Đang kiểm tra cập nhật...</string>
+    <string name="no_new_version">Hệ thống của bạn hiện đã được cập nhật.</string>
+    <string name="unknown_error_content">Rất tiếc, đã xảy ra lỗi k.xác định, hãy thoát và thử lại.</string>
+    <string name="network_error">Không thể kết nối mạng</string>
+    <string name="network_error_content">Không thể kết nối mạng, hãy thử lại.</string>
+    <string name="server_error_title">Không thể kết nối máy chủ</string>
+    <string name="server_error_content">Kết nối với máy chủ phải sử dụng mạng GPRS, hãy vào và cài đặt nó.</string>
+    <string name="insufficient_space_title">Không đủ d.lượng</string>
+    <string name="error_sdcard">Th.tin thẻ SD</string>
+    <string name="unmount_sdcard">Lỗi ngắt thẻ SD, hãy kiểm tra lại.</string>
+    <string name="sdcard_crash_or_unmount">Lỗi thẻ SD. Hãy kiểm tra thẻ SD và thử lại</string>
+    <string name="insufficient_space">Không đủ dung lượng trên thẻ SD.</string>
+    
+    <string name="btn_retry">Thử lại</string>
+    <string name="btn_pause">Tạm dừng</string>
+    <string name="btn_resume">Tiếp tục</string>
+    <string name="btn_download">Tải về</string>
+    <string name="btn_ok">OK</string>  
+    <string name="btn_cancel">Hủy</string>
+    <string name="ver_content">Cập nhật firmware có thể nâng cao tính ổn định của máy và vá các lỗi. Cập nhật lên phiên bản</string>
+    
+    <string name="cancel_download_title">Hủy tải về</string>
+    <string name="cancel_download_content">Thao tác này sẽ hủy bỏ file vừa tải về.</string>
+    <string name="cancel_download_positive_btn">Có</string>
+    <string name="cancel_download_negative_btn">Không</string>
+    
+    <string name="update_prompt">Trong khi cập nhật, mọi thao tác đều bị tắt. Tiến trình sẽ mất vài phút.</string>
+    
+    <string name="not_support_version">Thiết bị đích của bạn không hỗ trợ truyền vô tuyến</string>
+    <string name="need_target_info">Không có th.tin đích để kiểm tra</string>
+    <string name="delta_has_deleted">Đã xóa bộ phần mềm, bạn cần truy vấn lại phiên bản mới nhất.</string>
+    
+    <string name="package_error_title">Không thể cài đặt</string>
+    <string name="package_error_message_invalid">Lỗi bộ phần mềm. Hãy kiểm tra cập nhật và tải lại.</string>
+    <string name="package_error_message_insuff" product="tablet">Không đủ dung lượng trên thiết bị.</string>  
+    <string name="package_error_message_insuff" product="default">Không đủ dung lượng trên ĐT</string>
+    <string name="package_error_message_crash">K.thể tr.cập dữ liệu ng.dùng</string>
+    <string name="package_error_message_full">Cần bộ phần mềm hoàn chỉnh trong tr.hợp đổi phân khu.</string>    
+    <string name="package_unzip">Package unzipping...</string>  
+    <string name="package_unzip_error">Unzip error</string>  
+    <string name="unknown_error">Unknown error</string>  
+    <string name="insufficient_space_content">There is no enough storage space! This installation need at least 
+        <xliff:g id="deltasize" example="3.5M">%s</xliff:g>. Check your app manager to release extra space please.
+    </string>  
+    <string name="downloading_title">"Đang tải về..."</string>  
+    <string name="updateSuccess" product="tablet">Xin chúc mừng! Thiết bị của bạn đã được cập nhật thành công lên phiên bản 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>
+    <string name="updateSuccess" product="default">Xin chúc mừng! Điện thoại của bạn đã được cập nhật thành công lên phiên bản 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>  
+    <string name="updateFailed">Không thể cập nhật phiên bản 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g>.
+    </string>  
+    <string name="updateResultTitle">Cập nhật hệ thống</string>  
+</resources>

@@ -1,0 +1,28 @@
+diff --git a/core/base_rules.mk b/core/base_rules.mk
+index 242b53d..adb0b8a 100644
+--- a/core/base_rules.mk
++++ b/core/base_rules.mk
+@@ -156,7 +156,7 @@ ifeq ($(LOCAL_MODULE_PATH),)
+ endif
+ 
+ ifneq ($(strip $(LOCAL_BUILT_MODULE)$(LOCAL_INSTALLED_MODULE)),)
+-  $(error $(LOCAL_PATH): LOCAL_BUILT_MODULE and LOCAL_INSTALLED_MODULE must not be defined by component makefiles)
++  $(warning $(LOCAL_PATH): LOCAL_BUILT_MODULE and LOCAL_INSTALLED_MODULE must not be defined by component makefiles)
+ endif
+ 
+ # Make sure that this IS_HOST/CLASS/MODULE combination is unique.
+diff --git a/core/main.mk b/core/main.mk
+index 569d4dc..50e9f62 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -529,7 +529,9 @@ include $(subdir_makefiles)
+ endif # ONE_SHOT_MAKEFILE
+ 
+ ifeq ($(stash_product_vars),true)
+-  $(call assert-product-vars, __STASHED)
++# [Open NFC : Put comment the bellow line 
++#  $(call assert-product-vars, __STASHED)
++# Open NFC]
+ endif
+ 
+ include $(BUILD_SYSTEM)/legacy_prebuilts.mk

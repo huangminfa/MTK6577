@@ -1,0 +1,51 @@
+	 {"LayName": "slideshow_ani", "LayWidth": 800.000000, "LayHeight": 480.000000, "LayID": 512, "ParentID": 0, "LayIn": 12.28, "LayDur": 10.24, "CompIn": 0.00, "CompDur": 10.24, "NumEffects": 0,
+		"SourcePath": "//pc10110074/d$/AE_Project/LandscapeSweet_Slice/photo_BG_01.jpg",
+				 "AnchorPoint": { 
+					"X": 0.50, "Y": 0.50, "Z": 0.00
+					 }, 
+				 "Position": { 
+					"Type":[ 12.00 , 12.00 ],
+					"Time":[ 1.23 , 10.01 ],
+					"X":[ 400.00 , 440.00 ],
+					"Y":[ 240.00 , 220.00 ],
+					"Z":[ 100.00 , 100.00 ],
+					"InTanX":[ 0.00 , 0.00 ],
+					"InTanY":[ 0.00 , 0.00 ],
+					"InTanZ":[ 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 ],
+					"OutTanY":[ 0.00 , 0.00 ],
+					"OutTanZ":[ 0.00 , 0.00 ]
+				}
+,				 "Scale": { 
+					"Type":[ 0.00 , 0.00 ],
+					"Time":[ 1.23 , 10.01 ],
+					"X":[ 110.00 , 120.00 ],
+					"Y":[ 110.00 , 120.00 ],
+					"Z":[ 110.00 , 120.00 ],
+					"InTanX":[ 0.00 , 0.00 ],
+					"InTanY":[ 0.00 , 0.00 ],
+					"InTanZ":[ 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 ],
+					"OutTanY":[ 0.00 , 0.00 ],
+					"OutTanZ":[ 0.00 , 0.00 ]
+				}
+,				 "Orientation": { 
+					"X": 0.00, "Y": 0.00, "Z": 0.00
+					 }, 
+				 "XRotation": { 
+					"Val": 0.00
+					 }, 
+				 "YRotation": { 
+					"Val": 0.00
+					 }, 
+				 "ZRotation": { 
+					"Val": 0.00
+					 }, 
+				 "Opacity": { 
+					"Type":[ 0.00 , 0.00 ],
+					"Time":[ 0.00 , 2.87 ],
+					"Val":[ 0.00 , 40.00 ],
+					"InTanX":[ 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 ]
+				}
+	}

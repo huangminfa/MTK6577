@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+	xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin">
+	<include latin:keyboardLayout="@xml/kbd_key_styles" />
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyLabel="ق" latin:keyHintLabel="1" latin:moreKeys="1,١" />
+		<Key latin:keyLabel="و" latin:keyHintLabel="2" latin:moreKeys="2,٢" />
+		<Key latin:keyLabel="ع" latin:keyHintLabel="3" latin:moreKeys="3,٣,\u06a8" />
+		<Key latin:keyLabel="ر" latin:keyHintLabel="4"
+			latin:moreKeys="4,٤,\u06a4,\u06a2,\u06a5" />
+		<Key latin:keyLabel="ت" latin:keyHintLabel="5" latin:moreKeys="5,٥" />
+		<Key latin:keyLabel="\u06D2" latin:keyHintLabel="6"
+			latin:moreKeys="6,٦" />
+		<Key latin:keyLabel="ء" latin:keyHintLabel="7"
+			latin:moreKeys="7,٧,\ufeeb|\u0647\u200D" />
+		<Key latin:keyLabel="ی" latin:keyHintLabel="8" latin:moreKeys="8,٨" />
+		<Key latin:keyLabel="\u06C1" latin:keyHintLabel="9"
+			latin:moreKeys="9,٩" />
+		<Key latin:keyLabel="پ" latin:keyHintLabel="0" latin:moreKeys="0,٠,\u0686"
+			latin:keyWidth="fillRight" />
+	</Row>
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyLabel="\u06C3" />
+		<Key latin:keyLabel="ا" />
+		<Key latin:keyLabel="س" />
+		<Key latin:keyLabel="د" />
+		<Key latin:keyLabel="ف" />
+		<Key latin:keyLabel="گ" />
+		<Key latin:keyLabel="ھ" />
+		<Key latin:keyLabel="ج" />
+		<Key latin:keyLabel="ک" />
+		<Key latin:keyLabel="ل" />
+	</Row>
+
+	<Row latin:keyWidth="10%p">
+		<Key latin:keyLabel="ص" latin:keyXPos="5.0%p" />
+		<Key latin:keyLabel="ز" />
+		<Key latin:keyLabel="ش" />
+		<Key latin:keyLabel="چ" />
+		<Key latin:keyLabel="ط" />
+		<Key latin:keyLabel="ب" />
+		<Key latin:keyLabel="ن" />
+		<Key latin:keyLabel="م" />
+		<Key latin:keyStyle="deleteKeyStyle" latin:keyWidth="fillRight"
+			latin:visualInsetsLeft="1%p" />
+	</Row>
+	<include latin:keyboardLayout="@xml/kbd_qwerty_row4" />
+</merge>

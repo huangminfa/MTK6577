@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="alert_delete_multiple">These items will be deleted</string>
+    <string name="alert_delete_single">This item will be deleted</string>
+    <string name="already_exists">already exists</string>
+    <string name="app_name">File Manager</string>
+    <string name="cancel">Cancel</string>
+    <string name="copy">Copy</string>
+    <string name="copy_deny">No permission to copy</string>
+    <string name="create_folder">Create folder</string>
+    <string name="cut">Cut</string>
+    <string name="cut_deny">No permission to cut</string>
+    <string name="cut_fail">Failed to cut</string>
+    <string name="delete">Delete</string>
+    <string name="delete_deny">No permission to delete</string>
+    <string name="delete_fail">Failed to delete</string>
+    <string name="deleting">Deleting</string>
+    <string name="deselect_all">Deselect All</string>
+    <string name="select_all">Select All</string>
+    <string name="details">Details</string>
+    <string name="done">Done</string>
+    <string name="edit">Edit</string>
+    <string name="empty_msg">(Empty Folder)</string>
+    <string name="executable">Executable</string>
+    <string name="insufficient_memory">Insufficient memory</string>
+    <string name="invalid_empty_name">File or folder name cannot be empty</string>
+    <string name="invalid_file_name">The specified file or folder name is too long</string>
+    <string name="loading">Loading</string>
+    <string name="modified_time">Modified</string>
+    <string name="name">Name</string>
+    <string name="new_folder">New folder</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="paste">Paste</string>
+    <string name="pasting">Pasting</string>
+    <string name="paste_fail">Failed to paste</string>
+    <string name="paste_same_folder">Cannot paste %s to the same directory</string>
+    <string name="readable">Readable</string>
+    <string name="rename">Rename</string>
+    <string name="save">Save</string>
+    <string name="selected">Selected</string>
+    <string name="send_file">Send file</string>
+    <string name="share">Share</string>
+    <string name="size">Size</string>
+    <string name="sort_by">Sort by</string>
+    <string name="support_fail" product="tablet">This is not supported by device</string>
+    <string name="support_fail" product="default">This is not supported by phone</string>
+    <string name="wait">Please wait\u2026</string>
+    <string name="writable">Writable</string>
+    <string name="yes">Yes</string>
+    <string name="confirm_rename">Confirm Rename</string>
+    <string name="invalid_char_prompt">You have input invalid character</string>
+    <string name="msg_rename_ext">You are changing the file extension, which
+    may cause the file not to be recognized. Are you sure to do this?</string>
+    <string name="msg_unable_open_file">The file format is not supported.</string>
+    <string-array name="sort_by">
+        <item>Type</item>
+        <item>Name (A - Z)</item>
+        <item>Size (big - small)</item>
+        <item>Time (new - old)</item>
+    </string-array>
+    <string name="more">More</string>
+    <string name="msg_change_name">Operation failed, please use a different name.</string>
+    <string name="msg_create_fail">Failed to create a folder.</string>
+    <string name="unmounted">%1$s is unmounted</string>
+    <!-- this is path_not_exists sample: "mnt/sdcard/notExist" is not exist -->
+    <string name="path_not_exists">%1$s is not exist</string>
+</resources>

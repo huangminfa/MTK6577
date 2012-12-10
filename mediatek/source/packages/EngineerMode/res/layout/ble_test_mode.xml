@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content" 
+  android:orientation="vertical" 
+  >
+  
+  	<TextView 
+  	android:id="@+id/BLETestMode" 
+  	android:text="@string/BLETestMode"
+  	android:layout_width="fill_parent"
+	android:layout_height="wrap_content" 
+	android:layout_marginLeft = "10dip"
+	></TextView>
+
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="310dip" 
+		android:orientation="horizontal"
+		android:layout_marginLeft = "10dip"
+		android:id="@+id/LinearLayout">
+		<RadioGroup 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:orientation="horizontal" 
+		android:id="@+id/BLETxRx">
+			<RadioButton 
+			android:layout_height="wrap_content" 
+			android:id="@+id/BLETestModeTx" 
+			android:text="@string/BLETestModeTx" 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent"
+			></RadioButton>
+			<RadioButton 
+			android:layout_height="wrap_content" 
+			android:text="@string/BLETestModeRx" 
+			android:id="@+id/BLETestModeRx" 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent"></RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+	
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="310dip" 
+		android:orientation="horizontal" 
+		android:layout_marginLeft = "10dip"
+		android:id="@+id/LinearLayout">
+		<RadioGroup 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:orientation="horizontal" 
+		android:id="@+id/BLEHoppingSingle">
+			<RadioButton 
+			android:layout_height="wrap_content" 
+			android:id="@+id/BLEHopping" 
+			android:text="@string/BLEHopping" 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent"
+			></RadioButton>
+			<RadioButton 
+			android:layout_height="wrap_content" 
+			android:text="@string/BLESingle" 
+			android:id="@+id/BLESingle" 
+			android:layout_weight="1" 
+			android:layout_width="fill_parent"></RadioButton>
+		</RadioGroup>
+	</LinearLayout>
+
+	<!-- channel select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEChannel" 
+				android:id="@+id/BLEChannel" 
+				android:layout_width="80dip" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip"></TextView>
+	  	<Spinner android:id="@+id/BLEChannelSpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="230dip"></Spinner>
+	</LinearLayout>
+
+	<!-- pattern select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEPattern" 
+				android:id="@+id/BLEPattern" 
+				android:layout_width="80dip" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip"></TextView>
+	  	<Spinner android:id="@+id/BLEPatternSpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="230dip"></Spinner>
+	</LinearLayout>
+	<!-- BLE continious tx checkbox-->
+	<CheckBox android:text="@string/BLEContiniousTx" 
+				android:id="@+id/BLEContiniousTx" 
+				android:layout_width="310dip" 
+				android:layout_height="wrap_content"
+				android:layout_marginLeft = "10dip"
+				android:paddingTop="10dip"></CheckBox>
+	<!-- start / stop buttont -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="10dip"
+		>
+  
+	  	<Button android:text="@string/BLEStart" 
+				android:id="@+id/BLEStart" 
+				android:layout_width="155dip" 
+				android:layout_height="wrap_content"
+				></Button>
+	  	<Button android:text="@string/BLEStop" 
+				android:id="@+id/BLEStop" 
+				android:layout_width="155dip" 
+				android:layout_height="wrap_content"
+				></Button>
+	</LinearLayout>
+	<TextView 	android:id="@+id/BLEResult_Text" 
+				android:layout_width="fill_parent" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip">
+	</TextView>
+
+  
+</LinearLayout>
+</ScrollView>

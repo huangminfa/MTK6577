@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="app_name">گیلری</string>  
+    <string name="gadget_title">تصویری فریم</string>  
+    <string name="details_ms">%1$02d:%2$02d</string>  
+    <string name="details_hms">%1$d:%2$02d:%3$02d</string>  
+    <string name="movie_view_label">ویڈیو پلئیر</string>  
+    <string name="loading_video">ویڈيو لوڈ کررہا ہے\u2026</string>  
+    <string name="loading_image">تصویر لوڈ کررہا ہے\u2026</string>  
+    <string name="loading_account">اکاؤنٹ لوڈ کررہا ہے\u2026</string>  
+    <string name="resume_playing_title">ویڈيو بحال کریں</string>  
+    <string name="resume_playing_message">%s سے چلانا بحال کریں ؟</string>  
+    <string name="resume_playing_resume">چلنا بحال کریں</string>  
+    <string name="loading">لوڈنگ\u2026</string>  
+    <string name="fail_to_load">لوڈ کرنے سے قاصر</string>  
+    <string name="no_thumbnail">کوئی چھوٹی تصویر نہيں</string>  
+    <string name="resume_playing_restart">دوبارہ شروع کریں</string>  
+    <string name="crop_save_text">کاٹیں</string>  
+    <string name="multiface_crop_help">شروع کرنے کے لئے کوئی چہرہ چھوئيں۔</string>  
+    <string name="saving_image">تصویر محفوظ کررہا ہے\u2026</string>  
+    <string name="save_error">کاٹی گئی تصویر محفوظ کرنے سے قاصر</string>  
+    <string name="crop_label">تصویر کاٹیں</string>  
+    <string name="select_image">تصویر منتخب کریں</string>  
+    <string name="select_video">"ویڈیو منتخب کرنا"</string>  
+    <string name="select_item">آئیٹم منتخب کریں</string>  
+    <string name="select_album">البم منتخب کریں</string>  
+    <string name="select_group">گروپ منتخب کریں</string>  
+    <string name="set_image">تصویر کو مرتب کریں بطور</string>  
+    <string name="wallpaper">دیواری کاغذ سیٹ کررہا ہے\u2026</string>  
+    <string name="camera_setas_wallpaper">وال پیپر</string>  
+    <string name="delete">مٹائيں</string>  
+    <string name="confirm_delete">مٹائيں</string>  
+    <string name="cancel">منسوخ کریں</string>  
+    <string name="share">تقسیم کریں</string>  
+    <string name="select_all">سب کو منتخب کريں</string>  
+    <string name="deselect_all">تمام غیرمنتخب کریں</string>  
+    <string name="slideshow">سلائڈ شو</string>  
+    <string name="details">تفصیلات</string>  
+    <string name="details_title">%2$d میں سے %1$d آئیٹم:</string>  
+    <string name="close">بند کریں</string>  
+    <string name="switch_to_camera">کیمرے پر تبدیل کریں</string>  
+    <plurals name="number_of_items_selected"> 
+        <item quantity="zero">%1$d منتخب</item>  
+        <item quantity="one">%1$d منتخب</item>  
+        <item quantity="other">%1$d منتخب</item> 
+    </plurals>  
+    <plurals name="number_of_albums_selected"> 
+        <item quantity="zero">%1$d منتخب</item>  
+        <item quantity="one">%1$d منتخب</item>  
+        <item quantity="other">%1$d منتخب</item> 
+    </plurals>  
+    <plurals name="number_of_groups_selected"> 
+        <item quantity="zero">%1$d منتخب</item>  
+        <item quantity="one">%1$d منتخب</item>  
+        <item quantity="other">%1$d منتخب</item> 
+    </plurals>  
+    <string name="show_on_map">نقشے پر دکھائیں</string>  
+    <string name="rotate_left">بائيں گھمائيں</string>  
+    <string name="rotate_right">دائيں گھمائيں</string>  
+    <string name="camera_print">پرنٹ کریں</string>  
+    <string name="no_way_to_print">فائل یا فائلیں پرنٹ کرنے کے لئے کوئی اضافی پروگرام دستیاب نہيں.</string>  
+    <string name="printFile">فائل بذریعہ پرنٹ کریں</string>  
+    <string name="no_such_item">آئیٹم تلاش کرنے سے قاصر</string>  
+    <string name="edit">ترمیم کريں</string>  
+    <string name="activity_not_found">عمل مکمل کرنے کے لئے کوئی ایپ دستیاب نہيں ہے.</string>  
+    <string name="process_caching_requests">کیش کرنے کی درخواستیں پراسیس کررہا ہے</string>  
+    <string name="caching_label">کیش کررہا ہے\u2026</string>  
+    <string name="crop_action">کاٹیں</string>  
+    <string name="set_as">بطور مرتب کریں</string>  
+    <string name="video_err">ویڈيو چلانے سے قاصر</string>  
+    <string name="group_by_location">بمطابق مقام</string>  
+    <string name="group_by_time">بمطابق وقت</string>  
+    <string name="group_by_tags">بمطابق ٹیگ</string>  
+    <string name="group_by_faces">بمطابق افراد</string>  
+    <string name="group_by_album">بمطابق البم</string>  
+    <string name="group_by_size">بمطابق سائز</string>  
+    <string name="untagged">ٹیگ نہيں کیا گيا</string>  
+    <string name="no_location">کوئی مقام نہيں</string>  
+    <string name="no_connectivity">نیٹورک کے مسائل کی وجہ سے مقامات کی شناخت ممکن نہيں.</string>  
+    <string name="sync_album_error">اس البم کی تصویریں ڈاؤن لوڈ کرنا ناکام، بعد میں کوشش کریں.</string>  
+    <string name="sync_album_set_error">البم کی فہرست ڈاؤن لوڈ کرنا ناکام۔ بعد میں کوشش کرین۔</string>  
+    <string name="show_images_only">صرف تصویریں</string>  
+    <string name="show_videos_only">صرف ویڈیو</string>  
+    <string name="show_all">تصویریں اور ویڈیو</string>  
+    <string name="appwidget_title">تصویری گیلری</string>  
+    <string name="appwidget_empty_text">کوئی تصویریں نہيں.</string>  
+    <string name="crop_saved">کاٹی گئی تصویروں کو ڈاؤن لوڈ میں محفوظ کیا گیا.</string>  
+    <string name="crop_not_saved">کاٹی گئی تصویر کو محفوظ نہيں کیا گیا.</string>  
+    <string name="no_albums_alert">کوئی البم دستیاب نہيں.</string>  
+    <string name="empty_album">O تصویریں/ویڈیو دستیاب.</string>  
+    <string name="picasa_posts">پوسٹ</string>  
+    <string name="make_available_offline">آف لائن دستیاب کروائيں</string>  
+    <string name="sync_picasa_albums">ریفریش کرنا</string>  
+    <string name="done">ہوگیا</string>  
+    <string name="sequence_in_set">%2$d میں سے %1$d آئیٹم:</string>  
+    <string name="title">عنوان</string>  
+    <string name="description">وضاحت</string>  
+    <string name="time">وقت</string>  
+    <string name="location">مقام</string>  
+    <string name="path">پاتھ</string>  
+    <string name="width">چوڑائی</string>  
+    <string name="height">اونچائی</string>  
+    <string name="orientation">سمت</string>  
+    <string name="duration">دورانیہ</string>  
+    <string name="mimetype">MIME کی قسم</string>  
+    <string name="file_size">فائل سائز</string>  
+    <string name="maker">بنانے والا</string>  
+    <string name="model">ماڈل</string>  
+    <string name="flash">فلیش</string>  
+    <string name="aperture">سوراخ</string>  
+    <string name="focal_length">فوکس کی لمبائ</string>  
+    <string name="white_balance">سفید توازن</string>  
+    <string name="exposure_time">ایکسپوژر کا وقت</string>  
+    <string name="iso">ISO</string>  
+    <string name="unit_mm">ملی میٹر</string>  
+    <string name="manual">دستی</string>  
+    <string name="auto">خودکار</string>  
+    <string name="flash_on">فلیش فائر کیا گیا</string>  
+    <string name="flash_off">کوئی فلیش نہيں</string>  
+    <plurals name="make_albums_available_offline"> 
+        <item quantity="one">البم کو آف لائن دستیاب کررہا ہے.</item>  
+        <item quantity="other">البم کو آف لائن دستیاب کررہا ہے.</item> 
+    </plurals>  
+    <string name="try_to_set_local_album_available_offline">یہ آئیٹم مقامی طور پر محفوظ ہے اور آف لائن دستیاب ہے.</string>  
+    <string name="set_label_all_albums">تمام البم</string>  
+    <string name="set_label_local_albums">مقامی البم</string>  
+    <string name="set_label_mtp_devices">MTP آلات</string>  
+    <string name="set_label_picasa_albums">Picasa البم</string>  
+    <string name="free_space_format"> 
+        <xliff:g id="bytes">%s</xliff:g> مفت
+    </string>  
+    <string name="size_below"> 
+        <xliff:g id="size">%1$s</xliff:g> یا نیچے
+    </string>  
+    <string name="size_above"> 
+        <xliff:g id="size">%1$s</xliff:g> یا اس سے زیادہ
+    </string>  
+    <string name="size_between"> 
+        <xliff:g id="min_size">%1$s</xliff:g> تا 
+        <xliff:g id="max_size">%2$s</xliff:g> 
+    </string>  
+    <string name="Import">درآمد</string>  
+    <string name="import_complete">درآمد کرنا مکمل</string>  
+    <string name="import_fail">درآمد کرنا ناکام</string>  
+    <string name="camera_connected">کیمرہ متصل.</string>  
+    <string name="camera_disconnected">کیمرہ غیرمتصل.</string>  
+    <string name="click_import">درآمد کرنے کے لئے یہاں چھوئيں</string>  
+    <string name="widget_type_album">کوئی البم منتخب کریں</string>  
+    <string name="widget_type_shuffle">تمام تصویریں شفل کریں</string>  
+    <string name="widget_type_photo">تصویر منتخب کریں</string>  
+    <string name="widget_type">تصویریں منتخب کریں</string>  
+    <string name="slideshow_dream_name">سلائيڈ شو</string>  
+    <string name="albums">البم</string>  
+    <string name="times">اوقات</string>  
+    <string name="locations">مقامات</string>  
+    <string name="people">افراد</string>  
+    <string name="tags">ٹیگ</string>  
+    <string name="group_by">بمطابق گروپ کریں</string>  
+    <string name="settings">ترتیبات</string>  
+    <string name="add_account">اکاؤنٹ شامل کریں</string>  
+    <string name="proxy_host">ہوسٹ</string>  
+    <string name="proxy_port">پورٹ</string>  
+    <string name="apn_settings">نقطہ رسائی کے نام</string>  
+    <string name="rtsp_proxy_settings">"RTSP پراکسی ترتیبات"</string>  
+    <string name="rtsp_proxy_settings_summary">"RTSP پراکسی ترتیبات سیٹ اپ کریں اور منظم کریں"</string>  
+    <string name="enable_rtsp_proxy">"RTSP پراکسی فعال کریں"</string>  
+    <string name="enable_rtsp_proxy_summary">"RTSP پراکسی فعال کریں یا غیرفعال کریں"</string>  
+    <string name="http_proxy_settings">"HTTP پراکسی ترتیبات"</string>  
+    <string name="http_proxy_settings_summary">"HTTP پراکسی ترتیبات سیٹ اپ کریں اور منظم کریں"</string>  
+    <string name="enable_http_proxy">"HTTP پراکسی فعال کریں"</string>  
+    <string name="enable_http_proxy_summary">"HTTP پراکسی فعال کریں یا غیرفعال کریں"</string>  
+    <string name="apn_settings_summary">"حالیہ SIM: %1$s\nحالیہ APN: %2$s"</string>  
+    <string name="apn_settings_not_valid">"SIM کی ڈيٹا کی کنکشن کی قابلیت بند ہے، APN سیٹ کرنے سے قاصر"</string>  
+    <string name="udp_port_settings">"RTP/RTCP پورٹ رینج"</string>  
+    <string name="udp_port_settings_summary">"زیادہ سے زيادہ اور کم سے کم پورٹ نمبر سیٹ کریں"</string>  
+    <string name="max_udp_port">"زیادہ سے زیادہ پورٹ کا نمبر"</string>  
+    <string name="min_udp_port">"کم سے کم پورٹ کا نمبر"</string>  
+    <string name="server_timeout_title">"سرور ٹائم آؤٹ"</string>  
+    <string name="server_timeout_message">"ویڈيو چلانے کے لئے سرور سے دوبارہ متصل ہوں یا نہيں؟"</string>  
+    <string name="input_url">"URL داخل کریں"</string>  
+    <string name="streaming_settings">"اسٹریمنگ کی ترتیبات"</string>  
+    <string name="VideoView_info_text_video_not_supported">"یہ وڈیو سپورٹ نہیں ہوتی"</string>  
+    <string name="VideoView_error_text_cannot_connect_retry">"کنکشن ناکام، %1$d دوبارہ متصل کرنے کی کوشش کریں…"</string>  
+    <string name="stop">"روکيں"</string>  
+    <string name="loop">"لوپ"</string>  
+    <string name="single">"انفرادی"</string>  
+    <string name="no_storage_title">کوئی اسٹوریج نہیں</string>  
+    <string name="no_storage_message">برائے مہربانی ایس ڈی کارڈ داخل کریں</string>  
+    <string name="load_image_fail">تصویر لوڈ کرنے میں ناکام</string>  
+    <string name="bookmark_add">"بک مارک شامل کریں"</string>  
+    <string name="bookmark_display">"بک مارکس دکھائیں"</string>  
+    <string name="bookmark_empty">"کوئی بک مارک نہیں"</string>  
+    <string name="bookmark_exist">"تاریخ میں ایک ہی بک مارک"</string>  
+    <string name="bookmark_add_success">"بک مارک شامل کرنے میں کامیابی"</string>  
+    <string name="bookmark_list">"بک مارکس"</string>  
+    <string name="bookmark_title">عنوان</string>  
+    <string name="bookmark_location">"مقام"</string>  
+    <string name="http_buffer_size">"ایچ ٹی ٹی پی بفر سائز"</string>  
+    <string name="http_buffer_size_summary">"اسٹریمنگ کے لیے ایچ ٹی ٹی پی بفر سائز کا تعین کریں"</string>  
+    <string name="http_buffer_size_text">"موجودہ ایچ ٹی ٹی پی بفر سائز: %1$d(s)"</string>  
+    <string name="rtsp_buffer_size">"آر ٹی ایس پی بفر سائز"</string>  
+    <string name="rtsp_buffer_size_summary">"اسٹریمنگ کے لیے آر ٹی ایس پی بفر سائز کا تعین کریں"</string>  
+    <string name="rtsp_buffer_size_text">"موجودہ آر ٹی ایس پی بفر سائز: %1$d(s)"</string>  
+    <string name="buffer_size_tip">"درست قیمت کی رینج: %1$d - %2$d سیکنڈز"</string>  
+    <string name="media_detail">"میڈیا کی تفصیلات"</string>  
+    <string name="detail_title">"موضوع: %1$s"</string>  
+    <string name="detail_copyright">کاپی رائٹ: %1$s"</string>  
+    <string name="detail_session">"دورانیے کی معلومات: %1$s"</string>  
+    <string name="stereo">اسٹیریو</string>  
+    <string name="single_track">مونو</string>  
+    <string name="delete_all">"تمام حذف کریں"</string>  
+    <string name="default_title">"طے شدہ موضوع"</string>  
+    <string name="next">"اگلا"</string>  
+    <string name="previous">"پچھلا"</string>  
+    <string name="stereo3d_preview_button_set">سیٹ کریں</string>  
+    <string name="mav_firstRunTitle"> کثیر زاویہ تصویر کو کیسے دیکھا جائے</string>  
+    <string name="mav_firstRunText"> کثیر زاویہ تصویر کو دیکھنے کیلئے دائیں یا بائیں دھکیلیں</string>  
+    <string name="stereo3d_album_name"> 3D میڈیا</string>  
+    <string name="stereo3d_mode_switchto_2d"> 2D موڈ پر منتقل ہوجائیں</string>  
+    <string name="stereo3d_mode_switchto_3d"> 3D موڈ پر منتقل ہوجائیں</string>  
+    <string name="stereo3d_convert2d_dialog_title"> 2D میں تبدیل کریں</string>  
+    <string name="stereo3d_convert2d_dialog_text"> \" 
+        <xliff:g id="operation">%s</xliff:g>\" 3D تصویر کیلئے معاونت یافتہ نہیں ہے۔ اس کو 2D میں تبدیل کر دیا جائے گا۔
+    </string>  
+    <string name="stereo3d_convert2d_progress_text"> 2D میں تبدیل کیا جا رہا ہے۔۔۔</string>  
+    <string name="stereo3d_pan_firstrun_title"> 3D پینو راما تصویر کیسے دیکھی جائے</string>  
+    <string name="stereo3d_pan_firstrun_text"> 3D پینو راما تصویر دیکھنے کیلئے دائیں یا بائیں دھکیلیں۔</string>  
+    <string name="stereo3d_share_convert_text_single"> یہ 3D تصویر ہے۔ بانٹنا جاری رکھنے کیلئے، اس کو 2D میں تبدیل کردیا جائے گا۔</string>  
+    <string name="stereo3d_share_convert_text_multiple"> منتخب شدہ تصاویر میں 3D تصاویر شامل ہیں۔ بانٹنا جاری رکھنے کیلئے، ان کو 2D میں تبدیل کر دیا جائے گا۔</string>  
+    <string name="stereo3d_share_dialog_title"> بطور 3D یا 2D بانٹیں</string>  
+    <string name="stereo3d_share_dialog_text_single"> یہ 3D تصویر ہے۔ وصول کنندہ شاید اس کو ٹھیک سے دیکھنے کے قابل نہ ہو۔</string>  
+    <string name="stereo3d_share_dialog_text_multiple"> منتخب شدہ تصاویر میں 3D تصاویر شامل ہیں۔ وصول کنندہ شاید ان کو ٹھیک سے دیکھنے کے قابل نہ ہو۔</string>  
+    <string name="stereo3d_share_dialog_button_2d"> بطور 2D بانٹیں</string>  
+    <string name="stereo3d_share_dialog_button_3d"> بطور 3D بانٹیں</string>  
+    <string name="stereo3d_attach_dialog_title"> بطور 3D یا 2D منسلک کریں</string>  
+    <string name="stereo3d_attach_dialog_button_2d"> بطور 2D منسلک کریں</string>  
+    <string name="stereo3d_attach_dialog_button_3d"> بطور 3D منسلک کریں</string>  
+    <string name="stereo3d_preview_title"> تصویر کا پیشِگی نظارہ دیکھیں</string>  
+    <string name="stereo3d_set_wallpaper_fail"> 3D وال پیپر مقرر کرنا ناکام رہا۔</string>  
+    <string name="stereo3d_video_layout_normal">"بنیادی"</string>  
+    <string name="stereo3d_convergence_menu">ہم آہنگ ٹیوننگ</string>  
+    <string name="stereo3d_convergence_firstrun_hint">اگر آپ کی آنکھوں کو تکلیف ہو تو آپ ہم آہنگی کو دستی طور پر مینو سے موافق بناسکتے ہیں</string>  
+    <string name="stereo3d_switch_auto_convergence">ٹیوننگ کی خودکار ہم آہنگی</string>  
+    <string name="stereo3d_video_layout">3D طرز موافق بنائیں</string>  
+    <string name="stereo3d_video_layout_sidebyside">ساتھ ساتھ</string>  
+    <string name="stereo3d_video_layout_toptobottom">اوپر سے نیچے</string>  
+    <string name="stereo3d_video_layout_leftrightswap">دائیں/بائیں آنا جانا</string>  
+    <string name="stereo3d_video_layout_topbottomswap">اوپر/ نیچے آنا جانا</string>  
+    <string name="stereo3d_save">محفوظ کریں</string>  
+    <string name="stereo3d_auto_switch_to_3d_mode">خودکار طور پر 3D وضع میں تبدیل شدہ</string>  
+    <string name="stereo3d_auto_switch_to_2d_mode">خودکار طور پر 2D وضع میں تبدیل شدہ</string>
+</resources>

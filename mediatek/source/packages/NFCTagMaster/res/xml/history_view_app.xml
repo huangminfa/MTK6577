@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="0dip" 
+    android:orientation="vertical" >
+
+    <!-- Information read from tag, not needed any more   begin-->
+   <LinearLayout android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" 
+    	android:visibility="gone"
+    	android:orientation="vertical">
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:textSize="24sp"
+        android:text="@string/history_view_app_info_intag_label"/>
+    
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="15dip"
+        android:text="@string/history_view_app_name_intag_label"/>
+    <TextView android:id="@+id/history_info_app_name_intag"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:textSize="18sp"/>
+    
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="10dip"
+        android:text="@string/history_view_app_package_intag_label"/>
+    <TextView android:id="@+id/history_info_app_package_intag"
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:textSize="18sp"/>
+  </LinearLayout>
+   <!-- Information read from tag, not needed any more   end--> 
+   
+   
+   <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/history_view_app_local_info_label"/>
+   
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    
+    <LinearLayout android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" 
+        android:layout_marginTop="20dip"
+        android:layout_marginLeft="15dip"
+        android:gravity="center_vertical">
+    	<ImageView android:id="@+id/history_info_app_local_icon"
+            android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:layout_marginRight="20dip"/>
+    	<TextView android:id="@+id/history_info_local_app_name"
+    	    android:layout_width="0dip" 
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	android:textAppearance="@style/info_item"/>
+    </LinearLayout>
+    
+	<TextView android:id="@+id/history_view_app_not_installed"
+	    android:layout_width="fill_parent" 
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_marginTop="50dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:textAppearance="@style/info_item"
+        android:gravity="center"
+        android:text="@string/history_view_app_not_installed"/>
+    
+</LinearLayout>
+</ScrollView>

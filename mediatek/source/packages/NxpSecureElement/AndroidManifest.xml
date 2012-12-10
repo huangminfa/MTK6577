@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nxp.nfc.se">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name=".MainPreferenceActivity"
+                  android:label="@string/app_name"
+                  android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+     
+		<receiver android:name="NfcSecureElementBroadcastReceiver">
+            <intent-filter>
+                 <action android:name = "android.nfc.action.TRANSACTION_DETECTED" />
+                 <action android:name = "android.nfc.action.CONNECTIVITY_EVENT_DETECTED" />
+           </intent-filter>
+        </receiver>               
+    </application>
+    
+    <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+</manifest> 

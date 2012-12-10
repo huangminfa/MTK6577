@@ -1,0 +1,166 @@
+/********************************************************************************************
+ *     LEGAL DISCLAIMER
+ *
+ *     (Header of MediaTek Software/Firmware Release or Documentation)
+ *
+ *     BY OPENING OR USING THIS FILE, BUYER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+ *     THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE") RECEIVED
+ *     FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO BUYER ON AN "AS-IS" BASIS
+ *     ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, EXPRESS OR IMPLIED,
+ *     INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR
+ *     A PARTICULAR PURPOSE OR NONINFRINGEMENT. NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY
+ *     WHATSOEVER WITH RESPECT TO THE SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY,
+ *     INCORPORATED IN, OR SUPPLIED WITH THE MEDIATEK SOFTWARE, AND BUYER AGREES TO LOOK
+ *     ONLY TO SUCH THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. MEDIATEK SHALL ALSO
+ *     NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE RELEASES MADE TO BUYER'S SPECIFICATION
+ *     OR TO CONFORM TO A PARTICULAR STANDARD OR OPEN FORUM.
+ *
+ *     BUYER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND CUMULATIVE LIABILITY WITH
+ *     RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE, AT MEDIATEK'S OPTION,
+TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE, OR REFUND ANY SOFTWARE LICENSE
+ *     FEES OR SERVICE CHARGE PAID BY BUYER TO MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+ *
+ *     THE TRANSACTION CONTEMPLATED HEREUNDER SHALL BE CONSTRUED IN ACCORDANCE WITH THE LAWS
+ *     OF THE STATE OF CALIFORNIA, USA, EXCLUDING ITS CONFLICT OF LAWS PRINCIPLES.
+ ************************************************************************************************/
+ 
+#ifndef _HDR_CORE_H_
+#define _HDR_CORE_H_
+#include "MTKHdr.h"
+#include "MTKHdrType.h"
+#include "MTKMavCommon.h"
+#include "Hdr_Core_arm.h"
+
+
+#define EIS_WIDTH (160)
+#define EIS_HEIGHT (120)
+#define MAX_IMAGE_NUM			(3)
+
+const MUINT8 g_inverse_gamma_table[256] =
+{
+	0	,0	,0	,1	,1	,1	,1	,1	,2	,2,
+	2	,2	,2	,3	,3	,3	,3	,3	,4	,4,
+	4	,4	,4	,5	,5	,5	,5	,6	,6	,6,
+	6	,6	,7	,7	,7	,7	,8	,8	,8	,8,
+	9	,9	,9	,9	,10	,10	,10	,10	,11	,11,
+	11	,11	,12	,12	,12	,13	,13	,13	,14	,14,
+	14	,14	,15	,15	,15	,15	,16	,16	,16	,17,
+	17	,17	,18	,18	,19	,19	,19	,20	,20	,20,
+	21	,21	,21	,22	,22	,22	,23	,23	,24	,24,
+	24	,24	,25	,25	,25	,26	,26	,27	,27	,28,
+	28	,28	,29	,29	,29	,30	,30	,31	,31	,32,
+	32	,33	,33	,34	,34	,35	,35	,36	,36	,37,
+	38	,38	,39	,39	,40	,40	,41	,41	,42	,43,
+	43	,44	,44	,45	,45	,46	,47	,47	,48	,48,
+	49	,50	,51	,51	,52	,52	,53	,54	,55	,55,
+	56	,57	,57	,58	,59	,60	,60	,61	,62	,63,
+	64	,64	,65	,66	,67	,68	,69	,70	,71	,72,
+	73	,74	,75	,76	,77	,78	,79	,80	,81	,82,
+	83	,84	,85	,86	,87	,88	,89	,90	,92	,93,
+	94	,95	,96	,97	,98	,100,101,102,104,106,
+	108	,109,110,112,114,116,118,120,121,122,
+	124	,126,128,130,132,134,136,138,140,142,
+	144	,148,150,152,154,156,160,162,164,168,
+	170	,172,176,178,180,184,188,190,192,196,
+	200	,202,204,208,212,216,220,224,226,228,
+	232	,236,241,250,254,255
+};
+const MUINT8 g_gamma_table[256] =
+{
+	0	,5	    ,10	    ,15	    ,20	    ,25	    ,29	    ,34	    ,38	    ,42,
+	46	,50	    ,54	    ,58	    ,61	    ,64	    ,68	    ,71	    ,74	    ,77 ,
+	79	,81	    ,84	    ,87	    ,90	    ,93	    ,95	    ,97	    ,100	,102,
+	105	,107	,109	,111	,113	,115	,117	,119	,120	,122,
+	124	,126	,127	,129	,131	,133	,134	,136	,138	,140,
+	141	,143	,144	,146	,147	,149	,150	,152	,153	,154,
+	155	,156	,158	,159	,160	,162	,163	,164	,165	,166,
+	167	,168	,169	,170	,171	,172	,173	,174	,175	,176,
+	177	,178	,179	,180	,181	,182	,183	,184	,185	,186,
+	187	,187	,188	,189	,190	,191	,192	,193	,193	,194,
+	195	,195	,196	,197	,198	,198	,199	,200	,200	,201,
+	202	,203	,203	,203	,204	,204	,205	,205	,206	,206,
+	207	,208	,209	,209	,210	,210	,211	,211	,212	,212,
+	213	,213	,214	,214	,215	,215	,216	,216	,217	,217,
+	218	,218	,219	,219	,220	,220	,221	,221	,221	,222,
+	222	,223	,223	,224	,224	,225	,225	,225	,226	,226,
+	226	,227	,227	,227	,228	,228	,228	,229	,229	,229,
+	230	,230	,231	,231	,231	,232	,232	,232	,234	,234,
+	234	,234	,235	,235	,235	,235	,236	,236	,236	,236,
+	237	,237	,238	,238	,238	,239	,239	,239	,239	,240,
+	240	,240	,241	,241	,242	,242	,242	,243	,243	,243,
+	243	,244	,244	,244	,245	,245	,245	,246	,246	,246,
+	246	,247	,247	,247	,247	,248	,248	,248	,249	,249,
+	249	,250	,250	,250	,251	,251	,251	,251	,252	,252,
+	252	,253	,253	,253	,253	,253	,253	,253	,253	,253,
+	253	,254	,254	,254	,254	,255 };
+
+
+typedef enum
+{
+    HDR_THREAD_UPSAMPLE=0,
+    HDR_THREAD_DOWNSAMPLE,
+    HDR_THREAD_SUBSTRACT,
+    HDR_THREAD_FUSION,
+    HDR_THREAD_NUM
+} HDR_FUNCTION_THREAD_ENUM;
+
+
+typedef enum
+{
+    HDR_MAIN_THREAD=0,
+    HDR_SUB_THREAD,
+    HDR_CORE_NUM
+} HDR_THREAD_ENUM;
+
+
+typedef struct
+{
+	Matrix* R;
+	Matrix* G;
+	Matrix* B;
+} ColorImage;
+
+
+typedef struct
+{
+    MUINT32 extMemStartAddr; //working buffer start address
+    MUINT32 extMemSize;
+}HDR_WORKING_BUFFER_INFO, *P_HDR_WORKING_BUFFER_INFO;
+
+
+typedef struct HDR_FUSION_THREAD_PARA
+{
+    MINT32 start_level;
+    MINT32 level_num;
+    MINT32 thread_num;
+}HDR_FUSION_THREAD_PARA, *P_HDR_FUSION_THREAD_PARA;
+
+typedef struct HDR_NORMALIZE_WEIGHT_THREAD_PARA
+{
+    MINT32 start_row;
+    MINT32 end_row;
+    Matrix* weights;
+    int n_samples;
+    YuvImage* I;
+    CropInfo crop_info;
+}HDR_NORMALIZE_WEIGHT_THREAD_PARA, *P_HDR_NORMALIZE_WEIGHT_THREAD_PARA;
+
+
+//#define ELM(A,i,j) (A).data[ (i)*(A).cols + (j) ]
+#define ROUND(a) ((a)>0 ? (int)((a)+0.5) : (int)((a)-0.5))
+#define CLAMP(value) ((int)(value)>255 ? 255 : ((int)(value) <0 ? 0 : (int)(value)))
+#define ROUND_CLAMP(value) (value>255.0 ? 255 : value <0.0 ? 0 : (int)(value + 0.5))
+void *FusionThreadFuntion(void *arg);
+void HdrCoreInit(HDR_SET_ENV_INFO_STRUCT*);
+void HdrCoreSetSmallImgSize(MUINT16 *pWidth, MUINT16 *pHeight, MFLOAT Resize_Ratio);
+void HdrCoreSetProcInfo(P_HDR_SET_PROC_INFO_STRUCT pProcInfo);
+void HdrCoreSetWorkingBufInfo(P_SET_WORK_BUF_INFO_STRUCT pWorkBufInfo);
+void HdrCoreMain(HDR_PROC_STATE_ENUM);
+void HdrCoreSetEisImage(P_EIS_INPUT_IMG_INFO pEisImageInfo);
+void HdrCoreSetPairInfo(mav_rec_par_struct *pPairInfo);
+void HdrCoreGetResult(HDR_RESULT_STRUCT*);
+MINT32* HdrGetGlobalMotion();
+Matrix** HdrCoreGetWeightTbl();
+void HdrCoreSetWeightTbl(Matrix** weight_tbl);
+void HdrCoreSetLogBuffer(MUINT32 LogBufAddr);
+#endif

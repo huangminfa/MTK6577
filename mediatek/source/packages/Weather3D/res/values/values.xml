@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="x_left_panel">77</integer>
+    <integer name="x_center_panel">220</integer>
+    <integer name="x_right_panel">363</integer>
+    <integer name="y_left_panel">480</integer>
+    <integer name="y_center_panel">480</integer>
+    <integer name="y_right_panel">480</integer>
+</resources>

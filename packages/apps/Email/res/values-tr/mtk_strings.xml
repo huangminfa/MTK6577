@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright Statement:
+
+    This software/firmware and related documentation ("MediaTek Software") are
+    protected under relevant copyright laws. The information contained herein
+    is confidential and proprietary to MediaTek Inc. and/or its licensors.
+    Without the prior written permission of MediaTek inc. and/or its licensors,
+    any reproduction, modification, use or disclosure of MediaTek Software,
+    and information contained herein, in whole or in part, shall be strictly prohibited.
+
+    MediaTek Inc. (C) 2012. All rights reserved.
+
+    BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+    THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+    RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER ON
+    AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+    NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+    SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+    SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES TO LOOK ONLY TO SUCH
+    THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. RECEIVER EXPRESSLY ACKNOWLEDGES
+    THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES
+    CONTAINED IN MEDIATEK SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK
+    SOFTWARE RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
+    STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND
+    CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE,
+    AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+    OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY RECEIVER TO
+    MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+
+    The following software/firmware and/or related documentation ("MediaTek Software")
+    have been modified by MediaTek Inc. All revisions are subject to any receiver's
+    applicable license agreements with MediaTek Inc.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="not_add_more_text">"Daha fazla metin eklenemiyor"</string>  
+    <string name="message_compose_foward_profix">İlet:</string>  
+    <string name="message_compose_reply_profix">Cvp:</string>  
+    <!-- message compose add attachment -->  
+    <string name="attach_image">Fotoğraf</string>  
+    <string name="attach_video">Video</string>  
+    <string name="attach_sound">Müzik</string>  
+    <string name="attach_contact">Kişiler</string>  
+    <string name="attach_file">Dosya</string>  
+    <string name="attach_calender">Takvim</string>  
+    <string name="attach_error_occurred">Bu tür bir ek destekleyen bir uygulama bulunmamaktadır.</string>  
+    <!-- Toast for telling user the email service stopped when low storage -->  
+    <string name="low_storage_service_stop">E-posta hizmeti yetersiz bellek nedeniyle durduruldu</string>  
+    <!-- Toast for hint user to delete unused emails to reclaim storage -->  
+    <string name="low_storage_hint_delete_mail">E-posta belleğini boşaltmak için kullanılmayan e-postaları veya uygulamaları silebilirsiniz</string>  
+    <!-- Toast for telling user the email service started when storage ok-->  
+    <string name="low_storage_service_start">Şu anda yeterli bellek olduğundan, e-posta hizmeti yeniden başlatıldı</string>  
+    <!-- Toast for telling user can not download attachment due to low storage -->  
+    <string name="low_storage_attachment_cannot_download">Bellek yetersiz olduğundan ek yüklenemiyor</string>  
+    <!-- Toast for telling user can not view attachment due to low storage -->  
+    <string name="low_storage_attachment_cannot_view">Bellek yetersiz olduğundan ek dosyalar gösterilemiyor</string>  
+    <!-- Download remaining of the message when view a partial downloaded message -->  
+    <string name="download_remaining">Kalan</string>  
+    <string name="downloading_remaining">Yükleniyor …</string>  
+    <!-- Dialog title when user syncing manually without active network -->  
+    <string name="unable_to_connect">Bağlantı kurulamıyor</string>  
+    <!-- Dialog text when user syncing manually without active network  -->  
+    <string name="need_connection_prompt">"Bu uygulamayı kullanmak için bir ağ bağlantısı gereklidir. Lütfen Ayarlar kısmından mobil şebeke ya da Kablosuz Ağı açın."</string>  
+    <!-- Button text in the connection alert dialog -->  
+    <string name="connection_settings">"Ayarlar"</string>  
+    <!-- limit of attachment number, when share more than 100+ attachments -->  
+    <string name="too_many_attachments">Çok fazla ek eklenemiyor. Yalnızca ilk 
+        <xliff:g id="currentCount">%1$d</xliff:g> ek eklenecek.
+    </string>  
+    <!-- limit of attachment number, when the current number >100 -->  
+    <string name="not_add_more_attachments">Daha fazla ek ekleyemezsiniz. En fazla 
+        <xliff:g id="maxLimit">%1$d</xliff:g> ek eklenebilir.
+    </string>  
+    <string name="attachment_overflow">Ek taşması</string>  
+    <!-- String which used to show toast when some attachment cannot be attached -->  
+    <string name="cannot_add_this_attachment">Bu ek eklenemiyor</string>  
+    <string name="loading_attachment">Ek yükleniyor…</string> 
+    <!-- Open eml message -->  
+    <string name="open_message_parsing">İleti ayrıştırılıyor...</string>  
+    <string name="open_message_update_db">Veritabanı güncelleniyor...</string>  
+    <string name="open_message_update_ui">İleti yükleniyor...</string>  
+    <string name="please_wait">İşlem devam ediyor. Lütfen bekleyin…</string> 
+    <string name="delete_message_dialog_title">İleyi Silin.</string>  
+    <string name="delete_message_confirm">Bu ileti silinsin mi?</string> 
+    <string name="attachment_info_deleted">"Bu ek kaydedilemiyor ve açılamıyor, çünkü bu ek silinmiş olabilir."</string>  
+    <string name="send_failed_ticker"> 
+        <xliff:g id="account_name">%s</xliff:g> e-posta gönderemedi.
+    </string>  
+    <!-- Notification title when email sent fails [CHAR LIMIT=30]-->  
+    <string name="send_failed_title">E-posta gönderilemedi</string>  
+    <string name="always_bcc_myself">Kendimi hep gizli alanına yaz</string>  
+    <string name="always_bcc_myself_summary">Oluştururken, yanıtlarken ve iletirken kendimi hep gizli alanına yaz</string> 
+    <string name="general_preference_auto_download_remaining_label">Kalanı otomatik olarak karşıdan yükle</string>  
+    <string name="general_preference_auto_download_remaining_summary">Kaydırırken kalan gövdeyi otomatik olarak karşıdan yükle</string> 
+    <string name="edit_compose_quoted_text_label">Satır içinde yanıtla</string> 
+    <string name="remote_search_failed">Sunucuda arama başarısız!</string>
+</resources>

@@ -1,0 +1,230 @@
+<timezones> 
+    <timezone id="GMT+04:30" weatherID="2254271">عبادان</timezone>  
+    <timezone id="GMT+04:00" weatherID="1940330">أبو ظبي</timezone>  
+    <timezone id="GMT+03:00" weatherID="1958930">عدن</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968902">عمان</timezone>  
+    <timezone id="GMT+02:00" weatherID="2343732">أنقرة</timezone>  
+    <timezone id="GMT+03:00" weatherID="1979455">بغداد</timezone>  
+    <timezone id="GMT+04:00" weatherID="1951874">باكو</timezone>  
+    <timezone id="GMT+08:00" weatherID="1020725">بندر سري بكاوان</timezone>  
+    <timezone id="GMT+07:00" weatherID="1225448">بانكوك</timezone>  
+    <timezone id="GMT+02:00" weatherID="1960307">بيروت</timezone>  
+    <timezone id="GMT+06:30" weatherID="2189783">كولومبو</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">جاكرتا</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">Jakarta</timezone>  
+    <timezone id="GMT+07:00" weatherID="1236594">هانوي</timezone>  
+    <timezone id="GMT+05:00" weatherID="2211027">إسلام آباد</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968222">القدس</timezone>  
+    <timezone id="GMT+08:00" weatherID="1154781">كوالا لمبور</timezone>  
+    <timezone id="GMT+08:00" weatherID="1199477">مانيلا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1939897">مكة</timezone>  
+    <timezone id="GMT+06:30" weatherID="2295019">نيو دلهي</timezone>  
+    <timezone id="GMT+07:00" weatherID="1020985">بنوم بنه</timezone>  
+    <timezone id="GMT+09:00" weatherID="1079132">بيونج يانج</timezone>  
+    <timezone id="GMT+09:00" weatherID="1132599">سول</timezone>  
+    <timezone id="GMT+08:00" weatherID="23424948">سنغافورة</timezone>  
+    <timezone id="GMT+04:30" weatherID="2251945">طهران</timezone>  
+    <timezone id="GMT+09:00" weatherID="1118370">طوكيو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2266535">أولان باتور</timezone>  
+    <timezone id="GMT+08:00" weatherID="2127866">هيفي</timezone>  
+    <timezone id="GMT+08:00" weatherID="1887901">مكاو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151330">بكين</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139963">فوزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139967">شيامن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2145605">لانزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161838">قوانغتشو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161853">شينتشين</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161856">زوهاي</timezone>  
+    <timezone id="GMT+08:00" weatherID="2166473">نانينغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2146703">غويانغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2162779">هايكو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2171287">شيجيازوانغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2172736">زنغزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2141166">هاربين</timezone>  
+    <timezone id="GMT+08:00" weatherID="2163866">ووهان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2142699">شانغشا</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137321">شانغتشون</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137081">نانجينغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137082">سوزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2133704">نانشانغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2147986">داليان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2148332">شنيانج</timezone>  
+    <timezone id="GMT+08:00" weatherID="2149760">هوهوت</timezone>  
+    <timezone id="GMT+08:00" weatherID="2150551">ينتشوان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2138941">اكسينينغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168327">جينان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168606">كينجداو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2154547">تايوان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2157249">شيان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151849">شنغهاي</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158433">تشنغدو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2306179">تايبيه</timezone>  
+    <timezone id="GMT+08:00" weatherID="2159908">تيانجين</timezone>  
+    <timezone id="GMT+08:00" weatherID="2144789">لاسا</timezone>  
+    <timezone id="GMT+08:00" weatherID="2165352">هونج كونج</timezone>  
+    <timezone id="GMT+08:00" weatherID="2143692">أورومتشي</timezone>  
+    <timezone id="GMT+08:00" weatherID="2160693">كونمينغ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132574">هانغزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132579">نينغبو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132582">ونزهو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158434">تشونغتشينغ</timezone>  
+    <timezone id="GMT+01:00" weatherID="727232">أمستردام</timezone>  
+    <timezone id="GMT+01:00" weatherID="966591">أنتويرب</timezone>  
+    <timezone id="GMT+02:00" weatherID="946738">أثينا</timezone>  
+    <timezone id="GMT+01:00" weatherID="532697">بلغراد</timezone>  
+    <timezone id="GMT+01:00" weatherID="638242">برلين</timezone>  
+    <timezone id="GMT+01:00" weatherID="968019">بروكسل</timezone>  
+    <timezone id="GMT+02:00" weatherID="868274">بوخارست</timezone>  
+    <timezone id="GMT+01:00" weatherID="804365">بودابست</timezone>  
+    <timezone id="GMT+01:00" weatherID="554890">كوبنهاجن</timezone>  
+    <timezone id="GMT+00:00" weatherID="560743">دبلن</timezone>  
+    <timezone id="GMT+01:00" weatherID="782538">جنيف</timezone>  
+    <timezone id="GMT+01:00" weatherID="716085">جنوة</timezone>  
+    <timezone id="GMT+00:00" weatherID="21125">جلاسكو</timezone>  
+    <timezone id="GMT+02:00" weatherID="565346">هلسنكي</timezone>  
+    <timezone id="GMT+02:00" weatherID="2344116">إسطنبول</timezone>  
+    <timezone id="GMT+00:00" weatherID="742676">لشبونة</timezone>  
+    <timezone id="GMT+00:00" weatherID="44418">لندن</timezone>  
+    <timezone id="GMT+01:00" weatherID="766273">مدريد</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122265">موسكو</timezone>  
+    <timezone id="GMT+01:00" weatherID="676757">ميونيخ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122296">مورمانسك</timezone>  
+    <timezone id="GMT+01:00" weatherID="862592">أوسلو</timezone>  
+    <timezone id="GMT+01:00" weatherID="615702">باريس</timezone>  
+    <timezone id="GMT+01:00" weatherID="796597">براغ</timezone>  
+    <timezone id="GMT+00:00" weatherID="980389">ريكيافيك</timezone>  
+    <timezone id="GMT+01:00" weatherID="721943">روما</timezone>  
+    <timezone id="GMT+01:00" weatherID="733075">روتردام</timezone>  
+    <timezone id="GMT+03:00" weatherID="2123260">سانت بطرسبرغ</timezone>  
+    <timezone id="GMT+02:00" weatherID="839722">صوفيا</timezone>  
+    <timezone id="GMT+01:00" weatherID="906057">ستوكهولم</timezone>  
+    <timezone id="GMT+01:00" weatherID="472135">تيرانا</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424986">الفاتيكان</timezone>  
+    <timezone id="GMT+01:00" weatherID="725746">البندقية</timezone>  
+    <timezone id="GMT+01:00" weatherID="551801">فيينا</timezone>  
+    <timezone id="GMT+01:00" weatherID="523920">وارسو</timezone>  
+    <timezone id="GMT+01:00" weatherID="784794">زيوريخ</timezone>  
+    <timezone id="GMT-09:00" weatherID="2354490">أنكوراج</timezone>  
+    <timezone id="GMT-04:00" weatherID="379176">أسونسيون</timezone>  
+    <timezone id="GMT-05:00" weatherID="2357024">أتلانتا</timezone>  
+    <timezone id="GMT-05:00" weatherID="368148">بوغوتا</timezone>  
+    <timezone id="GMT-05:00" weatherID="2367105">بوسطن</timezone>  
+    <timezone id="GMT-03:00" weatherID="455819">برازيليا</timezone>  
+    <timezone id="GMT-03:00" weatherID="468739">بوينس آيرس</timezone>  
+    <timezone id="GMT-04:30" weatherID="395269">كراكاس</timezone>  
+    <timezone id="GMT-05:00" weatherID="667931">"نقطتان"</timezone>  
+    <timezone id="GMT-05:00" weatherID="2345115">هافانا</timezone>  
+    <timezone id="GMT-05:00" weatherID="109251">كينغستون</timezone>  
+    <timezone id="GMT-04:00" weatherID="2344804">لا باز</timezone>  
+    <timezone id="GMT-05:00" weatherID="418440">ليما</timezone>  
+    <timezone id="GMT-08:00" weatherID="2442047">لوس أنجلوس</timezone>  
+    <timezone id="GMT-06:00" weatherID="116545">مدينة مكسيكو</timezone>  
+    <timezone id="GMT-05:00" weatherID="2450022">ميامي</timezone>  
+    <timezone id="GMT-03:00" weatherID="468052">مونتيفيديو</timezone>  
+    <timezone id="GMT-05:00" weatherID="2459115">نيويورك</timezone>  
+    <timezone id="GMT-05:00" weatherID="159386">بنما</timezone>  
+    <timezone id="GMT-04:00" weatherID="380213">بورت أوف سبين</timezone>  
+    <timezone id="GMT-08:00" weatherID="2487956">سان فرانسيسكو</timezone>  
+    <timezone id="GMT-04:00" weatherID="349859">سانتياجو</timezone>  
+    <timezone id="GMT-05:00" weatherID="4118">مدينة ترونتو</timezone>  
+    <timezone id="GMT-08:00" weatherID="9807">فانكوفر</timezone>  
+    <timezone id="GMT-05:00" weatherID="2514815">واشنطن العاصمة</timezone>  
+    <timezone id="GMT+00:00" weatherID="20069967">أبيدجان</timezone>  
+    <timezone id="GMT+03:00" weatherID="1313090">أديس أبابا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1253079">الجزائر</timezone>  
+    <timezone id="GMT+02:00" weatherID="1117457">بنغازي</timezone>  
+    <timezone id="GMT+02:00" weatherID="1544986">بييرا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1279685">برازافيل</timezone>  
+    <timezone id="GMT+02:00" weatherID="1521894">القاهرة</timezone>  
+    <timezone id="GMT+02:00" weatherID="1591691">كيب تاون</timezone>  
+    <timezone id="GMT+00:00" weatherID="2346988">داكار</timezone>  
+    <timezone id="GMT+00:00" weatherID="1532755">كازابلانكا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1443415">دار السلام</timezone>  
+    <timezone id="GMT+03:00" weatherID="23424797">جيبوتي</timezone>  
+    <timezone id="GMT+01:00" weatherID="1478198">دوالا</timezone>  
+    <timezone id="GMT+03:00" weatherID="20070421">كمبالا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1396803">كانو</timezone>  
+    <timezone id="GMT+03:00" weatherID="1433559">خرطوم</timezone>  
+    <timezone id="GMT+01:00" weatherID="1290062">كينشاسا</timezone>  
+    <timezone id="GMT+01:00" weatherID="2346342">لاجوس</timezone>  
+    <timezone id="GMT+01:00" weatherID="1261906">لواندا</timezone>  
+    <timezone id="GMT+02:00" weatherID="1569006">لوساكا</timezone>  
+    <timezone id="GMT+02:00" weatherID="1550363">مابوتو</timezone>  
+    <timezone id="GMT+00:00" weatherID="2453077">مونروفيا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1528488">نيروبي</timezone>  
+    <timezone id="GMT+01:00" weatherID="1277402">نجامينا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1505949">نيامي</timezone>  
+    <timezone id="GMT+01:00" weatherID="1282253">بوينت نوار</timezone>  
+    <timezone id="GMT+00:00" weatherID="1539359">الرباط</timezone>  
+    <timezone id="GMT+03:00" weatherID="1358594">أنتاناناريفو</timezone>  
+    <timezone id="GMT+02:00" weatherID="1353281">طرابلس</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424967">تونس</timezone>  
+    <timezone id="GMT+12:00" weatherID="1064103">سوفا</timezone>  
+    <timezone id="GMT+10:00" weatherID="1105779">سيدني</timezone>  
+    <timezone id="GMT+12:00" weatherID="2351310">ويلينغتون</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000001">برشلونة</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000002">فرانكفورت</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000003">زاغرب</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000004">تالين</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000005">مينسك</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000006">جوهانسبرج</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000008">أوديسا</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000009">هارار</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000010">الرياض</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000011">أنتاناناريفو</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000012">مدينة الكويت</timezone>  
+    <timezone id="GMT+04:30" weatherID="9000013">كابول</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000014">كراتشي</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000015">طشقند</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000016">لاهور</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000017">مومباي</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000018">كالكتا</timezone>  
+    <timezone id="GMT+05:45" weatherID="9000019">كاتماندو</timezone>  
+    <timezone id="GMT+06:00" weatherID="9000020">دكا</timezone>  
+    <timezone id="GMT+06:30" weatherID="9000021">Yangoon</timezone>  
+    <timezone id="GMT+08:00" weatherID="9000022">بيرث</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000023">داروين</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000024">فلاديفوستوك</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000025">بريزبين</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000026">ملبورن</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000027">كانبيرا</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000028">أديلايد</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000029">كامتشاتكا</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000030">أنادير</timezone>  
+    <timezone id="GMT+12:45" weatherID="9000031">جزر تشاتام</timezone>  
+    <timezone id="GMT+14:00" weatherID="9000032">كريتيماتي</timezone>  
+    <timezone id="GMT-10:00" weatherID="9001001">هونولولو</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001002">أنكوراج (ألاسكا)</timezone>  
+    <timezone id="GMT-08:00" weatherID="9001003">سياتل</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001004">إيدمونتون</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001005">فينكس</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001006">دنفر</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001007">وينيبييج</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001008">هيوستن</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001009">مينيابوليس</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">ساوباولو</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001011">نيو أورليانز</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001012">شيكاغو</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001013">مونتغومري</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001014">جواتيمالا</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001015">سان سلفادور</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001016">تيجوسيجالبا</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001017">ماناغو</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001018">إنديانابوليس</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001019">ديترويت</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001020">فيلادلفيا</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001021">أوتاوة</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001022">ناساو</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001023">مونتريال</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001024">سانتو دورينجو</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001025">سان خوان</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001026">هاليفاكس</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001027">سانت جون</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">Sao Paulo</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001029">ريو دي جانيرو</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001030">أكلافيك</timezone>  
+    <timezone id="GMT+09:00" weatherID="9001031">سول</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001032">سان باول (أمريكا)</timezone> 
+</timezones>

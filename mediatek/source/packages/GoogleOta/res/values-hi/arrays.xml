@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string-array name="enquire_type"> 
+        <item>अब अपडेट करें</item>  
+        <item>10 मिनट</item>  
+        <item>30 मिनट</item>  
+        <item>1 घंटा</item>  
+        <item>3 घंटे</item>  
+        <item>6 घंटे</item>  
+        <item>1 दिन</item>  
+        <item>3 दिन</item>  
+        <item>6 दिन</item>  
+        <item>कभी न पूछें</item> 
+    </string-array>  
+</resources>

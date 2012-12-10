@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="app_name">钥匙圈</string>  
+    <!-- Dialog title when no certificates were found -->  
+    <string name="title_no_certs">找不到凭证</string>  
+    <!-- Dialog title when at least one certificate was found -->  
+    <string name="title_select_cert">选取凭证</string>  
+    <!-- Used at top of dialog to identify requesting application -->  
+    <string name="requesting_application">应用程序 %s 要求凭证。请选取一组凭证，让应用程序现在和未来能在服务器使用此识别身分。</string>  
+    <!-- Used at top of dialog to identify requesting server (may be host:port or just host)-->  
+    <string name="requesting_server">虽然应用程序将提出要求的服务器识别为 %s，但如果您不相信应用程序的判断，请勿将凭证的访问权限授与应用程序。</string>  
+    <!-- Label of button to send the user to the CertInstaller to install a certificate (arguments are constants for .pfx and .p12) -->  
+    <string name="install_new_cert_message">您可以使用扩展名为 %1$s 或 %2$s 的 PKCS#12 档案 (档案位于外部储存装置) 安装凭证。</string>  
+    <!-- Label of button to send the user to the CertInstaller to install a certificate -->  
+    <string name="install_new_cert_button_label">"安装"</string>  
+    <!-- Label of button to send the allow the application certificate request -->  
+    <string name="allow_button">同意</string>  
+    <!-- Label of button to send the deny the application certificate request -->  
+    <string name="deny_button">拒绝</string> 
+</resources>

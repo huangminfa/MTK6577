@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="button_icon_y">155</integer>
+    <integer name="background_y">20</integer>    
+    <integer name="red_lable_y">115</integer>
+    <integer name="green_lable_y">182</integer>
+</resources>

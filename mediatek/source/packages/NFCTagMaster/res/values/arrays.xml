@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common array contains 2 status -->
+    <string-array name="param_2_status_entry">
+        <item>ON</item>
+        <item>OFF</item>
+    </string-array>
+    <string-array name="param_2_status_value">
+    		<!-- DO NOT TRANSLATE -->
+        <item>1</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>0</item>
+    </string-array>
+    
+    <string-array name="param_audio_profile_entry">
+        <item>General</item>
+        <item>Silent</item>
+        <item>Meeting</item>
+        <item>Outdoor</item>
+    </string-array>
+    
+    <!-- DO NOT TRANSLATE -->
+    <string-array name="param_audio_profile_value">
+    		<!-- DO NOT TRANSLATE -->
+        <item>mtk_audioprofile_general</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>mtk_audioprofile_silent</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>mtk_audioprofile_meeting</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>mtk_audioprofile_outdoor</item>
+    </string-array> 
+    <!-- DO NOT TRANSLATE -->
+    <string-array name="history_size_entry">
+    		<!-- DO NOT TRANSLATE -->
+        <item>10</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>20</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>50</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>100</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>200</item>
+        <!-- DO NOT TRANSLATE -->
+        <item>500</item>
+    </string-array>
+</resources>

@@ -1,0 +1,67 @@
+package com.mediatek.telephony {
+
+  public class PhoneNumberFormattingTextWatcherEx {
+    ctor public PhoneNumberFormattingTextWatcherEx();
+    method public synchronized void afterTextChanged(android.text.Editable);
+    method public void beforeTextChanged(java.lang.CharSequence, int, int, int);
+    method public void onTextChanged(java.lang.CharSequence, int, int, int);
+  }
+
+  public class TelephonyManagerEx {
+    ctor public TelephonyManagerEx(android.content.Context);
+    method public int getCallState(int);
+    method public android.telephony.CellLocation getCellLocation(int);
+    method public int getDataActivity(int);
+    method public int getDataState(int);
+    method public static com.mediatek.telephony.TelephonyManagerEx getDefault();
+    method public java.lang.String getDeviceId(int);
+    method public java.lang.String getLine1Number(int);
+    method public java.util.List<android.telephony.NeighboringCellInfo> getNeighboringCellInfo(int);
+    method public java.lang.String getNetworkCountryIso(int);
+    method public java.lang.String getNetworkOperator(int);
+    method public java.lang.String getNetworkOperatorName(int);
+    method public int getNetworkType(int);
+    method public int getPhoneType(int);
+    method public java.lang.String getSN();
+    method public java.lang.String getScAddress(int);
+    method public android.os.Bundle getServiceState();
+    method public android.os.Bundle getServiceState(int);
+    method public java.lang.String getSimCountryIso(int);
+    method public int getSimIndicatorState();
+    method public int getSimIndicatorStateGemini(int);
+    method public java.lang.String getSimOperator(int);
+    method public java.lang.String getSimOperatorName(int);
+    method public java.lang.String getSimSerialNumber(int);
+    method public int getSimState(int);
+    method public java.lang.String getSubscriberId(int);
+    method public com.android.internal.telephony.IPhoneSubInfo getSubscriberInfo(int);
+    method public java.lang.String getVoiceMailAlphaTag(int);
+    method public java.lang.String getVoiceMailNumber(int);
+    method public boolean hasIccCard(int);
+    method public boolean isNetworkRoaming(int);
+    method public void listen(android.telephony.PhoneStateListener, int, int);
+    method public boolean setScAddress(java.lang.String, int);
+  }
+
+}
+
+package com.mediatek.telephony.gemini {
+
+  public final class SmsManager {
+    method public static boolean copyMessageToIcc(byte[], byte[], int, int);
+    method public static boolean deleteMessageFromIcc(int, int);
+    method public static java.util.ArrayList<java.lang.String> divideMessage(java.lang.String);
+    method public static java.util.ArrayList<android.telephony.SmsMessage> getAllMessagesFromIcc(int);
+    method public static boolean isSmsReady(int);
+    method public static void sendDataMessage(java.lang.String, java.lang.String, short, byte[], int, android.app.PendingIntent, android.app.PendingIntent);
+    method public static void sendMultipartDataMessage(java.lang.String, java.lang.String, short, byte[][], int, java.util.ArrayList<android.app.PendingIntent>, java.util.ArrayList<android.app.PendingIntent>);
+    method public static void sendMultipartTextMessage(java.lang.String, java.lang.String, java.util.ArrayList<java.lang.String>, int, java.util.ArrayList<android.app.PendingIntent>, java.util.ArrayList<android.app.PendingIntent>);
+    method public static void sendMultipartTextMessage(java.lang.String, java.lang.String, java.util.ArrayList<java.lang.String>, short, int, java.util.ArrayList<android.app.PendingIntent>, java.util.ArrayList<android.app.PendingIntent>);
+    method public static void sendTextMessage(java.lang.String, java.lang.String, java.lang.String, int, android.app.PendingIntent, android.app.PendingIntent);
+    method public static void sendTextMessage(java.lang.String, java.lang.String, java.lang.String, short, int, android.app.PendingIntent, android.app.PendingIntent);
+    method public static void setSmsMemoryStatus(boolean, int);
+    method public static boolean updateMessageOnIcc(int, int, byte[], int);
+  }
+
+}
+

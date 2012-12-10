@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical" 
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:gravity="center_horizontal">
+  
+	<TextView
+      android:layout_width="wrap_content"
+  	  android:layout_height="wrap_content"
+  	  android:id="@+id/desense_pll_detail_title_textview"
+  	  android:textAppearance="?android:attr/textAppearanceLarge"
+  	  android:layout_margin="30dip">
+    </TextView>
+    
+    <EditText
+      android:layout_width="110dip"
+      android:layout_height="wrap_content"
+      android:id="@+id/desense_pll_detail_edit">
+    </EditText>
+    
+    <Button 
+      android:layout_width="100dip"
+      android:layout_height="wrap_content"
+      android:id="@+id/desense_pll_detail_set_btn"
+      android:text="@string/desense_text_set"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_marginTop="30dip">
+    </Button>
+    
+</LinearLayout>

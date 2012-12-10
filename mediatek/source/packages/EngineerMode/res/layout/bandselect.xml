@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+	
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+
+
+	<TableLayout android:id="@+id/TableLayout01"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+		<TextView android:text="@string/BandSel_GSM"
+				android:layout_marginLeft = "3pt"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909090">
+</View>
+
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_GSM_EGSM900" android:id="@+id/BandSel_GSM_EGSM900"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_GSM_DCS1800" android:id="@+id/BandSel_GSM_DCS1800"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_GSM_PCS1900" android:id="@+id/BandSel_GSM_PCS1900"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_GSM_GSM850" android:id="@+id/BandSel_GSM_GSM850"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>
+		</TableRow>
+		
+		<View android:layout_height="3dip" android:layout_width="fill_parent"
+			android:background="#FF00FF00">
+</View>	
+
+<TextView android:text="@string/BandSel_UMTS"
+				android:layout_marginLeft = "3pt"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909090">
+</View>
+
+
+<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_I" android:id="@+id/BandSel_UMTS_BAND_I"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_II" android:id="@+id/BandSel_UMTS_BAND_II"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_III" android:id="@+id/BandSel_UMTS_BAND_III"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_IV" android:id="@+id/BandSel_UMTS_BAND_IV"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_V" android:id="@+id/BandSel_UMTS_BAND_V"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_VI" android:id="@+id/BandSel_UMTS_BAND_VI"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_VII" android:id="@+id/BandSel_UMTS_BAND_VII"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_VIII" android:id="@+id/BandSel_UMTS_BAND_VIII"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_IX" android:id="@+id/BandSel_UMTS_BAND_IX"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+		<TableRow android:id="@+id/TableRow01" android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<CheckBox android:text="@string/BandSel_UMTS_BAND_X" android:id="@+id/BandSel_UMTS_BAND_X"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></CheckBox>	
+		</TableRow>
+		
+	
+
+	</TableLayout>
+
+<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909090">
+</View>
+
+<Button android:id="@+id/BandSel_Btn_Set" android:text="@string/BandSel_SET"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	
+</LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent" android:layout_height="wrap_content"
+  android:layout_marginLeft="10dip"
+	android:orientation="vertical">
+
+	<TextView android:text="@string/WiFi_DPD_Text" android:id="@+id/WiFi_DPD_Text"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10dip" android:layout_marginLeft="3pt"></TextView>
+	<!-- DPD Calibration-->
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		>
+		<Button android:text="@string/WiFi_DPD_Calibration" android:id="@+id/WiFi_DPD_Calibration"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+	
+	<!-- read DPD parameters -->
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		>
+		<Button android:text="@string/WiFi_DPD_Read" android:id="@+id/WiFi_DPD_Read"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+	
+	<!-- save DPD parameters to file-->
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		>
+		<Button android:text="@string/WiFi_DPD_Save" android:id="@+id/WiFi_DPD_Save"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+	<!-- import DPD parameters from file-->
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		>
+		<Button android:text="@string/WiFi_DPD_Import" android:id="@+id/WiFi_DPD_Import"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+	
+	<!-- DPD parameters view-->
+	<LinearLayout android:id="@+id/LinearLayout"
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" 
+		>
+		<ScrollView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginTop="10dip"
+			android:fillViewport="true" android:scrollbarStyle="outsideOverlay">
+			<EditText 
+			android:text="@string/WiFi_DPD_Info" android:id="@+id/WiFi_DPD_Info"
+				android:layout_width="fill_parent" 
+				android:layout_height="fill_parent"></EditText>
+		</ScrollView>		
+		
+	</LinearLayout>
+
+		
+</LinearLayout>
+</ScrollView>

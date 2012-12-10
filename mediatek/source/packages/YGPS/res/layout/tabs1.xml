@@ -1,0 +1,371 @@
+<FrameLayout android:id="@+id/FrameLayout01"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_height="fill_parent" android:layout_width="fill_parent"
+		android:id="@id/LinerLayout_Satellate" android:visibility="invisible">
+		<com.mediatek.ygps.SatelliteSkyView
+			android:id="@+id/skyview" android:layout_width="fill_parent"
+			android:layout_height="0px" android:layout_weight="2" />
+		<com.mediatek.ygps.SatelliteSignalView
+			android:id="@+id/signalview" android:layout_width="fill_parent"
+			android:layout_height="0px" android:layout_weight="1" />
+
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:id="@id/LinerLayout_Info"
+		android:visibility="invisible">
+		<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:stretchColumns="1">
+
+				<TableRow>
+					<TextView android:text="@string/title_provider"
+						android:padding="2dip" />
+					<TextView android:id="@+id/txt_provider" android:text="@string/provider"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_status"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_status" android:text="@string/status"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_ttff"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_ttff" android:text="@string/ttff"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_date"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_date" android:text="@string/date"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_time"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_time" android:text="@string/time"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/first_latitude_text"
+						android:padding="0dip" />
+					<TextView android:id="@+id/first_latitude_text"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/first_longtitude_text"
+						android:padding="0dip" />
+					<TextView android:id="@+id/first_longtitude_text"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+
+				<View android:layout_height="1dip" android:background="#FF909090" />
+				
+				<TableRow>
+					<TextView android:text="@string/title_lat"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_latitude" android:text="@string/latitude"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_lon"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_longitude" android:text="@string/longitude"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_alt"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_altitude" android:text="@string/altitude"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF909090" />
+
+				<TableRow>
+					<TextView android:text="@string/title_acc"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_accuracy" android:text="@string/accuracy"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_bear"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_bearing" android:text="@string/bearing"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_speed"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_speed" android:text="@string/speed"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF303030" />
+
+				<TableRow>
+					<TextView android:text="@string/title_distance"
+						android:padding="0dip" />
+					<TextView android:id="@+id/txt_distance" android:text="@string/distance"
+						android:gravity="right" android:padding="0dip" />
+				</TableRow>
+
+				<View android:layout_height="1dip" android:background="#FF909090" />
+
+				<TableRow>
+                    <TextView android:text="@string/title_chip_version"
+                        android:padding="0dip" />
+                    <TextView android:id="@+id/txt_chip_version" android:text="@string/chipversion"
+                        android:gravity="right" android:padding="0dip" />
+                </TableRow>
+
+                <View android:layout_height="1dip" android:background="#FF303030" />
+
+                <TableRow>
+                    <TextView android:text="@string/title_mnl_version"
+                        android:padding="0dip" />
+                    <TextView android:id="@+id/txt_mnl_version" android:text="@string/mnlversion"
+                        android:gravity="right" android:padding="0dip" />
+                </TableRow>
+
+                <View android:layout_height="1dip" android:background="#FF909090" />
+				<LinearLayout android:id="@+id/LinearLayout01"
+					android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+					<Button android:text="@string/hot" android:id="@+id/btn_hot"
+						android:layout_weight="1" android:layout_height="fill_parent"
+						android:layout_width="fill_parent"></Button>
+					<Button android:text="@string/warm" android:id="@+id/btn_warm"
+						android:layout_weight="1" android:layout_height="fill_parent"
+						android:layout_width="fill_parent"></Button>
+
+				</LinearLayout>
+
+				<LinearLayout android:id="@+id/LinearLayout02"
+					android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+					<Button android:text="@string/cold" android:id="@+id/btn_cold"
+						android:layout_weight="1" android:layout_height="fill_parent"
+						android:layout_width="fill_parent"></Button>
+					<Button android:text="@string/full" android:id="@+id/btn_full"
+						android:layout_weight="1" android:layout_height="fill_parent"
+						android:layout_width="fill_parent"></Button>
+				</LinearLayout>
+
+				<LinearLayout android:id="@+id/LinearLayout03"
+					android:layout_width="wrap_content" android:layout_height="wrap_content">
+					<Button android:text="@string/HOT_STILL" android:id="@+id/btn_hotstill"
+					    android:layout_weight="1" android:layout_height="fill_parent"
+					    android:layout_width="fill_parent"></Button>
+					<Button android:text="@string/restart" android:id="@+id/btn_restart"
+						android:layout_weight="1" android:layout_height="fill_parent"
+						android:layout_width="fill_parent"></Button>
+				</LinearLayout>
+
+			</TableLayout>
+		</ScrollView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:id="@id/LinerLayout_NMEA"
+		android:orientation="vertical">
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:id="@id/txt_NmeaHint"
+			android:textStyle="bold"></TextView>
+		<ScrollView android:id="@+id/ScrollView01"
+			android:layout_width="fill_parent" android:layout_height="0px"
+			android:layout_weight="1">
+			<TextView android:layout_width="fill_parent" android:id="@id/txt_NmeaLog"
+				android:scrollbars="vertical" android:layout_height="fill_parent">
+			</TextView>
+		</ScrollView>
+		<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909090">
+		</View>
+		<LinearLayout android:id="@+id/LinearLayout03"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:layout_height="fill_parent"
+				android:layout_weight="1" android:text="@string/NMEA_start"
+				android:id="@id/Button_NMEA_start" android:layout_width="0px">
+			</Button>
+			<Button android:id="@id/Button_NMEA_stop" android:text="@string/NMEA_stop"
+				android:layout_height="fill_parent" android:layout_weight="1"
+				android:layout_width="0px">
+			</Button>
+	</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout03"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:layout_height="fill_parent"
+				android:layout_weight="1" android:text="@string/NMEA_DBG_DBG"
+				android:id="@+id/NMEA_DBG_DBG" android:layout_width="0px">
+			</Button>
+			<Button android:id="@+id/NMEA_DBG_NMEA" android:text="@string/NMEA_DBG_NMEA"
+				android:layout_height="fill_parent" android:layout_weight="1"
+				android:layout_width="0px">
+			</Button>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/LinearLayout03"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<Button android:layout_height="fill_parent"
+				android:layout_weight="1" android:text="@string/NMEA_DBG_DBG_FILE"
+				android:id="@+id/NMEA_DBG_DBG_FILE" android:layout_width="0px">
+			</Button>
+			<Button android:id="@+id/NMEA_DBG_NMEA_FILE" android:text="@string/NMEA_DBG_NMEA_FILE"
+				android:layout_height="fill_parent" android:layout_weight="1"
+				android:layout_width="0px">
+			</Button>
+	</LinearLayout>
+	<LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+            <Button android:layout_height="fill_parent"
+                android:layout_weight="2" android:text="@string/GPS_HW_TEST"
+                android:id="@+id/GPS_HW_TEST" android:layout_width="0px">
+            </Button>
+            <Button android:id="@+id/GPS_JAMMING_SCAN" android:text="@string/GPS_JAMMING_SCAN"
+                android:layout_height="fill_parent" android:layout_weight="1"
+                android:layout_width="0px">
+            </Button>
+            <EditText android:id="@+id/txt_GPS_JAMMING_TIMES"
+                android:layout_height="fill_parent" android:layout_weight="1"
+                android:layout_width="0px" android:inputType="number"
+                android:maxLength="3">
+            </EditText>
+    </LinearLayout>
+	</LinearLayout>
+
+	<LinearLayout android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:id="@id/LinerLayout_GPStest"
+		android:orientation="vertical" android:visibility="invisible">
+		<LinearLayout android:id="@+id/LinearLayout04"
+			android:layout_width="fill_parent" android:orientation="horizontal"
+			android:layout_height="wrap_content">
+			<TextView android:id="@id/TextView_GPStest_times"
+				android:text="@string/GPStest_times" android:layout_height="fill_parent"
+				android:layout_width="0px" android:layout_weight="2"></TextView>
+			<EditText android:layout_height="fill_parent" android:id="@id/EditView_GPStest_times"
+				android:layout_width="0px" android:layout_weight="3"
+				android:inputType="number" android:maxLength="3"></EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout05"
+			android:layout_width="fill_parent" android:orientation="horizontal"
+			android:layout_height="wrap_content">
+			<TextView android:layout_height="fill_parent"
+				android:id="@id/TextView_GPStest_interval" android:text="@string/GPStest_interval"
+				android:layout_width="0px" android:layout_weight="2"></TextView>
+			<EditText android:layout_height="fill_parent"
+				android:id="@id/EditView_GPStest_interval" android:layout_width="0px"
+				android:layout_weight="3" android:inputType="number"
+				android:maxLength="3"></EditText>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout10"
+			android:orientation="horizontal" android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<CheckBox android:layout_height="fill_parent"
+				android:layout_width="0px" android:id="@id/CheckBox_Need3DFix"
+				android:text="@string/Need_3D_Fix" android:layout_weight="4"></CheckBox>
+			<Button android:id="@id/Button_GPStest_start" android:text="@string/GPStest_start"
+				android:layout_width="0px" android:layout_weight="3"
+				android:layout_height="wrap_content"></Button>
+
+			<Button android:layout_width="0px" android:layout_weight="3"
+				android:text="@string/GPStest_stop" android:id="@id/Button_GPStest_stop"
+				android:layout_height="wrap_content"></Button>
+		</LinearLayout>
+		<View android:layout_height="1dip" android:layout_width="fill_parent"
+			android:background="#FF909090"></View>
+		<LinearLayout android:id="@+id/LinearLayout06"
+			android:layout_width="fill_parent" android:orientation="vertical"
+			android:layout_height="wrap_content">
+			<LinearLayout android:id="@+id/LinearLayout08"
+				android:orientation="horizontal" android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<TextView android:layout_height="fill_parent"
+					android:layout_width="0px" android:id="@id/txt_CurrentTimesTag"
+					android:text="@string/GPStest_currenttimes" android:layout_weight="1"></TextView>
+
+				<TextView android:layout_height="fill_parent"
+					android:layout_width="0px" android:layout_weight="1"
+					android:id="@id/txt_CurrentTimes" android:textStyle="bold"></TextView>
+
+			</LinearLayout>
+			<View android:layout_height="1dip" android:layout_width="fill_parent"
+				android:background="#FF303030"></View>
+			<LinearLayout android:id="@+id/LinearLayout11"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:layout_width="0px" android:layout_height="fill_parent"
+					android:text="@string/Last_TTFF" android:layout_weight="1"
+					android:id="@+id/txt_last_ttff_tag"></TextView>
+				<TextView android:layout_width="0px" android:layout_weight="1"
+					android:layout_height="fill_parent" android:textStyle="bold"
+					android:id="@id/txt_last_ttff"></TextView>
+
+
+			</LinearLayout>
+			<View android:layout_width="fill_parent" android:layout_height="1dip"
+				android:background="#FF303030"></View>
+			<LinearLayout android:id="@+id/LinearLayout13"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@+id/TextView01"
+					android:layout_height="fill_parent" android:layout_width="0px"
+					android:layout_weight="1" android:text="@string/GPStest_mean_ttff"></TextView>
+				<TextView android:layout_height="fill_parent"
+					android:layout_weight="1" android:layout_width="0px" android:id="@id/txt_mean_ttff"></TextView>
+
+			</LinearLayout>
+			<View android:layout_width="fill_parent" android:layout_height="1dip"
+				android:background="#FF303030"></View>
+			<LinearLayout android:id="@+id/LinearLayout12"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<TextView android:id="@id/txt_Reconnect_Countdown_tag"
+					android:layout_height="fill_parent" android:layout_width="0px"
+					android:text="@string/Reconnect_Countdown" android:layout_weight="2"></TextView>
+				<TextView android:id="@id/txt_Reconnect_Countdown"
+					android:layout_height="fill_parent" android:layout_weight="1"
+					android:layout_width="0px" android:textStyle="bold"></TextView>
+				<TextView android:id="@+id/TextView05"
+					android:layout_width="0px" android:layout_height="fill_parent"
+					android:layout_weight="1"></TextView>
+			</LinearLayout>
+			<View android:layout_height="1dip" android:layout_width="fill_parent"
+            android:background="#FF909090"></View>
+		</LinearLayout>
+	</LinearLayout>
+</FrameLayout>

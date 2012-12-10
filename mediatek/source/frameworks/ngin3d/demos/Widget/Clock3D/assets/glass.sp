@@ -1,0 +1,31 @@
+1.0
+vertex_source_file glass.vert
+fragment_source_file glass.frag
+
+uniform u_t_model T_MODEL
+uniform u_t_view T_VIEW
+uniform u_t_modelView T_MODEL_VIEW
+uniform u_t_modelViewProjection T_MODEL_VIEW_PROJECTION
+uniform u_t_normal T_MODEL_NORMAL
+uniform u_l_cameraPosition T_CAMERA_POSITION
+
+uniform u_l_count L_COUNT
+uniform u_l_position L_POSITION
+uniform u_l_radius_reciprocal L_RADIUS_RECIPROCAL
+uniform u_l_ambient L_AMBIENT_COLOUR
+uniform u_l_diffuse L_DIFFUSE_COLOUR
+uniform u_l_specular L_SPECULAR
+
+uniform u_m_diffuseTexture M_DIFFUSE_TEXTURE
+uniform u_m_specularTexture M_SPECULAR_TEXTURE
+uniform u_m_ambientTexture M_AMBIENT_TEXTURE
+uniform u_m_emissiveTexture M_EMISSIVE_TEXTURE
+uniform u_m_reflectiveTexture M_REFLECTION_TEXTURE
+uniform u_m_ambientColour M_AMBIENT_COLOUR
+uniform u_m_diffuseColour M_DIFFUSE_COLOUR
+uniform u_m_emissiveColour M_EMISSIVE_COLOUR
+uniform u_m_specularColour M_SPECULAR_COLOUR
+uniform u_m_specularLevel M_SPECULAR_LEVEL
+uniform u_m_shininess M_SHININESS
+uniform u_m_selfIllumination M_SELF_ILLUMINATION
+uniform u_m_opacity M_OPACITY

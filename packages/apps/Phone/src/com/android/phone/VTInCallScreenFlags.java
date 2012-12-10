@@ -1,0 +1,120 @@
+package com.android.phone;
+
+import android.util.Log;
+import com.android.internal.telephony.Connection;
+
+public class VTInCallScreenFlags {
+
+	public boolean mVTIsMT;
+	public boolean mVTHideMeNow;
+	public boolean mVTFrontCameraNow;
+	public boolean mVTSettingReady;
+	public boolean mVTSurfaceChangedL;
+	public boolean mVTSurfaceChangedH;
+	public boolean mVTVideoConnected;
+	public boolean mVTVideoReady;
+	public boolean mVTHasReceiveFirstFrame;
+	public boolean mVTInLocalZoomSetting;
+	public boolean mVTInLocalBrightnessSetting;
+	public boolean mVTInLocalContrastSetting;
+	public boolean mVTInControlRes;
+	//public boolean mVTInTiming;
+	public boolean mVTInEndingCall;
+	public boolean mVTShouldCloseVTManager;
+	public VTConnectionStarttime mVTConnectionStarttime;
+    public boolean mVTInSnapshot;
+    public boolean mVTInSwitchCamera;
+	public boolean mVTFullScreen;
+	public boolean mVTPeerBigger;
+	public boolean mVTIsInflate = false;
+    public boolean mVTVoiceAnswer= false;
+    public String mVTVoiceAnswerPhoneNumber = null;
+
+	static private final VTInCallScreenFlags mVTInCallScreenFlags = new VTInCallScreenFlags();
+
+	static public VTInCallScreenFlags getInstance() {
+		return mVTInCallScreenFlags;
+	}
+
+	private VTInCallScreenFlags() {
+		mVTConnectionStarttime = new VTConnectionStarttime();
+		reset();
+
+	}
+
+	public void reset() {
+		mVTIsMT = false;
+		mVTHideMeNow = false;
+		mVTFrontCameraNow = true;
+		mVTSettingReady = false;
+		mVTSurfaceChangedL = false;
+		mVTSurfaceChangedH = false;
+		mVTVideoConnected = false;
+		mVTVideoReady = false;
+		mVTHasReceiveFirstFrame = false;
+		mVTInLocalZoomSetting = false;
+		mVTInLocalBrightnessSetting = false;
+		mVTInLocalContrastSetting = false;
+		mVTInControlRes = false;
+		mVTInEndingCall = false;
+		mVTShouldCloseVTManager = true;
+
+		if (mVTConnectionStarttime != null)
+			mVTConnectionStarttime.reset();
+
+	    mVTInSnapshot = false;
+	    mVTInSwitchCamera = false;
+	    mVTFullScreen = false;
+	    mVTPeerBigger = true;
+        mVTVoiceAnswer= false;
+        mVTVoiceAnswerPhoneNumber = null;
+	}
+	
+	public void resetPartial(){
+		mVTIsMT = false;
+		mVTHideMeNow = false;
+		mVTFrontCameraNow = true;
+		mVTSettingReady = false;
+		mVTSurfaceChangedL = false;
+		mVTSurfaceChangedH = false;
+		mVTVideoConnected = false;
+		mVTVideoReady = false;
+		mVTHasReceiveFirstFrame = false;
+		mVTInLocalZoomSetting = false;
+		mVTInLocalBrightnessSetting = false;
+		mVTInLocalContrastSetting = false;
+		mVTInControlRes = false;
+		mVTInEndingCall = false;
+
+		if (mVTConnectionStarttime != null)
+			mVTConnectionStarttime.reset();
+
+	    mVTInSnapshot = false;
+	    mVTInSwitchCamera = false;
+	    mVTFullScreen = false;
+	    mVTPeerBigger = true;
+        mVTVoiceAnswer= false;
+        mVTVoiceAnswerPhoneNumber = null;
+	}
+
+	public class VTConnectionStarttime {
+		public Connection mConnection;
+		public long mStarttime;
+		public long mStartDate;
+		public VTConnectionStarttime() {
+			reset();
+		}
+
+		public void reset() {
+			Log.d("VTConnectionStarttime", "reset...");
+			mConnection = null;
+			mStarttime = -1;
+			mStartDate = -1;
+		}
+	}
+	
+	public void resetTiming() {
+		if (mVTConnectionStarttime != null)
+			mVTConnectionStarttime.reset();
+	}
+}

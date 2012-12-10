@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	android:versionCode="1" android:versionName="1.0" package="com.mediatek.bluetooth"
+	android:sharedUserId="android.uid.mtkbt">
+
+	<application android:label="@string/app_label" 
+                android:persistent="true"
+		android:icon="@drawable/bluetooth" android:description="@string/app_description">
+	
+<!-- BLUEANGEL::IF MTK_BT_PROFILE_OPP = yes -->
+
+		<!-- ********************************************************************************** -->
+		<!-- OPP BEG -->
+		<activity android:name=".opp.mmi.OppClientActivity"
+					android:label="@string/bt_oppc_push_action_label"
+					android:theme="@*android:style/Theme.Holo.Dialog.Alert"
+					android:excludeFromRecents="true"
+		/>
+		<activity android:name=".opp.mmi.OppServerActivity" 
+					android:theme="@*android:style/Theme.Holo.Dialog.Alert"
+					android:excludeFromRecents="true"
+					android:configChanges="orientation"
+					android:launchMode="singleInstance">
+			<intent-filter>
+				<action android:name="com.mediatek.bluetooth.opp.action.PUSH_REQUEST"/>
+				<action android:name="com.mediatek.bluetooth.opp.action.PULL_REQUEST"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".opp.mmi.OppCancelActivity"
+					android:theme="@*android:style/Theme.Holo.Dialog.Alert"
+					android:excludeFromRecents="true"
+		/>
+		<service android:name=".opp.adp.OppService"/>
+		<service android:name=".opp.adp.BluetoothOppService" android:exported="true">
+			<intent-filter>
+				<action android:name="android.bluetooth.BluetoothOpp.Client" />
+				<action android:name="android.bluetooth.BluetoothOpp.Server" />
+			</intent-filter>
+		</service>
+		<receiver android:name=".opp.adp.OppReceiver">
+	        <intent-filter>
+		        <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+		        <action android:name="android.intent.action.BOOT_COMPLETED" />		
+	       </intent-filter>
+	    </receiver>
+		<!-- OPP END -->
+		<!-- ********************************************************************************** -->
+
+<!-- BLUEANGEL::FI MTK_BT_PROFILE_OPP -->
+
+	</application>
+
+</manifest> 

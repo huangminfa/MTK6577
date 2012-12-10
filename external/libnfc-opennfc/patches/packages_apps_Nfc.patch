@@ -1,0 +1,47 @@
+diff --git a/Android.mk b/Android.mk
+index a041854..b162046 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -1,7 +1,7 @@
+ LOCAL_PATH:= $(call my-dir)
+ include $(CLEAR_VARS)
+ 
+-LOCAL_MODULE_TAGS := optional
++LOCAL_MODULE_TAGS := optional eng
+ 
+ LOCAL_SRC_FILES := \
+         $(call all-java-files-under, src)
+diff --git a/src/com/android/nfc/SendUi.java b/src/com/android/nfc/SendUi.java
+index 6fc24d5..2e849d5 100644
+--- a/src/com/android/nfc/SendUi.java
++++ b/src/com/android/nfc/SendUi.java
+@@ -400,7 +400,15 @@ public class SendUi implements Animator.AnimatorListener, View.OnTouchListener,
+         Bitmap bitmap = Surface.screenshot((int) dims[0], (int) dims[1]);
+         // Bail if we couldn't take the screenshot
+         if (bitmap == null) {
+-            return null;
++            int l = (int) dims[0] * (int) dims[1];
++			int[] pixels = new int[l];
++			for (int i = 0; i < l; i++)
++				pixels[i] = 0xFF000000 | ((int) (Math.random() * 0XFF)) << 16
++						| ((int) (Math.random() * 0XFF)) << 8
++						| ((int) (Math.random() * 0XFF));
++
++			bitmap = Bitmap.createBitmap(pixels, (int) dims[0], (int) dims[1],
++					Bitmap.Config.ARGB_8888);
+         }
+ 
+ 
+diff --git a/src/com/android/nfc/nxp/NativeNfcManager.java b/src/com/android/nfc/nxp/NativeNfcManager.java
+index 1e69970..ad18b32 100755
+--- a/src/com/android/nfc/nxp/NativeNfcManager.java
++++ b/src/com/android/nfc/nxp/NativeNfcManager.java
+@@ -37,7 +37,7 @@ import java.io.File;
+ public class NativeNfcManager implements DeviceHost {
+     private static final String TAG = "NativeNfcManager";
+ 
+-    private static final String NFC_CONTROLLER_FIRMWARE_FILE_NAME = "/vendor/firmware/libpn544_fw.so";
++    private static final String NFC_CONTROLLER_FIRMWARE_FILE_NAME = "/vendor/firmware/microread_fw.bin";
+ 
+     private static final String PREF = "NxpDeviceHost";
+ 

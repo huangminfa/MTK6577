@@ -1,0 +1,9 @@
+#define ACodec ACodec_mtk 
+#define AudioPlayer AudioPlayer_mtk 
+#define AwesomePlayer AwesomePlayer_mtk 
+#define CameraSourceTimeLapse CameraSourceTimeLapse_mtk 
+#define MPEG4Extractor MPEG4Extractor_mtk 
+#define MPEG4Writer MPEG4Writer_mtk 
+#define NuCachedSource2 NuCachedSource2_mtk 
+#define SampleIterator SampleIterator_mtk 
+#define SampleTable SampleTable_mtk 

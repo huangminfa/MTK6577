@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.toolbar.ConfigurationIconView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="0dip" android:layout_height="match_parent"
+	android:paddingTop="9dip" android:gravity="center_horizontal">
+
+	<FrameLayout android:layout_width="42dip"
+		android:layout_height="40dip" android:id="@+id/config_icon_view">
+		<ImageView android:layout_width="match_parent" android:id="@+id/config_icon"
+			android:layout_height="match_parent" android:scaleType="fitCenter"
+			android:background="@drawable/zzz_panel_switch_btn">
+		</ImageView>
+		<ImageView android:layout_width="match_parent" android:id="@+id/on_indicator"
+			android:layout_height="4dip" android:layout_gravity="bottom"
+			android:scaleType="fitXY" android:visibility="gone" android:src="@drawable/zzz_light_on">
+		</ImageView>
+	</FrameLayout>
+	<TextView android:layout_width="match_parent"
+		android:layout_height="0dip" android:layout_weight="1"
+		android:gravity="top|center_horizontal" android:textSize="13sp"
+		android:textColor="@color/white" android:id="@+id/config_name"
+		android:paddingTop="3dip" android:ellipsize="end" android:maxLines="2">
+	</TextView>
+
+</com.android.systemui.statusbar.toolbar.ConfigurationIconView>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="enquire_type">
+        <item>Να γίνει ενημέρωση τώρα</item>
+        <item>10 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>1 ώρα</item>
+        <item>3 ώρες</item>
+        <item>6 ώρες</item>
+        <item>1 ημέρα</item>
+        <item>3 ημέρες</item>
+        <item>6 ημέρες</item>
+        <item>Ποτέ ερώτηση</item>
+    </string-array>
+</resources>
+

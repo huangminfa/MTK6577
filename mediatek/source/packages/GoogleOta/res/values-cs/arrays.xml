@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="enquire_type">
+        <item>Aktualizovat</item>
+        <item>10 minut</item>
+        <item>30 minut</item>
+        <item>1 h</item>
+        <item>3 hodiny</item>
+        <item>6 hodiny</item>
+        <item>1 den</item>
+        <item>3 dnů</item>
+        <item>6 dnů</item>
+        <item>Příště se neptat</item>
+    </string-array>
+</resources>
+

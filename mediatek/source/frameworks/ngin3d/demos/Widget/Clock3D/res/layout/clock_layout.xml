@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mediatek.widgetdemos.clock3d.ClockView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clock_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <Button android:id="@+id/alarm_launcher"
+        android:visibility="invisible"
+        android:soundEffectsEnabled="false"
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" />
+</com.mediatek.widgetdemos.clock3d.ClockView>

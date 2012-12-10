@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="app_name">Εκκρεμείς εργασίες</string>  
+    <string name="app_header">Εκκρεμής εργασία</string>  
+    <string name="todos_title">ΕΚΚΡΕΜΗΣ ΕΡΓΑΣΙΑ</string>  
+    <string name="dones_title">Τέλος</string>  
+    <string name="todo_details_title">Λεπτομέρειες εκκρεμούς εργασίας</string>  
+    <string name="no_expire_date">Χωρίς ημερομηνία λήξης</string>  
+    <string name="prompt_date_before_today">Η ώρα ολοκλήρωσης δεν είναι δυνατό να είναι πριν από την τρέχουσα ώρα.</string>  
+    <string name="valid_date_range">Το εύρος ημερομηνιών είναι από 1970 έως 1936</string>  
+    <string name="btn_done">Τέλος</string>  
+    <string name="btn_cancel">άκυρο</string>  
+    <string name="todos_empty_info">Κανένα στοιχείο\n Πιέστε για προσθήκη νέας εκκρεμούς εργασίας</string>  
+    <string name="dones_empty_info">Κανένα στοιχείο</string>  
+    <string name="delete">Διαγραφή</string>  
+    <string name="cancel">άκυρο</string>  
+    <string name="delete_item">Αυτό το στοιχείο θα διαγραφεί</string>  
+    <string name="delete_selected_items">Αυτά τα στοιχεία θα διαγραφούν</string>  
+    <string name="done_time_format">Ολοκληρώθηκε στις %Y-%m-%d %H:%M</string>  
+    <string name="operator_failed">Η λειτουργία απέτυχε</string>  
+    <string name="back_title">Σημείωση</string>  
+    <string name="back_message">Θέλετε να εγκαταλείψετε την τρέχουσα επεξεργασία;</string>  
+    <string name="ok">OK</string>  
+    <string name="add_new_todo">Νέα εκκρεμής εργασία</string>  
+    <string name="edit_todo">Επεξεργασία εκκρεμούς εργασίας</string>  
+    <string name="todo_detail">Λεπτομέρεια εκκρεμούς εργασίας</string>  
+    <string name="done_detail">Λεπτομέρεια ολοκλήρωσης</string> 
+</resources>

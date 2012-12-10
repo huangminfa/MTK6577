@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Scene feature -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <Gallery android:id="@+id/gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spacing="-4dp" />   
+        <TextView android:id="@+id/scene_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="25dp"
+            android:textSize="20dip"
+    	    android:textColor="#FFFFFFFF"
+    	    android:shadowColor="#FF000000"
+            android:shadowRadius="1"
+            android:shadowDx="0.0"
+            android:shadowDy="1.0"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"/> 
+</RelativeLayout>

@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <!-- The name of the application. -->  
+    <string name="application_name">براؤزر</string>  
+    <!-- Displayed with a file picker to choose a file to upload -->  
+    <string name="choose_upload">اپ لوڈنگ</string>  
+    <!-- Toast to show the user after they try to open the file picker but no apps on the
+         system can provide a file [CHAR-LIMIT=NONE]-->  
+    <string name="uploads_disabled">فائلوں کی اپ لوڈنگ اس وقت معطل ہیے۔</string>  
+    <!-- Name of menu item of a new tab.  Also used in the title bar when displaying a new tab -->  
+    <string name="new_tab">نیا ٹیب</string>  
+    <!-- Name of menu item of a new incognito tab.  Also used in the
+         title bar when displaying a new tab [CHAR LIMIT=30] -->  
+    <string name="new_incognito_tab">نیا غیر شناخت شدہ ٹیب</string>  
+    <!-- Name of tab containing bookmarks -->  
+    <string name="tab_bookmarks">نشانی</string>  
+    <!-- Name of tab containing the user's most visited websites, organized by number of visits -->  
+    <string name="tab_most_visited">سب سے زیادہ دیکھی جانے والی</string>  
+    <!-- Name of tab containing the user's complete history, organized by time of last visit -->  
+    <string name="tab_history">سابقات</string>  
+    <!-- Name of tab containing the user's saved pages, organized by time created [CHAR LIMIT=20] -->  
+    <string name="tab_snapshots">محفوظ کیے گئے صفحات</string>  
+    <!-- Toast shown when a history item's star is clicked, converting it to a bookmark -->  
+    <string name="added_to_bookmarks">بک مارکس مین شامل کر لیا گیا۔</string>  
+    <!-- Toast shown when a history item's star is clicked off, removing its bookmark -->  
+    <string name="removed_from_bookmarks">بک مارکس میں سے نکال دیا گیا۔</string>  
+    <!-- Sign-in dialog -->  
+    <!-- This is used as the title of a dialog which is used to sign in to a secure site.
+            "%s1"is replaced with the host and "%s2" with realm -->  
+    <string name="sign_in_to"> 
+        <xliff:g id="hostname">%s1</xliff:g> \" 
+        <xliff:g id="realm">%s2</xliff:g>\" میں سائن ان کریں
+    </string>  
+    <!-- Prompt for an input box that allows the user to enter their login name -->  
+    <string name="username">نام</string>  
+    <!-- Prompt for an input box that allows the user to enter their password -->  
+    <string name="password">پاس ورڈ</string>  
+    <!-- The label on the "sign in" button -->  
+    <string name="action">سائن ان کرنا</string>  
+    <!-- The name of the bookmarks and history search suggestion source.  -->  
+    <string name="bookmarks_search">براؤزر</string>  
+    <!-- Label for a cancel button.  It is used for multiple cancel buttons in different contexts -->  
+    <string name="cancel">منسوخ</string>  
+    <!-- Label for a confirm button.  Used in multiple contexts. -->  
+    <string name="ok">ٹھیک ہے</string>  
+    <!-- Displayed on the title bar while the page is loading -->  
+    <string name="title_bar_loading">لوڈ کررہا ہے\u2026</string>  
+    <!-- Menu item -->  
+    <string name="page_info">صفحے کی معلومات</string>  
+    <!-- Label for a button on an SSL error dialog that allows the user to see
+        Page info screen for the current page -->  
+    <string name="page_info_view">صفحے کی معلومات ملاحظہ کریں</string>  
+    <!-- Page Info dialog strings -->  
+    <!-- Noun.  The url for the current page. Displayed on the Page Info
+            screen. -->  
+    <string name="page_info_address">پتہ:</string>  
+    <!-- SSL Error dialogs -->  
+    <string name="ssl_warnings_header">اس سائٹ کے محفوظ ہونے کے تصدیق نامے کے ساتھ کچھ مسائل ہیں۔</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user continue
+            and view the page despite the error -->  
+    <string name="ssl_continue">چلتے جائیں</string>  
+    <!-- Title for an SSL error dialog  -->  
+    <string name="security_warning">حفاطت کے بارے میں انتباہ</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user view the
+        certificate -->  
+    <string name="view_certificate">تصدیق نامہ ملاحظہ کریں</string>  
+    <!-- Label for a button on an SSL error dialog that lets the user go back to
+         the last page they were on instead of continuing to the new page. [CHAR-LIMIT=20] -->  
+    <string name="ssl_go_back">واپس</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_untrusted">یہ تصدیق نامہ کسی قابل اعتماد اتھارٹی کی طرف سے جاری نہیں کیا گیا۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_mismatch">اس سائٹ کا نام تصدیق نامے میں موجود نام سے میل نہیں کھاتا۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_expired">اس تصدیق نامے کی میعاد ختم ہو چکی ہے۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_not_yet_valid">اس تصدیق کی میعاد ابھی شروع نہیں ہوئی۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_date_invalid">اس تصدیق نامے پر ایک ناممکن تاریخ ہے۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_invalid">یہ تصدیق نامہ معتبر نہیں۔</string>  
+    <!-- Message in an SSL Error dialog -->  
+    <string name="ssl_unknown">تصدیق نامے میں نہ معلوم غلطی۔</string>  
+    <!-- Toast informing the user that loading has stopped for the current page. -->  
+    <string name="stopping">\u2026کو روکا جا رہا ہے</string>  
+    <!-- Menu item to stop the current page from loading. -->  
+    <string name="stop">روکیں</string>  
+    <!-- Menu item to reload or refresh the current page. -->  
+    <string name="reload">دوبارہ تازہ کریں</string>  
+    <!-- Menu item to go back to the previous page -->  
+    <string name="back">واپس</string>  
+    <!-- Menu item to go to the next page (only useful if the user has previously hit back.) -->  
+    <string name="forward">آگے</string>  
+    <!-- Button label to confirm saving a bookmark. -->  
+    <string name="save">ٹھیک ہے</string>  
+    <!-- Button label to cancel saving a bookmark. -->  
+    <string name="do_not_save">منسوخ</string>  
+    <!-- Field label in Bookmark dialog box: refers to URL of the page to bookmark -->  
+    <string name="location">پتہ</string>  
+    <!-- Field label in Bookmark dialog box: refers to the account to save the bookmark to -->  
+    <string name="account">اکاؤنٹس</string>  
+    <!-- Field label in Bookmark dialog box: refers to the folder in which to save the bookmark -->  
+    <string name="containing_folder">اس میں شامل کریں</string>  
+    <!-- Default name for a new folder and label for a button that allows the user to create a new folder
+         in the add bookmark dialog -->  
+    <string name="new_folder">نیا فولڈر</string>  
+    <!-- Context menu item to edit a folder [CHAR LIMIT=50] -->  
+    <string name="edit_folder">فولڈر میں ترمیم کریں</string>  
+    <!-- Context menu item to delete a folder [CHAR LIMIT=50] -->  
+    <string name="delete_folder">فولڈر کو حذف کریں</string>  
+    <!-- Label stating that the currently open folder has no subfolders
+         in the add bookmark dialog [CHAR-LIMIT=none]-->  
+    <string name="no_subfolders">کوئی ذیلی فولڈر نہیں ہیں۔</string>  
+    <!-- Menu item to use the top level bookmarks folder to save a bookmark in. [CHAR-LIMIT=30]-->  
+    <string name="add_to_bookmarks_menu_option">نشانی</string>  
+    <!-- Menu item to save the newly created bookmark to the home screen. [CHAR-LIMIT=30]-->  
+    <string name="add_to_homescreen_menu_option">ہوم اسکرین سیٹ کریں</string>  
+    <!-- Menu item to open a picker to determine which folder to save a bookmark in. [CHAR-LIMIT=30]-->  
+    <string name="add_to_other_folder_menu_option">کوئی اور فولڈر</string>  
+    <!-- Field label in Bookmark dialog box: title that the user wishes to use for the bookmark -->  
+    <string name="name">دیا گیا نام</string>  
+    <!-- Initial value in Location field in Bookmark dialog box -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string name="http">http://</string>  
+    <!-- Menu item that opens a dialog to save a bookmark for the current page [CHAR LIMIT=30] -->  
+    <string name="save_to_bookmarks">بک مارکس میں محفوظ کریں</string>  
+    <!-- Title of the dialog to bookmark a page -->  
+    <string name="bookmark_this_page">اس صفحے کو بک مارک بنائیں</string>  
+    <!-- Option on bookmark dialog to remove the bookmark [CHAR LIMIT=30] -->  
+    <string name="remove">ہٹائيں</string>  
+    <!-- Menu item on the bookmarks page, to edit an existing bookmark -->  
+    <string name="edit_bookmark">بک مارک میں ترمیم کریں</string>  
+    <!-- Context menu item to create a shortcut to the bookmark on the desktop [CHAR LIMIT=50] -->  
+    <string name="create_shortcut_bookmark">شارٹ کٹ کو ابتدائی صفحے میں شامل کریں</string>  
+    <!-- Context menu item to open the currently highlighted bookmark -->  
+    <string name="open_bookmark">کھلا</string>  
+    <!-- Menu item to remove the currently highlighted bookmark-->  
+    <string name="remove_bookmark">اس بک مارک کو حذف کردیں</string>  
+    <!-- Context menu item to remove a history item from bookmarks -->  
+    <string name="remove_from_bookmarks">بک مارکس میں سے ہٹا دیں</string>  
+    <!-- Menu item to remove the currently highlighted history entry from the list of previously visited sites -->  
+    <string name="remove_history_item">سابقات میں سے ہٹا دیں</string>  
+    <!-- Context menu item for setting the bookmark/history item as the homepage -->  
+    <string name="set_as_homepage">اس کو ابتدائی صفحے کی حیثییت دیں</string>  
+    <!-- Toast informing the user that their action to save a bookmark has succeeded -->  
+    <string name="bookmark_saved">بک مارکس میں محفوظ کرلیا گیا ہے۔</string>  
+    <!-- Toast informing the user that their action to save a bookmark did not succeed -->  
+    <string name="bookmark_not_saved">اس بک مارک کو محفوظ نہیں کیا جا سکا۔</string>  
+    <!-- Toast confirming that the homepage has been set -->  
+    <string name="homepage_set">ابتدائی صفحہ ترتیب دے دیا گیا ہے۔</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with empty Name field -->  
+    <string name="bookmark_needs_title">"بک مارک کا کوئی نہ کوئی نام ہونا ضروری ہے۔"</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with empty Location field -->  
+    <string name="bookmark_needs_url">"بک مارک جگہ کا تعین ضروری ہے۔"</string>  
+    <!-- Error that appears in the title of Bookmark dialog when user selects OK with invalid URL -->  
+    <string name="bookmark_url_not_valid">یہ URL درست نہیں۔</string>  
+    <!-- Error that appears in the Bookmark dialog when user selects OK with a URL of a type we cannot bookmark -->  
+    <string name="bookmark_cannot_save_url">اس URL کا بک مارک نہیں بنایا جا سکتا۔</string>  
+    <!-- Menu item in the page that displays all bookmarks. It brings up a
+            dialog that allows the user to bookmark the page that the browser is
+            currently on, but is not visible because the bookmarks page is 
+            showing. -->  
+    <string name="bookmark_page">آخر میں دیکھے گئے صفحے کا بک مارکبک مارک بنائیں</string>  
+    <!-- Menu item in the page that displays all bookmarks.  Switches to
+            a grid view which shows thumbnails [CHAR LIMIT=20] -->  
+    <string name="bookmark_thumbnail_view">تصوریچہ</string>  
+    <!-- Menu item in the page that displays all bookmarks.  Switches to a
+            list view which shows titles [CHAR LIMIT=20] -->  
+    <string name="bookmark_list_view">فہرست</string>  
+    <!-- Summary text under the New Bookmark item on the Bookmarks screen.
+            Tells the user that if they select this item, it will bring up a
+            dialog to bookmark the page that the browser is currently viewing,
+            though it is not currently being displayed, since they are viewing
+            the bookmarks screen. -->  
+    <string name="current_page">سے\u0020</string>  
+    <!-- Confirmation dialog message confirming that the user wishes to delete
+            the bookmark they selected for deletion -->  
+    <string name="delete_bookmark_warning">کیا اس بک مارک \" 
+        <xliff:g id="bookmark">%s</xliff:g>\" کو حذف کر دیا جائے؟
+    </string>  
+    <!-- Context menu item to open every bookmark in a folder in new tabs [CHAR LIMIT=50] -->  
+    <string name="open_all_in_new_window">ہر ایک کو نئے ٹیب میں کھولیں</string>  
+    <!-- Menu item to open a dialog which allows the user to enter a url or do search-->  
+    <string name="goto_dot">آگے چلیں</string>  
+    <!-- Menu item to switch to text selection mode for copy and paste. -->  
+    <string name="select_dot">منتخب کیا ہوا متن</string>  
+    <!-- Menu item to open the bookmarks page. This is a shorter version that
+            is displayed with an icon -->  
+    <string name="bookmarks">نشانی</string>  
+    <!-- Secondary name for the Activity "BrowserBookmarksPage" -->  
+    <string name="shortcut_bookmark">نشانی</string>  
+    <!-- Title for the activity asking the user to select a bookmark [CHAR LIMIT=50] -->  
+    <string name="shortcut_bookmark_title">کسی ایک بک مارک کا انتخاب کریں</string>  
+    <!-- Menu item to display the History of previously visited pages -->  
+    <string name="history">سابقات</string>  
+    <!-- Menu item for viewing downloads from the browser -->  
+    <string name="menu_view_download">ڈاؤن لوڈز</string>  
+    <!-- Context menu item for copying the url of the current page from the
+            title bar -->  
+    <string name="copy_page_url">اس صفحے کے URL کو نقل کریں</string>  
+    <!-- Menu item -->  
+    <string name="share_page">اس صفحے کی شراکت کریں</string>  
+    <!-- Menu item for saving a page for offline reading. This is a view-only snapshot of the page. [CHAR LIMIT=50] -->  
+    <string name="menu_save_snapshot">آف لائن مطالعے کے لیے محفوظ کر لیں</string>  
+    <!-- Toast informing the user that saving the page for offline reading has failed. [CHAR LIMIT=50] -->  
+    <string name="snapshot_failed">آف لائن مطالعے کے لیے محفوظ نہیں کیا جا سکا۔</string>  
+    <!-- The number of bookmarks in a folder [CHAR LIMT=50] -->  
+    <string name="contextheader_folder_bookmarkcount"> 
+        <xliff:g id="bookmark_count">%d</xliff:g> بک مارکس
+    </string>  
+    <!-- No bookmarks in the folder [CHAR LIMIT=50] -->  
+    <string name="contextheader_folder_empty">خالی فولڈر</string>  
+    <!-- Context Menu item open the currently selected link in the current
+            window.-->  
+    <string name="contextmenu_openlink">کھلا</string>  
+    <!-- Context Menu item to open the currently selected link in a new
+            window. -->  
+    <string name="contextmenu_openlink_newwindow">اس کو نئے ٹیب میں کھولیں</string>  
+    <!-- Context Menu item to open the currently selected link in a new
+         background window. [CHAR LIMIT=50] -->  
+    <string name="contextmenu_openlink_newwindow_background">اس کو پس منظر مییں نئے ٹیب میں کھولیں</string>  
+    <!-- Context Menu item to save the webpage referred to by this link to the
+            SD card (external storage) -->  
+    <string name="contextmenu_savelink">اس لنک کو محفوظ کر لیں</string>  
+    <!-- Context Menu item to send the url of the selected link to someone else,
+            via Gmail or another app [CHAR LIMIT=50] -->  
+    <string name="contextmenu_sharelink">اس لنک کی شراکت کریں</string>  
+    <!-- Context Menu item -->  
+    <string name="contextmenu_copy">نقل کریں</string>  
+    <!-- Context Menu item to copy the url of the selected link to the
+            clipboard -->  
+    <string name="contextmenu_copylink">اس لنک کے URL کو نقل کرلیں</string>  
+    <!-- Context Menu item to save the image to external storage -->  
+    <string name="contextmenu_download_image">اس تصویر کو محفوظ کر لیں</string>  
+    <!-- Context Menu item to view the image by itself in the browser -->  
+    <string name="contextmenu_view_image">اس تصویر کو ملاحظہ کریں</string>  
+    <!-- Context Menu item to set the image as the home screen wallpaper -->  
+    <string name="contextmenu_set_wallpaper">اس کو وال پیپر کے طور پر محفوظ کر لیں</string>  
+    <!-- Context Menu item to open the dialer app with the selected phone number
+            -->  
+    <string name="contextmenu_dial_dot">\u2026 ڈائل کریں</string>  
+    <!-- Context Menu item to add the selected phone number to the address book.
+            -->  
+    <string name="contextmenu_add_contact">اس رابطے کو شامل کر لیں</string>  
+    <!-- Context Menu item to send an email using the selected email address.-->  
+    <string name="contextmenu_send_mail">ای میل بھیجیں</string>  
+    <!-- Context Menu item to show the currently selected address in the Maps
+            application -->  
+    <string name="contextmenu_map">نقشہ</string>  
+    <!-- Title of the dialog used for selecting the application that should be
+            used for sharing a link (e.g. Gmail or another app). See also
+            contextmenu_sharelink above -->  
+    <string name="choosertitle_sharevia">کے ذریعے اشتراک کریں</string>  
+    <!-- Used as the title of dialogs in the Browser Settings confirming that
+            the user wants to clear (cache, history, or cookie data) -->  
+    <string name="clear">صاف کریں</string>  
+    <!-- Part of a sentence that says "Replace <url of existing bookmark> with
+            <url of new bookmark>?" -->  
+    <string name="replace">بدلیں</string>  
+    <!-- Title displayed when the bookmarks page is shown -->  
+    <string name="browser_bookmarks_page_bookmarks_text">نشانی</string>  
+    <!-- Settings screen strings -->  
+    <!-- Menu item to open the Settings screen -->  
+    <string name="menu_preferences">ترتیبات</string>  
+    <!-- Settings screen, section title -->  
+    <string name="pref_content_title">اس صفحے کا متن</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_load_images">تصاویر کو لوڈ کریں</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_load_images_summary">تصاویر کی ویب پیجز پر نمائش کریں</string>  
+    <!-- Settings label [CHAR LIMIT=30] -->  
+    <string name="pref_content_block_popups">پاپ اپس کو روکیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_javascript">JavaScript کو چالو کریں</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_open_in_background">پس منظر میں کھولیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_plugins">پلگ انز کو چالو کریں</string>  
+    <!-- Plugin options -->  
+    <string-array name="pref_content_plugins_choices"> 
+        <item>ہر وقت آن</item>  
+        <item>جب ضرورت ہو</item>  
+        <item>بند کریں</item> 
+    </string-array>  
+    <!-- Settings summary [CHAR LIMIT=50]-->  
+    <string name="pref_content_open_in_background_summary">نئے ٹیبز کو اس ٹیب کے پیچھے کھولیں</string>  
+    <!-- Settings label [CHAR LIMIT=50] -->  
+    <string name="pref_content_homepage">ابتدائی صفحے کو ترتیب دیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_content_search_engine">سرچ انجن کا انتخاب کریں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_search_engine_summary">کسی ایک سرچ انجن کا انتخاب کریں</string>  
+    <!-- Settings button label that to pick what to set the homepage to [CHAR LIMIT=40] -->  
+    <string name="pref_set_homepage_to">بطور مرتب</string>  
+    <string-array name="pref_homepage_choices"> 
+        <!-- Setting choice to set the homepage to the current page [CHAR LIMIT=40] -->  
+        <item>موجودہ صفحہ</item>  
+        <!-- Setting choice to set the homepage to a blank page [CHAR LIMIT=40] -->  
+        <item>خالی صفحہ</item>  
+        <!-- Setting choice to set the homepage to the default page [CHAR LIMIT=40] -->  
+        <item>طے شدہ صفحہ</item>  
+        <!-- Setting choice to set the homepage to the "Most Visited" homepage feature, which is a list of most visited sites [CHAR LIMIT=40] -->  
+        <item>سب سے زیادہ دیکھی جانے والی سائٹیں</item>  
+        <!-- Setting choice to set the homepage to a user entered URL [CHAR LIMIT=40] -->  
+        <item>دیگر</item> 
+    </string-array>  
+    <!-- Settings label -->  
+    <string name="pref_content_autofit">صفحات کو خود بخود باپ کے مطابق کریں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_autofit_summary">ویب پیجز کو اس طرح بنائیں کہ وہ خود سے سکرین میں پورے آ جائیں</string>  
+    <!-- Settings screen & section title for "General settings". These include things like
+         configuring bookmark syncing to Google servers and form auto fill settings. [CHAR-LIMIT=32] -->  
+    <string name="pref_general_title">عمومی</string>  
+    <!-- Settings category for sync under general settings. This includes bookmark sync with Chrome [CHAR-LIMIT=50] -->  
+    <string name="pref_general_sync_title">ہم آہنگی</string>  
+    <!-- Settings category for autofill under general. [CHAR-LIMIT=50] -->  
+    <string name="pref_general_autofill_title">خود سے اندراج</string>  
+    <!-- Checkbox setting for enabling/disabling the form AutoFill feature [CHAR-LIMIT=32] -->  
+    <string name="pref_autofill_enabled">فارم میں خود سے اندراج</string>  
+    <!-- Settings summary for the form AutoFill feature. [CHAR-LIMIT=none] -->  
+    <string name="pref_autofill_enabled_summary">ویب فارموں کو ایک ہی کلک سے پر کریں</string>  
+    <!-- Label for option that when clicked opens the AutoFill settings screen. Also used as the title of that AutoFill Settings screen. [CHAR-LIMIT=32] -->  
+    <string name="pref_autofill_profile_editor">خود سے درج ہونے والا مواد</string>  
+    <!-- Summary for the AutoFill Settings preference [CHAR-LIMIT=none] -->  
+    <string name="pref_autofill_profile_editor_summary">ویب فارموں میں خود سے پر ہونے والے متن کا اندراج کریں</string>  
+    <!-- Auto login preference title [CHAR-LIMIT=32] -->  
+    <string name="pref_autologin_title">خود سے گوگل میں سائن ان ہونا</string>  
+    <!-- Message shown during auto login [CHAR-LIMIT=none] -->  
+    <string name="pref_autologin_progress"> 
+        <xliff:g>%s</xliff:g> کو استعمال کر کے گوگل میں سائن ان ہونا
+    </string>  
+    <!-- Auto-login bar description [CHAR-LIMIT=40] -->  
+    <string name="autologin_bar_text">کے طور پر سائن ان کریں</string>  
+    <!-- Login button [CHAR-LIMIT=10] -->  
+    <string name="autologin_bar_login_text">سائن ان کرنا</string>  
+    <!-- Hide button [CHAR-LIMIT=10] -->  
+    <string name="autologin_bar_hide_text">مخفی کریں</string>  
+    <!-- Login failure text [CHAR-LIMIT=25] -->  
+    <string name="autologin_bar_error">سائن ان نہیں کیا جا سکا۔</string>  
+    <!-- Heading for the AutoFill profile editor to tell the user what AutoFill does and why they should fill out the profile. [CHAR-LIMIT=None] -->  
+    <string name="autofill_profile_editor_heading">جو متن آپ ویب فارموں میں خود کار طریقے سے پر کرنا چاہتے ہیں اس کا اندراج کریں۔</string>  
+    <!-- String for the user's full name in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_name">مکمل نام:</string>  
+    <!-- String for the user's e-mail address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_email_address">ای میل:</string>  
+    <!-- String for the user's company name in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_company_name">کمپنی کا نام:</string>  
+    <!-- String for the first line of the user's address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_address_line_1">پتے کی پہلی سطر:</string>  
+    <!-- String to suggest to the user the kind of data to be used for the first line of the address. CHAR-LIMIT=64] -->  
+    <string name="autofill_profile_editor_address_line_1_hint">گلی/سڑک کا نام، پوسٹ آفس باکس، معرفت</string>  
+    <!-- String for the second line of the user's address in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_address_line_2">پتے کی ٍدوسری سطر:</string>  
+    <!-- String to suggest to the user the kind of data to be used for the second line of the address. CHAR-LIMIT=64] -->  
+    <string name="autofill_profile_editor_address_line_2_hint">اپارٹمنٹ، سوئیٹ، یونٹ، عمارت کا نام، منزل وغیرہ۔</string>  
+    <!-- String for the user's city or town in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_city">شہر/قصبے کا نام:</string>  
+    <!-- String for the user's state or province or region in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_state">ریاست/صوبے/علاقے کا نام:</string>  
+    <!-- String for the user's zip code in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_zip_code">زپ/پوسٹل کوڈ:</string>  
+    <!-- String for the user's country in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_country">ملک کا نام</string>  
+    <!-- String for the user's phone number in the AutoFill profile editor. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_phone_number">فون نمبر:</string>  
+    <!-- String to display in an error tooltip to inform the user the phone number they provided is not valid. [CHAR-LIMIT=32] -->  
+    <string name="autofill_profile_editor_phone_number_invalid">فون نمبر درست نہیں۔</string>  
+    <!-- Button text to save the AutoFill profile [CHAR-LIMIT=20] -->  
+    <string name="autofill_profile_editor_save_profile">محفوظ کریں</string>  
+    <!-- Toast message displayed when the profile has been successfully saved [CHAR-LIMIT=none] -->  
+    <string name="autofill_profile_successful_save">خود سے پر ہونے والا مواد محفوظ ہو گیا ہے۔</string>  
+    <!-- Toast message displayed when the profile has been successfully deleted [CHAR-LIMIT=none] -->  
+    <string name="autofill_profile_successful_delete">خود سے پر ہونے والا مواد حذف ہو گیا ہے۔</string>  
+    <!-- Button text to delete all the AutoFill profile data [CHAR-LIMIT=20] -->  
+    <string name="autofill_profile_editor_delete_profile">ہٹائيں</string>  
+    <!-- Text on a dialog shown to the user when they are prompted to set up the autofill feature [CHAR-LIMIT=NONE] -->  
+    <string name="autofill_setup_dialog_message">اس قسم کے ویب فارموں کو براؤزر خود سے پر کر سکتا ہے۔ کیا آپ اپنے خود سے پر ہونے والے مواد کا یہاں پر اندرج کرنا پسند کریں گے؟</string>  
+    <!-- Toast message displayed when the user decides to not set up autofill at this time. We want to remind them that they can configure
+         it through the Browser Settings menu. [CHAR-LIMIT=NONE] -->  
+    <string name="autofill_setup_dialog_negative_toast">آپ براؤزر &gt; سیٹنگز &gt; عمومی سکرین سے کسی وقت بھی خود سے پر ہونے والے مواد کا اندراج کر سکتے ہیں۔</string>  
+    <!-- Text on a checkbox in the "setup autofill" dialog which is shown to the user when they are prompted to set up the autofill feature.
+         The checkbox allows them to specify they would like to disable the feature altogether [CHAR-LIMIT=NONE] -->  
+    <string name="disable_autofill">خود سے پر ہونے کو معطل کریں</string>  
+    <!-- Settings screen, section title [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_security_title">رازداری اور حفاظت</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_cache">ذخیرے کی صفائی کریں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_cache_summary">مقامی طور پر ذخیرہ کیے گئے مواد اور ڈیٹا بیس کو ختم کریں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_cache_dlg">کیا مقامی طور پر ژخیرہ کیے گئے مواد اور ڈیٹا بیس کو حذف کر دیا جائے؟</string>  
+    <!-- Cookie settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_cookies_title">ککیز</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_cookies">ککیز سے متعلقہ تمام معلومات کو ختم کر دیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_cookies_summary">براؤزر والی تمام ککیز کو ختم کر دیں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_cookies_dlg">کیا تمام ککیز کو ختم کر دیا جائے؟</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_history">سابقات کو ختم کر دیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_history_summary">براؤزر پر دیکھی جابے والی سائٹوں سے متعلق سابقات کو ختم کر دیں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_history_dlg">کیا براؤزر پر دیکھی جابے والی سائٹوں سے متعلق سابقات کو ختم کر دیا جائے؟</string>  
+    <!-- Formdata settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_formdata_title">فارم والا مواد</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_form_data">فارم وال مواد ختم کر دیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_form_data_summary">محفوظ کیا گیا فارم والا تمام مواد ختم کر دیں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_form_data_dlg">کیا محفوظ کیا گیا فارم والا تمام مواد ختم کر دیا جائے؟</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_passwords">پاس ورڈز کو ختم کر دیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_passwords_summary">محفوظ کیے گئے تمام پاس ورڈز ختم کر دیں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_passwords_dlg">کیا محفوظ کیے گئے تمام پاس ورڈز ختم کر دیے جائیں؟</string>  
+    <!-- Location settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_privacy_location_title">محل وقوع</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_enable_geolocation">محل وقوع کو ممکن بنائیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_enable_geolocation_summary">سائٹوں کو آپ کے محل وقوع کے بارے میں دریافت کرنے کی اجازت دیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_privacy_clear_geolocation_access">محل وقوع کے بارے میں معلومات کی اجازت کو ختم کریں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_privacy_clear_geolocation_access_summary">محل وقوع کے بارے میں معلومات کی اجازت کو تمام ویب سائٹوں سے ختم کریں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_privacy_clear_geolocation_access_dlg">کیا محل وقوع کے بارے میں معلومات کی اجازت کو تمام ویب سائٹوں سے ختم کردیا جائے؟</string>  
+    <!-- Passwords settings category [CHAR-LIMIT=50] -->  
+    <string name="pref_security_passwords_title">پاس ورڈ</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_remember_passwords">پاس ورڈز کو یاد رکھیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_remember_passwords_summary">ویب سائٹوں کے یوزر نیم اور پاس ورڈز کو محفوظ کریں</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_save_form_data">فارم والی معلومات کو یاد رکھیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_save_form_data_summary">جو معلومات میں نے فارموں میں درج کی ہیں ان کو بعد میں استعمال کے لیے یاد رکھیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_show_security_warning">سیکیورٹی کے متعلق انتباہات کو دکھائیں</string>  
+    <!-- Settings summmary -->  
+    <string name="pref_security_show_security_warning_summary">اگر سائٹ کی سیکیورٹی کے متعلق کوئی مسئلہ ہو تو سیکیورٹی کے متعلق انتباہات کو دکھائیں</string>  
+    <!-- Settings label -->  
+    <string name="pref_security_accept_cookies">ککیز کو قبول کر لیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_security_accept_cookies_summary">سائٹوں کو ککیز کی معلومات کو محفوظ کرنے اور اس سے پڑھنے کی اجازت دیں</string>  
+    <!-- Settings text size options; appear in Text size dialog box [CHAR LIMIT=30] -->  
+    <string-array name="pref_text_size_choices"> 
+        <item>چھوٹا</item>  
+        <item>چھوٹا</item>  
+        <item>عام</item>  
+        <item>بڑا</item>  
+        <item>بہت بڑا</item> 
+    </string-array>  
+    <!-- Label for minimum font size [CHAR LIMIT=30] -->  
+    <string name="pref_min_font_size">فونٹ کا کم از کم سائز</string>  
+    <!-- Label for the current minimum font size value [CHAR LIMIT=6] -->  
+    <string name="pref_min_font_size_value"> 
+        <xliff:g id="font_size">%d</xliff:g>pt
+    </string>  
+    <!-- Label for text scaling (percent) [CHAR LIMIT=30] -->  
+    <string name="pref_text_zoom">تحریر کی سکیلنگ</string>  
+    <!-- Label for zoom on double-tap (percent) [CHAR LIMIT=30] -->  
+    <string name="pref_zoom_on_double_tap">دو دفعہ ٹیپ کرنے پر سائزکو بڑا کریں</string>  
+    <!-- Label for whether or not to force-enable user scalablity (aka, zoom) [CHAR LIMIT=30] -->  
+    <string name="pref_force_userscalable">زوم کو زبردستی نافذ کریں</string>  
+    <!-- Summary for whether or not to force-enable user scalablity (aka, zoom) [CHAR LIMIT=30] -->  
+    <string name="pref_force_userscalable_summary">ویب سائٹ کی زوم کو کنٹرول کرنے کی درخواست کو مسترد کریں</string>  
+    <!-- Inverted screen category under accessibility settings [CHAR LIMIT=50] -->  
+    <string name="pref_inverted_category">معکوس سکرین بنانا</string>  
+    <!-- Title for the inverted screen feature. This causes the screen to render with inverted colors (black becomes white and vice versa) [CHAR LIMIT=40] -->  
+    <string name="pref_inverted">معکوس بنانا</string>  
+    <!-- Summary for the inverted screen feature. [CHAR LIMIT=120] -->  
+    <string name="pref_inverted_summary">کالا رنگ سفید نظر آئے گا اور سفعد کالا</string>  
+    <!-- Title for the inverted screen contrast. Change the contrast value from 1.0 to 3.0. [CHAR LIMIT=30] -->  
+    <string name="pref_inverted_contrast">کانٹراسٹ</string>  
+    <!-- Settings label -->  
+    <string name="pref_default_zoom">طے شدہ زوم</string>  
+    <!-- Settings default zoom options; appear in default zoom dialog box -->  
+    <string-array name="pref_default_zoom_choices"> 
+        <item>دور</item>  
+        <item>درمیانہ</item>  
+        <item>نزدیک</item> 
+    </string-array>  
+    <!-- Title of dialog for setting the default zoom -->  
+    <string name="pref_default_zoom_dialogtitle">طے شدہ زوم</string>  
+    <!-- Do not translate -->  
+    <!-- Settings label -->  
+    <string name="pref_content_load_page">صفحات کو جائزے کے لیے کھولیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_content_load_page_summary">نئےسرے سے کھولے گئے صفحات کا جائزہ دکھائیں</string>  
+    <!-- Settings screen, section title [CHAR LIMIT=50] -->  
+    <string name="pref_extras_title">برتر</string>  
+    <!-- Settings label -->  
+    <string name="pref_extras_website_settings">ویب سائٹوں کی سیٹنگز</string>  
+    <!-- Settings summary -->  
+    <string name="pref_extras_website_settings_summary">ہر ویب سائٹ کے لیے اگلے درجے کی سیٹنگز</string>  
+    <!-- Settings category label [CHAR-LIMIT=50] -->  
+    <string name="pref_extras_reset_default_title">طے شدہ طریقے میں ترمیم کریں</string>  
+    <!-- Settings label -->  
+    <string name="pref_extras_reset_default">واپس طے شدہ طریقے پر آ جائیں</string>  
+    <!-- Settings summary -->  
+    <string name="pref_extras_reset_default_summary">طے شدہ سیٹنگز لاگو کر دیں</string>  
+    <!-- Confirmation dialog message -->  
+    <string name="pref_extras_reset_default_dlg">کیا سیٹنگز کو طے شدہ طریقے کے مطابق کر دیا جائے؟</string>  
+    <!-- Title for a group of settings -->  
+    <string name="pref_development_title">غلطیاں ٹھیک کریں</string>  
+    <!-- Do not translate. Development option to reset the prologin time [CHAR LIMIT=20] -->  
+    <!-- Settings screen, setting option name -->  
+    <string name="pref_default_text_encoding">تحریر کو کوڈ میں کرنا</string>  
+    <!-- Options in the Default encoding dialog box -->  
+    <string-array name="pref_default_text_encoding_choices"> 
+        <item>Auto detector</item>
+        <item>Latin-1 (ISO-8859-1)</item>  
+        <item>Unicode (UTF-8)</item>  
+        <item>چینی (GBK)</item>  
+        <item>چینی (Big5)</item>  
+        <item>جاپانی (ISO-2022-JP)</item>  
+        <item>جاپانی (SHIFT_JIS)</item>  
+        <item>جاپانی (EUC-JP)</item>  
+        <!-- No need to translate a EUC-KR part, and there is no string length limits. -->  
+        <item>کوریائی (EUC-KR)</item>  
+        <!-- TODO: We should add a lot more encodings.  --> 
+    </string-array>  
+    <!-- Dialog box title -->  
+    <string name="pref_default_text_encoding_dialogtitle">تحریر کو کوڈ میں کرنا</string>  
+    <!-- Settings screen, setting option name -->  
+    <string name="pref_default_font_family">فونٹ</string>  
+    <!-- Dialog box title -->  
+    <string name="pref_default_font_family_dialogtitle">فونٹ</string>  
+    <!-- Title for accessibility settings [CHAR LIMIT=25] -->  
+    <string name="pref_accessibility_title">رسائی</string>  
+    <!-- Font size settings category under accessibility settings [CHAR LIMIT=50] -->  
+    <string name="pref_font_size_category">تحریر کا سائز</string>  
+    <!-- Title for lab settings [CHAR LIMIT=25] -->  
+    <string name="pref_lab_title">لیبز</string>  
+    <!-- Title for lab quick controls feature [CHAR LIMIT=40] -->  
+    <string name="pref_lab_quick_controls">فوری کنٹرولز</string>  
+    <!-- Summary for lab quick controls feature [CHAR LIMIT=120] -->  
+    <string name="pref_lab_quick_controls_summary">ایپ اور URL بارز کو مخفی کرنے اور فوری کنٹرولز کو کھولنے کے لیے انگوٹھے کو دائیں یا بائیں کنارے سے حرکت دیں</string>  
+    <!-- Title for the "Instant search" lab feature [CHAR LIMIT=40] -->  
+    <string name="pref_use_instant_search">فوری گوگل</string>  
+    <!-- Summary for the "Instant search" lab feature [CHAR LIMIT=120] -->  
+    <string name="pref_use_instant_search_summary">گوگل تلاش میں ٹائپ کرنے کے ساتھ ستھ نتائج دکھانے کے لیے فوری گوگل کا استعمال کریں(اس سے آپ زیادہ ڈیٹا تلاش کر سکتے ہیں)۔</string>  
+    <!-- Title for the fullscreen lab feature [CHAR LIMIT=40] -->  
+    <string name="pref_lab_fullscreen">پوری سکرین</string>  
+    <!-- Summary for the fullscreen lab feature [CHAR LIMIT=120] -->  
+    <string name="pref_lab_fullscreen_summary">سٹیٹس بار کو مخفی کرنے کے لیے پوری سکرین والا موڈ استعمال کریں</string>  
+    <!-- Title for bandwidth management preference [CHAR LIMIT=25] -->  
+    <string name="pref_data_title">بینڈ وڈتھ کا بندوبست</string>  
+    <!-- Title for search preloading [CHAR LIMIT=40] -->  
+    <string name="pref_data_preload_title">تلاش کے نتائج کی پری لوڈنگ</string>  
+    <!-- Search preloading options [CHAR LIMIT=20] -->  
+    <string-array name="pref_data_preload_choices"> 
+        <item>کبھی نہیں</item>  
+        <item>صرف Wi-Fi پر</item>  
+        <item>ہمیشہ</item> 
+    </string-array>  
+    <!-- Do not translate -->  
+    <!-- Summary for search preloading [CHAR LIMIT=80] -->  
+    <string name="pref_data_preload_summary">پراؤزر کو زیادہ قابل اعتماد نتائج کو پس منظر میں پری لوڈ کرنے دیں</string>  
+    <!-- Title of dialog for search preloading [CHAR LIMIT=40] -->  
+    <string name="pref_data_preload_dialogtitle">تلاش کے نتائج پری لوڈ کیے جا رہے ہیں</string>  
+    <!-- Title for a dialog displayed when the browser has a data connectivity
+            problem -->  
+    <string name="browserFrameNetworkErrorLabel">رابطے کے ساتھ مسئلہ</string>  
+    <!-- Title for a dialog displayed when the browser runs into a file label
+            error -->  
+    <string name="browserFrameFileErrorLabel">فائل کے ساتھ مسئلہ</string>  
+    <!-- Dialog box title -->  
+    <string name="browserFrameFormResubmitLabel"/>  
+    <!-- Dialog box message -->  
+    <string name="browserFrameFormResubmitMessage">جو صفحہ آپ دیکھنے کی کوشش کر رہے ہیں اس میں وہ ڈیٹا موجود ہے جو پہلے ہی جمع کرایا جا چکا ہے (\"POSTDATA\")۔ اگر آپ اس ڈیٹا کو دوبارہ بھیجیں گے تو اس صفحے پر موجود فارم پر جو عمل تھا (مثلاً کوئی تلاش یا آن لائن خریداری) وہ دوبارہ وقوع پذیر ہو گا۔</string>  
+    <!-- Dialog box title -->  
+    <string name="loadSuspendedTitle">کوئی رابطہ موجود نہیں</string>  
+    <!-- Dialog box message -->  
+    <string name="loadSuspended">انٹرنیٹ سے رابطہ نہ ہونے کی وجہ سے براؤزر اس صفحے کو ڈاؤن لوڈ نہیں کر سکتا۔</string>  
+    <!-- Menu item -->  
+    <string name="clear_history">سابقات کو ختم کر دیں</string>  
+    <!-- History screen title; appears in title bar -->  
+    <string name="browser_history">حال ہی میں دیکھے گئے صفحات</string>  
+    <!-- Appears on History screen if no history is found -->  
+    <string name="empty_history">براؤزر سے متعلق کوئی سابقات نہیں ہیں۔</string>  
+    <!-- Menu option to load the user's home page [CHAR LIMIT=30] -->  
+    <string name="go_home">ابتدائی صفحہ</string>  
+    <!-- Displayed at the top of the bookmarks page.  When clicked, it bookmarks the page the browser is currently showing -->  
+    <string name="add_new_bookmark">بک مارک لگائیں</string>  
+    <!-- Verb placed in front of a screenshot of a web page that, when clicked,
+            will add that page to bookmarks -->  
+    <string name="add_bookmark_short">شامل کریں</string>  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- Do not translate.  This string is not displayed in UI (no badge is selected for go to). -->  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- This is the hint text shown in the Go To widget, before text is entered. -->  
+    <string name="search_hint">تلاش کریں یا URL کا اندراج کریں</string>  
+    <!-- This string is for the browser "Go To" UI. -->  
+    <!-- This is the button label in the "Go To" UI. -->  
+    <string name="search_button_text">آگے چلیں</string>  
+    <!-- The string used to describe the browser as a searchable item within system search settings. -->  
+    <string name="search_settings_description">بک مارک اور ویب سے متعلق سابقات</string>  
+    <!-- Pop-up window dialog -->  
+    <!-- Message for a dialog informing the user that the site is attempting to
+            display a popup window -->  
+    <string name="popup_window_attempt">اس سائٹ کو ایک پاپ اپ ونڈو کھولنے دیں؟</string>  
+    <!-- Label for a button to allow a particular popup window to open -->  
+    <string name="allow">اجازت دیں</string>  
+    <!-- Label for a button to disallow a particular popup from opening -->  
+    <string name="block">مسدود کریں</string>  
+    <!-- Title for a dialog informing the user that they cannot open any more
+            windows because the limit has been reached. -->  
+    <string name="too_many_windows_dialog_title">آپ ٹیبز کی حد تک پہینچ گئے ہیں</string>  
+    <!-- Message in a dialog telling the user that they cannot open any more
+            windows because the limit has been reached. -->  
+    <string name="too_many_windows_dialog_message">جب تک آپ کسی ایک ٹیب کو بند نہیں کر دیتے کوئی اور نیا ٹیب نہیں کھول سکتے۔</string>  
+    <!-- Title for a dialog informing the user that they cannot open a subwindow
+            because only one can be open at a time. -->  
+    <string name="too_many_subwindows_dialog_title">پاپ اپ پہلے ہی کھلا ہے</string>  
+    <!-- Message for a dialog informing the user that they cannot open a
+            subwindow because only one can be open at a time. -->  
+    <string name="too_many_subwindows_dialog_message">ایک وقت میں ایک ہی پاپ اپ کھولا جا سکتا ہے۔</string>  
+    <!-- Download History UI strings -->  
+    <!-- Dialog title [CHAR LIMIT=25] -->  
+    <string name="download_no_sdcard_dlg_title" product="nosdcard">USB پر ذخیرہ کرنا اس وقت ممکن نہیں</string>  
+    <!-- Dialog title -->  
+    <string name="download_no_sdcard_dlg_title" product="default">کوئی SD کارڈ موجود نہیں</string>  
+    <!-- Dialog message [CHAR LIMIT=NONE] -->  
+    <string name="download_no_sdcard_dlg_msg" product="nosdcard"> 
+        <xliff:g id="filename">%s</xliff:g>. ڈاؤن لوڈ کرنے کے لیے کارڈ SD کے ذخیرے کی ضرورت ہے۔
+    </string>  
+    <!-- Dialog message -->  
+    <string name="download_no_sdcard_dlg_msg" product="default">An SD card is required to download 
+        <xliff:g id="filename">%s</xliff:g>.
+    </string>  
+    <!-- Title for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything [CHAR LIMIT=25] -->  
+    <string name="download_sdcard_busy_dlg_title" product="nosdcard">SD کارڈ موجود نہیں</string>  
+    <!-- Title for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything -->  
+    <string name="download_sdcard_busy_dlg_title" product="default">SD card unavailable</string>  
+    <!-- Message for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything.  Informs
+            the user how to enable SD card storage [CHAR LIMIT=NONE] -->  
+    <string name="download_sdcard_busy_dlg_msg" product="nosdcard">SD کارڈ اس وقت مصروف ہے۔ ڈاؤن لوڈ جاری رکھنے کے لیے نوٹیفیکیشن میں SD کارڈ کو آف کریں کو چھوئیں۔</string>  
+    <!-- Message for a dialog informing the user that the SD card used for
+            external storage is busy so they cannot download anything.  Informs
+            the user how to enable SD card storage -->  
+    <string name="download_sdcard_busy_dlg_msg" product="default">The SD card is busy. To allow downloads, touch Turn Off USB Storage in the notification.</string>  
+    <!-- Toast for a download which cannot begin because the URL is not http or https -->  
+    <string name="cannot_download">صرف \"http\" or \"https\" والے URLs کو ڈاؤن لوڈ کیا جا سکتا ہے۔</string>  
+    <!-- Message in the list of items which have received download requests
+            telling their status.  This message states that the download has not
+            yet begun -->  
+    <string name="download_pending">\u2026 کی ڈاؤن لوڈنگ شروع ہو رہی ہے</string>  
+    <!-- The default homepage. If it starts with "http://www.google" and the
+            user signs up the device with a Google sites account, the site's
+            domain will be appended. -->  
+    <!-- Bookmark name for Picasa website -->  
+    <!-- The description of the suggestion that lets the user search the web for the query currently
+         in the text field. -->  
+    <string name="search_the_web">ویب پر تلاش کریں</string>  
+    <!-- HTML5 dialogs -->  
+    <!-- Used as a status bar notification when the browser is running out of space trying to allocate or increase the database quota for an HTML5 databae or application cache. -->  
+    <string name="webstorage_outofspace_notification_title">پراؤزر کا ذخیرہ بھر چکا ہے</string>  
+    <string name="webstorage_outofspace_notification_text">جگہ بنانے کے لیے یہاں پر چھوئیں۔</string>  
+    <!-- Used in the Browser Settings -->  
+    <string name="webstorage_clear_data_title">محفوظ کیے گئے ڈیٹا کو ختم کریں</string>  
+    <!-- Confirmation dialog when the user ask to clear all data for an origin -->  
+    <string name="webstorage_clear_data_dialog_message">کیا اس ویب سائٹ سے ذخیرہ کیا ہو تمام ڈیٹا حذف کر دیا جائے؟</string>  
+    <string name="webstorage_clear_data_dialog_ok_button">ٹھیک ہے</string>  
+    <string name="webstorage_clear_data_dialog_cancel_button">منسوخ</string>  
+    <!-- Strings used in the summary of origins -->  
+    <string name="webstorage_origin_summary_mb_stored" product="tablet">آپ کے آلے پر ذخیرہ MB</string>  
+    <string name="webstorage_origin_summary_mb_stored" product="default">MB آپ کے فون پر ذخیرہ ہوا ہے۔</string>  
+    <!-- String shown in a progress view while a video is loading, before it starts playing -->  
+    <string name="loading_video">ویڈیو\u2026 لوڈ کی جا رہی ہے۔</string>  
+    <!-- Geolocation -->  
+    <!-- Permissions prompt -->  
+    <string name="geolocation_permissions_prompt_message"> 
+        <xliff:g id="websiteorigin" example="maps.google.com">%s</xliff:g> آپ کا محل وقوع جاننا چاہتا ہے
+    </string>  
+    <string name="geolocation_permissions_prompt_share">محل وقوع دوسروں کو معلوم کرنے دیں</string>  
+    <string name="geolocation_permissions_prompt_dont_share">منع کریں</string>  
+    <string name="geolocation_permissions_prompt_remember">ترجیحات کو یاد رکھیں</string>  
+    <!-- Permissions prompt toast -->  
+    <string name="geolocation_permissions_prompt_toast_allowed">یہ سائٹ آپ کے محل وقوع تک رسائی رکھتی ہے۔ اس کو سیٹنگز &gt; مزید &gt; ویب سائٹ &gt; پر جا کر تبدیل کریں۔</string>  
+    <string name="geolocation_permissions_prompt_toast_disallowed">یہ سائٹ آپ کے محل وقوع تک رسائی نہیں رکھتی۔ اس کو سیٹنگز &gt; مزید &gt; ویب سائٹ &gt; پر جا کر تبدیل کریں۔</string>  
+    <!-- Settings -> Advanced -> Website settings -> <origin> -->  
+    <string name="geolocation_settings_page_title">محل وقوع تک رسائی کو ختم کریں</string>  
+    <string name="geolocation_settings_page_summary_allowed">یہ سائٹ اس وقت آپ کے محل وقوع تک رسائی رکھتی ہے</string>  
+    <string name="geolocation_settings_page_summary_not_allowed">یہ سائٹ اس وقت آپ کے محل وقوع تک رسائی نہیں رکھتی</string>  
+    <!-- Settings page dialog -->  
+    <string name="geolocation_settings_page_dialog_message">اس سائٹ کے لیے محل وقوع تک رسائی کو ختم کر دیا جائے؟</string>  
+    <string name="geolocation_settings_page_dialog_ok_button">ٹھیک ہے</string>  
+    <string name="geolocation_settings_page_dialog_cancel_button">منسوخ</string>  
+    <!-- Label for the menu item in the website settings activity used to clear data stored by all websites -->  
+    <string name="website_settings_clear_all">تمام صاف کریں</string>  
+    <string name="website_settings_clear_all_dialog_message">ویب سائٹ سے متعلق تمام معلومات اور محل وقوع تک رسائی کی اجازت کو منسوخ کر دیا جائے؟</string>  
+    <string name="website_settings_clear_all_dialog_ok_button">ٹھیک ہے</string>  
+    <string name="website_settings_clear_all_dialog_cancel_button">منسوخ</string>  
+    <!-- Text in the progress dialog when we are setting an image as the home screen wallpaper. -->  
+    <string name="progress_dialog_setting_wallpaper">\u2026 کو وال پیپر بنایا جا رہا ہے</string>  
+    <!-- The default state to the "up to parent folder" button in the bookmarks UI. This
+         is displayed when the user is at the highest level and cannot go up [CHAR LIMIT=16] -->  
+    <string name="defaultBookmarksUpButton">نشانی</string>  
+    <!-- The string that is displayed when there are no bookmarks to display.
+         This is centered in the middle of the screen [CHAR LIMIT=NONE] -->  
+    <string name="empty_bookmarks_folder">کوئی بک مارکس نہیں ہیں۔</string>  
+    <!-- Access point for RLZ tracking. -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string name="rlz_access_point">Y1</string>  
+    <!-- Title for a dialog asking the user which account to sync their bookmarks to [CHAR LIMIT=32] -->  
+    <string name="account_chooser_dialog_title" msgid="4833571985009544332">اکاؤنٹ منتخب کریں</string>  
+    <!-- Title for a dialog asking the user what they want to do with their bookmarks when adding a sync account [CHAR-LIMIT=32] -->  
+    <string name="import_bookmarks_dialog_title">گوگل اکاؤنٹ کے ساتھ ہم آہنگ کریں</string>  
+    <!-- Description for a dialog asking the user what they want to do with their bookmarks when adding a sync account [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_description">اس آلے میں موجود بک مارکس ابھی تک کسی گوگل اکاؤنٹ کے ساتھ منسلک نہیں۔ ان بک مارکس کو محفوظ کرنے کے لیے ان کو اکاؤنٹ میں شامل کریں۔ اگر آپ ان بک مارکس کو ہم آہنگ نہیں کرنا چاہتے تو ان کو حذف کر دیں۔</string>  
+    <!-- Description for selecting the account to add bookmarks to and begin syncing with [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_select_add_account">اس آلے میں موجود بک مارکس کو شامل کریں اور گوگل اکاؤنٹ کے ساتھ ہم آہنگ کرنا شروع کریں</string>  
+    <!-- Description for selecting the account to sync with and delete local bookmarks [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_delete_select_account">اس آلے میں موجود بک مارکس کو حذف کریں اور گوگل اکاؤنٹ کے ساتھ ہم آہنگ کرنا شروع کریں</string>  
+    <!-- Description confirming user's choice to delete bookmarks [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_confirm_delete">کیا اس آلے میں موجود بک مارکس کو حذف کر دیا جائے اور بک مارکس کو</string>  
+    <!-- Description confirming user's choice to add bookmarks to an account [CHAR-LIMIT=none] -->  
+    <string name="import_bookmarks_dialog_confirm_add">کیا اس آلے میں موجود بک مارکس کو شامل کر لیا جائے اور بک مارکس کو</string>  
+    <!-- Button allowing users to remove all of their existing bookmarks when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_remove">بک مارکس کو حذف کر دیں</string>  
+    <!-- Sync bookmarks wizard option to go to the next screen [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_next">آگے چلیں</string>  
+    <!-- Sync bookmarks wizard option to go to the previous screen [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_previous">واپس</string>  
+    <!-- Sync bookmarks wizard option to cancel sync setup [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_cancel">منسوخ</string>  
+    <!-- Sync bookmarks wizard option to finish sync setup [CHAR-LIMIT=30] -->  
+    <string name="import_bookmarks_wizard_done">ہوگیا</string>  
+    <!-- Button allowing users to import all of their existing bookmarks into an account when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_add">بک مارکس کو گوگل اکاؤنٹ میں شامل کریں</string>  
+    <!-- Button allowing users to import all of their existing bookmarks into an account when setting up syncing with their bookmarks stored in Google Chrome [CHAR-LIMIT=64] -->  
+    <string name="import_bookmarks_dialog_import">اپنے Android والے بک مارکس کو 
+        <xliff:g id="Googleaccount" example="account@example.com">%s</xliff:g> والے بک مارکس میں شامل کریں
+    </string>  
+    <!-- Url Selection Action Mode -->  
+    <!-- Menu item to share URL selection [CHAR LIMIT=30] -->  
+    <string name="menu_share_url">تقسیم کريں</string>  
+    <!-- Toast to inform the user that the maximum number of tabs has been
+         reached. [CHAR LIMIT=50] -->  
+    <string name="max_tabs_warning">کوئی مزید ٹیبز دستیاب نہیں ہیں</string>  
+    <!-- The label used by the instant search labs feature when shown in
+         the search engines list (Preferences->Advanced->Set search engine
+         [CHAR LIMIT=80] -->  
+    <string name="instant_search_label">فوری گوگل (لیبز)</string>  
+    <!-- Font size preview label in settings [CHAR LIMIT=30] -->  
+    <string name="preview">پیش منظر</string>  
+    <!-- Name for the user's unsynced, local bookmarks [CHAR LIMIT=50] -->  
+    <string name="local_bookmarks">مقامی</string>  
+    <!-- Popup menu checkbox that allows the user to request the desktop version of a webpage [CHAR LIMIT=50] -->  
+    <string name="ua_switcher_desktop">ڈیسک ٹاپ والی سائٹ طلب کریں</string>  
+    <!-- Preload permission label [CHAR LIMIT=40] -->  
+    <string name="permission_preload_label">نتائج کو پری لوڈ کریں</string>  
+    <!-- Empty text for the "saved pages" tab that is shown when no saved pages exist. [CHAR LIMIT=None] -->  
+    <string name="empty_snapshots_folder">کوئی صفحے محفوظ نہیں کیے ہوئے۔</string>  
+    <!-- Menu option to delete the currently selected saved page [CHAR LIMIT=50] -->  
+    <string name="remove_snapshot">محفوظ کیے ہوئے صفحات کو حذف کر دیں</string>  
+    <!-- Popup menu option to load the live version of a saved page [CHAR LIMIT=20] -->  
+    <string name="snapshot_go_live">لائیو صفحہ دیکھیں</string>  
+    <!--  Accessibility content descriptions -->  
+    <!-- Content description for back button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_back">واپس</string>  
+    <!-- Content description for forward button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_forward">آگے چلیں</string>  
+    <!-- Content description for refresh button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_refresh">صفحے کو تازہ کریں</string>  
+    <!-- Content description for stop button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_stop">صفحے کی لوڈنگ کو روک دیں۔</string>  
+    <!-- Content description for add bookmark button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_addbookmark">اس صفحے پر نشانی لگائیں</string>  
+    <!-- Content description for search button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_search">تلاش</string>  
+    <!-- Content description for voice search button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_voice">آواز سے تلاش کو شروع کریں</string>  
+    <!-- Content description for bookmarks button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_bookmarks">نشانی</string>  
+    <!-- Content description for close tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_closetab">یہ ٹیب بند کر دیں</string>  
+    <!-- Content description for new tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_newtab">نیا ٹیب کھولیں</string>  
+    <!-- Content description for new incognito tab button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_newincognitotab">ایک نیا غیر شناخت کردہ ٹیب کھولیں</string>  
+    <!-- Content description for clear button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_clear">ان پٹ کو حذف کر دیں</string>  
+    <!-- Content description for user agent switcher [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_uaswitch">یوزر ایجنٹ تبدیل کر دیں</string>  
+    <!-- Content description for go button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_go">آگے چلیں</string>  
+    <!-- Content description for tab switcher button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_navscreen">صفحہ مینیجر</string>  
+    <!-- Content description for overflow menu button [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_button_more">مزید آپشنز</string>  
+    <!-- Content description for incognito state [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_state_incognito">غیر شناخت شدہ صفحہ</string>  
+    <!-- Content description for frozen state [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_state_frozen">محفوظ کیے گئے صفحات</string>  
+    <!-- Content description for tab switcher transition [CHAR LIMIT=NONE] -->  
+    <string name="accessibility_transition_navscreen">ٹیبز کا انتظام</string>  
+    <!-- M: Strings for Add "Home" item in option menu -->  
+    <string name="home">ابتدائی صفحہ</string>  
+    <!-- M: Strings for Add "Close" item in option menu -->  
+    <string name="close">بند</string>  
+    <!-- M: Strings for Add "Option" title for "Close" option menu -->  
+    <string name="option">آپشن</string>  
+    <!-- M: Strings for Add "Minimize" item in "Close" option menu -->  
+    <string name="minimize">چھوٹا کریں</string>  
+    <!-- M: Strings for Add "Quit" item in "Close" option menu -->  
+    <string name="quit">باہر نکلیں</string>  
+    <!-- M: Strings for download path setting preference category title for OP01 integrated with File Manager -->  
+    <string name="pref_download_title">ترتیبات ڈاؤن لوڈ کریں</string>  
+    <!-- M: Strings for download path setting preference item title for OP01 integrated with File Manager -->  
+    <string name="pref_extras_set_download_directory_title">ڈاؤن لوڈ ڈائریکٹری مرتب کریں</string>  
+    <!-- M: site navigation start @{ -->  
+    <!-- The default homepage. If it starts with "http://www.google" and the
+            user signs up the device with a Google sites account, the site's
+            domain will be appended. -->  
+    <string name="sitenavigation_add">اس ویب سائٹ کو شامل کریں</string>  
+    <!-- Name of tab containing the user's most visited websites, organized by number of visits -->  
+    <string name="tab_site_navigation">سائٹ کے اندر سے راستہ تلاش کرنا</string>  
+    <string-array name="pref_homepage_choices_site_navigation"> 
+        <!-- Setting choice to set the homepage to the current page [CHAR LIMIT=40] -->  
+        <item>موجودہ صفحہ</item>  
+        <!-- Setting choice to set the homepage to a blank page [CHAR LIMIT=40] -->  
+        <item>خالی صفحہ</item>  
+        <!-- Setting choice to set the homepage to the default page [CHAR LIMIT=40] -->  
+        <item>طے شدہ صفحہ</item>  
+        <!-- Setting choice to set the homepage to the "Most Visited" homepage feature, which is a list of most visited sites [CHAR LIMIT=40] -->  
+        <item>سب سے زیادہ دیکھی جانے والی سائٹیں</item>  
+        <!-- Setting choice to set the homepage to the "Site Navigation" homepage feature, which is a list of site navigation sites [CHAR LIMIT=40] -->  
+        <item>سائٹ کے اندر سے راستہ تلاش کرنا</item>          
+        <!-- Setting choice to set the homepage to a user entered URL [CHAR LIMIT=40] -->  
+        <item>دیگر</item>  
+    </string-array>  
+    <!-- Content description for site navigation transition [CHAR LIMIT=NONE] -->  
+    <!-- Predefined websites Site Navigation for default operator, six of them -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string-array name="predefined_websites_default_optr"> 
+        <item>Hao123</item>  
+        <item>http://www.hao123.com/</item>  
+        <item>site_navigation_default_default1</item>  
+        <item>Google</item>  
+        <item>http://www.google.cn/</item>  
+        <item>site_navigation_default_default2</item>  
+        <item>Baidu</item>  
+        <item>http://www.baidu.com/</item>  
+        <item>site_navigation_default_default3</item>  
+        <item>Sina</item>  
+        <item>http://www.sina.com.cn/</item>  
+        <item>site_navigation_default_default4</item>  
+        <item>Sohu</item>  
+        <item>http://www.sohu.com/</item>  
+        <item>site_navigation_default_default5</item>  
+        <item>Yahoo</item>  
+        <item>http://www.yahoo.com/</item>  
+        <item>site_navigation_default_default6</item> 
+    </string-array>  
+    <!-- Predefined websites Site Navigation for Operator#01, seven of them -->  
+    <!-- DO NOT TRANSLATE -->  
+    <string-array name="predefined_websites_op01"> 
+        <item>about:blank</item>  
+        <item>about:blank1</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank2</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank3</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank4</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank5</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank6</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank7</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank8</item>  
+        <item>sitenavigation_thumbnail_default</item>  
+        <item>about:blank</item>  
+        <item>about:blank9</item>  
+        <item>sitenavigation_thumbnail_default</item> 
+    </string-array>  
+    <!-- @} -->  
+    <!-- For DM read & write homepage permission -->  
+    <string name="permlab_readHomepage">پراؤزر میں ابتدائی صفحے کو پڑھیں</string>  
+    <string name="permdesc_readHomepage">اس کے ذریعے ایپلیکیشن آپ کی مداخلت کے بغیر براؤزر میں ہوم صفحے کی معلومات پڑھ سکتا ہے</string>  
+    <string name="permlab_writeHomepage">براؤزر میں ہوم صفحہ تبدیل کریں</string>  
+    <string name="permdesc_writeHomepage">اس کے ذریعے ایپلیکیشن آپ کی مداخلت کے بغیر براؤزر میں ہوم صفحے کی معلومات تبدیل کر سکتا ہے</string>  
+    <!-- Alert dialog title for duplicate bookmark-->  
+    <string name="duplicated_bookmark">دوبارہ آنے وال بک مارک</string>  
+    <!-- Alert dialog message telling the user the bookmark have same name or url already exists -->  
+    <string name="duplicated_bookmark_warning">اس بک مارک کا نام یا پتہ وہی ہے جو پہلے سے موجود ہے۔ کیا پہلے والے کو اس سے تبدیل کر دیا جائے؟</string>  
+    <!-- Search Engine Settings label -->  
+    <!-- Settings summary -->  
+    <string name="pref_content_search_engine_consistency">سرچ انجن کا وہی رہنا</string>  
+    <string name="pref_search_engine_unify">تلاش کا انجن یکجا کریں</string>  
+    <string name="pref_search_engine_unify_summary">تلاش کے انجن کی تبدیلی کا اطلاق QuickSearchBox پر کریں</string>  
+    <!-- M: Support download or open content -->  
+    <string name="download_or_open_content">آپ کس عمل کو منتخب کرنا چاہتے ہیں؟</string>  
+    <string name="save_content">محفوظ کریں</string>  
+    <string name="open_content">آن کریں</string>  
+    <!-- M: No voice search alert dialog -->  
+    <string name="no_voice_search_alert_dialog_title">وائس کی تلاش</string>  
+    <string name="no_voice_search_alert_dialog_msg">آواز کے ذریعے سے تلاش کرنے والی کوئی ایپلیکیشن موجود نہ ہونے کی وجہ سے آواز کے ذریعے سےتلاش اس وقت میسر نہیں۔ براہ مہربانی اسے پہلے انسٹال کریں۔</string>  
+    <string name="make_primary">مجھے اس کے متعلق دوبارہ یاد نہ دلاؤ</string>  
+    <string name="dialog_title">ڈیٹا کنکشن تبدیل کریں</string>  
+    <string name="wifi_failover_gprs_content">وائے-فائے دستیاب نہیں ہے، کیا موبائل نیٹ ورک سے رابطہ کرنے کی کوشش کی جائے؟</string>  
+    <!-- M: Site navigation menu and dialog -->  
+    <string name="delete">مٹائيں</string>  
+    <string name="edit">ترمیم کريں</string>  
+    <string name="add">شامل کريں</string>  
+    <string name="delete_site_navigation_msg">کیا اس آئٹم کو حذف کر دیا جائے؟</string>  
+    <string name="site_navigation_name">نام</string>  
+    <string name="site_navigation_address">پتہ</string>  
+    <string name="website_needs_title">"ویب سائٹ کا کوئی نہ کوئی نام ہونا چاہیے۔"</string>  
+    <string name="website_needs_url">"ویب سائٹ کا کوئی نہ کوئی محل وقوع ہونا چاہیے۔"</string>  
+    <string name="site_navigation_cannot_save_url">یہ URL کوئی ویب سائٹ نہیں ہو سکتا۔</string>  
+    <string name="add_site_navigation">ویب سائٹ کا اضافہ کریں</string>  
+    <string name="edit_site_navigation">سائٹ کی نیوی گیشن میں ترمیم کریں</string>  
+    <string name="site_navigation_edit_button">ترمیم کريں</string>  
+    <string name="save_webpage">محفوظ کریں</string>  
+    <string name="duplicate_site_navigation_url">یہ URL پہلے سے ہی موجود ہے۔</string> 
+    <string name="duplicated_folder_warning">فولڈر کا نام ایک جیسا ہے اور پہلے سے موجود ہے۔</string> 
+
+    <!-- M: Option menu change string: Bookmarks -> Bookmarks/History -->
+    <string name="bookmarks_history">نشانی/سابقات</string>
+    <string name="save_bookmark">بُک مارک محفوظ کریں</string>
+    <string name="pref_content_landscape_only">صرف عمودی ڈسپلے</string>  
+    <string name="pref_content_landscape_only_summary">صفحات صرف چوڑے، عمودی اسکرین والے رخ پر ڈسپلے کریں</string>  
+    <string-array name="pref_op02_text_encoding_choices"> 
+        <item>لاطینی-1 (ISO-8859-1)</item>  
+        <item>یونیکوڈ (UTF-8)</item>  
+        <item>یونیکوڈ (UTF-16)</item>  
+        <item>چینی (GB2312)</item>  
+        <item>چینی (GBK)</item>  
+        <item>چینی (Big5)</item>  
+        <item>جاپانی (ISO-2022-JP)</item>  
+        <item>جاپانی (SHIFT_JIS)</item>  
+        <item>جاپانی (EUC-JP)</item>  
+        <item>کوریائی (EUC-KR)</item> 
+    </string-array>  
+    <string-array name="pref_default_font_family_choices"> 
+        <item>Sans-serif</item>  
+        <item>Serif</item>  
+        <item>واحد خالی جگہ</item> 
+    </string-array>  
+    <string name="max_input_browser_search">آپ کا اندراج زیادہ سے زیادہ کے حد کو پہنچ گيا۔</string>  
+    <string name="max_input_browser_search_title">اندراج کی حد</string>  
+    <string name="max_input_browser_search_button">ٹھیک ہے</string>  
+    <string name="contextmenu_savelinkbookmark">لنک کو بطور بُک مارک محفوظ کریں</string>  
+    <string name="pref_default_text_encoding_default">خودکار-ڈٹیکٹر</string> 
+</resources>

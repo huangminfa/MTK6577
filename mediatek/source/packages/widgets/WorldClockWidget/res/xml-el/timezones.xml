@@ -1,0 +1,231 @@
+<timezones> 
+    <timezone id="GMT+04:30" weatherID="2254271">Αμπαντάν</timezone>  
+    <timezone id="GMT+04:00" weatherID="1940330">Αμπού Ντάμπι</timezone>  
+    <timezone id="GMT+03:00" weatherID="1958930">Άντεν</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968902">Αμμάν</timezone>  
+    <timezone id="GMT+02:00" weatherID="2343732">Άγκυρα</timezone>  
+    <timezone id="GMT+03:00" weatherID="1979455">Βαγδάτη</timezone>  
+    <timezone id="GMT+04:00" weatherID="1951874">Μπακού</timezone>  
+    <timezone id="GMT+08:00" weatherID="1020725">Μπαντάρ Σερί Μπεγκαβάν</timezone>  
+    <timezone id="GMT+07:00" weatherID="1225448">Μπανγκόκ</timezone>  
+    <timezone id="GMT+02:00" weatherID="1960307">Βηρυτός</timezone>  
+    <timezone id="GMT+06:30" weatherID="2189783">Κολόμπο</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">Τζακάρτα</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">Jakarta</timezone>  
+    <timezone id="GMT+07:00" weatherID="1236594">Ανόι</timezone>  
+    <timezone id="GMT+05:00" weatherID="2211027">Ισλαμαμπάντ</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968222">Ιερουσαλήμ</timezone>  
+    <timezone id="GMT+08:00" weatherID="1154781">Κουάλα Λουμπούρ</timezone>  
+    <timezone id="GMT+08:00" weatherID="1199477">Μανίλα</timezone>  
+    <timezone id="GMT+03:00" weatherID="1939897">Μέκκα</timezone>  
+    <timezone id="GMT+06:30" weatherID="2295019">Νέο Δελχί</timezone>  
+    <timezone id="GMT+07:00" weatherID="1020985">Πνομ Πενχ</timezone>  
+    <timezone id="GMT+09:00" weatherID="1079132">Πιονγιάνγκ</timezone>  
+    <timezone id="GMT+09:00" weatherID="1132599">Σεούλ</timezone>  
+    <timezone id="GMT+08:00" weatherID="23424948">Σιγκαπούρη</timezone>  
+    <timezone id="GMT+04:30" weatherID="2251945">Τεχεράνη</timezone>  
+    <timezone id="GMT+09:00" weatherID="1118370">Τόκιο</timezone>  
+    <timezone id="GMT+08:00" weatherID="2266535">Ουλάν Μπατόρ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2127866">Χεφέι</timezone>  
+    <timezone id="GMT+08:00" weatherID="1887901">Μακάο</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151330">Πεκίνο</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139963">Φουζού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139967">Ξιάμεν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2145605">Λανζού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161838">Γκουαντζού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161853">Σενζέν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161856">Ζουχάι</timezone>  
+    <timezone id="GMT+08:00" weatherID="2166473">Νανίνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2146703">Γκουϊγιάνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2162779">Χάικου</timezone>  
+    <timezone id="GMT+08:00" weatherID="2171287">Σιχιαζουάνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2172736">Ζενγκ Τζου</timezone>  
+    <timezone id="GMT+08:00" weatherID="2141166">Χαρμπίν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2163866">Γουχάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2142699">Τσανγκσά</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137321">Τσανγκτσούν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137081">Ναντζίνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137082">Σουτσού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2133704">Ναντσάγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2147986">Νταλιάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2148332">Σενγιάνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2149760">Χοχότ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2150551">Γιντσουάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2138941">Ζινίνγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168327">Τζινάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168606">Κινκντάο</timezone>  
+    <timezone id="GMT+08:00" weatherID="2154547">Ταϊγουάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2157249">Σιάν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151849">Σανγκάη</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158433">Τσενγκντού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2306179">Ταϊπέι</timezone>  
+    <timezone id="GMT+08:00" weatherID="2159908">Τιανζίν</timezone>  
+    <timezone id="GMT+08:00" weatherID="2144789">Λάσα</timezone>  
+    <timezone id="GMT+08:00" weatherID="2165352">Χονγκ Κονγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2143692">Ουρουμκουί</timezone>  
+    <timezone id="GMT+08:00" weatherID="2160693">Κούνμινγκ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132574">Χανγκζού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132579">Νίγκμπο</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132582">Γουενζού</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158434">Τσονγκκίνγκ</timezone>  
+    <timezone id="GMT+01:00" weatherID="727232">Άμστερνταμ</timezone>  
+    <timezone id="GMT+01:00" weatherID="966591">Αμβέρσα</timezone>  
+    <timezone id="GMT+02:00" weatherID="946738">Αθήνα</timezone>  
+    <timezone id="GMT+01:00" weatherID="532697">Βελιγράδι</timezone>  
+    <timezone id="GMT+01:00" weatherID="638242">Βερολίνο</timezone>  
+    <timezone id="GMT+01:00" weatherID="968019">Βρυξέλλες</timezone>  
+    <timezone id="GMT+02:00" weatherID="868274">Βουκουρέστι</timezone>  
+    <timezone id="GMT+01:00" weatherID="804365">Βουδαπέστη</timezone>  
+    <timezone id="GMT+01:00" weatherID="554890">Κοπεγχάγη</timezone>  
+    <timezone id="GMT+00:00" weatherID="560743">Δουβλίνο</timezone>  
+    <timezone id="GMT+01:00" weatherID="782538">Γενεύη</timezone>  
+    <timezone id="GMT+01:00" weatherID="716085">Γένοβα</timezone>  
+    <timezone id="GMT+00:00" weatherID="21125">Γλασκώβη</timezone>  
+    <timezone id="GMT+02:00" weatherID="565346">Ελσίνκι</timezone>  
+    <timezone id="GMT+02:00" weatherID="2344116">Ιστανμπούλ</timezone>  
+    <timezone id="GMT+00:00" weatherID="742676">Λισαβόνα</timezone>  
+    <timezone id="GMT+00:00" weatherID="44418">Λονδίνο</timezone>  
+    <timezone id="GMT+01:00" weatherID="766273">Μαδρίτη</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122265">Μόσχα</timezone>  
+    <timezone id="GMT+01:00" weatherID="676757">Μόναχο</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122296">Μούρμανσκ</timezone>  
+    <timezone id="GMT+01:00" weatherID="862592">Όσλο</timezone>  
+    <timezone id="GMT+01:00" weatherID="615702">Παρίσι</timezone>  
+    <timezone id="GMT+01:00" weatherID="796597">Πράγα</timezone>  
+    <timezone id="GMT+00:00" weatherID="980389">Ρέικιαβικ</timezone>  
+    <timezone id="GMT+01:00" weatherID="721943">Ρώμη</timezone>  
+    <timezone id="GMT+01:00" weatherID="733075">Ρότερνταμ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2123260">Αγ. Πετρούπολη</timezone>  
+    <timezone id="GMT+02:00" weatherID="839722">Σόφια</timezone>  
+    <timezone id="GMT+01:00" weatherID="906057">Στοκχόλμη</timezone>  
+    <timezone id="GMT+01:00" weatherID="472135">Τίρανα</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424986">Βατικανό</timezone>  
+    <timezone id="GMT+01:00" weatherID="725746">Βενετία</timezone>  
+    <timezone id="GMT+01:00" weatherID="551801">Βιέννη</timezone>  
+    <timezone id="GMT+01:00" weatherID="523920">Βαρσοβία</timezone>  
+    <timezone id="GMT+01:00" weatherID="784794">Ζυρίχη</timezone>  
+    <timezone id="GMT-09:00" weatherID="2354490">Άνκορατζ</timezone>  
+    <timezone id="GMT-04:00" weatherID="379176">Ασουνσιόν</timezone>  
+    <timezone id="GMT-05:00" weatherID="2357024">Ατλάντα</timezone>  
+    <timezone id="GMT-05:00" weatherID="368148">Μπογκοτά</timezone>  
+    <timezone id="GMT-05:00" weatherID="2367105">Βοστώνη</timezone>  
+    <timezone id="GMT-03:00" weatherID="455819">Μπραζίλια</timezone>  
+    <timezone id="GMT-03:00" weatherID="468739">Μπουένος Άιρες</timezone>  
+    <timezone id="GMT-04:30" weatherID="395269">Καράκας</timezone>  
+    <timezone id="GMT-05:00" weatherID="667931">"Άνω και κάτω τελεία"</timezone>  
+    <timezone id="GMT-05:00" weatherID="2345115">Αβάνα</timezone>  
+    <timezone id="GMT-05:00" weatherID="109251">Κίνγκστον</timezone>  
+    <timezone id="GMT-04:00" weatherID="2344804">Λα Παζ</timezone>  
+    <timezone id="GMT-05:00" weatherID="418440">Λίμα</timezone>  
+    <timezone id="GMT-08:00" weatherID="2442047">Λος Άντζελες</timezone>  
+    <timezone id="GMT-06:00" weatherID="116545">Πόλη του Μεξικού</timezone>  
+    <timezone id="GMT-05:00" weatherID="2450022">Μαϊάμι</timezone>  
+    <timezone id="GMT-03:00" weatherID="468052">Μοντεβιδέο</timezone>  
+    <timezone id="GMT-05:00" weatherID="2459115">Νέα Υόρκη</timezone>  
+    <timezone id="GMT-05:00" weatherID="159386">Παναμάς</timezone>  
+    <timezone id="GMT-04:00" weatherID="380213">Πορτ-οφ-Σπέιν</timezone>  
+    <timezone id="GMT-08:00" weatherID="2487956">Σαν Φρανσίσκο</timezone>  
+    <timezone id="GMT-04:00" weatherID="349859">Σαντιάγο</timezone>  
+    <timezone id="GMT-05:00" weatherID="4118">Τορόντο</timezone>  
+    <timezone id="GMT-08:00" weatherID="9807">Βανκούβερ</timezone>  
+    <timezone id="GMT-05:00" weatherID="2514815">Ουάσιγκτον</timezone>  
+    <timezone id="GMT+00:00" weatherID="20069967">Αμπιτζάν</timezone>  
+    <timezone id="GMT+03:00" weatherID="1313090">Αντίς Αμπέμπα</timezone>  
+    <timezone id="GMT+01:00" weatherID="1253079">Αλγέρι</timezone>  
+    <timezone id="GMT+02:00" weatherID="1117457">Βεγγάζη</timezone>  
+    <timezone id="GMT+02:00" weatherID="1544986">Μπέιρα</timezone>  
+    <timezone id="GMT+01:00" weatherID="1279685">Μπραζαβίλ</timezone>  
+    <timezone id="GMT+02:00" weatherID="1521894">Κάιρο</timezone>  
+    <timezone id="GMT+02:00" weatherID="1591691">Κέιπ Τάουν</timezone>  
+    <timezone id="GMT+00:00" weatherID="2346988">Ντακάρ</timezone>  
+    <timezone id="GMT+00:00" weatherID="1532755">Καζαμπλάνκα</timezone>  
+    <timezone id="GMT+03:00" weatherID="1443415">Νταρ ες Σαλάμ</timezone>  
+    <timezone id="GMT+03:00" weatherID="23424797">Τζιμπουτί</timezone>  
+    <timezone id="GMT+01:00" weatherID="1478198">Ντουάλα</timezone>  
+    <timezone id="GMT+03:00" weatherID="20070421">Καμπάλα</timezone>  
+    <timezone id="GMT+01:00" weatherID="1396803">Κάνο</timezone>  
+    <timezone id="GMT+03:00" weatherID="1433559">Χαρτούμ</timezone>  
+    <timezone id="GMT+01:00" weatherID="1290062">Κινσάσα</timezone>  
+    <timezone id="GMT+01:00" weatherID="2346342">Λάγος</timezone>  
+    <timezone id="GMT+01:00" weatherID="1261906">Λουάντα</timezone>  
+    <timezone id="GMT+02:00" weatherID="1569006">Λουσάκα</timezone>  
+    <timezone id="GMT+02:00" weatherID="1550363">Μαπούτο</timezone>  
+    <timezone id="GMT+00:00" weatherID="2453077">Μονρόβια</timezone>  
+    <timezone id="GMT+03:00" weatherID="1528488">Ναϊρόμπι</timezone>  
+    <timezone id="GMT+01:00" weatherID="1277402">Ντζαμένα</timezone>  
+    <timezone id="GMT+01:00" weatherID="1505949">Νιαμέι</timezone>  
+    <timezone id="GMT+01:00" weatherID="1282253">Πουάντ-Νουάρ</timezone>  
+    <timezone id="GMT+00:00" weatherID="1539359">Ραμπάτ</timezone>  
+    <timezone id="GMT+03:00" weatherID="1358594">Ανταναναρίβο</timezone>  
+    <timezone id="GMT+02:00" weatherID="1353281">Τρίπολη</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424967">Τύνιδα</timezone>  
+    <timezone id="GMT+12:00" weatherID="1064103">Σούβα</timezone>  
+    <timezone id="GMT+10:00" weatherID="1105779">Σίδνεϊ</timezone>  
+    <timezone id="GMT+12:00" weatherID="2351310">Ουέλινγκτον</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000001">Βαρκελώνη</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000002">Φρανκφούρτη</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000003">Ζάγκρεμπ</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000004">Ταλίν</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000005">Μινσκ</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000006">Γιοχάνεσμπουργκ</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000008">Οδησσός</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000009">Χαράρε</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000010">Ριάντ</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000011">Ανταναναρίβο</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000012">Πόλη του Κουβέιτ</timezone>  
+    <timezone id="GMT+04:30" weatherID="9000013">Καμπούλ</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000014">Καράτσι</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000015">Τασκένδη</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000016">Λαχόρη</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000017">Βομβάη</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000018">Καλκούτα</timezone>  
+    <timezone id="GMT+05:45" weatherID="9000019">Κατμαντού</timezone>  
+    <timezone id="GMT+06:00" weatherID="9000020">Ντάκα</timezone>  
+    <timezone id="GMT+06:30" weatherID="9000021">Yangoon</timezone>  
+    <timezone id="GMT+06:30" weatherID="9000021">Yangoon</timezone>  
+    <timezone id="GMT+08:00" weatherID="9000022">Περθ</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000023">Ντάρβιν</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000024">Βλαδιβοστόκ</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000025">Μπρισμπέιν</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000026">Μελβούρνη</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000027">Καμπέρα</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000028">Αδελαΐδα</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000029">Καμτσάτκα</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000030">Αναντίρ</timezone>  
+    <timezone id="GMT+12:45" weatherID="9000031">Νησιά Τσάταμ</timezone>  
+    <timezone id="GMT+14:00" weatherID="9000032">Κιριτιμάτι</timezone>  
+    <timezone id="GMT-10:00" weatherID="9001001">Χονολουλού</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001002">Άνκορατζ (Αλάσκα)</timezone>  
+    <timezone id="GMT-08:00" weatherID="9001003">Σιάτλ</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001004">Έντμοντον</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001005">Φίνιξ</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001006">Ντένβερ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001007">Γουίνιπεγκ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001008">Χιούστον</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001009">Μινεάπολη</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">Σάο Πάολο</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001011">Νέα Ορλεάνη</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001012">Σικάγο</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001013">Μοντγκόμερι</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001014">Γουατεμάλα</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001015">Σαν Σαλβαδόρ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001016">Τεγκουσιγκάλπα</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001017">Μανάγκουα</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001018">Ιντιανάπολις</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001019">Ντιτρόιτ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001020">Φιλαδέλφεια</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001021">Οτάβα</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001022">Νασσάου</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001023">Μόντρεαλ</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001024">Σάντο Ντομίνγκο</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001025">Σαν Χουάν</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001026">Χάλιφαξ</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001027">Σαιντ Τζον</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">Sao Paulo</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001029">Ρίο ντε Τζανέιρο</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001030">Άκλαβικ</timezone>  
+    <timezone id="GMT+09:00" weatherID="9001031">Σεούλ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001032">Σαιντ Πωλ (Η.Π.Α.)</timezone> 
+</timezones>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <LinearLayout android:id="@+id/UpdateEnquireContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+    
+	    <TextView android:id="@+id/UpdatePormpt" 
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content" 
+	        android:text="@string/update_prompt"
+	        android:textAppearance="?android:attr/textAppearanceMedium"
+	        android:paddingTop="5dip"
+	        android:paddingLeft="5dip">
+	    </TextView>
+	    <ListView android:id="@+id/UpdateEnquireList"
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content"
+	        android:choiceMode="singleChoice"
+	        android:layout_marginTop="10dip">
+	    </ListView>
+    </LinearLayout>
+    
+
+</LinearLayout>

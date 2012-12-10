@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <!-- add for ICS porting -->  
+    <string-array name="proxy_error"> 
+        <item>主機欄位不可空白</item>  
+        <item>連接埠欄位不可空白</item>  
+        <item>無效的主機</item>  
+        <item>無效的連接埠</item> 
+    </string-array> 
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enquire_type">
+        <item>Cập nhật ngay</item>
+        <item>10 phút</item>
+        <item>30 phút</item>
+        <item>1 giờ</item>
+        <item>3 giờ</item>
+        <item>6 giờ</item>
+        <item>1 ngày</item>
+        <item>3 ngày</item>
+        <item>6 ngày</item>
+        <item>Đừng hỏi</item>
+    </string-array>
+</resources>

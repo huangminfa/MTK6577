@@ -1,0 +1,1 @@
+../../../../../../mediatek/platform/mt6575/kernel/core/include/mach/sync_write.h

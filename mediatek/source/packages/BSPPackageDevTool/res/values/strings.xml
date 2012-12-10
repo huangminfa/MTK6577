@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BSPPackageTelephonyDevTool</string>
+    <string name="sim1">SIM1</string>
+    <string name="sim2">SIM2</string>
+    <string name="start_status_bar_notification">Start Statusbar Notification</string>
+    <string name="stop_statusbar_notification">Stop Statusbar Notification</string>
+    <string name="default_sim">Default SIM</string>
+    <string name="network_status_and_signal_strength">Network Status &amp; Signal Strength</string>
+    <string name="data_connection">Data  Connection</string>
+    <string name="off">Off</string>
+    <string name="restarting_device">Restarting devuce...</string>
+    <string name="reboot_confirm_notice">Reboot device to switch default phone?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="no_sim_inserted">No SIM inserted</string>
+    <string name="sim">SIM</string>
+
+</resources>

@@ -1,0 +1,1 @@
+../../../media/libstagefright/nonndk/CameraSourceTimeLapse_mtkwrp.h

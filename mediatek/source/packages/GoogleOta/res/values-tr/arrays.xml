@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enquire_type">
+        <item>Şimdi güncelle</item>
+        <item>10 dakika</item>
+        <item>30 dakika</item>
+        <item>1 saat</item>
+        <item>3 saat</item>
+        <item>6 saat</item>
+        <item>1 gün</item>
+        <item>3 gün</item>
+        <item>6 gün</item>
+        <item>Asla sorma</item>
+    </string-array>
+</resources>

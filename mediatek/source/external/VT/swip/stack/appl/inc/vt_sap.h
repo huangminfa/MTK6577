@@ -1,0 +1,153 @@
+/*******************************************************************************
+*  Copyright Statement:
+*  --------------------
+*  This software is protected by Copyright and the information contained
+*  herein is confidential. The software may not be copied and the information
+*  contained herein may not be used or disclosed except with the written
+*  permission of MediaTek Inc. (C) 2005
+*
+*  BY OPENING THIS FILE, BUYER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+*  THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+*  RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO BUYER ON
+*  AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+*  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+*  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+*  NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+*  SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+*  SUPPLIED WITH THE MEDIATEK SOFTWARE, AND BUYER AGREES TO LOOK ONLY TO SUCH
+*  THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. MEDIATEK SHALL ALSO
+*  NOT BE RESPONSIBLE FOR ANY MEDIATEK SOFTWARE RELEASES MADE TO BUYER'S
+*  SPECIFICATION OR TO CONFORM TO A PARTICULAR STANDARD OR OPEN FORUM.
+*
+*  BUYER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND CUMULATIVE
+*  LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE,
+*  AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+*  OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY BUYER TO
+*  MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE. 
+*
+*  THE TRANSACTION CONTEMPLATED HEREUNDER SHALL BE CONSTRUED IN ACCORDANCE
+*  WITH THE LAWS OF THE STATE OF CALIFORNIA, USA, EXCLUDING ITS CONFLICT OF
+*  LAWS PRINCIPLES.  ANY DISPUTES, CONTROVERSIES OR CLAIMS ARISING THEREOF AND
+*  RELATED THERETO SHALL BE SETTLED BY ARBITRATION IN SAN FRANCISCO, CA, UNDER
+*  THE RULES OF THE INTERNATIONAL CHAMBER OF COMMERCE (ICC).
+*
+*******************************************************************************/
+ /******************************************************************************
+ *  Copyright Statement:
+ *  --------------------
+ *  This software is protected by Copyright and the information contained
+ *  herein is confidential. The software may not be copied and the information
+ *  contained herein may not be used or disclosed except with the written
+ *  permission of MediaTek Inc. (C) 2001
+ *
+ ******************************************************************************/
+
+ /******************************************************************************
+ * Filename:
+ * ---------
+ *   vt_sap.h
+ *
+ * Project:
+ * --------
+ *   DUMA
+ *
+ * Description:
+ * ------------
+ *  VT related message identity definition
+ *
+ * Author:
+ * -------
+ * Matt Liu
+ *
+ *---------------------------- VT_MSG_CODE_BEGIN ----------------------------*/
+
+MSG_ID_CSM_VT_ACTIVATE_REQ,
+MSG_ID_CSM_VT_ACTIVATE_CNF,
+
+MSG_ID_CSM_VT_DEACTIVATE_REQ,
+MSG_ID_CSM_VT_DEACTIVATE_CNF,
+
+MSG_ID_CSM_VT_DISC_IND,
+
+MSG_ID_VT_CSR_DOWNLINK_DATA_IND,
+MSG_ID_VT_CSR_UPLINK_DATA_IND,
+
+MSG_ID_VT_MED_OPEN_LCN_IND,
+MSG_ID_MED_VT_OPEN_LCN_RSP,
+
+MSG_ID_VT_MED_CN_STATUS_IND,
+
+MSG_ID_VT_MED_CALL_END_IND,
+MSG_ID_MED_VT_CALL_END_RSP,
+
+MSG_ID_MMI_VT_DTMFSEND_REQ,
+MSG_ID_VT_MMI_DTMFSEND_CNF,
+
+MSG_ID_MMI_VT_SETCAP_REQ,
+MSG_ID_VT_MMI_SETCAP_CNF,
+
+
+//###########################################
+//           with audio driver
+//###########################################
+MSG_ID_VT_SP3G_UL_DATA_READY_IND,
+//###########################################
+//
+//###########################################
+
+MSG_ID_MMI_VT_UII,
+
+
+//#ifdef __3G324M_UNIT_TEST__
+//for unit test
+MSG_ID_VT_F_CSR_ACTIVATE_REQ,
+MSG_ID_VT_F_CSR_ACTIVATE_CNF,
+
+MSG_ID_VT_F_CSR_DEACTIVATE_REQ,
+MSG_ID_VT_F_CSR_DEACTIVATE_CNF,
+//#endif
+
+//------------------------------------------------------------------------------
+MSG_ID_VT_TEST_REQ,
+MSG_ID_VT_LOOPBACK_VIDEO_DATA,
+MSG_ID_VT_LOOPBACK_AUDIO_DATA,
+MSG_ID_VT_LOOPBACK_NETWORK_VIDEO_DATA,
+MSG_ID_VT_LOOPBACK_NETWORK_AUDIO_DATA,
+MSG_ID_MED_VT_VIDEO_PAUSE,
+MSG_ID_MED_VT_VIDEO_RESUME,
+MSG_ID_VT_DBG_UL_H245_MSG_IND,
+MSG_ID_VT_DBG_DL_H245_MSG_IND,
+
+MSG_ID_MEDIA_VCALL_CHANNEL_STATUS_IND,
+MSG_ID_MEDIA_VT_ADJUST_VIDEO_QUALITY_IND,
+MSG_ID_MEDIA_VT_SWITCH_VIDEO_SIZE,
+
+MSG_ID_MED_VT_CODEC_OPEN_ACK,
+MSG_ID_MED_VT_PUT_UL_VIDEO,
+
+MSG_ID_VT_CSR_START_CONSUME_DL_IND,
+MSG_ID_VT_CSR_CONSUME_DL_IND,
+
+MSG_ID_MED_VT_VIDEO_MISC_CMD,
+MSG_ID_MED_VT_FAST_UPDATE_REQ,
+
+MSG_ID_VT_MED_START_COUNTER_IND,
+
+MSG_ID_MED_VT_INCOMING_VIDEO_CHANNEL_CONNECTED,
+
+MSG_ID_VT_CHANNEL_ACTIVATE,
+
+MSG_ID_VT_CHANNEL_INACTIVATE,
+
+
+#ifdef __VT_SWIP__
+
+MSG_ID_L4C_VT_EM_SET_CONFIG_REQ,
+//MSG_ID_L4C_VT_EM_GET_CONFIG_REQ,
+//MSG_ID_L4CPS_EM_UPDATE_REQ,
+
+MSG_ID_MDI_VT_LOOPBACK_ACTIVATE_REQ,
+MSG_ID_MDI_VT_LOOPBACK_DEACTIVATE_REQ,
+#endif
+
+

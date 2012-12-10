@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enquire_type">
+        <item>Aggiorna subito</item>
+        <item>10 minuti</item>
+        <item>30 minuti</item>
+        <item>1 ora</item>
+        <item>3 ore</item>
+        <item>6 ore</item>
+        <item>1 giorno</item>
+        <item>3 giorni</item>
+        <item>6 giorni</item>
+        <item>Non chiedere</item>
+    </string-array>
+</resources>

@@ -1,0 +1,32 @@
+	 {"LayName": "weather_effect_ani", "LayWidth": 256.000000, "LayHeight": 144.000000, "LayID": 545, "ParentID": 0, "LayIn": 7.47, "LayDur": 4.84, "CompIn": 0.97, "CompDur": 4.84, "NumEffects": 0,
+		"SourcePath": "//pc10110074/d$/AE_Project/LandscapeSweet_Slice/icon_raindrops.png",
+				 "AnchorPoint": { 
+					"X": 0.50, "Y": 0.50, "Z": 0.00
+					 }, 
+				 "Position": { 
+					"Type":[ 4 , 4 ],
+					"Time":[ 0.96763 , 5.77244 ],
+					"X":[ 146.94 , 152.00 ],
+					"Y":[ 120.22 , 194.39 ],
+					"Z":[ 0.00 , 0.00 ],
+					"InTanX":[ -1.78 , -0.86 ],
+					"InTanY":[ -7.70 , -3.72 ],
+					"InTanZ":[ -0.00 , 0.00 ],
+					"OutTanX":[ 0.92 , 1.78 ],
+					"OutTanY":[ 3.98 , 7.70 ],
+					"OutTanZ":[ 0.00 , 0.00 ]
+				}
+,				 "Scale": { 
+					"X": 100.00, "Y": 100.00, "Z": 100.00
+					 }, 
+				 "Rotation": { 
+					"Val": 0.00
+					 }, 
+				 "Opacity": { 
+					"Type":[ 0 , 0 , 0 ],
+					"Time":[ 0.96763 , 3.47014 , 5.77244 ],
+					"Val":[ 20.00 , 80.00 , 0.00 ],
+					"InTanX":[ 0.00 , 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 , 0.00 ]
+				}
+	}

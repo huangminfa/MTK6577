@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Backup and Restore</string>
+    <string name="backup">Backup</string>
+    <string name="restore">Restore</string>
+    <string name="backuptosd">Backup to SD card</string>
+    <string name="selectall">Select All</string>
+    <string name="unselectall">Deselect All</string>
+    <string name="contact_module">Contact</string>
+    <string name="message_module">Message</string>
+    <string name="picture_module">Picture</string>
+    <string name="calendar_module">Calendar</string>
+    <string name="app_module">Application</string>
+    <string name="music_module">Music</string>
+    <string name="notebook_module">NoteBook</string>
+    <string name="backuping">Backing up</string>
+    <string name="restoring">Restoring</string>
+    <string name="warning">Warning</string>
+    <string name="cancel_backup_confirm">Cancel backup? </string>
+    <string name="cancelling">Cancelling</string>
+    <string name="btn_ok">OK</string>
+    <string name="bt_yes">Yes</string>
+    <string name="bt_no">No</string>
+    
+    <string name="menu_delete">Delete</string>
+    
+    <string name="unknow">unknown</string>
+    <string name="backup_data">Backup data</string>
+    <string name="less_1K">Less 1K</string>
+    
+    
+    <string name="notice">Notice</string>
+    <string name="nosdcard_notice">Please insert your SD card!</string>
+    <string name="restore_confirm_notice">While restoring, your existing data will be replaced, the new data will be written in.</string>
+    <string name="contitue">Continue</string>
+    <string name="sdcard_removed">SD card Removed!</string>
+    <string name="sdcard_is_full">SD card is full!</string>
+        
+    <string name="backup_result">Backup Result</string>
+    <string name="restore_result">Restore Result</string>
+    <string name="result_success">success</string>
+    <string name="result_fail">fail</string>
+    <string name="error">error</string>
+    <string name="sdcard_swap_remove">No SDCard detected.</string>
+    <string name="sdcard_swap_insert">SDCard detected.</string>
+    
+</resources>

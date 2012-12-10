@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  	<ListPreference
+	  android:key="audio_channel_adaptation"
+	  android:title="@string/audio_channel_adaptation" 
+	  android:entries="@array/working_mode_audio_channels"
+	  android:entryValues="@array/working_mode_audio_channels_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="video_channel_adaptation"
+	  android:title="@string/video_channel_adaptation" 
+	  android:entries="@array/working_mode_video_channels"
+	  android:entryValues="@array/working_mode_video_channels_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="video_channel_reverse_data_type"
+	  android:title="@string/video_channel_reverse_data_type" 
+	  android:entries="@array/working_mode_video_channels_reverse"
+	  android:entryValues="@array/working_mode_video_channels_reverse_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="multiplex_level"
+	  android:title="@string/multiplex_level" 
+	  android:entries="@array/working_mode_multiplex_level"
+	  android:entryValues="@array/working_mode_multiplex_level_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="video_codec_preference"
+	  android:title="@string/video_codec_preference" 
+	  android:entries="@array/working_mode_video_codec_preference"
+	  android:entryValues="@array/working_mode_video_codec_preference_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="use_wnsrp"
+	  android:title="@string/use_wnsrp" 
+	  android:entries="@array/working_mode_use_wnsrp"
+	  android:entryValues="@array/working_mode_use_wnsrp_values"
+	  android:persistent="false"/>
+	  
+	<ListPreference
+	  android:key="terminal_type"
+	  android:title="@string/terminal_type" 
+	  android:entries="@array/working_mode_terminal_type"
+	  android:entryValues="@array/working_mode_terminal_type_values"
+	  android:persistent="false"/>
+	  
+</PreferenceScreen>

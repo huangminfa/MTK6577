@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/sheep" android:title="sheep">
+		<menu>
+			<item android:id="@+id/eat" android:title="eat" />
+			<item android:id="@+id/walk" android:title="walk" />
+			<item android:id="@+id/sleep" android:title="sleep" />
+		</menu>
+	</item>
+	<item android:id="@+id/tree" android:title="tree" >
+		<menu>
+			<item android:id="@+id/bend_gail" android:title="bend_gail" />
+			<item android:id="@+id/bend_gentle" android:title="bend_gentle" />
+			<item android:id="@+id/bend_moderate" android:title="bend_moderate" />
+		</menu>
+	</item>
+	<item android:id="@+id/leaves" android:title="leaves" >
+		<menu>
+			<item android:id="@+id/blow_gail" android:title="blow_gail" />
+			<item android:id="@+id/blow_gentle" android:title="blow_gentle" />
+			<item android:id="@+id/blow_moderate" android:title="blow_moderate" />
+		</menu>
+	</item>
+	<item android:id="@+id/sun_moon" android:title="sun_moon" >
+		<menu>
+			<item android:id="@+id/day_to_night" android:title="day_to_night" />
+			<item android:id="@+id/night_to_day" android:title="night_to_day" />
+			<item android:id="@+id/show_hide" android:title="show_hide" />
+		</menu>
+	</item>
+	<item android:id="@+id/cloud" android:title="cloud" >
+		<menu>
+			<item android:id="@+id/heavy_clouds_show_hide" android:title="heavy_clouds_show_hide" />
+			<item android:id="@+id/light_clouds_show_hide" android:title="light_clouds_show_hide" />
+		</menu>
+	</item>
+	<item android:id="@+id/stars_twinkle" android:title="stars_twinkle" >
+	</item>
+	<item android:id="@+id/rain_fall" android:title="rain_fall" >
+	</item>
+</menu>

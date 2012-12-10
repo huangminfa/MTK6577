@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView 
+	android:layout_width="fill_parent" 
+	android:layout_height="wrap_content" 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content" 
+  android:orientation="vertical" 
+  >
+  
+  	<TextView 
+  	android:id="@+id/BLEAdvertise" 
+  	android:text="@string/BLEAdvertise"
+  	android:layout_width="fill_parent"
+	android:layout_height="wrap_content" 
+	android:layout_marginLeft = "10dip"
+	></TextView>
+
+	
+	<!--Advertise interval min -->
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:orientation="horizontal" 
+		android:layout_marginLeft = "10dip"
+		android:id="@+id/LinearLayout">
+		<TextView android:text="@string/BLEIntervalMin" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+		></TextView>
+		<EditText 
+				android:id="@+id/BLEIntervalMin" 
+				android:layout_width="120dip" 
+				android:layout_height="wrap_content"
+		></EditText>
+		<TextView android:text="@string/BLETimeUnit" 
+				android:layout_width="60dip" 
+				android:layout_height="wrap_content"
+		></TextView>
+	</LinearLayout>
+	<!--Advertise interval max -->
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:orientation="horizontal" 
+		android:layout_marginLeft = "10dip"
+		android:id="@+id/LinearLayout">
+		<TextView android:text="@string/BLEIntervalMax" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+		></TextView>
+		<EditText 
+				android:id="@+id/BLEIntervalMax" 
+				android:layout_width="120dip" 
+				android:layout_height="wrap_content"
+		></EditText>
+		<TextView android:text="@string/BLETimeUnit" 
+				android:layout_width="60dip" 
+				android:layout_height="wrap_content"
+		></TextView>
+	</LinearLayout>
+
+
+
+
+
+	<!-- advertise type select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEAdvertiseType" 
+				android:id="@+id/BLEAddressType" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip"></TextView>
+	  	<Spinner android:id="@+id/BLEAdvertiseTypeSpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="180dip"></Spinner>
+	</LinearLayout>
+
+
+	<!-- own address type select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEOwnAddressType" 
+				android:id="@+id/BLEAddressType" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip"></TextView>
+	  	<Spinner android:id="@+id/BLEOwnAddressTypeSpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="180dip"></Spinner>
+	</LinearLayout>
+
+	<!-- direct address type select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEDirectAddressType" 
+				android:id="@+id/BLEAddressType" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+				android:paddingTop="10dip"></TextView>
+	  	<Spinner android:id="@+id/BLEDirectAddressTypeSpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="180dip"></Spinner>
+	</LinearLayout>
+
+
+	<!--direct address -->
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent" 
+		android:orientation="horizontal" 
+		android:layout_marginLeft = "10dip"
+		android:id="@+id/LinearLayout">
+		<TextView android:text="@string/BLEDirectAddress" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+		></TextView>
+		<EditText 
+				android:id="@+id/BLEDirectAddress" 
+				android:layout_width="180dip" 
+				android:layout_height="wrap_content"
+		></EditText>
+	</LinearLayout>
+
+	<!-- channel 37, 38, 39 address-->
+	<CheckBox 
+		android:text="@string/BLEChannel37Checkbox" 
+		android:id="@+id/BLEChannel37Checkbox" 
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+	></CheckBox>
+	<CheckBox 
+		android:text="@string/BLEChannel38Checkbox" 
+		android:id="@+id/BLEChannel38Checkbox" 
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+	></CheckBox>
+	<CheckBox 
+		android:text="@string/BLEChannel39Checkbox" 
+		android:id="@+id/BLEChannel39Checkbox" 
+		android:layout_width="310dip" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+	></CheckBox>
+	
+	<!-- advertise filter policy select -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<TextView android:text="@string/BLEFilterPolicy" 
+				android:id="@+id/BLEAddressType" 
+				android:layout_width="130dip" 
+				android:layout_height="wrap_content"
+				></TextView>
+	  	<Spinner android:id="@+id/BLEFilterPolicySpinner" 
+				android:layout_height="wrap_content" 
+				android:layout_width="180dip"
+				></Spinner>
+	</LinearLayout>
+
+	<TextView android:text="@string/BLEAdvertiseData" 
+				android:layout_marginLeft = "10dip"
+				android:layout_width="310dip" 
+				android:layout_height="wrap_content"
+				></TextView>
+	<!-- advertise data set  -->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:paddingTop="10dip"
+		android:layout_marginLeft = "10dip"
+		android:orientation="horizontal">
+  
+	  	<EditText
+				android:id="@+id/BLEAdvertiseData" 
+				android:layout_width="230dip" 
+				android:layout_height="wrap_content"
+				></EditText>
+		<Button
+				android:text="@string/BLESet" 
+				android:id="@+id/BLEAdvertiseSet" 
+				android:layout_width="80dip" 
+				android:layout_height="wrap_content"
+				></Button>
+	  	
+	</LinearLayout>
+
+	
+	<!-- start/stop button-->
+	<LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginLeft = "10dip"
+		android:paddingTop="10dip"
+		>
+  
+	  	<Button android:text="@string/BLEStart" 
+				android:id="@+id/BLEAdvertiseStart" 
+				android:layout_width="155dip" 
+				android:layout_height="wrap_content"
+				></Button>
+	  	<Button android:text="@string/BLEStop" 
+				android:id="@+id/BLEAdvertiseStop" 
+				android:layout_width="155dip" 
+				android:layout_height="wrap_content"
+				></Button>
+	</LinearLayout>
+  
+</LinearLayout>
+</ScrollView>

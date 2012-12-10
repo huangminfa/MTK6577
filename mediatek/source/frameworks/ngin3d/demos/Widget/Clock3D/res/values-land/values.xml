@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="background">20</integer>
+    <integer name="alarm_button">120</integer>    
+    <integer name="mode_button">160</integer>
+    <integer name="date_text">180</integer>
+</resources>

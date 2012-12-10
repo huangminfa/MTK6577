@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical">
+
+		<TextView android:text="@string/WiFi_WordAccess_Text"
+			android:id="@+id/WiFi_WordAccess_Text" android:layout_width="fill_parent"
+				android:layout_marginLeft = "10dip"
+			android:layout_height="wrap_content"></TextView>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<TextView android:text="@string/WiFi_addr_Text" android:id="@+id/WiFi_addr_Text"
+				android:layout_marginLeft = "10dip"
+				android:layout_width="100dip" android:layout_height="wrap_content"></TextView>
+			<EditText android:text="@string/WiFi_addr_Content"
+				android:id="@+id/WiFi_addr_Content" android:layout_width="200dip"
+				android:layout_height="wrap_content"></EditText>
+
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<TextView android:text="@string/WiFi_value_Text" android:id="@+id/WiFi_value_Text"
+				android:layout_marginLeft = "10dip"
+				android:layout_width="100dip" android:layout_height="wrap_content"></TextView>
+			<EditText android:text="@string/WiFi_value_Content"
+				android:id="@+id/WiFi_value_Content" android:layout_width="200dip"
+				android:layout_height="wrap_content"></EditText>
+
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<Button android:text="@string/WiFi_Read_Word" android:id="@+id/WiFi_Read_Word"
+				android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/WiFi_Write_Word" android:id="@+id/WiFi_Write_Word"
+				android:layout_width="150dip" android:layout_height="wrap_content"></Button>
+
+		</LinearLayout>
+
+		<TextView android:text="@string/WiFi_StringAccess_Text"
+			android:id="@+id/WiFi_StringAccess_Text" android:layout_width="fill_parent"
+				android:layout_marginLeft = "10dip"
+			android:layout_height="wrap_content"></TextView>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<TextView android:text="@string/WiFi_addr_Text_String"
+				android:id="@+id/WiFi_addr_Text_String" android:layout_width="100dip"
+				android:layout_marginLeft = "10dip"
+				android:layout_height="wrap_content"></TextView>
+			<EditText android:text="@string/WiFi_addr_Content_String"
+				android:id="@+id/WiFi_addr_Content_String" android:layout_width="200dip"
+				android:layout_height="wrap_content"></EditText>
+
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<TextView android:text="@string/WiFi_length_Text_String"
+				android:id="@+id/WiFi_length_Text_String" android:layout_width="100dip"
+				android:layout_marginLeft = "10dip"
+				android:layout_height="wrap_content"></TextView>
+			<EditText android:text="@string/WiFi_length_Content_String"
+				android:numeric="integer"
+				android:id="@+id/WiFi_length_Content_String" android:layout_width="200dip"
+				android:layout_height="wrap_content"></EditText>
+
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<TextView android:text="@string/WiFi_value_Text_String"
+				android:id="@+id/WiFi_value_Text_String" android:layout_width="100dip"
+				android:layout_marginLeft = "10dip"
+				android:layout_height="wrap_content"></TextView>
+			<EditText android:text="@string/WiFi_value_Content_String"
+				android:id="@+id/WiFi_value_Content_String" android:layout_width="200dip"
+				android:layout_height="wrap_content"></EditText>
+
+		</LinearLayout>
+
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<Button android:text="@string/WiFi_Read_Word" android:id="@+id/WiFi_Read_String"
+				android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/WiFi_Write_Word" android:id="@+id/WiFi_Write_String"
+				android:layout_width="150dip" android:layout_height="wrap_content"></Button>
+
+		</LinearLayout>
+
+		<!--LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<Button android:text="@string/WiFi_SaveBtn" android:id="@+id/WiFi_SaveBtn"
+				android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/WiFi_BurnBtn" android:id="@+id/WiFi_BurnBtn"
+				android:layout_width="150dip" android:layout_height="wrap_content"></Button>
+
+		</LinearLayout>
+		<LinearLayout android:id="@+id/LinearLayout"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginRight = "10dip"
+			android:orientation="horizontal">
+
+			<Button android:text="@string/WiFi_ReadAllBtn" android:id="@+id/WiFi_ReadAllBtn"
+				android:layout_width="160dip" android:layout_height="wrap_content"></Button>
+			<Button android:text="@string/WiFi_ClearBtn" android:id="@+id/WiFi_ClearBtn"
+				android:layout_width="150dip" android:layout_height="wrap_content"></Button>
+
+		</LinearLayout-->
+
+		<ScrollView android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginTop="10dip"
+			android:layout_marginLeft = "5dip"
+			android:fillViewport="true" android:scrollbarStyle="outsideOverlay">
+			<EditText android:id="@+id/WiFi_ShowWindow" android:editable="false" android:layout_marginRight="5dip"
+				android:layout_width="305dip" android:layout_height="fill_parent">
+			</EditText>
+		</ScrollView>
+
+	</LinearLayout>
+</ScrollView>

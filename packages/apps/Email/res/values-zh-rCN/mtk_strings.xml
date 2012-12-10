@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright Statement:
+
+    This software/firmware and related documentation ("MediaTek Software") are
+    protected under relevant copyright laws. The information contained herein
+    is confidential and proprietary to MediaTek Inc. and/or its licensors.
+    Without the prior written permission of MediaTek inc. and/or its licensors,
+    any reproduction, modification, use or disclosure of MediaTek Software,
+    and information contained herein, in whole or in part, shall be strictly prohibited.
+
+    MediaTek Inc. (C) 2012. All rights reserved.
+
+    BY OPENING THIS FILE, RECEIVER HEREBY UNEQUIVOCALLY ACKNOWLEDGES AND AGREES
+    THAT THE SOFTWARE/FIRMWARE AND ITS DOCUMENTATIONS ("MEDIATEK SOFTWARE")
+    RECEIVED FROM MEDIATEK AND/OR ITS REPRESENTATIVES ARE PROVIDED TO RECEIVER ON
+    AN "AS-IS" BASIS ONLY. MEDIATEK EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT.
+    NEITHER DOES MEDIATEK PROVIDE ANY WARRANTY WHATSOEVER WITH RESPECT TO THE
+    SOFTWARE OF ANY THIRD PARTY WHICH MAY BE USED BY, INCORPORATED IN, OR
+    SUPPLIED WITH THE MEDIATEK SOFTWARE, AND RECEIVER AGREES TO LOOK ONLY TO SUCH
+    THIRD PARTY FOR ANY WARRANTY CLAIM RELATING THERETO. RECEIVER EXPRESSLY ACKNOWLEDGES
+    THAT IT IS RECEIVER'S SOLE RESPONSIBILITY TO OBTAIN FROM ANY THIRD PARTY ALL PROPER LICENSES
+    CONTAINED IN MEDIATEK SOFTWARE. MEDIATEK SHALL ALSO NOT BE RESPONSIBLE FOR ANY MEDIATEK
+    SOFTWARE RELEASES MADE TO RECEIVER'S SPECIFICATION OR TO CONFORM TO A PARTICULAR
+    STANDARD OR OPEN FORUM. RECEIVER'S SOLE AND EXCLUSIVE REMEDY AND MEDIATEK'S ENTIRE AND
+    CUMULATIVE LIABILITY WITH RESPECT TO THE MEDIATEK SOFTWARE RELEASED HEREUNDER WILL BE,
+    AT MEDIATEK'S OPTION, TO REVISE OR REPLACE THE MEDIATEK SOFTWARE AT ISSUE,
+    OR REFUND ANY SOFTWARE LICENSE FEES OR SERVICE CHARGE PAID BY RECEIVER TO
+    MEDIATEK FOR SUCH MEDIATEK SOFTWARE AT ISSUE.
+
+    The following software/firmware and/or related documentation ("MediaTek Software")
+    have been modified by MediaTek Inc. All revisions are subject to any receiver's
+    applicable license agreements with MediaTek Inc.
+
+
+
+    Copyright (C) 2008 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">  
+    <string name="not_add_more_text">不能输入更多文字.</string>  
+    <string name="message_compose_foward_profix">转发</string>  
+    <string name="message_compose_reply_profix">回复</string>  
+    <!-- message compose add attachment -->  
+    <string name="attach_image">图片</string>  
+    <string name="attach_video">视频</string>  
+    <string name="attach_sound">音乐</string>  
+    <string name="attach_contact">联系人</string>  
+    <string name="attach_file">文件</string>  
+    <string name="attach_calender">日历</string>  
+    <string name="low_storage_service_stop">存储空间不足，邮件服务已停止</string>  
+    <string name="low_storage_hint_delete_mail">您可以删除邮件或应用来释放存储空间</string>  
+    <string name="low_storage_service_start">存储空间充足，邮件服务已重新启动</string>  
+    <string name="low_storage_attachment_cannot_download">存储空间不足，无法下载附件</string>  
+    <string name="low_storage_attachment_cannot_view">存储空间不足，无法打开附件</string>  
+    <string name="attach_error_occurred">﻿系统未安装可添加该附件的应用程序。</string>  
+    <string name="download_remaining">下载邮件剩余部份</string>  
+    <string name="downloading_remaining">正在载入邮件...</string>  
+    <!-- Connection alert dialog -->  
+    <string name="unable_to_connect">"无法连接"</string>  
+    <string name="connection_settings">"设置"</string>  
+    <string name="need_connection_prompt">"使用此应用程序需要网络连接。请在设置中开启移动网络或WLAN"</string>  
+    <string name="too_many_attachments">附件数量太多. 只有前 
+        <xliff:g id="currentCount">%1$d</xliff:g> 个会被添加.
+    </string>  
+    <!-- limit of attachment number, when the current number >100 -->  
+    <string name="not_add_more_attachments">不能添加太多的附件. 允许添加的最大数是 
+        <xliff:g id="maxLimit">%1$d</xliff:g>.
+    </string>  
+    <string name="attachment_overflow">"附件太多"</string>  
+    <string name="cannot_add_this_attachment">无法添加该附件</string>  
+    <string name="loading_attachment">正在载入附件...</string> 
+    
+    <!-- Open eml message -->
+    <string name="open_message_parsing">正在解析邮件...</string>
+    <string name="open_message_update_db">正在更新数据库...</string>
+    <string name="open_message_update_ui">正在加载邮件... </string>
+    <string name="please_wait">操作正在进行中，请稍候...</string>
+    <string name="delete_message_dialog_title">删除邮件</string>
+    <string name="delete_message_confirm">要删除此邮件吗？</string>
+    <string name="attachment_info_deleted">由于该附件可能已经被删除,所以无法查看或者保存.</string>
+
+    <string name="send_failed_ticker">
+        <xliff:g id="account_name">%s</xliff:g>邮件发送失败。</string>
+    <!-- Notification title when email sent fails [CHAR LIMIT=30]-->
+    <string name="send_failed_title">邮件发送失败</string>
+    <string name="general_preference_auto_download_remaining_label">自动下载邮件剩余部份</string>
+    <string name="general_preference_auto_download_remaining_summary">向下滚动自动下载邮件剩余部份</string>
+    <string name="always_bcc_myself">始终密件抄送自己</string>
+    <string name="always_bcc_myself_summary">写邮件，回复和转发时始终密件抄送自己</string>
+    <string name="edit_compose_quoted_text_label">内联回复</string>
+
+    <!-- Remote search message -->
+    <string name="remote_search_failed">服务器搜索失败!</string>
+</resources>

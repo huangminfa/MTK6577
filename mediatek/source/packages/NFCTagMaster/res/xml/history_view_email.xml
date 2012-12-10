@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="0dip" 
+    android:orientation="vertical" >
+    
+    <LinearLayout android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:visibility="gone">
+    <TextView android:id="@+id/history_info_email_desc_label" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:layout_marginTop="10dip"
+        android:text="@string/edit_view_email_description_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <TextView android:id="@+id/history_info_email_desc"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/info_item"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="20dip"/>
+    </LinearLayout>
+    
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/edit_view_email_to_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <TextView android:id="@+id/history_info_email_to"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/info_item"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:layout_marginBottom="20dip"/>
+     
+    <TextView android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:textAppearance="@style/info_item_label"
+        android:text="@string/edit_view_email_subject_label"/>
+    <View android:layout_width="match_parent"
+        android:layout_height="@dimen/tag_info_lable_content_separator_width"
+        android:background="@color/tag_info_lable_content_separator_color"/>
+    <TextView android:id="@+id/history_info_email_subject"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/info_item"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="@dimen/tag_info_item_left_cut"
+        android:layout_marginBottom="20dip"/>
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources> 
+    <string name="app_name">कार्य</string>  
+    <string name="app_header">कार्य</string>  
+    <string name="todos_title">कार्य</string>  
+    <string name="dones_title">काम पूरा हुआ</string>  
+    <string name="todo_details_title">कार्य विवरण</string>  
+    <string name="no_expire_date">कोई समाप्ति तिथि नहीं</string>  
+    <string name="prompt_date_before_today">समापन समय वर्तमान समय से कम नहीं हो सकता</string>  
+    <string name="valid_date_range">तिथि सीमा 1970 से 1936 है</string>  
+    <string name="btn_done">काम पूरा हुआ</string>  
+    <string name="btn_cancel">रद्द</string>  
+    <string name="todos_empty_info">कोई आइटम नहीं\n नया कार्य जोड़ने के लिए टैप करें</string>  
+    <string name="dones_empty_info">कोई आइटम नहीं</string>  
+    <string name="delete">डिलीट करें</string>  
+    <string name="cancel">रद्द</string>  
+    <string name="delete_item">यह आइटम हटा दिया जाएगा</string>  
+    <string name="delete_selected_items">ये आइटम हटा दिए जाएंगे</string>  
+    <string name="done_time_format">%Y-%m-%d %H:%M पर संपन्न</string>  
+    <string name="operator_failed">पसंदीदा से बाहर करने में विफल!</string>  
+    <string name="back_title">नोट</string>  
+    <string name="back_message">क्या आप वर्तमान संपादन त्याग देना चाहते हैं?</string>  
+    <string name="ok">ओके</string>  
+    <string name="add_new_todo">नया कार्य</string>  
+    <string name="edit_todo">कार्य संपादित करें</string>  
+    <string name="todo_detail">कार्य विवरण</string>  
+    <string name="done_detail">संपन्न विवरण</string> 
+</resources>

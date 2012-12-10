@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Nfc Service</string>
+    <string name="nfcUserLabel">Nfc</string>
+
+    <string name="touch">Touch to beam</string>
+
+    <string name="mtk_str_beam">Android Beam</string>
+    <string name="mtk_str_cardemu">Card Emulation</string>
+    <string name="mtk_str_tagrw">Tag Reading Writing</string>
+    <string name="mtk_str_none">None is enabled</string>
+    <string name="mtk_str_enabled">enabled</string>
+    <string name="mtk_str_nfcactive">NFC Active</string>
+
+    <string name="mtk_str_nottrusted">Not trusted. Go on?</string>
+    <string name="mtk_str_yes">Yes</string>
+    <string name="mtk_str_no">No</string>
+</resources>

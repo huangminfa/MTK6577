@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enquire_type">
+        <item>立即更新</item>
+        <item>10 分鐘</item>
+        <item>30 分鐘</item>
+        <item>1 小時</item>
+        <item>3 小時</item>
+        <item>6 小時</item>
+        <item>1 天</item>
+        <item>3 天</item>
+        <item>6 天</item>
+        <item>永不詢問</item>
+    </string-array>
+</resources>

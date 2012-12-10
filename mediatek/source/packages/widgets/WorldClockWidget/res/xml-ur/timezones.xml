@@ -1,0 +1,230 @@
+<timezones> 
+    <timezone id="GMT+04:30" weatherID="2254271">آبادان</timezone>  
+    <timezone id="GMT+04:00" weatherID="1940330">ابو ظہبی</timezone>  
+    <timezone id="GMT+03:00" weatherID="1958930">عدن</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968902">عمان</timezone>  
+    <timezone id="GMT+02:00" weatherID="2343732">انقرہ</timezone>  
+    <timezone id="GMT+03:00" weatherID="1979455">بغداد</timezone>  
+    <timezone id="GMT+04:00" weatherID="1951874">باکو</timezone>  
+    <timezone id="GMT+08:00" weatherID="1020725">بندر سیری بیگوان</timezone>  
+    <timezone id="GMT+07:00" weatherID="1225448">بنکاک</timezone>  
+    <timezone id="GMT+02:00" weatherID="1960307">بیروت</timezone>  
+    <timezone id="GMT+06:30" weatherID="2189783">کولمبو</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">جکارتہ</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">Jakarta</timezone>  
+    <timezone id="GMT+07:00" weatherID="1236594">ہنوئی</timezone>  
+    <timezone id="GMT+05:00" weatherID="2211027">اسلام آباد</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968222">یروشلم</timezone>  
+    <timezone id="GMT+08:00" weatherID="1154781">کوالا لمپور</timezone>  
+    <timezone id="GMT+08:00" weatherID="1199477">منیلا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1939897">مکّہ</timezone>  
+    <timezone id="GMT+06:30" weatherID="2295019">نئی دہلی</timezone>  
+    <timezone id="GMT+07:00" weatherID="1020985">فوم پینہ</timezone>  
+    <timezone id="GMT+09:00" weatherID="1079132">پونگ یانگ</timezone>  
+    <timezone id="GMT+09:00" weatherID="1132599">سیؤل</timezone>  
+    <timezone id="GMT+08:00" weatherID="23424948">سنگاپور</timezone>  
+    <timezone id="GMT+04:30" weatherID="2251945">تہران</timezone>  
+    <timezone id="GMT+09:00" weatherID="1118370">ٹوکیو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2266535">اولان باتور</timezone>  
+    <timezone id="GMT+08:00" weatherID="2127866">حیفہ</timezone>  
+    <timezone id="GMT+08:00" weatherID="1887901">مکاؤ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151330">بیجنگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139963">فیو ہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139967">چیامین</timezone>  
+    <timezone id="GMT+08:00" weatherID="2145605">لانہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161838">گنگ ہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161853">شین چین</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161856">زوہائی</timezone>  
+    <timezone id="GMT+08:00" weatherID="2166473">نانینگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2146703">گویانگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2162779">ہیکؤ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2171287">شیجی زوانگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2172736">زینگ ہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2141166">ہربن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2163866">ووہان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2142699">چنگاشا</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137321">چنگ چُن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137081">نانجینگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137082">سوہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2133704">نان چانگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2147986">دلیان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2148332">شینیانگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2149760">ہوہوٹ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2150551">ین چوآن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2138941">زیننگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168327">جنیان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168606">کوئینگ ڈاؤ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2154547">تائی یوآن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2157249">زیان</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151849">شنگھائی</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158433">شینگڈو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2306179">تائیپی</timezone>  
+    <timezone id="GMT+08:00" weatherID="2159908">تیان جِن</timezone>  
+    <timezone id="GMT+08:00" weatherID="2144789">لہاسہ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2165352">ہانگ کانگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2143692">یورومقی</timezone>  
+    <timezone id="GMT+08:00" weatherID="2160693">کومِنگ</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132574">ہینگ ہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132579">نینگبو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132582">وین ہو</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158434">چونگ کوئینگ</timezone>  
+    <timezone id="GMT+01:00" weatherID="727232">ایمسٹرڈم</timezone>  
+    <timezone id="GMT+01:00" weatherID="966591">اینٹورپ</timezone>  
+    <timezone id="GMT+02:00" weatherID="946738">یونان</timezone>  
+    <timezone id="GMT+01:00" weatherID="532697">بلغراد</timezone>  
+    <timezone id="GMT+01:00" weatherID="638242">برلن</timezone>  
+    <timezone id="GMT+01:00" weatherID="968019">بروسیلز</timezone>  
+    <timezone id="GMT+02:00" weatherID="868274">بخاریسٹ</timezone>  
+    <timezone id="GMT+01:00" weatherID="804365">بُڈاپیسٹ</timezone>  
+    <timezone id="GMT+01:00" weatherID="554890">کوپن ہیگن</timezone>  
+    <timezone id="GMT+00:00" weatherID="560743">ڈَبلِن</timezone>  
+    <timezone id="GMT+01:00" weatherID="782538">جینیوا</timezone>  
+    <timezone id="GMT+01:00" weatherID="716085">جینوآ</timezone>  
+    <timezone id="GMT+00:00" weatherID="21125">گلاسگوو</timezone>  
+    <timezone id="GMT+02:00" weatherID="565346">ہیلنسکی</timezone>  
+    <timezone id="GMT+02:00" weatherID="2344116">استنبول</timezone>  
+    <timezone id="GMT+00:00" weatherID="742676">لیسبون</timezone>  
+    <timezone id="GMT+00:00" weatherID="44418">لندن</timezone>  
+    <timezone id="GMT+01:00" weatherID="766273">میڈریڈ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122265">ماسکو</timezone>  
+    <timezone id="GMT+01:00" weatherID="676757">میونخ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122296">مرمانسک</timezone>  
+    <timezone id="GMT+01:00" weatherID="862592">اوسلو</timezone>  
+    <timezone id="GMT+01:00" weatherID="615702">پیرس</timezone>  
+    <timezone id="GMT+01:00" weatherID="796597">پراگوئے</timezone>  
+    <timezone id="GMT+00:00" weatherID="980389">ریکزیویک</timezone>  
+    <timezone id="GMT+01:00" weatherID="721943">روم</timezone>  
+    <timezone id="GMT+01:00" weatherID="733075">روٹرڈم</timezone>  
+    <timezone id="GMT+03:00" weatherID="2123260">سینٹ پیٹربرگ</timezone>  
+    <timezone id="GMT+02:00" weatherID="839722">صوفیہ</timezone>  
+    <timezone id="GMT+01:00" weatherID="906057">اسٹاک ہوم</timezone>  
+    <timezone id="GMT+01:00" weatherID="472135">تیرانہ</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424986">ویٹیکن</timezone>  
+    <timezone id="GMT+01:00" weatherID="725746">وینیس</timezone>  
+    <timezone id="GMT+01:00" weatherID="551801">ویئینا</timezone>  
+    <timezone id="GMT+01:00" weatherID="523920">وارسا</timezone>  
+    <timezone id="GMT+01:00" weatherID="784794">زیوریچ</timezone>  
+    <timezone id="GMT-09:00" weatherID="2354490">انکوریج</timezone>  
+    <timezone id="GMT-04:00" weatherID="379176">اسونسیؤن</timezone>  
+    <timezone id="GMT-05:00" weatherID="2357024">اٹلانٹا</timezone>  
+    <timezone id="GMT-05:00" weatherID="368148">بگوٹا</timezone>  
+    <timezone id="GMT-05:00" weatherID="2367105">بوسٹن</timezone>  
+    <timezone id="GMT-03:00" weatherID="455819">براسیلیا</timezone>  
+    <timezone id="GMT-03:00" weatherID="468739">بیونس آئرس</timezone>  
+    <timezone id="GMT-04:30" weatherID="395269">کاراکاس</timezone>  
+    <timezone id="GMT-05:00" weatherID="667931">"کولن"</timezone>  
+    <timezone id="GMT-05:00" weatherID="2345115">ہوانا</timezone>  
+    <timezone id="GMT-05:00" weatherID="109251">کنگسٹن</timezone>  
+    <timezone id="GMT-04:00" weatherID="2344804">لا پاز</timezone>  
+    <timezone id="GMT-05:00" weatherID="418440">لیما</timezone>  
+    <timezone id="GMT-08:00" weatherID="2442047">لاس اینجلس</timezone>  
+    <timezone id="GMT-06:00" weatherID="116545">میکسیکو سٹی</timezone>  
+    <timezone id="GMT-05:00" weatherID="2450022">میامی</timezone>  
+    <timezone id="GMT-03:00" weatherID="468052">مونٹیویڈیو</timezone>  
+    <timezone id="GMT-05:00" weatherID="2459115">نیو یارک</timezone>  
+    <timezone id="GMT-05:00" weatherID="159386">پناما</timezone>  
+    <timezone id="GMT-04:00" weatherID="380213">پورٹ آف اسپین</timezone>  
+    <timezone id="GMT-08:00" weatherID="2487956">سان فرانسسکو</timezone>  
+    <timezone id="GMT-04:00" weatherID="349859">سینٹیاگو</timezone>  
+    <timezone id="GMT-05:00" weatherID="4118">ٹورنٹو</timezone>  
+    <timezone id="GMT-08:00" weatherID="9807">وینکؤر</timezone>  
+    <timezone id="GMT-05:00" weatherID="2514815">واشنگٹن ڈی سی</timezone>  
+    <timezone id="GMT+00:00" weatherID="20069967">عابدجان</timezone>  
+    <timezone id="GMT+03:00" weatherID="1313090">عدیس ابابا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1253079">الجائرس</timezone>  
+    <timezone id="GMT+02:00" weatherID="1117457">بن غازی</timezone>  
+    <timezone id="GMT+02:00" weatherID="1544986">بیئرا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1279685">برازا ویلی</timezone>  
+    <timezone id="GMT+02:00" weatherID="1521894">قاہرہ</timezone>  
+    <timezone id="GMT+02:00" weatherID="1591691">کیپ ٹاؤن</timezone>  
+    <timezone id="GMT+00:00" weatherID="2346988">ڈاکر</timezone>  
+    <timezone id="GMT+00:00" weatherID="1532755">کاسا بلنکا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1443415">دار السلام</timezone>  
+    <timezone id="GMT+03:00" weatherID="23424797">جبوتی</timezone>  
+    <timezone id="GMT+01:00" weatherID="1478198">دوالا</timezone>  
+    <timezone id="GMT+03:00" weatherID="20070421">کمپالا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1396803">کانو</timezone>  
+    <timezone id="GMT+03:00" weatherID="1433559">خرطوم</timezone>  
+    <timezone id="GMT+01:00" weatherID="1290062">کنشاسا</timezone>  
+    <timezone id="GMT+01:00" weatherID="2346342">لاگوس</timezone>  
+    <timezone id="GMT+01:00" weatherID="1261906">لوانڈا</timezone>  
+    <timezone id="GMT+02:00" weatherID="1569006">لوساکا</timezone>  
+    <timezone id="GMT+02:00" weatherID="1550363">مپوتو</timezone>  
+    <timezone id="GMT+00:00" weatherID="2453077">مونروویا</timezone>  
+    <timezone id="GMT+03:00" weatherID="1528488">نیروبی</timezone>  
+    <timezone id="GMT+01:00" weatherID="1277402">جمینا</timezone>  
+    <timezone id="GMT+01:00" weatherID="1505949">نیامی</timezone>  
+    <timezone id="GMT+01:00" weatherID="1282253">پوائنٹ - نوائر</timezone>  
+    <timezone id="GMT+00:00" weatherID="1539359">رباط</timezone>  
+    <timezone id="GMT+03:00" weatherID="1358594">تنان رائیو</timezone>  
+    <timezone id="GMT+02:00" weatherID="1353281">تریپولی</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424967">تیونس</timezone>  
+    <timezone id="GMT+12:00" weatherID="1064103">سووا</timezone>  
+    <timezone id="GMT+10:00" weatherID="1105779">سڈنی</timezone>  
+    <timezone id="GMT+12:00" weatherID="2351310">ویلنگٹن</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000001">بارسلونا</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000002">فرینکفرٹ</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000003">زگریب</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000004">تالین</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000005">مینک</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000006">جوہانسبرگ</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000008">اوڈیسا</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000009">ہرارے</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000010">ریاض</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000011">انتانانارائیوو</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000012">کویت سٹی</timezone>  
+    <timezone id="GMT+04:30" weatherID="9000013">کابل</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000014">کراچی</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000015">تاشقند</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000016">لاہور</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000017">ممبئی</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000018">کولکاتہ</timezone>  
+    <timezone id="GMT+05:45" weatherID="9000019">کاٹھمنڈو</timezone>  
+    <timezone id="GMT+06:00" weatherID="9000020">ڈھاکہ</timezone>  
+    <timezone id="GMT+06:30" weatherID="9000021">Yangoon</timezone>  
+    <timezone id="GMT+08:00" weatherID="9000022">پرتھ</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000023">ڈاروین</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000024">ولادی ووستوک</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000025">برسبین</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000026">ملبورن</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000027">کینبیرا</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000028">ایڈیلیڈ</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000029">کامچٹکا</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000030">انادیر</timezone>  
+    <timezone id="GMT+12:45" weatherID="9000031">جزیرہ چیتھم</timezone>  
+    <timezone id="GMT+14:00" weatherID="9000032">کریتیمتی</timezone>  
+    <timezone id="GMT-10:00" weatherID="9001001">ہونو لولو</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001002">اینکوریج (الاسکا)</timezone>  
+    <timezone id="GMT-08:00" weatherID="9001003">سیئٹل</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001004">ایڈمونٹون</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001005">فونکس</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001006">ڈینور</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001007">وینیپیگ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001008">ہوسٹن</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001009">مینیاپولیس</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">ساؤ پلاؤ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001011">نیو اورلیئنس</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001012">شکاگو</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001013">مونٹگمری</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001014">گواٹیمالہ</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001015">سان سلواڈور</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001016">ٹیگوسیگلپ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001017">مناگوآ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001018">انڈیانیپولیس</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001019">ڈیٹریوٹ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001020">فلاڈلفیا</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001021">اوٹّاوا</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001022">نساؤ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001023">مونٹریال</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001024">سنتو ڈومنگو</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001025">سان جوآن</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001026">ہیلی فکس</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001027">سینٹ جونز</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">Sao Paulo</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001029">ریو ڈی جینیریو</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001030">اکلاویک</timezone>  
+    <timezone id="GMT+09:00" weatherID="9001031">سیؤل</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001032">سینٹ پال (امریکا)</timezone> 
+</timezones>

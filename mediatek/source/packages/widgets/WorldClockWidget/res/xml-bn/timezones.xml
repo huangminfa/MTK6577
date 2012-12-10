@@ -1,0 +1,230 @@
+<timezones> 
+    <timezone id="GMT+04:30" weatherID="2254271">আবাদান</timezone>  
+    <timezone id="GMT+04:00" weatherID="1940330">আবুধাবি</timezone>  
+    <timezone id="GMT+03:00" weatherID="1958930">এডেন</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968902">আম্মান</timezone>  
+    <timezone id="GMT+02:00" weatherID="2343732">আঙ্কারা</timezone>  
+    <timezone id="GMT+03:00" weatherID="1979455">বাগদাদ</timezone>  
+    <timezone id="GMT+04:00" weatherID="1951874">বাকু</timezone>  
+    <timezone id="GMT+08:00" weatherID="1020725">বন্দর সেরি বেগওয়ান</timezone>  
+    <timezone id="GMT+07:00" weatherID="1225448">ব্যাংকক</timezone>  
+    <timezone id="GMT+02:00" weatherID="1960307">বৈরুত</timezone>  
+    <timezone id="GMT+06:30" weatherID="2189783">কলম্বো</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">জাকার্তা</timezone>  
+    <timezone id="GMT+07:00" weatherID="1047378">Jakarta</timezone>  
+    <timezone id="GMT+07:00" weatherID="1236594">হ্যানয়</timezone>  
+    <timezone id="GMT+05:00" weatherID="2211027">ইসলামাবাদ</timezone>  
+    <timezone id="GMT+02:00" weatherID="1968222">জেরুজালেম</timezone>  
+    <timezone id="GMT+08:00" weatherID="1154781">কুয়ালালামপুর</timezone>  
+    <timezone id="GMT+08:00" weatherID="1199477">ম্যানিলা</timezone>  
+    <timezone id="GMT+03:00" weatherID="1939897">মক্কা</timezone>  
+    <timezone id="GMT+06:30" weatherID="2295019">নতুন দিল্লি</timezone>  
+    <timezone id="GMT+07:00" weatherID="1020985">নমপেন</timezone>  
+    <timezone id="GMT+09:00" weatherID="1079132">পিয়ংইয়ং</timezone>  
+    <timezone id="GMT+09:00" weatherID="1132599">সিউল</timezone>  
+    <timezone id="GMT+08:00" weatherID="23424948">সিঙ্গাপুর</timezone>  
+    <timezone id="GMT+04:30" weatherID="2251945">তেহরান</timezone>  
+    <timezone id="GMT+09:00" weatherID="1118370">টোকিও</timezone>  
+    <timezone id="GMT+08:00" weatherID="2266535">উলানবাটোর</timezone>  
+    <timezone id="GMT+08:00" weatherID="2127866">হেফেই</timezone>  
+    <timezone id="GMT+08:00" weatherID="1887901">ম্যাকাও</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151330">বেইজিং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139963">ফুজো</timezone>  
+    <timezone id="GMT+08:00" weatherID="2139967">জিয়ামেন</timezone>  
+    <timezone id="GMT+08:00" weatherID="2145605">লানজু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161838">গুয়ানজু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161853">শেনজেন</timezone>  
+    <timezone id="GMT+08:00" weatherID="2161856">জুহাই</timezone>  
+    <timezone id="GMT+08:00" weatherID="2166473">ন্যানিং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2146703">গুইইয়েং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2162779">হাউকু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2171287">শিজিয়াজুআং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2172736">চেংজো</timezone>  
+    <timezone id="GMT+08:00" weatherID="2141166">হার্বিন</timezone>  
+    <timezone id="GMT+08:00" weatherID="2163866">উহান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2142699">চ্যাংসা</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137321">চ্যাংচুন</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137081">নানজিং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2137082">শিজো</timezone>  
+    <timezone id="GMT+08:00" weatherID="2133704">ন্যানচ্যাং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2147986">ডালিয়ান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2148332">শেনইয়াং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2149760">হোহোট</timezone>  
+    <timezone id="GMT+08:00" weatherID="2150551">ইংচুয়ান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2138941">শিনিং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168327">জিনান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2168606">চিংদাও</timezone>  
+    <timezone id="GMT+08:00" weatherID="2154547">তাইওয়ান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2157249">শিয়ান</timezone>  
+    <timezone id="GMT+08:00" weatherID="2151849">সাংহাই</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158433">চোংদু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2306179">তাইপে</timezone>  
+    <timezone id="GMT+08:00" weatherID="2159908">তিয়ানজিন</timezone>  
+    <timezone id="GMT+08:00" weatherID="2144789">লাসা</timezone>  
+    <timezone id="GMT+08:00" weatherID="2165352">হংকং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2143692">করমচি</timezone>  
+    <timezone id="GMT+08:00" weatherID="2160693">কুনমিং</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132574">হাংঝু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132579">নিংবু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2132582">ওয়েনঝু</timezone>  
+    <timezone id="GMT+08:00" weatherID="2158434">চোংকিং</timezone>  
+    <timezone id="GMT+01:00" weatherID="727232">আমস্টারডাম</timezone>  
+    <timezone id="GMT+01:00" weatherID="966591">আন্টওয়ার্প</timezone>  
+    <timezone id="GMT+02:00" weatherID="946738">এথেন্স</timezone>  
+    <timezone id="GMT+01:00" weatherID="532697">বেলগ্রেড</timezone>  
+    <timezone id="GMT+01:00" weatherID="638242">বার্লিন</timezone>  
+    <timezone id="GMT+01:00" weatherID="968019">ব্রাসেলস</timezone>  
+    <timezone id="GMT+02:00" weatherID="868274">বুখারেস্ট</timezone>  
+    <timezone id="GMT+01:00" weatherID="804365">বুদাপেস্ট</timezone>  
+    <timezone id="GMT+01:00" weatherID="554890">কোপেনহেগেন</timezone>  
+    <timezone id="GMT+00:00" weatherID="560743">ডাবলিন</timezone>  
+    <timezone id="GMT+01:00" weatherID="782538">জেনেভা</timezone>  
+    <timezone id="GMT+01:00" weatherID="716085">জেনোয়া</timezone>  
+    <timezone id="GMT+00:00" weatherID="21125">গ্লাসগো</timezone>  
+    <timezone id="GMT+02:00" weatherID="565346">হেলসিংকি</timezone>  
+    <timezone id="GMT+02:00" weatherID="2344116">ইস্তাম্বুল</timezone>  
+    <timezone id="GMT+00:00" weatherID="742676">লিসবন</timezone>  
+    <timezone id="GMT+00:00" weatherID="44418">লন্ডন</timezone>  
+    <timezone id="GMT+01:00" weatherID="766273">মাদ্রিদ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122265">মস্কো</timezone>  
+    <timezone id="GMT+01:00" weatherID="676757">মিউনিখ</timezone>  
+    <timezone id="GMT+03:00" weatherID="2122296">মারমাংস্ক</timezone>  
+    <timezone id="GMT+01:00" weatherID="862592">অসলো</timezone>  
+    <timezone id="GMT+01:00" weatherID="615702">প্যারিস</timezone>  
+    <timezone id="GMT+01:00" weatherID="796597">প্রাগ</timezone>  
+    <timezone id="GMT+00:00" weatherID="980389">রিকজাভিক</timezone>  
+    <timezone id="GMT+01:00" weatherID="721943">রোম</timezone>  
+    <timezone id="GMT+01:00" weatherID="733075">রটারডেম</timezone>  
+    <timezone id="GMT+03:00" weatherID="2123260">সেন্ট পিটারবার্গ</timezone>  
+    <timezone id="GMT+02:00" weatherID="839722">সোফিয়া</timezone>  
+    <timezone id="GMT+01:00" weatherID="906057">স্টকহোম</timezone>  
+    <timezone id="GMT+01:00" weatherID="472135">তিরানা</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424986">ভ্যাটিকান</timezone>  
+    <timezone id="GMT+01:00" weatherID="725746">ভেনিস</timezone>  
+    <timezone id="GMT+01:00" weatherID="551801">ভিয়েনা</timezone>  
+    <timezone id="GMT+01:00" weatherID="523920">ওয়ারস</timezone>  
+    <timezone id="GMT+01:00" weatherID="784794">জুরিখ</timezone>  
+    <timezone id="GMT-09:00" weatherID="2354490">আংকোরেইজ</timezone>  
+    <timezone id="GMT-04:00" weatherID="379176">আসুনসিয়ং</timezone>  
+    <timezone id="GMT-05:00" weatherID="2357024">আটলান্টা</timezone>  
+    <timezone id="GMT-05:00" weatherID="368148">বগোটা</timezone>  
+    <timezone id="GMT-05:00" weatherID="2367105">বস্টন</timezone>  
+    <timezone id="GMT-03:00" weatherID="455819">ব্রাসিলিয়া</timezone>  
+    <timezone id="GMT-03:00" weatherID="468739">বুয়েন্স আয়ার্স</timezone>  
+    <timezone id="GMT-04:30" weatherID="395269">কারাকাস</timezone>  
+    <timezone id="GMT-05:00" weatherID="667931">"কোলন"</timezone>  
+    <timezone id="GMT-05:00" weatherID="2345115">হাভানা</timezone>  
+    <timezone id="GMT-05:00" weatherID="109251">কিংস্টন</timezone>  
+    <timezone id="GMT-04:00" weatherID="2344804">লাপাজ</timezone>  
+    <timezone id="GMT-05:00" weatherID="418440">লিমা</timezone>  
+    <timezone id="GMT-08:00" weatherID="2442047">লস এঞ্জেলস</timezone>  
+    <timezone id="GMT-06:00" weatherID="116545">মেক্সিকো সিটি</timezone>  
+    <timezone id="GMT-05:00" weatherID="2450022">মিয়ামি</timezone>  
+    <timezone id="GMT-03:00" weatherID="468052">মন্টেভিডিও</timezone>  
+    <timezone id="GMT-05:00" weatherID="2459115">নিউ ইর্য়ক</timezone>  
+    <timezone id="GMT-05:00" weatherID="159386">পানামা</timezone>  
+    <timezone id="GMT-04:00" weatherID="380213">পোর্ট-অব-স্পেন</timezone>  
+    <timezone id="GMT-08:00" weatherID="2487956">সান ফ্রান্সিসকো</timezone>  
+    <timezone id="GMT-04:00" weatherID="349859">সান্টিয়াগো</timezone>  
+    <timezone id="GMT-05:00" weatherID="4118">টোরোন্টো</timezone>  
+    <timezone id="GMT-08:00" weatherID="9807">ভ্যাংকুভার</timezone>  
+    <timezone id="GMT-05:00" weatherID="2514815">ওয়াশিংটন ডিসি</timezone>  
+    <timezone id="GMT+00:00" weatherID="20069967">আবিদজান</timezone>  
+    <timezone id="GMT+03:00" weatherID="1313090">আদ্দিস আবাবা</timezone>  
+    <timezone id="GMT+01:00" weatherID="1253079">আলজিয়ার্স</timezone>  
+    <timezone id="GMT+02:00" weatherID="1117457">বেনগাজি</timezone>  
+    <timezone id="GMT+02:00" weatherID="1544986">বেইরা</timezone>  
+    <timezone id="GMT+01:00" weatherID="1279685">ব্রাজাভিললে</timezone>  
+    <timezone id="GMT+02:00" weatherID="1521894">কায়রো</timezone>  
+    <timezone id="GMT+02:00" weatherID="1591691">কেপ টাউন</timezone>  
+    <timezone id="GMT+00:00" weatherID="2346988">ডাকার</timezone>  
+    <timezone id="GMT+00:00" weatherID="1532755">কাসাব্লাংকা</timezone>  
+    <timezone id="GMT+03:00" weatherID="1443415">দারেস সালাম</timezone>  
+    <timezone id="GMT+03:00" weatherID="23424797">জিবুতি</timezone>  
+    <timezone id="GMT+01:00" weatherID="1478198">ডুয়ালা</timezone>  
+    <timezone id="GMT+03:00" weatherID="20070421">কাম্পালা</timezone>  
+    <timezone id="GMT+01:00" weatherID="1396803">কেনো</timezone>  
+    <timezone id="GMT+03:00" weatherID="1433559">খার্তুম</timezone>  
+    <timezone id="GMT+01:00" weatherID="1290062">কিংসাসা</timezone>  
+    <timezone id="GMT+01:00" weatherID="2346342">লাগোস</timezone>  
+    <timezone id="GMT+01:00" weatherID="1261906">লুয়ান্ডা</timezone>  
+    <timezone id="GMT+02:00" weatherID="1569006">লুসাকা</timezone>  
+    <timezone id="GMT+02:00" weatherID="1550363">মাপুটো</timezone>  
+    <timezone id="GMT+00:00" weatherID="2453077">মোনরোভিয়া</timezone>  
+    <timezone id="GMT+03:00" weatherID="1528488">নাইরোবি</timezone>  
+    <timezone id="GMT+01:00" weatherID="1277402">জামিনা</timezone>  
+    <timezone id="GMT+01:00" weatherID="1505949">নিয়ামে</timezone>  
+    <timezone id="GMT+01:00" weatherID="1282253">পয়েন্ট-নোয়ারে</timezone>  
+    <timezone id="GMT+00:00" weatherID="1539359">রাবাত</timezone>  
+    <timezone id="GMT+03:00" weatherID="1358594">তানানারিভে</timezone>  
+    <timezone id="GMT+02:00" weatherID="1353281">ত্রিপোলি</timezone>  
+    <timezone id="GMT+01:00" weatherID="23424967">তিউনিস</timezone>  
+    <timezone id="GMT+12:00" weatherID="1064103">সুভা</timezone>  
+    <timezone id="GMT+10:00" weatherID="1105779">সিডনি</timezone>  
+    <timezone id="GMT+12:00" weatherID="2351310">ওয়েলিংটন</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000001">বার্সিলোনা</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000002">ফ্রাংকফ্রুট</timezone>  
+    <timezone id="GMT+01:00" weatherID="9000003">জাগরেব</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000004">তাল্লিন</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000005">মিনস্ক</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000006">জোহানেসবার্গ</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000007">Kyiv</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000008">ওডেসা</timezone>  
+    <timezone id="GMT+02:00" weatherID="9000009">হারারে</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000010">রিয়াদ</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000011">অ্যানটানানারিভো</timezone>  
+    <timezone id="GMT+03:00" weatherID="9000012">কুয়েত সিটি</timezone>  
+    <timezone id="GMT+04:30" weatherID="9000013">কাবুল</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000014">করাচি</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000015">তাসখন্দ</timezone>  
+    <timezone id="GMT+05:00" weatherID="9000016">লাহোর</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000017">মুম্বাই</timezone>  
+    <timezone id="GMT+05:30" weatherID="9000018">কোলকাতা</timezone>  
+    <timezone id="GMT+05:45" weatherID="9000019">কাঠমুন্ডু</timezone>  
+    <timezone id="GMT+06:00" weatherID="9000020">ঢাকা</timezone>  
+    <timezone id="GMT+06:30" weatherID="9000021">Yangoon</timezone>  
+    <timezone id="GMT+08:00" weatherID="9000022">পার্থ</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000023">ডারউইন</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000024">ভ্লাদিভোসটোক</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000025">ব্রিসবেন</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000026">মেলবোর্ন</timezone>  
+    <timezone id="GMT+10:00" weatherID="9000027">ক্যানবেরা</timezone>  
+    <timezone id="GMT+09:30" weatherID="9000028">অ্যাডিলেইড</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000029">ক্যামচাটকা</timezone>  
+    <timezone id="GMT+12:00" weatherID="9000030">আনাডিয়া</timezone>  
+    <timezone id="GMT+12:45" weatherID="9000031">চথাম আইল্যান্ড</timezone>  
+    <timezone id="GMT+14:00" weatherID="9000032">কিরিমাতি</timezone>  
+    <timezone id="GMT-10:00" weatherID="9001001">হনুলুলু</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001002">অ্যাংকোরেইজ (আলাস্কা)</timezone>  
+    <timezone id="GMT-08:00" weatherID="9001003">সিয়াটল</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001004">এডমনটোন</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001005">ফনিক্স</timezone>  
+    <timezone id="GMT-09:00" weatherID="9001006">ডেনভার</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001007">উইনাপেগ</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001008">হাউস্টন</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001009">মিননিয়াপোলিস</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">সাও পাওলো</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001011">নিউ অরলিন্স</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001012">শিকাগো</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001013">মন্টগোমারি</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001014">গুয়েতেমালা</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001015">সান সালভাডর</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001016">তেগুসিগালপা</timezone>  
+    <timezone id="GMT-06:00" weatherID="9001017">মানাগুয়া</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001018">ইন্ডিয়ানাপোলিশ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001019">ডেট্রয়েট</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001020">ফিলাডেলফিয়া</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001021">অটোয়া</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001022">নাসাউ</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001023">মন্ট্রিল</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001024">সান্টো ডোমিনগো</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001025">সান জুয়ান</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001026">হ্যালিফেক্স</timezone>  
+    <timezone id="GMT-04:00" weatherID="9001027">সেন্ট জোন্স</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001010">Sao Paulo</timezone>  
+    <timezone id="GMT-03:00" weatherID="9001029">রিও ডি জেনিরো</timezone>  
+    <timezone id="GMT-07:00" weatherID="9001030">অ্যাকলাভিক</timezone>  
+    <timezone id="GMT+09:00" weatherID="9001031">সিউল</timezone>  
+    <timezone id="GMT-05:00" weatherID="9001032">সেন্ট পল (আমেরিকা)</timezone> 
+</timezones>

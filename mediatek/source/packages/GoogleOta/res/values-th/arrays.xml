@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="enquire_type">
+        <item>อัพเดตเดี๋ยวนี้</item>
+        <item>10 นาที</item>
+        <item>30 นาที</item>
+        <item>1 ชั่วโมง</item>
+        <item>3 ชั่วโมง</item>
+        <item>6 ชั่วโมง</item>
+        <item>1 วัน</item>
+        <item>3 วัน</item>
+        <item>6 วัน</item>
+        <item>ไม่ถามอีก</item>
+    </string-array>
+</resources>

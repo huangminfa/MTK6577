@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content">
+  <LinearLayout 
+android:layout_width="fill_parent"
+android:orientation="vertical"
+android:layout_height="wrap_content">
+
+<LinearLayout  android:id="@+id/LinearLayout"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginTop="10dip">
+               <Spinner  android:layout_height="wrap_content"
+                  android:layout_width="240dip"
+                  android:layout_marginLeft="10dip"
+                  android:id="@+id/MSDC_HopSet_HOST_sppiner"
+                  android:layout_marginTop="10dip"></Spinner>
+         <TextView android:text="@string/NEW_MSDC_HOPPING_BIT"
+              android:layout_marginLeft="0dip"
+              android:layout_marginTop="10dip"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"></TextView>
+         
+        <Spinner android:layout_height="wrap_content" 
+  		android:layout_width="240dip" 
+  		android:layout_marginLeft="10dip" 
+  		android:id="@+id/MSDC_hopping_bit_spinner" 
+  		android:layout_marginTop="2dip"></Spinner> 
+         <TextView android:text="@string/NEW_MSDC_HOPPING_TIME"
+              android:layout_marginLeft="0dip"
+              android:layout_marginTop="10dip"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"></TextView>
+         
+        <Spinner android:layout_height="wrap_content" 
+  		android:layout_width="240dip" 
+  		android:layout_marginLeft="10dip" 
+  		android:id="@+id/MSDC_hopping_time_spinner" 
+  		android:layout_marginTop="2dip"></Spinner> 
+  	<View android:layout_marginLeft="10dip" 
+  		android:layout_marginTop="20dip"
+  			android:layout_height="1dip" 
+  			android:layout_width="240dip"
+			android:background="#FF909090">
+  		  
+  	</View>	
+  	 <LinearLayout android:id="@+id/LinearLayout" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginTop="10dip">	
+				
+	<Button android:text="@string/MSDC_HopSet_Get" 
+		android:layout_marginLeft="10dip" 
+		android:layout_marginTop="10dip"
+		android:id="@+id/MSDC_HopSet_Get" 
+		android:layout_width="110dip" 
+		android:layout_height="wrap_content"></Button>
+		
+	<Button android:text="@string/MSDC_HopSet_Set" 
+		android:layout_marginLeft="20dip" 
+		android:layout_marginTop="10dip"
+		android:id="@+id/MSDC_HopSet_Set" 
+		android:layout_width="110dip" 
+		android:layout_height="wrap_content"></Button>
+	</LinearLayout>
+</LinearLayout>
+
+</LinearLayout>
+  
+</ScrollView>

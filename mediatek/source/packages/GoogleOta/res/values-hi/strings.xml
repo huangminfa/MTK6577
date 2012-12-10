@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">सिस्ट्म अद्यतन</string>
+    <string name="notification_content_title">फर्मवेयर अद्यतन</string>
+    <string name="notification_content_text_completed">सफलतापूर्वक डाउनलोड</string>
+    <string name="new_version_query">अद्यतन के लिए जाँच कर रहा है...</string>
+    <string name="no_new_version">वर्तमान में आपका सिस्टम नवीनतम है.</string>
+    <string name="unknown_error">अज्ञात त्रुटि</string>
+    <string name="unknown_error_content">क्षमा करें, अज्ञात त्रुटि होती है, बाहर निकले और कृपया पुन: प्रयास करें. </string>
+    <string name="network_error">नेटवर्क कनेक्शन विफल रहा</string>
+    <string name="network_error_content">नेटवर्क कनेक्शन विफल रहा, इसका पुनःप्रयास करें. </string>
+    <string name="server_error_title">सर्वर कनेक्शन विफल रहा</string>
+    <string name="server_error_content">सर्वर के लिए कनेक्शन को GPRS नेटवर्क का उपयोग करना होगा, जाएँ और इसे सेट करें.</string>
+    <string name="insufficient_space_title">पर्याप्त जगह नहीं है</string>
+    <string name="insufficient_space_content">वहाँ पर पर्याप्त संग्रहण जगह नहीं है! इस स्थापना को कम से कम 
+        <xliff:g id="डेल्टाआकार" उदाहरण="3.5M">%s</xliff:g> की आवश्यकता है. कृपया अतिरिक्त जगह रिलीज़ करने के लिए अपने अनुप्रयोग प्रबंधक को जाँचें.
+    </string>  
+    <string name="btn_retry">पुन: प्रयास करें</string>
+    <string name="btn_pause">रोकें</string>
+    <string name="btn_resume">पुन:आरम्भ</string>
+    <string name="btn_download">डाउनलोड</string>
+    <string name="btn_ok">ठीक</string>
+    <string name="btn_cancel">रद्द</string>
+    <string name="ver_content">फर्मवेयर अद्यतन मशीन की स्थिरता को परिवर्धित कर सकता है और बग ठीक कर सकता है. संस्करण के लिए अद्यतन करें </string>
+    <string name="cancel_download_title">डाउनलोड रद्द करें</string>
+    <string name="cancel_download_content">यह कार्रवाई डाउनलोड हुई फ़ाइल को त्याग देगी.</string>
+    <string name="cancel_download_positive_btn">हाँ</string>
+    <string name="cancel_download_negative_btn">नहीं</string>
+    <string name="update_prompt">अद्यतन के दौरान, कोई कार्रवाई अक्षम कर दी जाती है. यह कुछ मिनट ले लेगा. </string>
+    <string name="not_support_version">आपका लक्ष्य ओवर-द-एयर का समर्थन नहीं करता है</string>
+    <string name="need_target_info">जाँचने के लिए कोई लक्ष्य जानकारी नहीं है</string>
+    <string name="delta_has_deleted">डेल्टा हटा दिया गया है, आपको नवीनतम संस्करण के लिए क्वेरी करने की आवश्यकता होगी. </string>
+    <string name="package_error_message_crash">डेटा पार्टीशन पर पहुँच नहीं सकते.</string>
+    <string name="package_error_title">स्थापना विफल हुई</string>
+    <string name="package_error_message_full">बदले हुए पार्टीशन मामले के लिए पूर्ण पैकेज़ की आवश्यकता है.</string>
+    <string name="insufficient_space">SD कार्ड पर प्रयाप्त जगह नहीं है.</string>
+    <string name="package_error_message_insuff" product="tablet">उपकरण पर पर्याप्त स्थान नहीं है।</string>      
+    <string name="package_error_message_insuff" product="default">फ़ोन पर पर्याप्त जगह नहीं है.</string>
+    <string name="package_error_message_invalid">पैकेज़ त्रुटि. कृपया अद्यतन जाँचें और पुन: डाउनलोड करें.</string>
+    <string name="error_sdcard">SD कार्ड जानकारी</string>
+    <string name="sdcard_crash_or_unmount">SD कार्ड त्रुटि, कृपया अपने SD कार्ड की जाँच करें और पुन: प्रयास करें.</string>
+    <string name="unmount_sdcard">SD कार्ड माउंट त्रुटि, कृपया इसे जाँचें </string>
+    <string name="downloading_title">"डाउनलोड हो रहा है..."</string>  
+    <string name="updateSuccess" product="tablet">मुबारक हो! आपका उपकरण सफलतापूर्वक 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g> संस्करण में अपडेट कर दिया गया है।
+    </string>
+    <string name="updateSuccess" product="default">बधाईयाँ! आपका फ़ोन 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g> संस्करण में सफलतापूर्वक अपडेट कर दिया गया है।
+    </string>  
+    <string name="updateFailed"> 
+        <xliff:g id="version" example="gb.p37">%s</xliff:g> संस्करण में अपडेट करना असफल।
+    </string>  
+    <string name="updateResultTitle">सिस्टम अपडेट</string>  
+    <string name="package_unzip">पैकेज अनजिप हो रहा है...</string>  
+    <string name="package_unzip_error">अनजिप त्रुटि</string>  
+</resources>
+

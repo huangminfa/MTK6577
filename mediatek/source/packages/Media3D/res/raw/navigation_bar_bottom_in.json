@@ -1,0 +1,31 @@
+	 {"LayName": "navigationbar_bottom", "LayWidth": 1.000000, "LayHeight": 0.208333, "LayID": 1475, "ParentID": 0, "LayIn": 0.00, "LayDur": 0.33, "CompIn": 0.00, "CompDur": 0.33, "Normalization": true,
+		"SourcePath": "Z:/AE_Project/P2_LandscapeSweet_1124/Navigationbar_tab.png",
+		"Version": "210336956",
+			 	"Marker": { 
+				 }, 
+				 "AnchorPoint": { 
+					"X": 0.50, "Y": 0.50, "Z": 0.00
+					 }, 
+				 "Position": { 
+					"Type":[ 12.00 , 12.00 ],
+					"Time":[ 0.00 , 0.33 ],
+					"X":[ 0.50 , 0.50 ],
+					"Y":[ 1.10 , 0.93 ],
+					"Z":[ 0.00 , 0.00 ],
+					"InTanX":[ 0.00 , 0.00 ],
+					"InTanY":[ 0.00 , 0.00 ],
+					"InTanZ":[ 0.00 , 0.00 ],
+					"OutTanX":[ 0.00 , 0.00 ],
+					"OutTanY":[ 0.00 , 0.00 ],
+					"OutTanZ":[ 0.00 , 0.00 ]
+				}
+,				 "Scale": { 
+					"X": 100.00, "Y": 100.00, "Z": 100.00
+					 }, 
+				 "Rotation": { 
+					"Val": 0.00
+					 }, 
+				 "Opacity": { 
+					"Val": 100.00
+					 } 
+	}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="2738748390251381682">প্যাকেজ ইনস্টলার</string>
+    <string name="install" msgid="5896438203900042068">ইনস্টল করুন</string>
+    <string name="done" msgid="3889387558374211719">সম্পন্ন</string>
+    <string name="security_settings_desc" msgid="4984920898157282073">এই অ্যাপ্লিকেশনকে অনুমতি দিন:</string>
+    <string name="cancel" msgid="8360346460165114585">বাতিল করুন</string>
+    <string name="unknown" msgid="4742479012767208045">অজ্ঞাত</string>
+    <string name="installing" msgid="8613631001631998372">ইনস্টল হচ্ছে\u2026</string>
+    <string name="install_done" msgid="5868979453936752120">অ্যাপ্লিকেশন ইনস্টল করা হয়েছে</string>
+    <string name="install_confirm_question" msgid="5512879835615493065">আপনি কি এই অ্যাপ্লিকেশন ইনস্টল করতে চান?</string>
+    <string name="install_failed" msgid="6644311739017660989">অ্যাপ্লিকেশন ইনস্টল করা হয়নি</string>
+    <string name="install_failed_msg" msgid="5282789300118241924"><xliff:g id="app_name">%1$s</xliff:g> এই ফোনে ইনস্টল করা যায়নি।</string>
+    <string name="launch" msgid="4826921505917605463">খুলুন</string>
+    <string name="unknown_apps_dlg_title" msgid="2855558586206583032">ইনস্টল ব্লক করা হয়েছে</string>
+    <string name="unknown_apps_dlg_text" msgid="5372999034845590289">নিরাপত্তার জন্য আপনার ফোন অ্যান্ড্রোয়েড মার্কেট থেকে পাওয়া অ্যাপ্লিকেশনের ইনস্টলেশন ব্লক করতে প্রস্তুত। </string>
+    <string name="ok" msgid="3468756155452870475">ঠিক আছে</string>
+    <string name="settings" msgid="6743583734099755409">সেটিং</string>
+    <string name="manage_applications" msgid="2704331021611806557">অ্যাপ্লিকেশন ম্যানেজ করুন</string>
+    <string name="dlg_app_replacement_title" msgid="3438730820395482641">অ্যাপ্লিকেশনকে প্রতিস্থাপন করুন</string>
+    <string name="dlg_app_replacement_statement" msgid="1175452362814803850">আপনি যে অ্যাপ্লিকেশন ইনস্টল করছেন তা অন্য অ্যাপ্লিকেশনকে প্রতিস্থাপন করবে।\n\nসকল পূর্ববর্তী ব্যবহারকারী ডাটা সংরক্ষণ করা হবে।</string>
+    <string name="dlg_sys_app_replacement_statement" msgid="1047598434568470723">এটি একটি সিস্টেম অ্যাপ্লিকেশন। আপনি কি এখনো এটিকে প্রতিস্থাপন করতে চান?\n\nসকল পূর্ববর্তী ব্যবহারকারী ডাটা সংরক্ষণ করা হবে। </string>
+    <string name="out_of_space_dlg_title" msgid="7843674437613797326">স্থানের বাইরে</string>
+    <string name="out_of_space_dlg_text" msgid="7767221563720090883"><xliff:g id="app_name">%1$s</xliff:g> ইনস্টল করা যায়নি। কিছু স্থান খালি করে আবার চেষ্টা করুন।</string>
+    <string name="dlg_ok" msgid="6944357727705699232">ঠিক আছে</string>
+    <string name="app_not_found_dlg_title" msgid="1510267643973600726">অ্যাপ্লিকেশন পাওয়া যায়নি</string>
+    <string name="app_not_found_dlg_text" msgid="754013198108180241">ইনস্টল করা অ্যাপ্লিকেশনের তালিকায় অ্যাপ্লিকেশনটি পাওয়া যায়নি।</string>
+    <string name="uninstall_application_question" msgid="7290302854905395978">অ্যাপ্লিকেশনটি আনইনস্টল করবেন?</string>
+    <string name="uninstall_update_question" msgid="2600765438050721390">আপডেট আনইনস্টল করবেন?</string>
+    <string name="uninstall_application_text" msgid="3730249522678487101">এই অ্যাপ্লিকেশন আনইনস্টল করা হবে।</string>
+    <string name="uninstall_update_text" msgid="6695211142526505726">অ্যাপ্লিকেশন আপডেট আনইনস্টল করা হবে। আপনি এখনও অ্যাপ্লিকেশনের ফ্যাক্টরি ভার্সন ব্যবহার করতে পারবেন।</string>
+    <string name="uninstalling" msgid="5556217435895938250">আনইনস্টল হচ্ছে\u2026</string>
+    <string name="uninstall_done" msgid="2270435276009022874">আনইনস্টল শেষ</string>
+    <string name="uninstall_failed" msgid="5725854598594371845">আনইনস্টল সফল হয়নি</string>
+    <string name="uninstall_failed_msg" msgid="3564704699891198935"><xliff:g id="app_name">%1$s</xliff:g> আনইনস্টল করা যায়নি। </string>
+    <string name="Parse_error_dlg_title" msgid="6079580916889596257">পার্সে ত্রুটি</string>
+    <string name="Parse_error_dlg_text" msgid="1440309982917966479">প্যাকেজ পার্স করতে সমস্যা আছে।</string>
+</resources>
+

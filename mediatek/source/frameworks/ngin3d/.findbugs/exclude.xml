@@ -1,0 +1,11 @@
+<FindBugsFilter>
+    <Match>
+        <Class name="com.mediatek.ngin3d.jirr.BmFont" />
+    </Match>
+    <Match>
+        <Class name="~com\.mediatek\.ngin3d\.jirr\.BmFont\$.*" />
+    </Match>
+    <Match>
+        <Package name="com.mediatek.glui" />
+    </Match>
+</FindBugsFilter>

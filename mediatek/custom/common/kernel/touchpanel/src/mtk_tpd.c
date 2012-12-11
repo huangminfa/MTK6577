@@ -124,7 +124,7 @@ int tpd_driver_remove(struct tpd_driver_t *tpd_drv)
 	for(i = 0; i < TP_DRV_MAX_COUNT; i++)
 	{
 		/* find it */
-		if (strcmp(tpd_driver_list[i].tpd_device_name, tpd_drv->tpd_device_name) == 0)
+		if (tpd_driver_list[i].tpd_device_name && strcmp(tpd_driver_list[i].tpd_device_name, tpd_drv->tpd_device_name) == 0)
 		{
 			memset(&tpd_driver_list[i], 0, sizeof(struct tpd_driver_t));
 			break;

@@ -126,7 +126,7 @@ static DEFINE_MUTEX(kdCam_Mutex);
 
 static SENSOR_FUNCTION_STRUCT *g_pSensorFunc = NULL;
 static BOOL bSesnorVsyncFlag = FALSE;
-static CAMERA_DUAL_CAMERA_SENSOR_ENUM g_currDualSensorIdx = DUAL_CAMERA_NONE_SENSOR;
+CAMERA_DUAL_CAMERA_SENSOR_ENUM g_currDualSensorIdx = DUAL_CAMERA_NONE_SENSOR;
 static char g_currSensorName[32] = KDIMGSENSOR_NOSENSOR;
 static ACDK_KD_SENSOR_SYNC_STRUCT g_NewSensorExpGain = {128, 128, 128, 128, 1000, 640, 0xFF, 0xFF, 0xFF, 0};
 /*=============================================================================
@@ -375,6 +375,10 @@ int kdModulePowerOn(CAMERA_DUAL_CAMERA_SENSOR_ENUM SensorIdx, char *currSensorNa
     return kdCISModulePowerOn(SensorIdx,currSensorName,On,mode_name);
 }
 
+#if defined(COMBO_SENSOR_SUPPORT)
+unsigned int kdAutoMatchSensor(void);
+#endif
+
 /*******************************************************************************
 * kdSetDriver
 ********************************************************************************/
@@ -386,9 +390,16 @@ int kdSetDriver(unsigned int* pDrvIndex)
     //set driver for MAIN or SUB sensor
     spin_lock(&kdsensor_drv_lock);
     g_currDualSensorIdx = (CAMERA_DUAL_CAMERA_SENSOR_ENUM)((*pDrvIndex & KDIMGSENSOR_DUAL_MASK_MSB)>>KDIMGSENSOR_DUAL_SHIFT);
-	spin_unlock(&kdsensor_drv_lock);
-
     
+	#if defined(COMBO_SENSOR_SUPPORT)
+	// Added by chu, zewei on 2012/08/06
+	if (kdAutoMatchSensor())
+	{
+		PK_ERR("BXT ERROR:kdAutoMatchSensor()\n");
+        return -EIO;
+	}
+	#endif
+	
     if (0 != kdGetSensorInitFuncList(&pSensorList))
     {
         PK_ERR("ERROR:kdGetSensorInitFuncList()\n");
@@ -1089,6 +1100,155 @@ inline static int adopt_CAMERA_HW_Close(void)
 
     return 0;
 }	/* adopt_CAMERA_HW_Close() */
+
+#if defined(COMBO_SENSOR_SUPPORT)
+#define	ROW(x)	(sizeof(x)/sizeof(x[0]))
+
+unsigned int kdAutoMatchSensor(void)
+{
+	ACDK_KD_SENSOR_INIT_FUNCTION_STRUCT *pSensorList = NULL;
+	SENSOR_FUNCTION_STRUCT *pSensorFunc = NULL;
+	char currSensorName[32] = KDIMGSENSOR_NOSENSOR;	
+	unsigned int  sensorid, sensor_num;
+	unsigned short i;
+
+	static unsigned int bAutoMatched = 0;
+	//unsigned char id_reg;
+
+	if (bAutoMatched)
+		return 0;
+
+	for (i = 0; i < (ROW(kdSensorList) - 1); i++)
+	{
+		kdSensorList[i].SensorId = 0;
+		kdSensorList[i].drvname[0] = '\0';
+		kdSensorList[i].SensorInit = NULL;
+	}
+	
+	pSensorList = kdSensorList_bak;
+
+	sensor_num = ROW(kdSensorList_bak) - 1;
+	PK_DBG("[BXT MSG] sensor numbers is %d\n", sensor_num);
+	// search main sensor
+	for (i = 0; i < sensor_num; i++)
+	{
+		if (NULL == pSensorList[i].SensorInit)
+        {
+            PK_ERR("[BXT ERROR] MAIN SENSOR. i = %d\n", i);
+            return -EIO;
+        }
+
+        pSensorList[i].SensorInit(&pSensorFunc);
+        if (NULL == pSensorFunc)
+        {
+            PK_ERR("[BXT ERROR] MAIN SENSOR: pSensorFunc is NULL. i = %d\n", i);
+            return -EIO;
+        }
+		else
+		{
+			unsigned int err = 0, sensorID = 0, retLen = 0; 
+			
+	        //get sensor name
+	        memcpy((char*)currSensorName, (char*)pSensorList[i].drvname, sizeof(pSensorList[i].drvname));
+			
+	        //get sensor ID
+	        sensorid = (unsigned int)pSensorList[i].SensorId;
+	        PK_DBG("[BXT MSG] MAIN SENSOR: %d, %d, %s, 0x%x\n", g_currDualSensorIdx, i, currSensorName, sensorid);
+
+			kdModulePowerOn((CAMERA_DUAL_CAMERA_SENSOR_ENUM) 1, currSensorName,true, CAMERA_HW_DRVNAME);
+		    //wait for power stable 
+		    mDELAY(10); 
+	   
+	        err = pSensorFunc->SensorFeatureControl(SENSOR_FEATURE_CHECK_SENSOR_ID, (MUINT8*)&sensorID, &retLen);
+	        if (sensorID == 0) 
+			{    //not implement this feature ID 
+	            PK_DBG("[BXT MSG] MAIN SENSOR: Not implement! use old open function to check\n"); 
+	            //err = pSensorFunc->SensorOpen();                                     
+	        }
+	        else if (sensorID == 0xFFFFFFFF)
+			{    //fail to open the sensor 
+	            PK_DBG("[BXT MSG] MAIN SENSOR: No Sensor Found"); 
+	            //err = ERROR_SENSOR_CONNECT_FAIL; 
+	        }
+	        else 
+			{
+	            PK_DBG("[BXT MSG] MAIN SENSOR: Sensor found ID = 0x%x\n", sensorID); 
+	            //err = ERROR_NONE; 
+	            memcpy((char*)&kdSensorList[0], (char*)&kdSensorList_bak[i], sizeof(kdSensorList_bak[i]));
+				i = sensor_num;
+	        }
+			kdModulePowerOn((CAMERA_DUAL_CAMERA_SENSOR_ENUM) 1, currSensorName, false, CAMERA_HW_DRVNAME);
+	    }	    
+	}
+
+	#if defined(DUAL_CAMERA_SUPPORT)
+	// search sub sensor
+	for (i = 0; i < sensor_num; i++)
+	{
+		if (NULL == pSensorList[i].SensorInit)
+        {
+            PK_ERR("[BXT ERROR] SUB SENSOR: i = %d\n", i);
+            return -EIO;
+        }
+
+        pSensorList[i].SensorInit(&pSensorFunc);
+        if (NULL == pSensorFunc)
+        {
+            PK_ERR("[BXT ERROR] SUB SENSOR: pSensorFunc is NULL. i = %d\n", i);
+            return -EIO;
+        }
+		else
+		{
+			unsigned int err = 0, sensorID = 0, retLen = 0; 
+			
+	        //get sensor name
+	        memcpy((char*)currSensorName, (char*)pSensorList[i].drvname, sizeof(pSensorList[i].drvname));
+			
+	        //get sensor ID
+	        sensorid = (unsigned int)pSensorList[i].SensorId;
+	        PK_DBG("[BXT MSG] SUB SENSOR:%d, %d, %s, 0x%x\n", g_currDualSensorIdx, i, currSensorName, sensorid);
+
+			kdModulePowerOn((CAMERA_DUAL_CAMERA_SENSOR_ENUM)2, currSensorName,true, CAMERA_HW_DRVNAME);
+		    //wait for power stable 
+		    mDELAY(10); 
+	
+	        err = pSensorFunc->SensorFeatureControl(SENSOR_FEATURE_CHECK_SENSOR_ID, (MUINT8*)&sensorID, &retLen);
+	        if (sensorID == 0) 
+			{    //not implement this feature ID 
+	            PK_DBG("[BXT MSG] SUB SENSOR: Not implement!!, use old open function to check\n"); 
+	            //err = pSensorFunc->SensorOpen();                                     
+	        }
+	        else if (sensorID == 0xFFFFFFFF)
+			{    //fail to open the sensor 
+	            PK_DBG("[BXT MSG] SUB SENSOR: No Sensor Found"); 
+	            //err = ERROR_SENSOR_CONNECT_FAIL; 
+	        }
+	        else 
+			{
+	            PK_DBG("[BXT MSG] SUB SENSOR: Sensor found ID = 0x%x\n", sensorID); 
+	            //err = ERROR_NONE; 
+	            memcpy((char*)&kdSensorList[1], (char*)&kdSensorList_bak[i], sizeof(kdSensorList_bak[i]));
+				i = sensor_num;
+	        }
+			
+	    	kdModulePowerOn((CAMERA_DUAL_CAMERA_SENSOR_ENUM)2, currSensorName, false, CAMERA_HW_DRVNAME);
+		}
+	}
+	#endif
+
+	if (NULL == kdSensorList[0].SensorInit)
+	{
+		PK_DBG("[BXT MSG] No Sensor"); 
+		return 1;
+	}
+	else
+	{
+		bAutoMatched = 1;
+	}
+	
+	return 0;
+}
+#endif
 
 /*******************************************************************************
 * CAMERA_HW_Ioctl

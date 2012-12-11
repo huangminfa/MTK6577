@@ -41,7 +41,6 @@ extern LCM_DRIVER hj080ia_lcm_drv;
 extern LCM_DRIVER hb080_lcm_drv;
 extern LCM_DRIVER starry070_lcm_drv;
 extern LCM_DRIVER nt35590_lcm_drv;
-extern LCM_DRIVER rixin402ips_nt35510_lcm_drv;
 
 
 #if defined(GN_SSD2825_SMD_S6E8AA)
@@ -55,6 +54,11 @@ extern LCM_DRIVER otm8009_dsi_6517_lcm_drv;
 extern LCM_DRIVER at070tna2_lcm_drv;
 extern LCM_DRIVER hb070d_lcm_drv;
 extern LCM_DRIVER RX_50NT_408A_lcm_drv;
+
+extern LCM_DRIVER dh402_rm68120_lcm_drv;
+extern LCM_DRIVER rixin402ips_nt35510_lcm_drv;
+extern LCM_DRIVER zes588_hx8363b_lcm_drv;
+extern LCM_DRIVER changxingda463_nt35510_lcm_drv;
 
 LCM_DRIVER* lcm_driver_list[] = 
 { 
@@ -265,6 +269,21 @@ LCM_DRIVER* lcm_driver_list[] =
        &rixin402ips_nt35510_lcm_drv,
 #endif
 
+#if defined(DH402_RM68120)
+	&dh402_rm68120_lcm_drv,
+#endif
+
+#if defined(RIXIN402IPS_NT35510)
+	&rixin402ips_nt35510_lcm_drv,
+#endif
+
+#if defined(ZES588_HX8363B)
+	&zes588_hx8363b_lcm_drv,
+#endif
+
+#if defined(CHANGXINGDA463_NT35510)
+	&changxingda463_nt35510_lcm_drv,
+#endif
 };
 
 #define LCM_COMPILE_ASSERT(condition) LCM_COMPILE_ASSERT_X(condition, __LINE__)

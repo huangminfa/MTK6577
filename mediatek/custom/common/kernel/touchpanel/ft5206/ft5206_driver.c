@@ -95,6 +95,14 @@ static int p_point_num = 0;
 #define TPD_MAX_RESET_COUNT 3
 
 #ifdef TPD_HAVE_BUTTON 
+//#define TPD_Y  			800
+#define TPD_KEY_COUNT  	4 
+
+#define TPD_KEYS           {KEY_HOME, KEY_MENU, KEY_BACK,KEY_SEARCH}
+
+// Default resolution: 320x480
+#define TPD_KEYS_DIM      {{40,535,60,32},{120,535,60,32},{200,535,60,32},{280,535,60,32}}
+
 static int tpd_keys_local[TPD_KEY_COUNT] = TPD_KEYS;
 static int tpd_keys_dim_local[TPD_KEY_COUNT][4] = TPD_KEYS_DIM;
 #endif

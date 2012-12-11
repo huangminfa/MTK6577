@@ -96,7 +96,11 @@ void GetCameraDefaultPara(MUINT32 SensorId,
         return; //not initial pstSensorInitFunc yet
     }
     
+	#if defined(COMBO_SENSOR_SUPPORT)
+	for (i = 0; pstSensorInitFunc[i].SensorId > 0; i++)
+	#else
     for (i=0;i<MAX_NUM_OF_SUPPORT_SENSOR;i++)
+	#endif
     {
         if (SensorId == pstSensorInitFunc[i].SensorId)
         {
@@ -134,7 +138,11 @@ MUINT32 GetCameraCalData(MUINT32 SensorId, MUINT32* pGetSensorCalData)
     MINT32 result = 0xFF;
     MUINT32 i;
 //    CAM_MSDK_LOG("GetCameraCalData(MainSensorIdx=%d) Enter\n",SensorId);
+	#if defined(COMBO_SENSOR_SUPPORT)
+	for (i = 0; pstSensorInitFunc[i].SensorId > 0; i++)
+	#else
     for (i=0;i<MAX_NUM_OF_SUPPORT_SENSOR;i++)
+	#endif
     {
         if (SensorId == pstSensorInitFunc[i].SensorId)
         {

@@ -184,10 +184,15 @@
 #define OV7692_SENSOR_ID            0x7692
 #define OV7690_SENSOR_ID                        0x7691
 
-#define GC0329_SENSOR_ID                        0xc0
-#define SP2518_SENSOR_ID                        0x53
-#define GC0308_SENSOR_ID                        0x9b
 
+// Added by chu, zewei on 2012/11/23
+#define GC0308_SENSOR_ID						  0x009B
+#define GC0309_SENSOR_ID                        0x00A0
+#define GC0311_SENSOR_ID                        0x00BB
+#define GC0329_SENSOR_ID                        0x00C0
+#define GC2035_SENSOR_ID						  0x2035
+#define SP2518_SENSOR_ID						  0x0053
+#define SP0828_SENSOR_ID						  0x000c
 
 /* CAMERA DRIVER NAME */
 #define CAMERA_HW_DEVNAME            "kd_camera_hw"
@@ -245,12 +250,18 @@
 #define SENSOR_DRVNAME_OV7690_YUV   	"ov7690yuv"
 #define SENSOR_DRVNAME_S5K4E1FX_MIPI_RAW   "s5k4e1fxmipiraw"
 #define SENSOR_DRVNAME_S5K5CAGX_MIPI_YUV    "s5k5cagxmipiyuv"
-#define SENSOR_DRVNAME_SP2518_YUV    "sp2518yuv"
-#define SENSOR_DRVNAME_GC0329_YUV    "gc0329yuv"
-#define SENSOR_DRVNAME_GC0308_YUV   "gc0308yuv"
 
 #define SENSOR_DRVNAME_S5K3H2YX_MIPI_RAW   "s5k3h2yxmipiraw"
 #define SENSOR_DRVNAME_S5K8AAYX_YUV  "s5k8aayxyuv"		//SW4-L1-HL-Camera-S1UMainCamFrontCamBringUp-00+_20120705
+
+// Added by chu, zewei on 2012/11/23
+#define SENSOR_DRVNAME_GC0308_YUV   	"gc0308yuv"
+#define SENSOR_DRVNAME_GC0309_YUV   	"gc0309yuv"
+#define SENSOR_DRVNAME_GC0311_YUV   	"gc0311yuv"
+#define SENSOR_DRVNAME_GC0329_YUV   	"gc0329yuv"
+#define SENSOR_DRVNAME_GC2035_YUV   	"gc2035yuv"
+#define SENSOR_DRVNAME_SP2518_YUV    	"sp2518yuv"
+#define SENSOR_DRVNAME_SP0828_YUV    "sp0828yuv"
 
 /*******************************************************************************
 *

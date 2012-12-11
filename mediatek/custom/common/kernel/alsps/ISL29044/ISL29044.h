@@ -55,6 +55,8 @@
 
 #define ISL29044_I2C_SLAVE_ADDR 0x88 //0x3A<-->SEL to VDD  0x38<-->SEL to GND
 
+#define	POWER_IR_LED			MT65XX_POWER_LDO_VMC
+
 /* registers */
 #define ISL29044_REG_VENDOR_REV                 0x06
 #define ISL29044_VENDOR                         1

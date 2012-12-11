@@ -147,11 +147,22 @@ extern void mt65xx_eint_registration(kal_uint8 eintno, kal_bool Dbounce_En,
 
 #define ISL29044_DEV_NAME     "ISL29044"
 /*----------------------------------------------------------------------------*/
-#define APS_TAG                  "[ALS/PS] "
-#define APS_FUN(f)               printk(KERN_INFO APS_TAG"%s\n", __FUNCTION__);
-#define APS_ERR(fmt, args...)    printk(KERN_ERR APS_TAG"%s %d : "fmt, __FUNCTION__, __LINE__, ##args)
-#define APS_LOG(fmt, args...)    printk(KERN_INFO APS_TAG fmt, ##args)
-#define APS_DBG(fmt, args...)    printk(KERN_INFO fmt, ##args)                        
+#define DEBUG  	0
+#if DEBUG
+#define APS_TAG                  "[ALSPS] "
+#define APS_FUN(f)               printk(KERN_INFO APS_TAG "%s\n", __FUNCTION__)
+#define APS_ERR(fmt, args...)   printk(KERN_ERR  APS_TAG "%s %d : "fmt, __FUNCTION__, __LINE__, ##args)
+#define APS_DBG(fmt, args...)   printk(KERN_INFO APS_TAG fmt, ##args)
+#define APS_LOG(fmt, args...)   printk(KERN_INFO APS_TAG fmt, ##args)
+#else
+#define APS_TAG
+#define APS_FUN(f)
+#define APS_ERR(fmt, args...)
+#define APS_DBG(fmt, args...)
+#define APS_LOG(fmt, args...)
+#endif
+
+
 /******************************************************************************
  * extern functions
 *******************************************************************************/
@@ -430,6 +441,22 @@ static void ISL29044_power(struct alsps_hw *hw, unsigned int on)
 			{
 				APS_ERR("power off fail!!\n");   
 			}
+		}
+	}
+
+	//Turn on/off the VMC power to supply for IR LED
+	if (on)
+	{
+		if(!hwPowerOn(POWER_IR_LED, VOL_2800, "isl29044")) 
+		{
+			APS_ERR("Turning on VMC fails!!\n");
+		}
+	}
+	else
+	{
+		if(!hwPowerDown(POWER_IR_LED, "isl29044")) 
+		{
+			APS_ERR("power off fail!!\n");   
 		}
 	}
 	power_on = on;

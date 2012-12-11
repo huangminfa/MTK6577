@@ -581,8 +581,15 @@ static u32 msdc_sd1_power(u32 on, MT65XX_POWER_VOLTAGE powerVolt)
     msdc_ldo_power(on, MT65XX_POWER_LDO_VMC, powerVolt, &g_vmc);
 #endif
 #endif 
-  
-    msdc_ldo_power(on, MT65XX_POWER_LDO_VMCH, powerVolt, &g_vmch);
+
+	#ifdef MTK_EMMC_SUPPORT
+	if (on)
+	{
+	    msdc_ldo_power(on, MT65XX_POWER_LDO_VMCH, powerVolt, &g_vmch);
+	}
+	#else
+	msdc_ldo_power(on, MT65XX_POWER_LDO_VMCH, powerVolt, &g_vmch);
+	#endif
 #endif   	  
     return 0;     
 }
@@ -609,6 +616,10 @@ static u32 msdc_sd0_power(u32 on, MT65XX_POWER_VOLTAGE powerVolt)
 #ifdef MTK_EMMC_SUPPORT
     // msdc_ldo_power(on, MT65XX_POWER_LDO_VMC, powerVolt, &g_vmc); 
     // VMC can't power off. 
+	if (on)
+	{
+	    msdc_ldo_power(on, MT65XX_POWER_LDO_VMCH, powerVolt, &g_vmch);
+	}
 #else 
     
 #endif     

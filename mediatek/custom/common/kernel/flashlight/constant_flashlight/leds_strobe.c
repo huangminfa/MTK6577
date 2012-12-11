@@ -112,7 +112,7 @@ static DEFINE_SPINLOCK(g_strobeSMPLock); /* cotta-- SMP proection */
 static u32 strobe_Res = 0;
 static u32 strobe_Timeus = 0;
 static BOOL g_strobe_On = FALSE;
-static u32 strobe_width = 0; /* 0 is disable */
+static u32 strobe_width = 1; /* 0 is disable */   //  0
 static eFlashlightState strobe_eState = FLASHLIGHTDRV_STATE_PREVIEW;
 static MUINT32 sensorCaptureDelay = 0;                      /* cotta-- added for auto-set sensor capture delay mechanism*/
 static MUINT32 g_WDTTimeout_ms = FLASH_LIGHT_WDT_DISABLE;   /* cotta-- disable WDT, added for high current solution */

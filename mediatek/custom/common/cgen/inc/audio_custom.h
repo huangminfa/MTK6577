@@ -88,11 +88,11 @@
 
 #define GAIN_NOR_TON_VOL      8
 #define GAIN_NOR_KEY_VOL      43
-#define GAIN_NOR_MIC_VOL      26
+#define GAIN_NOR_MIC_VOL      30 // 26
 #define GAIN_NOR_FMR_VOL      0
-#define GAIN_NOR_SPH_VOL      20
+#define GAIN_NOR_SPH_VOL      36 // 20
 #define GAIN_NOR_SID_VOL      100
-#define GAIN_NOR_MED_VOL      25
+#define GAIN_NOR_MED_VOL      16	//25
 
 
 /* define Gain For Headset */

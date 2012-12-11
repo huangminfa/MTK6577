@@ -41,6 +41,7 @@ extern LCM_DRIVER hj080ia_lcm_drv;
 extern LCM_DRIVER hb080_lcm_drv;
 extern LCM_DRIVER starry070_lcm_drv;
 extern LCM_DRIVER nt35590_lcm_drv;
+extern LCM_DRIVER rixin402ips_nt35510_lcm_drv;
 
 
 #if defined(GN_SSD2825_SMD_S6E8AA)
@@ -258,6 +259,10 @@ LCM_DRIVER* lcm_driver_list[] =
 
 #if defined(RX_50NT_408A)
 	&RX_50NT_408A_lcm_drv,
+#endif
+
+#if defined(RIXIN402IPS_NT35510)
+       &rixin402ips_nt35510_lcm_drv,
 #endif
 
 };

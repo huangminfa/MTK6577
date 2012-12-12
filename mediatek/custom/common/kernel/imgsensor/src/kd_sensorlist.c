@@ -390,6 +390,7 @@ int kdSetDriver(unsigned int* pDrvIndex)
     //set driver for MAIN or SUB sensor
     spin_lock(&kdsensor_drv_lock);
     g_currDualSensorIdx = (CAMERA_DUAL_CAMERA_SENSOR_ENUM)((*pDrvIndex & KDIMGSENSOR_DUAL_MASK_MSB)>>KDIMGSENSOR_DUAL_SHIFT);
+	spin_unlock(&kdsensor_drv_lock);
     
 	#if defined(COMBO_SENSOR_SUPPORT)
 	// Added by chu, zewei on 2012/08/06

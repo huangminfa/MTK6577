@@ -3191,8 +3191,20 @@ static long AudDrv_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
             spin_unlock_bh(&auddrv_lock);
          }
          */
-     	PRINTK_AUDDRV("AudDrv SET_SPEAKER_ON arg:%u \n",arg);
+     	PRINTK_AUDDRV("BXT: SET_SPEAKER_ON arg:%u \n",arg);
+		/*
+		printk("BXT: SET_SPEAKER_ON: bBgsFlag:%d,bRecordFlag:%d,bSpeechFlag:%d,bTtyFlag:%d,bVT:%d,bAudio:%d \n",
+		         SPH_Ctrl_State.bBgsFlag,
+		         SPH_Ctrl_State.bRecordFlag,
+		         SPH_Ctrl_State.bSpeechFlag,
+		         SPH_Ctrl_State.bTtyFlag,
+		         SPH_Ctrl_State.bVT,
+		         SPH_Ctrl_State.bAudioPlay);
+		*/
 		mutex_lock(&gamp_mutex);
+		#ifdef CUSTOM_AMP_DUAL_SPEAKER_SUPPORT
+		arg = SPH_Ctrl_State.bSpeechFlag;
+		#endif
 	 	Sound_Speaker_Turnon(arg);
 		mutex_unlock(&gamp_mutex);
          break;
@@ -3212,8 +3224,21 @@ static long AudDrv_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
              spin_unlock_bh(&auddrv_lock);
          }
 		 */
-		 PRINTK_AUDDRV("AudDrv SET_SPEAKER_OFF arg:%u \n",arg);
+		 PRINTK_AUDDRV("BXT: SET_SPEAKER_OFF arg:%u \n",arg);
+		/*
+		 printk("BXT: SET_SPEAKER_OFF: bBgsFlag:%d,bRecordFlag:%d,bSpeechFlag:%d,bTtyFlag:%d,bVT:%d,bAudio:%d \n",
+		         SPH_Ctrl_State.bBgsFlag,
+		         SPH_Ctrl_State.bRecordFlag,
+		         SPH_Ctrl_State.bSpeechFlag,
+		         SPH_Ctrl_State.bTtyFlag,
+		         SPH_Ctrl_State.bVT,
+		         SPH_Ctrl_State.bAudioPlay);
+		 */
 		 mutex_lock(&gamp_mutex);
+		 #ifdef CUSTOM_AMP_DUAL_SPEAKER_SUPPORT
+		arg = SPH_Ctrl_State.bSpeechFlag;
+		#endif
+
 		 Sound_Speaker_Turnoff(arg);
 		 mutex_unlock(&gamp_mutex);
 
@@ -3414,6 +3439,30 @@ static long AudDrv_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
          break;
       }
 #else
+	/*
+	 * Notes: Add #if branch to fix a bug: there is no sound when open the fm on mt5193.
+	 * Author: chu, zewei 
+	 * Date: 2012/09/25
+	 */
+	#if defined(MTK_MT5192) || defined(MTK_MT5193)
+      case AUDDRV_RESET_BT_FM_GPIO:
+      {
+         xlog_printk(ANDROID_LOG_INFO, "Sound","!! NoCombo, COMBO_AUDIO_STATE_0. disable fm i2s \n");
+		 cust_matv_gpio_off();
+         break;
+      }
+      case AUDDRV_SET_BT_PCM_GPIO:
+      {
+         xlog_printk(ANDROID_LOG_INFO, "Sound","!! NoCombo, COMBO_AUDIO_STATE_1 \n");
+         break;
+      }
+      case AUDDRV_SET_FM_I2S_GPIO:
+      {
+         xlog_printk(ANDROID_LOG_INFO, "Sound","!! NoCombo, COMBO_AUDIO_STATE_2. enable fm i2s \n");
+		 cust_matv_gpio_on();
+         break;
+      }
+    #else
       case AUDDRV_RESET_BT_FM_GPIO:
       {
          xlog_printk(ANDROID_LOG_INFO, "Sound","!! NoCombo, COMBO_AUDIO_STATE_0 \n");
@@ -3429,6 +3478,7 @@ static long AudDrv_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)
          xlog_printk(ANDROID_LOG_INFO, "Sound","!! NoCombo, COMBO_AUDIO_STATE_2 \n");
          break;
       }
+	 #endif
 #endif
 
 // Set GPIO pin mux

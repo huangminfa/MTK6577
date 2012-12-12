@@ -53,7 +53,7 @@
 #define		GPIO_SPEAKER_EN_PIN	104
 #endif
 
-#ifdef 	__DRV_AMP_DUAL_SPEAKER__
+#ifdef 	CUSTOM_AMP_DUAL_SPEAKER_SUPPORT
 #ifndef 	GPIO_SPEAKER1_EN_PIN
 #define		GPIO_SPEAKER1_EN_PIN	109
 #endif
@@ -134,16 +134,15 @@ void custom_aw8155_speaker_turn_on(enum aw8733_mode mode, int channel)
 	unsigned long flag;
 
 	mt_set_gpio_dir(GPIO_SPEAKER_EN_PIN, GPIO_DIR_OUT);
-	
-	#ifdef 	__DRV_AMP_DUAL_SPEAKER__		
+
+	#ifdef 	CUSTOM_AMP_DUAL_SPEAKER_SUPPORT		
 	if (1 == channel)
-	{
-		
+	{		
 		local_irq_save(flag); 
 		for (k = 0; k < pulse_count; k++)
 		{		
 			mt_set_gpio_out(GPIO_SPEAKER_EN_PIN, GPIO_OUT_ZERO);
-			
+
 			udelay(10);
 			//for (i = 0; i < 120; i++);
 			mt_set_gpio_out(GPIO_SPEAKER_EN_PIN, GPIO_OUT_ONE);
@@ -197,7 +196,7 @@ void custom_aw8155_speaker_turn_off(int channel)
 	mt_set_gpio_dir(GPIO_SPEAKER_EN_PIN, GPIO_DIR_OUT); // output
     mt_set_gpio_out(GPIO_SPEAKER_EN_PIN, GPIO_OUT_ZERO); // high
 
-	#ifdef 	__DRV_AMP_DUAL_SPEAKER__
+	#ifdef 	CUSTOM_AMP_DUAL_SPEAKER_SUPPORT
 	// in speech, don't open the 2nd speaker.
 	// by chu, zewei on 2012/11/08
 	if (1 != channel)
@@ -258,7 +257,7 @@ bool Speaker_Init(void)
    mt_set_gpio_mode(GPIO_SPEAKER_EN_PIN,GPIO_MODE_00);  // gpio mode
    mt_set_gpio_pull_enable(GPIO_SPEAKER_EN_PIN,GPIO_PULL_ENABLE);
 
-   #ifdef 	__DRV_AMP_DUAL_SPEAKER__
+   #ifdef 	CUSTOM_AMP_DUAL_SPEAKER_SUPPORT
 	mt_set_gpio_mode(GPIO_SPEAKER1_EN_PIN,GPIO_MODE_00);  // gpio mode
     mt_set_gpio_pull_enable(GPIO_SPEAKER1_EN_PIN,GPIO_PULL_ENABLE);
 	#endif

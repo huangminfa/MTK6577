@@ -248,3 +248,7 @@ mediatek/source/preloader/preloader_baoxue.bin
 mediatek/source/preloader/system.map
 out/
 v8.log
+*.zip
+mediatek/source/preloader/report-codesize.csv
+mediatek/source/preloader/report-codesize.txt
+mediatek/source/preloader/report-objsize.txt

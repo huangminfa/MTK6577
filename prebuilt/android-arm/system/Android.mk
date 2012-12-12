@@ -8,19 +8,10 @@ $(patsubst ./%,%, \
 endef
 
 include $(CLEAR_VARS)
-TARGET_APK := $(TARGET_OUT)
-
 copy_from := $(call all-apk-files-under)
-
-
-copy_to := $(addprefix $(TARGE_APK)/,$(copy_from))
+copy_to := $(addprefix :system/,$(copy_from))
 copy_from := $(addprefix $(LOCAL_PATH)/,$(copy_from))
+copy_from := $(join $(copy_from),$(copy_to))
 
-$(copy_to) : $(TARGET_APK)/% : $(LOCAL_PATH)/% | $(ACP)
-	$(transform-prebuilt-to-target)
-
-ALL_PREBUILT += $(copy_to)
-
-ifneq (,$(ONE_SHOT_MAKEFILE))
-ALL_MODULES = $(ALL_PREBUILT)
-endif
+$(warning $(copy_from))
+PRODUCT_COPY_FILES += $(copy_from)

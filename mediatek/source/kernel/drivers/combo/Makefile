@@ -7,7 +7,16 @@ ifneq ($(KERNELRELEASE),)
     obj-y += common/
     obj-y += common_mt6628/
     obj-$(CONFIG_MTK_COMBO_FM) += drv_fm/
+    # RDA_FM_SUPPORT ---- begin
+    #obj-y += rda_gpio_i2c/ # 模拟I2C开此功能
+    obj-$(CONFIG_MTK_COMBO_FM) += drv_fm_rda/
+    # RDA_FM_SUPPORT ---- end
+ifeq  ($(RDA_WLAN_CHIP), RDA5990)
+	obj-$(CONFIG_MTK_COMBO_WIFI) += rda_wlan/
+	obj-y += rda_5990_power_ctrl/
+else	
 	  obj-$(CONFIG_MTK_COMBO_WIFI) += drv_wlan/
+endif	
     obj-n := dummy.o
 	#skip bt hci driver
 	#obj-y	+= drv_bt/

@@ -1889,6 +1889,15 @@ public class CallNotifier extends Handler
             removeMessages(FAKE_SIP_PHONE_INCOMING_RING);
             sendEmptyMessageDelayed(FAKE_SIP_PHONE_INCOMING_RING, FAKE_SIP_PHONE_INCOMING_RING_DELAY);
         }
+//RDA_BT_SUPPORT --- begin
+	if(mBluetoothHandsfree != null)
+	{ 
+        	//if(mBluetoothHandsfree.isAudioOn())
+		{
+			mBluetoothHandsfree.userWantsAudioOff();
+		}
+ 	}
+//RDA_BT_SUPPORT --- end
 
         ok2Ring = true;
         

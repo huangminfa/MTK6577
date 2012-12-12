@@ -67,3 +67,6 @@ endif
 # include all config files
 include $(BOARD_CONFIG_DIR)/configs/*.mk
 
+ifeq ($(RDA_BT_SUPPORT), yes)
+BOARD_HAVE_BLUETOOTH := true
+endif

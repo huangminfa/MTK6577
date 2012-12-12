@@ -303,13 +303,15 @@ send_message(struct interface *iface, int type,
 		syslog(LOG_DEBUG, "%s: sending %s with xid 0x%x",
 		    iface->name, get_dhcp_op(type), state->xid);
 	else {
+// RDA_WLAN_SUPPORT --- begin
 		if (state->interval == 0)
-			state->interval = 4;
+			state->interval = 2;	//4;
 		else {
-			state->interval *= 2;
+			state->interval +=2;	//*= 2;
 			if (state->interval > 64)
 				state->interval = 64;
 		}
+// RDA_WLAN_SUPPORT --- end
 		tv.tv_sec = state->interval + DHCP_RAND_MIN;
 		tv.tv_usec = arc4random() % (DHCP_RAND_MAX_U - DHCP_RAND_MIN_U);
 		syslog(LOG_DEBUG,

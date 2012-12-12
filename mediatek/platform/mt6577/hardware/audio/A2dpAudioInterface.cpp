@@ -78,6 +78,10 @@ extern "C"
 }
 #endif
 
+#ifdef RDA_BT_SUPPORT
+#include "audio/liba2dp.h"
+#endif
+
 #define MUTECOUNTER (15)
 
 #ifdef ENABLE_LOG_A2DPINTERFACE
@@ -388,7 +392,12 @@ ssize_t A2dpAudioInterface::A2dpAudioStreamOut::write(const void* buffer, size_t
     status_t status = -1;
     size_t remaining = bytes;
     {
-        if (!mBluetoothEnabled || mClosing || mSuspended ) {
+#ifdef RDA_BT_SUPPORT
+        if (!mBluetoothEnabled || mClosing || mSuspended) 
+#else
+	if(!mBluetoothEnabled || mClosing || mSuspended || mFirstFrameCount)
+#endif	
+	{
             LOGE("A2dpAudioStreamOut::write(), but bluetooth disabled \
                 mBluetoothEnabled %d, mClosing %d, mSuspended %d,",
                 mBluetoothEnabled, mClosing, mSuspended);
@@ -444,7 +453,7 @@ ssize_t A2dpAudioInterface::A2dpAudioStreamOut::write(const void* buffer, size_t
 
         int retries = MAX_WRITE_RETRIES;
         while (remaining > 0 && retries) {
-#ifdef __BTMTK__
+#if defined(__BTMTK__) || defined(RDA_BT_SUPPORT)
             status = a2dp_write(mData, buffer, remaining);
 #endif
             if (status < 0) {
@@ -482,7 +491,8 @@ Error:
 
 status_t A2dpAudioInterface::A2dpAudioStreamOut::init()
 {
-#ifdef __BTMTK__
+    //LOGE("I'm used to make sure the path");
+#if defined(__BTMTK__) || defined(RDA_BT_SUPPORT) 
     if (!mData) {
         status_t status = a2dp_init(44100, 2, &mData);
         if (status < 0) {
@@ -512,7 +522,7 @@ status_t A2dpAudioInterface::A2dpAudioStreamOut::standby_l()
 {
     int result = NO_ERROR;
     
-#ifdef __BTMTK__
+#if defined(__BTMTK__) || defined(RDA_BT_SUPPORT)
 
     if (!mStandby || mSuspended) {
         LOGV_IF(mClosing || !mBluetoothEnabled, "Standby skip stop: closing %d enabled %d",

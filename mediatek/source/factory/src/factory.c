@@ -219,6 +219,9 @@ static item_t ftm_test_items[] = {
     item(ITEM_BT,      "Bluetooth"),
 #endif
 #endif
+#ifdef RDA_BT_SUPPORT
+    item(ITEM_BT,      "Bluetooth"),
+#endif
 
 #ifdef MTK_WLAN_SUPPORT
 #ifdef FEATURE_FTM_WIFI

@@ -210,6 +210,9 @@ static const struct sdio_device_id mtk_sdio_id_tbl[] = {
     
     /* MT6628 */ /* SDIO1: Wi-Fi, SDIO2: BGF */
     { SDIO_DEVICE(0x037A, 0x6628) },
+#ifdef RDA_WLAN_SUPPORT
+    { SDIO_DEVICE(0x5449, 0x0145) },
+#endif    
     { /* end: all zeroes */ },
 };
 
@@ -1605,6 +1608,12 @@ static int hif_sdio_probe (
 #endif
 
     hif_sdio_dump_probe_list();
+#ifdef RDA_WLAN_SUPPORT
+    if(func->vendor == 0x5449)
+    {
+        ret = hif_sdio_wifi_on();
+    }
+#endif    
 
 out:
     //4 <last> error handling
@@ -1654,6 +1663,10 @@ static void hif_sdio_remove (
         g_hif_sdio_clt_drv_list[registed_list_index].sdio_cltinfo->hif_clt_remove( CLTCTX(func->device, func->num,\
                                                                             func->cur_blksize, probed_list_index) );
     }
+#endif
+
+#ifdef RDA_WLAN_SUPPORT
+        hif_sdio_wifi_off();
 #endif
 
     //4 <3> mark this function as de-initialized and invalidate client's context
@@ -2075,6 +2088,12 @@ hif_sdio_wifi_on (void)
     {
         goto wifi_on_exist;
     }
+#ifdef RDA_WLAN_SUPPORT
+    if ( (probe_index = hif_sdio_find_probed_list_index_by_id_func(0x5449, 0x0145, 1)) >= 0 )
+    {
+        goto wifi_on_exist;
+    }
+#endif    
     else
     {
         //4 <2> If wifi client drv has not been probed, return error code
@@ -2188,6 +2207,12 @@ INT32 hif_sdio_wifi_off(
     {
         goto wifi_off_exist;
     }
+#ifdef RDA_WLAN_SUPPORT
+    if ( (probe_index = hif_sdio_find_probed_list_index_by_id_func(0x5449, 0x0145, 1)) >= 0 )
+    {
+        goto wifi_off_exist;
+    }
+#endif    
     else
     {
         //4 <2> If wifi client drv has not been probed, return error code

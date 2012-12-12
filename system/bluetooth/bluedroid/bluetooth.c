@@ -22,6 +22,10 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#ifdef RDA_BT_SUPPORT
+#include <time.h>
+#include <sys/time.h>
+#endif
 
 #include <cutils/log.h>
 #include <cutils/properties.h>
@@ -44,6 +48,9 @@
 static int rfkill_id = -1;
 static char *rfkill_state_path = NULL;
 
+#ifdef RDA_BT_SUPPORT
+static int bt_power_flag = -1;
+#endif
 
 static int init_rfkill() {
     char path[64];
@@ -71,6 +78,7 @@ static int init_rfkill() {
 }
 
 static int check_bluetooth_power() {
+#ifndef RDA_BT_SUPPORT
     int sz;
     int fd = -1;
     int ret = -1;
@@ -105,9 +113,13 @@ static int check_bluetooth_power() {
 out:
     if (fd >= 0) close(fd);
     return ret;
+#else
+    return bt_power_flag; 
+#endif
 }
 
 static int set_bluetooth_power(int on) {
+#ifndef RDA_BT_SUPPORT
     int sz;
     int fd = -1;
     int ret = -1;
@@ -134,6 +146,14 @@ static int set_bluetooth_power(int on) {
 out:
     if (fd >= 0) close(fd);
     return ret;
+#else
+    if(on)
+    	bt_power_flag = 1;
+    else
+	bt_power_flag = 0;
+    
+    return 0;
+#endif
 }
 
 static inline int create_hci_sock() {
@@ -151,6 +171,9 @@ int bt_enable() {
     int ret = -1;
     int hci_sock = -1;
     int attempt;
+#ifdef RDA_BT_SUPPORT
+	sleep(4);
+#endif
 
     if (set_bluetooth_power(1) < 0) goto out;
 

@@ -274,13 +274,13 @@ public class WirelessSettings extends SettingsPreferenceFragment {
         }
 
         // Remove Mobile Network Settings if it's a wifi-only device.
-        if (Utils.isWifiOnly(getActivity())) {
+        if (Utils.isWifiOnly(getActivity()) && FeatureOption.RDA_BT_SUPPORT == false) {
             getPreferenceScreen().removePreference(mNetworkSettingsPreference);
         }
 
         WifiP2pManager p2p = (WifiP2pManager) activity.getSystemService(Context.WIFI_P2P_SERVICE);
 
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)||FeatureOption.MTK_WLAN_SUPPORT == false ||
+        if (FeatureOption.RDA_WLAN_SUPPORT == true ||!getPackageManager().hasSystemFeature(PackageManager.FEATURE_WIFI_DIRECT)||FeatureOption.MTK_WLAN_SUPPORT == false ||
                  (SystemProperties.getInt("ro.mediatek.wlan.p2p", 0) == 0)) {
             getPreferenceScreen().removePreference(wifiP2p);
         } else {

@@ -76,9 +76,81 @@ static int mt_wifi_pm_late_cb = 0;
 /*=======================================================================*/
 extern kal_bool pmic_chrdet_status(void);
 
+
+#ifdef RDA_BT_SUPPORT
+extern void export_bt_hci_wakeup_chip(void);
+extern void rda_5990_set_wake_lock(void);
+
+static void combo_bgf_eirq_handler(void)
+{
+    export_bt_hci_wakeup_chip(); 
+    rda_5990_set_wake_lock();
+    mt65xx_eint_unmask(CUST_EINT_COMBO_BGF_NUM);
+}
+
+static void mt_combo_bgf_request_irq(void *data)
+{
+    mt65xx_eint_set_sens(CUST_EINT_COMBO_BGF_NUM, CUST_EINT_EDGE_SENSITIVE);
+    mt65xx_eint_set_hw_debounce(CUST_EINT_COMBO_BGF_NUM, CUST_EINT_COMBO_BGF_DEBOUNCE_CN);
+    mt65xx_eint_registration(CUST_EINT_COMBO_BGF_NUM,
+        CUST_EINT_COMBO_BGF_DEBOUNCE_EN,
+        CUST_EINT_POLARITY_HIGH,
+        combo_bgf_eirq_handler,
+        0);
+    mt65xx_eint_mask(CUST_EINT_COMBO_BGF_NUM); /*2*/
+    return;
+}
+
+/* Combo chip shared interrupt (BGF_INT_B) */
+void mt_combo_bgf_enable_irq(void)
+{
+    //mt_set_gpio_mode(GPIO_COMBO_BGF_EINT_PIN, GPIO_COMBO_BGF_EINT_PIN_M_GPIO);
+    mt_set_gpio_pull_enable(GPIO_COMBO_BGF_EINT_PIN, GPIO_PULL_DISABLE);
+    //mt_set_gpio_pull_select(GPIO_COMBO_BGF_EINT_PIN, GPIO_PULL_UP);
+    mt_set_gpio_mode(GPIO_COMBO_BGF_EINT_PIN, GPIO_COMBO_BGF_EINT_PIN_M_EINT);
+
+    mt_combo_bgf_request_irq(NULL);
+
+    mt65xx_eint_unmask(CUST_EINT_COMBO_BGF_NUM);
+    return;
+}
+EXPORT_SYMBOL(mt_combo_bgf_enable_irq);
+
+void mt_combo_bgf_disable_irq(void)
+{
+    mt65xx_eint_mask(CUST_EINT_COMBO_BGF_NUM);
+    mt_set_gpio_mode(GPIO_COMBO_BGF_EINT_PIN, GPIO_COMBO_BGF_EINT_PIN_M_GPIO);
+    mt_set_gpio_dir(GPIO_COMBO_BGF_EINT_PIN, GPIO_DIR_IN);
+    mt_set_gpio_pull_select(GPIO_COMBO_BGF_EINT_PIN, GPIO_PULL_DOWN);
+    mt_set_gpio_pull_enable(GPIO_COMBO_BGF_EINT_PIN, GPIO_PULL_ENABLE);
+
+    return;
+}
+EXPORT_SYMBOL(mt_combo_bgf_disable_irq);
+#endif
+
+
+#ifdef RDA_WLAN_SUPPORT
+static int rda_wlan_status = 0;
+extern void export_wifi_eirq_disable();
+extern int rda_wifi_power_on();
+extern int rda_wifi_power_off();
+extern int rda_bt_power_off();
+int get_wlan_status()
+{
+	return rda_wlan_status;
+}
+EXPORT_SYMBOL(get_wlan_status);
+#endif
 void mt6577_power_off(void)
 {
 	printk("mt6577_power_off\n");
+#ifdef RDA_WLAN_SUPPORT
+  rda_bt_power_off();
+  //if(rda_wlan_status)
+      rda_wifi_power_off();
+  rda_wlan_status = 0;
+#endif
 
 	/* pull PWRBB low */
 	rtc_bbpu_power_down();
@@ -330,7 +402,19 @@ int mt_wifi_resume(pm_message_t state)
     }
 
     /*printk(KERN_INFO "[WIFI] %s Resume\n", evt == PM_EVENT_RESUME ? "PM":"USR");*/
-
+#ifdef RDA_WLAN_SUPPORT
+    export_wifi_eirq_disable(); 
+    
+    if(rda_wifi_power_on() < 0)
+    	return -1;
+    
+    //rtc_gpio_enable_32k(RTC_GPIO_USER_GPS);
+    //rtc_gpio_enable_32k(RTC_GPIO_USER_WIFI);
+    //msleep(200);
+    board_sdio_ctrl(3, 1);
+    rda_wlan_status = 1;
+    return 0;
+#endif
 #if defined(CONFIG_MTK_COMBO) || defined(CONFIG_MTK_COMBO_MODULE)
     /* combo chip product: notify combo driver to turn on Wi-Fi */
 
@@ -383,6 +467,12 @@ int mt_wifi_suspend(pm_message_t state)
         }
     }
     else {
+#ifdef RDA_WLAN_SUPPORT
+        board_sdio_ctrl(3, 0);
+        rda_wifi_power_off();
+        rda_wlan_status = 0;
+        return 0;
+#endif        
         /* combo chip product, notify combo driver */
 
         /* Use new mtk_wcn_cmb_stub APIs instead of old mt_combo ones */
@@ -540,7 +630,11 @@ struct msdc_hw msdc1_hw = {
 	    .dat_drv        = 4,
 	    .data_pins      = 4,
 	    .data_offset    = 0,
+#ifdef RDA_WLAN_SUPPORT
+    	.flags          = MSDC_EXT_SDIO_IRQ | MSDC_HIGHSPEED,
+#else  
 	    .flags          = MSDC_EXT_SDIO_IRQ | MSDC_HIGHSPEED,//| MSDC_HIGHSPEED
+#endif
 	    .request_sdio_eirq = mtk_wcn_cmb_sdio_request_eirq,
 	    .enable_sdio_eirq  = mtk_wcn_cmb_sdio_enable_eirq,
 	    .disable_sdio_eirq = mtk_wcn_cmb_sdio_disable_eirq,

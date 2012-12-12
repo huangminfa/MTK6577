@@ -1022,6 +1022,17 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
                         onPauseFM();
                     }
                     else {
+						// RDA_FM_SUPPORT --- begin
+						if (!isEarphonePlugged()) {
+							// When earphone is plugged, should not power up FM .
+							Log.i(TAG, "Warning: do not power up  when earphone is not plugged.");
+							// Show toast if there is no toast being shown at the moment.
+							if (!isToasting()) {
+								//showToast(getString(R.string.toast_plugin_earphone));
+								showToast(getString(R.string.dlg_noantenna_text));
+							}
+						}else
+						// RDA_FM_SUPPORT --- end
                      onPlayFM();
                     }
                 }
@@ -1078,6 +1089,12 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
                         // A searching process is ongoing. Do nothing.
                         FMRadioLogUtils.d(TAG, "Warning: Already searching.");
                     } else {
+						// RDA_FM_SUPPORT --- begin
+						if(!isEarphonePlugged()){
+								showToast(getString(R.string.dlg_noantenna_text));
+							//return;
+						}else{
+						// RDA_FM_SUPPORT --- end
                         mIsSearching = true;
                         FMRadioLogUtils.d(TAG, "Start searching.");
                         
@@ -1255,6 +1272,9 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
                             }
                         };
                         threadSearch.start();
+						//RDA_FM_SUPPORT --- begin
+						}
+						//RDA_FM_SUPPORT --- end
                     }
                 } else if (MSGID_SEARCH_FINISH == msg.getData().getInt(TYPE_MSGID)) {
                     FMRadioLogUtils.d(TAG, "FMRadioActivity->mHandler:MSGID_SEARCH_FINISH");
@@ -1395,6 +1415,18 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
         FMRadioLogUtils.d(TAG, "<<< FMRadioActivity.onCreate");
     }
     
+    //RDA_FM_SUPPORT --- begin
+	private boolean isEarphonePlugged() {
+		Log.i(TAG, ">>> FMRadioActivity.isEarphonePlugged");
+		boolean bRet = true;
+		AudioManager am = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+		if (null != am) {
+			bRet = am.isWiredHeadsetOn();
+		}
+		Log.i(TAG, "<<< FMRadioActivity.isEarphonePlugged: " + bRet);
+		return bRet;
+	}
+  //RDA_FM_SUPPORT --- end
     public void onStart() {
         FMRadioLogUtils.d(TAG, ">>> FMRadioActivity.onStart");
         super.onStart();
@@ -1658,6 +1690,17 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
                        msg.sendToTarget();
                    }
                    else {
+				// RDA_FM_SUPPORT --- begin
+				if (!isEarphonePlugged()){
+                        FMRadioLogUtils.d(TAG, "Antenna is unavailable. Ask if plug in antenna.");
+                        Message msg = new Message();
+                        msg.setTarget(mHandler);
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(TYPE_MSGID, MSGID_ANTENNA_UNAVAILABE);
+                        msg.setData(bundle);
+                        msg.sendToTarget();
+				}
+				// RDA_FM_SUPPORT --- end
                        if (!isAntennaAvailable()) {
                            int ret = -1;
                            try {
@@ -2047,6 +2090,9 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
     private void playFM(){
         FMRadioLogUtils.v(TAG, ">>> PlayFM");
         // not call any native method before power up except openDev, it not use
+        //RDA_FM_SUPPORT --- begin
+		if(isEarphonePlugged()){			
+		//RDA_FM_SUPPORT --- end
         boolean bRes = powerUp((float)mCurrentStation / CONVERT_RATE);
         if (bRes) {
             // add mute to avoid noise when tune after switch short antenna
@@ -2093,6 +2139,20 @@ public class FMRadioActivity extends Activity implements OnMenuItemClickListener
             
             FMRadioLogUtils.e(TAG, "Error: Can not power up.");
         }
+        //RDA_FM_SUPPORT --- begin
+		}else{
+			setMute(true);
+			powerDown();
+
+			Message msg = new Message();
+			msg.setTarget(mHandler);
+			Bundle bundle = new Bundle();
+			bundle.putInt(TYPE_MSGID, MSGID_PLAY_FAIL);
+			msg.setData(bundle);
+			msg.sendToTarget();
+			Log.e(TAG, "Error: Can not power up.");
+		}
+        //RDA_FM_SUPPORT --- end
         FMRadioLogUtils.v(TAG, "<<< PlayFM");
     }
     

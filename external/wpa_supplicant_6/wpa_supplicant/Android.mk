@@ -101,6 +101,7 @@ OBJS_p += src/crypto/md4.c
 OBJS_p += src/crypto/sha1.c
 OBJS_p += src/crypto/des.c
 OBJS_c = wpa_cli.c
+OBJS_k += rda_wl_test.c
 OBJS_c += src/common/wpa_ctrl.c
 OBJS_d =
 
@@ -1154,6 +1155,20 @@ LDO=$(CC)
 endif
 
 ifeq ($(WPA_BUILD_SUPPLICANT),true)
+
+########################
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := wlan_test
+LOCAL_MODULE_TAGS := debug
+LOCAL_SHARED_LIBRARIES := libc libcutils
+LOCAL_CFLAGS := $(L_CFLAGS)
+LOCAL_SRC_FILES := $(OBJS_k)
+LOCAL_C_INCLUDES := $(INCLUDES)
+include $(BUILD_EXECUTABLE)
+
+########################
+
 
 ########################
 

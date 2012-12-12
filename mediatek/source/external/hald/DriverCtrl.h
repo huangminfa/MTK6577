@@ -60,10 +60,22 @@
 #define LOAD_MODULE_ONCE
 
 #ifndef WIFI_DRIVER_MODULE_PATH
+//RDA_WLAN_SUPPORT -- begin
+#ifdef RDA_WLAN_SUPPORT
+#define WIFI_DRIVER_MODULE_PATH             "/system/lib/modules/rda5890.ko"
+#else
 #define WIFI_DRIVER_MODULE_PATH             "/system/lib/modules/wlan.ko"
 #endif
+//RDA_WLAN_SUPPORT -- end
+#endif
 #ifndef WIFI_DRIVER_MODULE_NAME
+//RDA_WLAN_SUPPORT -- begin
+#ifdef RDA_WLAN_SUPPORT
+#define WIFI_DRIVER_MODULE_NAME             "rda5890"
+#else
 #define WIFI_DRIVER_MODULE_NAME             "wlan"
+#endif
+//RDA_WLAN_SUPPORT -- end
 #endif
 #ifndef WIFI_DRIVER_MODULE_ARG
 #define WIFI_DRIVER_MODULE_ARG              ""

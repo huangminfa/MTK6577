@@ -479,8 +479,11 @@ static void *fm_update_thread(void *priv)
         iv->redraw(iv);
         goto out;
     }
-    
-    mute = 1;
+
+	//RDA_FM_SUPPORT --- begin
+	//mute = 1;
+	mute = 0;
+	//RDA_FM_SUPPORT --- end
 #if (defined MT5192_FM || defined MT5193_FM)
     mute = 0;
     ret = fm_mute(mute) ? 0 : 1;

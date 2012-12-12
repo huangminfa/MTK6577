@@ -155,6 +155,26 @@ int wifi_start_supplicant()
         LOGD("[PAL] wifi_start_supplicant fail\n");
     }
 #endif  
+
+#ifdef RDA_BT_SUPPORT
+		if(status != 0)
+        {
+            unsigned char retry_count = 0;
+            while(1)
+            {
+                wifi_unload_driver();
+                wifi_load_driver();
+                if (0 == start_supplicant(&rWifiSuppPara, rWifiSuppInfo.acIfName)) 
+                {
+                    return 0;
+                }
+
+                retry_count ++;
+                if(retry_count > 4)
+                    break;
+            }
+        }
+#endif
     
     return status;
 }

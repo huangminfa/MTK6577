@@ -234,6 +234,12 @@ static int msdc_rsp[] = {
 #define msdc_dma_on()        sdr_clr_bits(MSDC_CFG, MSDC_CFG_PIO)
 #define msdc_dma_off()       sdr_set_bits(MSDC_CFG, MSDC_CFG_PIO)
 
+#ifdef RDA_WLAN_SUPPORT
+#define msdc_clk_always_on()    sdr_set_bits(MSDC_CFG, (0x1<<1))  
+#define msdc_clk_always_on_off()  sdr_clr_bits(MSDC_CFG, (0x1<<1))
+static u8   wifi_eirq_enable = 0;
+#endif
+
 static void msdc_dump_register(struct msdc_host *host)
 {
     u32 base = host->base; 
@@ -941,6 +947,12 @@ static void msdc_set_mclk(struct msdc_host *host, int ddr, u32 hz)
         msdc_reset_hw(host->id);       
         return;
     }
+	
+#ifdef RDA_WLAN_SUPPORT
+    if(host->id == 3 && hz > HOST_MIN_MCLK)
+        hz = 12000000; //set sdio clock 12Mhz
+#endif
+
 
     msdc_irq_save(flags);
     
@@ -3993,7 +4005,10 @@ out:
         }    
     } 
 
+#ifdef RDA_WLAN_SUPPORT
+    if(host->id != 3)
     msdc_gate_clock(host, 1); // clear flag. 
+#endif 
     spin_unlock(&host->lock);
 
     mmc_request_done(mmc, mrq);
@@ -4231,6 +4246,32 @@ static void msdc_ops_enable_sdio_irq(struct mmc_host *mmc, int enable)
     struct msdc_hw *hw = host->hw;
     u32 base = host->base;
     u32 tmp;
+
+#ifdef RDA_WLAN_SUPPORT
+	if(host->id == 3)
+	{
+		if(hw->flags & MSDC_EXT_SDIO_IRQ)
+		{
+			if(enable && wifi_eirq_enable)
+			  hw->enable_sdio_eirq();
+			else
+			  hw->disable_sdio_eirq();
+			return;
+		}
+		else
+		{
+			tmp = sdr_read32(SDC_CFG);
+			/* FIXME. Need to interrupt gap detection */
+			if (enable) {
+			    tmp |= (SDC_CFG_SDIOIDE | SDC_CFG_SDIOINTWKUP);           
+			} else {
+			    tmp &= ~(SDC_CFG_SDIOIDE | SDC_CFG_SDIOINTWKUP);
+			}
+			sdr_write32(SDC_CFG, tmp); 
+			return;
+		}
+	}
+#endif
 
     if (hw->flags & MSDC_EXT_SDIO_IRQ) { /* yes for sdio */
         if (enable) {
@@ -4971,6 +5012,14 @@ static int msdc_drv_probe(struct platform_device *pdev)
     host->dma.used_gpd = 0;
     host->dma.used_bd = 0;
 
+#ifdef RDA_WLAN_SUPPORT
+    if(host->id == 3)
+    {
+        msdc_clk_always_on();
+	msdc_clksrc_onoff(host, 1);
+    }
+#endif
+
     /* using dma_alloc_coherent*/  /* todo: using 1, for all 4 slots */
     host->dma.gpd = dma_alloc_coherent(NULL, MAX_GPD_NUM * sizeof(gpd_t), &host->dma.gpd_addr, GFP_KERNEL); 
     host->dma.bd =  dma_alloc_coherent(NULL, MAX_BD_NUM  * sizeof(bd_t),  &host->dma.bd_addr,  GFP_KERNEL); 
@@ -5164,6 +5213,96 @@ static void __exit mt_msdc_exit(void)
 {
     platform_driver_unregister(&mt_msdc_driver);
 }
+
+#ifdef RDA_WLAN_SUPPORT
+void export_msdc_clk_always_on(void)
+{
+	struct msdc_host *host = msdc_6577_host[3];
+	u32 base;
+
+	if(!host)
+		return;
+
+	base = host->base;
+	msdc_clk_always_on();
+	enable_clock(PERI_MSDC0_PDN + host->id, "SD"); 
+	host->core_clkon = 1;
+
+}
+
+void export_msdc_clk_always_on_off(void)
+{
+        struct msdc_host  *host = msdc_6577_host[3];
+        u32 base;
+               
+        if(!host)
+            return;
+
+        base = host->base;
+
+        //msdc_clk_always_on_off();
+	//disable_clock(PERI_MSDC0_PDN + host->id, "SD");
+	//host->core_clkon = 0;
+
+}
+
+void export_wifi_eirq_enable(void)
+{
+	u32 base;
+	u32 tmp;
+	struct msdc_host  *host =  msdc_6577_host[3];
+
+	if(!host)
+		return;
+	//rda 
+	base = host->base;
+	if(host->hw->flags & MSDC_EXT_SDIO_IRQ)
+	{
+		host->hw->enable_sdio_eirq();
+	}
+	else
+	{
+		//tmp = sdr_read32(SDC_CFG);
+		//tmp |= SDIO_CFG_INTEN;
+		//sdr_set_bits(SDC_CFG, SDC_CFG_SDIO);
+		//sdr_write32(SDIO_CFG, tmp);
+	}
+
+	wifi_eirq_enable = 1;
+	printk(KERN_INFO "export_wifi_eirq_enable \n");
+}
+
+void export_wifi_eirq_disable(void)
+{
+	u32 base;
+	u32 tmp;
+	struct msdc_host  *host =  msdc_6577_host[3];
+
+	if(!host)
+		return;
+	//rda 
+	base = host->base;
+	if(host->hw->flags & MSDC_EXT_SDIO_IRQ)
+	{
+		host->hw->disable_sdio_eirq();
+	}
+	else
+	{
+		//tmp = sdr_read32(SDC_CFG);
+		//tmp &= ~SDIO_CFG_INTEN;
+		//sdr_write32(SDC_CFG, tmp);
+		//sdr_clr_bits(SDC_CFG, SDC_CFG_SDIO);
+	}
+
+	wifi_eirq_enable = 0;
+	printk(KERN_INFO "export_wifi_eirq_disable \n");
+}
+
+EXPORT_SYMBOL(export_wifi_eirq_enable);
+EXPORT_SYMBOL(export_wifi_eirq_disable);
+EXPORT_SYMBOL(export_msdc_clk_always_on);
+EXPORT_SYMBOL(export_msdc_clk_always_on_off);
+#endif
 
 module_init(mt_msdc_init);
 module_exit(mt_msdc_exit);

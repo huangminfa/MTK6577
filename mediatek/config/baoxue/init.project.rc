@@ -13,7 +13,7 @@ on post-fs-data
 #
 
 #/dev/ttyMT2 for MT6620 BT/FM/GPS usage
-    chmod 0660 /dev/ttyMT2
+    chmod 0666 /dev/ttyMT2
     chown system system /dev/ttyMT2
 
 # Turn off MT6620 by default
@@ -24,17 +24,26 @@ on post-fs-data
 
 # STP, WMT, GPS, FM and BT Driver
     insmod /system/lib/modules/mtk_hif_sdio.ko
-    insmod /system/lib/modules/mtk_stp_wmt.ko
-    insmod /system/lib/modules/mtk_stp_uart.ko
-    insmod /system/lib/modules/mtk_stp_gps.ko
-    insmod /system/lib/modules/mtk_stp_bt.ko
-    insmod /system/lib/modules/mtk_fm_drv.ko
-    insmod /system/lib/modules/mtk_fm_priv.ko
-
+    #RDA ++
+    #insmod /system/lib/modules/mtk_stp_wmt.ko
+    #insmod /system/lib/modules/mtk_stp_uart.ko
+    #insmod /system/lib/modules/mtk_stp_gps.ko
+    #insmod /system/lib/modules/mtk_stp_bt.ko
+    #insmod /system/lib/modules/mtk_fm_drv.ko
+    #insmod /system/lib/modules/mtk_fm_priv.ko
+    #load FM driver for RDA FM
+    insmod /system/lib/modules/RDA5990_FM_drv.ko
+    
 # Create char device file for WMT, GPS, BT, FM
     mknod /dev/stpwmt c 190 0;
     mknod /dev/stpgps c 191 0;
     mknod /dev/stpbt  c 192 0;
+	#mknod /dev/fm     c 193 0;
+    #RDA--
+
+#RDABT++
+    mknod /dev/rdacombo  c 194 0;
+#RDA--
     chmod 0660 /dev/stpwmt
 	  chown system system /dev/stpwmt
 
@@ -52,6 +61,9 @@ on post-fs-data
     chown gps gps /sys/class/gpsdrv/gps/status
     chmod 0664 /dev/gps
     chmod 0660 /dev/stpgps
+    #RDABT
+    chmod 0666 /dev/rdacombo
+    chown system system /dev/rdacombo
 
 # WiFi
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -75,8 +87,10 @@ on post-fs-data
     insmod /system/lib/modules/cfg80211.ko
 
 # Load WiFi Driver
-    insmod /system/lib/modules/wlan.ko
-
+#RDA++
+    #insmod /system/lib/modules/wlan.ko #rda5990 must delete
+    insmod /system/lib/modules/rda5890.ko
+#RDA--
 # Char device for BT 3.0 HS
     mknod /dev/ampc0 c 151 0
     chown bluetooth bluetooth /dev/ampc0
@@ -86,6 +100,21 @@ on post-fs-data
 # MT6620 related device nodes & configuration (end)
 #
 
+#RDA++
+service bluetoothd /system/bin/logwrapper  /system/bin/bluetoothd -n
+    socket bluetooth stream 660 bluetooth bluetooth
+    socket dbus_bluetooth stream 660 bluetooth bluetooth
+    # init.rc does not yet support applying capabilities, so run as root and
+    # let bluetoothd drop uid to bluetooth with the right linux capabilities
+    group bluetooth net_bt_admin misc
+    disabled
+
+service hciattach /system/bin/logwrapper /system/bin/hciattach -n -s 115200 /dev/ttyMT2 rda 3000000 noflow 
+     user bluetooth
+     disabled
+     oneshot
+#RDA--
+
 # Encrypt phone function
     setprop vold.post_fs_data_done 1
 
@@ -94,12 +123,12 @@ on boot
 #
 # MT6620 related services (Begin)
 #
-service 6620_launcher /system/bin/6620_launcher -m 1 -b 4000000 -p /system/etc/firmware/ -d /dev/ttyMT2
-    
-    class core
-    user system
-    group system
-    
+#service 6620_launcher /system/bin/6620_launcher -m 1 -b 4000000 -p /system/etc/firmware/ -d /dev/ttyMT2
+#   class core
+#    user system
+#    group system
+   
+
 
 service stp_dump /system/bin/stp_dump3
     class main

@@ -6217,6 +6217,12 @@ public class InCallScreen extends Activity
         }
         boolean isAudioOn = mBluetoothHandsfree.isAudioOn();
         if (VDBG) log("isBluetoothAudioConnected: ==> isAudioOn = " + isAudioOn);
+//RDA_BT_SUPPORT --- begin
+        if(!isAudioOn)
+		{
+	 		mBluetoothHandsfree.audioOn();
+		}
+//RDA_BT_SUPPORT --- end
         return isAudioOn;
     }
 

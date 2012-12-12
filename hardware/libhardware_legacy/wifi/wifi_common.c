@@ -61,7 +61,11 @@
 #define HAL_DAEMON_CMD_LENGTH       255
 
 #define SET_IFACE_DELAY                 300000
+#ifdef RDA_WLAN_SUPPORT
+#define SET_IFACE_POLLING_LOOP          25
+#else
 #define SET_IFACE_POLLING_LOOP          20
+#endif
 #define CONNECT_TO_SUPP_DELAY           300000
 #define CONNECT_TO_SUPP_POLLING_LOOP    20
 

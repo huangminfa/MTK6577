@@ -2069,6 +2069,48 @@ static jstring getAdapterPathNative(JNIEnv *env, jobject object) {
 
 static jboolean startDiscoveryNative(JNIEnv *env, jobject object, int mode) {
     LOGV(__FUNCTION__);
+#ifdef RDA_BT_SUPPORT
+#ifdef HAVE_BLUETOOTH
+    DBusMessage *msg = NULL;
+    DBusMessage *reply = NULL;
+    DBusError err;
+    const char *name;
+    jboolean ret = JNI_FALSE;
+
+    native_data_t *nat = get_native_data(env, object);
+    if (nat == NULL) {
+        goto done;
+    }
+
+    dbus_error_init(&err);
+
+    /* Compose the command */
+    msg = dbus_message_new_method_call(BLUEZ_DBUS_BASE_IFC,
+                                       get_adapter_path(env, object),
+                                       DBUS_ADAPTER_IFACE, "StartDiscovery");
+
+    if (msg == NULL) {
+        if (dbus_error_is_set(&err)) {
+            LOG_AND_FREE_DBUS_ERROR_WITH_MSG(&err, msg);
+        }
+        goto done;
+    }
+
+    /* Send the command. */
+    reply = dbus_connection_send_with_reply_and_block(nat->conn, msg, -1, &err);
+    if (dbus_error_is_set(&err)) {
+         LOG_AND_FREE_DBUS_ERROR_WITH_MSG(&err, msg);
+         ret = JNI_FALSE;
+         goto done;
+    }
+
+    ret = JNI_TRUE;
+done:
+    if (reply) dbus_message_unref(reply);
+    if (msg) dbus_message_unref(msg);
+    return ret;
+#endif
+#endif
 
 #ifdef __BTMTK__
     native_data_t *nat = get_native_data(env, object);

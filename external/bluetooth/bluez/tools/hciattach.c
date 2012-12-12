@@ -44,7 +44,9 @@
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <sys/uio.h>
-
+#ifdef RDA_BT_SUPPORT
+#include <linux/serial.h>
+#endif
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/hci.h>
 #include <bluetooth/hci_lib.h>
@@ -52,7 +54,73 @@
 #include "hciattach.h"
 
 #include "ppoll.h"
+#ifdef RDA_BT_SUPPORT
+#include <cutils/log.h>
 
+#define TAG "[GPIOTST] "
+#define LDO_POWER_PATH "/sys/mtuart/power"
+#define NULL_FT {0,0}
+#define GIO_RETERR(res, fmt, args...)                                       \
+    do {                                                                    \
+        printf(TAG "%s:%04d: " fmt"\n", __FUNCTION__, __LINE__, ##args);    \
+        return res;                                                         \
+    } while(0)
+
+/* GPIO MODE CONTROL VALUE*/
+typedef enum {
+    GPIO_MODE_GPIO  = 0,
+    GPIO_MODE_00    = 0,
+    GPIO_MODE_01    = 1,
+    GPIO_MODE_02    = 2,
+    GPIO_MODE_03    = 3,
+
+    GPIO_MODE_MAX,
+    GPIO_MODE_DEFAULT = GPIO_MODE_01,
+} GPIO_MODE;
+
+/* GPIO PULL ENABLE*/
+typedef enum {
+    GPIO_PULL_DISABLE = 0,
+    GPIO_PULL_ENABLE  = 1,
+
+    GPIO_PULL_EN_MAX,
+    GPIO_PULL_EN_DEFAULT = GPIO_PULL_ENABLE,
+} GPIO_PULL_EN;
+
+/* GPIO PULL-UP/PULL-DOWN*/
+typedef enum {
+    GPIO_PULL_DOWN  = 0,
+    GPIO_PULL_UP    = 1,
+
+    GPIO_PULL_MAX,
+    GPIO_PULL_DEFAULT = GPIO_PULL_DOWN
+} GPIO_PULL;
+
+static int set_rda_power(int on) {
+    int sz;
+    int fd = -1;
+    int ret = -1;
+    const char buffer = (on ? '1' : '0');
+
+    fd = open(LDO_POWER_PATH, O_WRONLY);
+    if (fd < 0) {
+        printf("open(%s) for write failed: %s (%d)", LDO_POWER_PATH,
+             strerror(errno), errno);
+        goto out;
+    }
+    sz = write(fd, &buffer, 1);
+    if (sz < 0) {
+        printf("write(%s) failed: %s (%d)", LDO_POWER_PATH, strerror(errno),
+             errno);
+        goto out;
+    }
+    ret = 0;
+
+out:
+    if (fd >= 0) close(fd);
+    return ret;
+}
+#endif
 struct uart_t {
 	char *type;
 	int  m_id;
@@ -1033,6 +1101,345 @@ static int bcm2035(int fd, struct uart_t *u, struct termios *ti)
 
 	return 0;
 }
+#ifdef RDA_BT_SUPPORT
+#if 0
+static int rda_setup_flow_ctl(int fd, struct uart_t *u, struct termios *ti)
+{
+ unsigned int i, num_send;
+ 
+ unsigned char rda_flow_ctl_10[][14] =
+ {
+  {0x01,0x02,0xfd,0x0a,0x00,0x01,0x10,0x00,0x00,0x50,0x22,0x01,0x00,0x00},// flow control
+ };
+ 
+ if (u->flags & FLOW_CTL) {
+  /*Setup flow control */
+  for (i = 0; i < sizeof(rda_flow_ctl_10)/sizeof(rda_flow_ctl_10[0]); i++) {
+   num_send = write(fd, rda_flow_ctl_10[i], sizeof(rda_flow_ctl_10[i]));
+   if (num_send != sizeof(rda_flow_ctl_10[i])) {
+    perror("");
+    printf("num_send = %d (%d)\n", num_send, sizeof(rda_flow_ctl_10[i]));
+    return -1;
+   }
+   usleep(5000);
+  }
+ }
+ 
+ usleep(50000);
+ 
+ return 0;
+}
+#endif
+ 
+void rdabt_write_memory(int fd,__u32 addr,__u32 *data,__u8 len,__u8 memory_type)
+{
+   __u16 num_to_send; 
+   __u16 i,j;
+   __u8 data_to_send[256]={0};
+   __u32 address_convert;
+   
+   data_to_send[0] = 0x01;
+   data_to_send[1] = 0x02;
+   data_to_send[2] = 0xfd;
+   data_to_send[3] = (__u8)(len*4+6);
+   data_to_send[4] = (memory_type+0x00);  // add the event display 0x80 no event callback 0x00
+   data_to_send[5] = len;
+   if(memory_type == 0x01)
+   {
+      address_convert = addr*4+0x200;
+      data_to_send[6] = (__u8)address_convert;
+      data_to_send[7] = (__u8)(address_convert>>8);
+      data_to_send[8] = (__u8)(address_convert>>16);
+      data_to_send[9] = (__u8)(address_convert>>24);   
+   }
+   else
+   {
+      data_to_send[6] = (__u8)addr;
+      data_to_send[7] = (__u8)(addr>>8);
+      data_to_send[8] = (__u8)(addr>>16);
+      data_to_send[9] = (__u8)(addr>>24);
+   }
+   for(i=0;i<len;i++,data++)
+   {
+       j=10+i*4;
+       data_to_send[j] =  (__u8)(*data);
+       data_to_send[j+1] = (__u8)((*data)>>8);
+       data_to_send[j+2] = (__u8)((*data)>>16);
+       data_to_send[j+3] = (__u8)((*data)>>24);
+   }
+   num_to_send = 4+data_to_send[3];
+ 
+   write(fd,&(data_to_send[0]),num_to_send);
+   
+  // for (i =0; i < num_to_send; i++)
+  //   { printf ("%02x ", data_to_send[i]);} 
+}
+ 
+ 
+ 
+void RDA_uart_write_simple(int fd,__u8* buf,__u16 len)
+{
+    __u16 num_send; 
+    write(fd,buf,len);
+    usleep(10000);//10ms?
+}
+ 
+void RDA_uart_write_array(int fd,__u32 buf[][2],__u16 len,__u8 type)
+{
+   __u32 i;
+   for(i=0;i<len;i++)
+   {
+      rdabt_write_memory(fd,buf[i][0],&buf[i][1],1,type);
+      usleep(12000);//12ms?
+   } 
+}
+
+
+__u32 RDA5876_PSKEY_RF[][2] =
+{
+    //{0x40240000,0x0004f39c}, //; houzhen 2010.02.07 for rda5990 bt
+    {0x800000C0,0x00000021}, //; CHIP_PS PSKEY: Total number -----------------
+    {0x800000C4,0x003F0000},
+    {0x800000C8,0x00414003},
+    {0x800000CC,0x004225BD},
+    {0x800000D0,0x004908E4},
+    {0x800000D4,0x0043B074},
+    {0x800000D8,0x0044D01A},
+    {0x800000DC,0x004A0800},
+    {0x800000E0,0x0054A020},
+    {0x800000E4,0x0055A020},
+    {0x800000E8,0x0056A542},
+    {0x800000EC,0x00574C18},
+    {0x800000F0,0x003F0001},
+    {0x800000F4,0x00410900},
+    {0x800000F8,0x0046033F},
+    {0x800000FC,0x004C0000},
+    {0x80000100,0x004D0015},
+    {0x80000104,0x004E002B},
+    {0x80000108,0x004F0042},
+    {0x8000010C,0x0050005A},
+    {0x80000110,0x00510073},
+    {0x80000114,0x0052008D},
+    {0x80000118,0x005300A7},
+    {0x8000011C,0x005400C4},
+    {0x80000120,0x005500E3},
+    {0x80000124,0x00560103},
+    {0x80000128,0x00570127},
+    {0x8000012C,0x0058014E},
+    {0x80000130,0x00590178},
+    {0x80000134,0x005A01A1},
+    {0x80000138,0x005B01CE},
+    {0x8000013C,0x005C01FF},
+    {0x80000140,0x003F0000},
+    {0x80000144,0x00000000}, //;         PSKEY: Page 0
+    {0x80000040,0x10000000},
+    //{0x40240000,0x0000f29c}, //; SPI2_CLK_EN PCLK_SPI2_EN 
+
+};
+ 
+ 
+__u32 RDA5876_PSKEY_MISC[][2] =
+{
+    // open sleep
+ //   {0x40240000,0x2000f29c},
+    {0x80000070,0x00022000},  //fix esco parameter
+    {0x80000074,0xa5025010},
+		{0x80000078,0x0f054001}, //sniff interval 2 0
+		
+		{0x80000040,0x00007000},
+
+    {0x80002bec,0x00010a02},  //sleep enable
+	   
+    {0x40180004,0x0001a218},
+	{0x40180024,0x0001a1e0},
+
+
+	{0x40180004,0x0001a218},
+	{0x40180024,0x0001a1e0},
+    {0x40180008,0x0001a234},
+    {0x40180028,0x00000014},
+    
+// {0x40180000,0x00000003}, //add by gongyu
+       /*houzhen update  Mar 22 2012 */
+    {0x8024002c,0x00d80500},
+    {0x800004f4,0x83701898}, ///rda5990 disable 3m esco ev4 ev5  ssp
+    //{0x800004f0,0xf88dffff}, ///rda5990 disable edr 
+    {0x4020004C,0x1500FFFF},  //acl package as lo pri houzhen update 2012_04_15
+    {0x40200050,0x2eb20000},  //rda5990 pta config
+    {0x40200054,0xaaaaaaaa},  //rda5990 pta config 0xffffffff > 0xaaaaaaaa
+    {0x40240000,0x0000f29c},  //config 32k
+    {0x80000000,0xea00003e},//
+    {0x80000100,0xe3a00020},//   mov r0,0x10   //  wifi frame=last 8 bits  houzhen Mar 29 2012 0x80
+    {0x80000104,0xe5c50020},//   strb r0,[r5,0x20]
+    {0x80000108,0xe3a00000},// mov r0  0
+    {0x8000010c,0xe3a01a31},//       mov  r1,0x31000
+    {0x80000110,0xe281fe29},//add pc,r1,0x290
+    {0x4018000c,0x0003128c},//
+    {0x4018002c,0x00032cb4},//
+    {0x80000120,0x13a0f112},//
+    {0x80000004,0xea000046},//
+    {0x80000124,0xe5c5000c},// STRB   r0,[r5,#0xc]
+    {0x80000128,0xe3a00080},//     mov r0,0x06    //bt frame=last 8 bits     houzhen Mar 29 2012 0x30
+    {0x8000012c,0xe5c50020},// miss patch word
+    {0x80000130,0xe3a00a31},// mov r0,0x31000
+    {0x80000134,0xe280ffad},// add pc r0,0x2b4
+    {0x40180010,0x000312b0},//
+    {0x40180030,0x80000120},//
+    {0x40180014,0x00031234},//
+    {0x40180034,0x00008bac},//
+ 
+    {0x40180018,0x0003123c},//
+    {0x40180038,0x00031f74},//
+     
+		{0x80000008,0xea000050},
+		{0x80000150,0xe284102c},
+		{0x80000154,0xe3a02000},
+		{0x80000158,0xe3a0eca0},
+		{0x8000015c,0xe28ef0f8},
+		{0x4018001c,0x0000a0f4},
+		{0x4018003c,0x00032cbc},
+		
+    {0x40180000,0x0000007f},//
+
+};
+
+__u32 RDA5876_SWITCH_BAUDRATE[][2] =
+{
+//3200000
+ //    {0x80000060,0x0030d400},
+//3000000
+       {0x80000060,0x002dc6c0},
+//1500000
+//     {0x80000060,0x0016e360},
+//1152000
+//     {0x80000060,0x00119400},
+//baud rate 921600
+//     {0x80000060,0x000e1000},
+//     {0x80000064,0x000e1000},
+     {0x80000040,0x00000100}
+};
+ 
+__u8 RDA_AUTOACCEPT_CONNECT[] = 
+{
+    0x01,0x05, 0x0c, 0x03, 0x02, 0x00, 0x02
+};
+
+ 
+void RDA5876_Pskey_RfInit(int fd)
+{
+    RDA_uart_write_array(fd,RDA5876_PSKEY_RF,sizeof(RDA5876_PSKEY_RF)/sizeof(RDA5876_PSKEY_RF[0]),0);
+}
+ 
+void RDA5876_Pskey_Misc(int fd)
+{
+    RDA_uart_write_array(fd,RDA5876_PSKEY_MISC,sizeof(RDA5876_PSKEY_MISC)/sizeof(RDA5876_PSKEY_MISC[0]),0);
+    usleep(50000);
+    RDA_uart_write_array(fd, RDA5876_SWITCH_BAUDRATE ,sizeof(RDA5876_SWITCH_BAUDRATE)/sizeof(RDA5876_SWITCH_BAUDRATE[0]),0);
+}
+ 
+#if 0
+void RDA5876_DUT_Test(int fd)
+{
+  printf ("%s\n", __func__);
+ RDA_pin_to_low();
+ RDA_pin_to_high();
+ 
+ RDA5876_RfInit(fd);
+ RDA5876_Pskey_RfInit(fd);
+  
+ RDA_pin_to_low();
+ RDA_pin_to_high(); 
+ usleep(50000);
+ 
+ RDA5876_RfInit(fd);   
+ RDA5876_Pskey_RfInit(fd);
+ 
+ RDA5876_Dccal(fd); 
+ 
+
+ 
+ RDA_uart_write_array(fd,RDA5876_DUT_PSKEY,sizeof(RDA5876_DUT_PSKEY)/sizeof(RDA5876_DUT_PSKEY[0]),0);
+ 
+ RDA_uart_write_array(fd,RDA5876_DUT,sizeof(RDA5876_DUT)/sizeof(RDA5876_DUT[0]),0);
+ 
+ 
+ 
+ 
+ write(fd,&(RDA_ENABLE_ALLSCAN[0]),sizeof(RDA_ENABLE_ALLSCAN)/sizeof(RDA_ENABLE_ALLSCAN[0]));
+ 
+ write(fd,&(RDA_AUTOACCEPT_CONNECT[0]),sizeof(RDA_AUTOACCEPT_CONNECT)/sizeof(RDA_AUTOACCEPT_CONNECT[0])); 
+ 
+ write(fd,&(RDA_ENABLE_DUT[0]),sizeof(RDA_ENABLE_DUT)/sizeof(RDA_ENABLE_DUT[0]));
+}
+ 
+#endif
+
+#define RDA_BT_IOCTL_MAGIC 'u'
+
+#define RDA_BT_POWER_ON_IOCTL _IO(RDA_BT_IOCTL_MAGIC ,0x01)
+#define RD_BT_RF_INIT_IOCTL   _IO(RDA_BT_IOCTL_MAGIC ,0x02)
+#define RD_BT_DC_CAL_IOCTL    _IO(RDA_BT_IOCTL_MAGIC ,0x03)
+#define RD_BT_SET_RF_SWITCH_IOCTL _IO(RDA_BT_IOCTL_MAGIC ,0x04)
+#define RDA_BT_POWER_OFF_IOCTL _IO(RDA_BT_IOCTL_MAGIC ,0x05)
+#define RDA_BT_EN_CLK _IO(RDA_BT_IOCTL_MAGIC ,0x06)
+#define RD_BT_DC_DIG_RESET_IOCTL    _IO(RDA_BT_IOCTL_MAGIC ,0x07)
+
+
+#define RDABT_DRV_NAME "/dev/rdacombo"
+
+
+int rdabt_send_cmd_to_drv(int cmd, unsigned char shutdown) 
+{
+	static int fd = -1;
+	
+	if(fd <  0)
+	    fd = open(RDABT_DRV_NAME, O_RDWR);
+		
+	if (fd < 0) {
+		perror("Can't open rdabt device");
+		return -1;
+	}
+	
+	if(ioctl(fd, cmd) == -1)
+	{
+		perror("rdabt_send_cmd_to_drv failed \n");
+	}
+		
+	if(shutdown)
+	{
+		close(fd);
+		fd = -1;
+	}
+	
+	return 0;
+}
+
+static int rdabt_poweron_init(int fd, struct uart_t *u, struct termios *ti)
+{
+
+    rdabt_send_cmd_to_drv(RDA_BT_POWER_OFF_IOCTL, 0);
+    rdabt_send_cmd_to_drv(RDA_BT_POWER_ON_IOCTL, 0);   	//power on
+    rdabt_send_cmd_to_drv(RDA_BT_EN_CLK, 0); 
+    printf("bf RD_BT_RF_INIT_IOCTL \n");
+    usleep(200000); 
+    rdabt_send_cmd_to_drv(RD_BT_DC_DIG_RESET_IOCTL, 0);    //houzhen add to ensure bt powe up safely
+    usleep(200000); 
+    rdabt_send_cmd_to_drv(RD_BT_RF_INIT_IOCTL, 0);
+    rdabt_send_cmd_to_drv(RD_BT_SET_RF_SWITCH_IOCTL, 0);
+
+  /*houzhen update 2012 03 06*/
+   RDA5876_Pskey_RfInit(fd);  
+   usleep(100000); 
+   rdabt_send_cmd_to_drv(RD_BT_DC_CAL_IOCTL, 1);
+   usleep(10000);                                     
+   RDA5876_Pskey_Misc(fd);
+   usleep(200000);
+ 
+   return 0;
+ 
+}
+
+#endif
 
 struct uart_t uart[] = {
 	{ "any",        0x0000, 0x0000, HCI_UART_H4,   115200, 115200,
@@ -1047,6 +1454,11 @@ struct uart_t uart[] = {
 	{ "bcsp",       0x0000, 0x0000, HCI_UART_BCSP, 115200, 115200,
 				0, DISABLE_PM, NULL, bcsp     },
 
+#ifdef RDA_BT_SUPPORT
+	/* RDA 5876 */
+	{ "rda",     0x0000, 0x0000, HCI_UART_H4,   115200, 921600, 
+				0, DISABLE_PM, NULL, rdabt_poweron_init },
+#endif
 	/* Xircom PCMCIA cards: Credit Card Adapter and Real Port Adapter */
 	{ "xircom",     0x0105, 0x080a, HCI_UART_H4,   115200, 115200,
 				FLOW_CTL, DISABLE_PM,  NULL, NULL     },
@@ -1166,7 +1578,11 @@ static int init_uart(char *dev, struct uart_t *u, int send_break, int raw)
 	struct termios ti;
 	int fd, i;
 	unsigned long flags = 0;
+#ifdef RDA_BT_SUPPORT
+        struct serial_struct ss;
 
+        tcflush(fd, TCIOFLUSH);
+#endif
 	if (raw)
 		flags |= 1 << HCI_UART_RAW_DEVICE;
 
@@ -1446,5 +1862,8 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
+#ifdef RDA_BT_SUPPORT
+  rdabt_send_cmd_to_drv(RDA_BT_POWER_OFF_IOCTL, 1);
+#endif
 	return 0;
 }

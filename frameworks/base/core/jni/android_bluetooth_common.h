@@ -49,6 +49,7 @@ namespace android {
 
 struct event_loop_native_data_t;
 
+#ifndef RDA_BT_SUPPORT
 struct _Properties {
     char name[32];
     int type;
@@ -60,6 +61,7 @@ jfieldID get_field(JNIEnv *env,
                    jclass clazz,
                    const char *member,
                    const char *mtype);
+#endif
 
 // size of the dbus event loops pollfd structure, hopefully never to be grown
 #define DEFAULT_INITIAL_POLLFD_COUNT 8
@@ -604,6 +606,7 @@ typedef struct {
 #endif
 } bt_native_data_t;
 
+#ifndef RDA_BT_SUPPORT
 struct event_loop_native_data_t {
 #ifdef HAVE_BLUETOOTH
     DBusConnection *conn;
@@ -648,6 +651,7 @@ struct event_loop_native_data_t {
     btmtk_device_entry_struct inquired_dev_cache[BTBM_ADP_MAX_INQUIRY_NO];
 #endif
 };
+#endif	
 
 } /* namespace android */
 

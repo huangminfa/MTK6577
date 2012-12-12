@@ -377,7 +377,7 @@ public class Settings extends PreferenceActivity implements ButtonBarHandler {
                 }
             } else if (id == R.id.bluetooth_settings) {
                 // Remove Bluetooth Settings if Bluetooth service is not available.
-                if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)||FeatureOption.MTK_BT_SUPPORT == false) {
+                if ((!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)||FeatureOption.MTK_BT_SUPPORT == false) && FeatureOption.RDA_BT_SUPPORT== false) {
                     target.remove(header);
                 }
             } else if (id == R.id.sim_settings) {

@@ -68,7 +68,11 @@
 #include <sys/_system_properties.h>
 #endif
 
+#ifndef RDA_WLAN_SUPPORT
 //#define LOAD_WIFI_MODULE_ONCE
+#else
+  #define LOAD_WIFI_MODULE_ONCE
+#endif
 
 #define TAG                 "[FT_WIFI] "
 
@@ -84,10 +88,12 @@ static char iface[PROPERTY_VALUE_MAX];
 // sockets is in
 
 #ifndef WIFI_DRIVER_MODULE_PATH
-#define WIFI_DRIVER_MODULE_PATH     "/system/lib/modules/wlan.ko"
+#define WIFI_DRIVER_MODULE_PATH     "/system/lib/modules/rda5890.ko"
+//#define WIFI_DRIVER_MODULE_PATH     "/system/lib/modules/wlan.ko"
 #endif
 #ifndef WIFI_DRIVER_MODULE_NAME
-#define WIFI_DRIVER_MODULE_NAME     "wlan"
+#define WIFI_DRIVER_MODULE_NAME     "rda5890"
+//#define WIFI_DRIVER_MODULE_NAME     "wlan"
 #endif
 #ifndef WIFI_DRIVER_MODULE_ARG
 #define WIFI_DRIVER_MODULE_ARG      ""
@@ -96,7 +102,9 @@ static char iface[PROPERTY_VALUE_MAX];
 #define WIFI_FIRMWARE_LOADER        ""
 #endif
 #define WIFI_TEST_INTERFACE         "sta"
-
+#ifdef RDA_WLAN_SUPPORT
+static char TEST_AP_BSSID[6];
+#endif
 static const char DRIVER_PROP_NAME[]    = "wlan.driver.status";
 static const char DRIVER_MODULE_NAME[]  = WIFI_DRIVER_MODULE_NAME;
 static const char DRIVER_MODULE_TAG[]   = WIFI_DRIVER_MODULE_NAME " ";
@@ -508,7 +516,9 @@ int wifi_load_driver()
 
     LOGD("[WIFI] wifi_load_driver\n");
 
-    wifi_set_power(1);
+#ifndef RDA_WLAN_SUPPORT
+    //wifi_set_power(1);
+#endif	
 
     if (!check_driver_loaded()) {
     	  LOGD(TAG "[wifi_load_driver] loading wifi driver ... ...\n");    	  
@@ -518,6 +528,9 @@ int wifi_load_driver()
         }
     }
 
+#ifdef RDA_WLAN_SUPPORT
+    //wifi_set_power(1);
+#endif	
     sched_yield();
 	
 	while(count -- > 0){
@@ -1596,6 +1609,35 @@ int wifi_connect(char * ssid)
         goto exit;
     }
 
+#ifdef RDA_WLAN_SUPPORT
+    memset(&wrq, 0, sizeof(struct iwreq));    
+    memset(buf, '\0', sizeof(buf));
+
+    LOGD("[WIFI] wifi_connect: set auth\n");
+    strncpy(wrq.ifr_name, "wlan0", IFNAMSIZ);
+    wrq.u.param.flags = IW_AUTH_80211_AUTH_ALG;
+    wrq.u.param.value = IW_AUTH_ALG_OPEN_SYSTEM;
+
+    if (ioctl(skfd, SIOCSIWAUTH, &wrq) < 0) {
+            LOGD("WEXT: SIOCSIWAUTH(param %d "
+                   "value 0x%x) failed)",
+                   IW_AUTH_80211_AUTH_ALG, IW_AUTH_ALG_OPEN_SYSTEM);
+        ret =  -1;
+        goto exit;
+    }
+
+    LOGD("[WIFI] wifi_connect: set bssid\n");
+    memset(&wrq, 0, sizeof(wrq));
+    strncpy(wrq.ifr_name, "wlan0", IFNAMSIZ);
+    wrq.u.ap_addr.sa_family = ARPHRD_ETHER;
+    memcpy(wrq.u.ap_addr.sa_data, TEST_AP_BSSID, ETH_ALEN);
+
+    if (ioctl(skfd, SIOCSIWAP, &wrq) < 0) {
+        LOGE("ioctl[SIOCSIWAP] failed");
+        ret = -1;
+        goto exit;
+    }
+#endif
     memset(&wrq, 0, sizeof(struct iwreq));    
     memset(buf, '\0', sizeof(buf));
 
@@ -1605,7 +1647,12 @@ int wifi_connect(char * ssid)
     //buf[strlen(buf)]="\0";
     LOGD("[WIFI] wifi_init_iface: set essid %s\n",ssid);
     strncpy(wrq.ifr_name, "wlan0", IFNAMSIZ);
+	
+#ifndef RDA_WLAN_SUPPORT	
     //wrq.u.essid.flags = 1; /* flags: 1 = ESSID is active, 0 = not (promiscuous) */
+#else
+	wrq.u.essid.flags = 1;
+#endif
     wrq.u.essid.pointer = (caddr_t) buf;
     wrq.u.essid.length = strlen(buf);    
     //if (WIRELESS_EXT < 21)
@@ -1737,7 +1784,9 @@ int wifi_fm_test()
     	  apinfo.media_status = media_connecting;    	      	  
     	  
     	  update_Text_Info(&apinfo, g_output_buf, g_output_buf_len);
-    	  
+#ifdef RDA_WLAN_SUPPORT	  
+    	  memcpy(TEST_AP_BSSID,ap->ap_addr.sa_data, sizeof(apinfo.mac));
+#endif		  
         if( wifi_connect(ap->b.essid) < 0) {
             LOGE("[wifi_select_ap] wifi_connect failed\n");
             if( g_output_buf ) {

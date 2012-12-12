@@ -45,7 +45,10 @@
 *                              C O N S T A N T S
 ********************************************************************************
 */
-#define CFG_CLIENT_COUNT  (11)
+//RDA++
+//#define CFG_CLIENT_COUNT  (11)
+#define CFG_CLIENT_COUNT  (12)
+//RDA--
 
 #define HIF_DEFAULT_BLK_SIZE  (256)
 #define HIF_DEFAULT_VENDOR    (0x037A)

@@ -1348,12 +1348,20 @@ public class BluetoothService extends IBluetooth.Stub {
         // do the SDP on the callback of createDeviceNative.
    //     boolean ret= createDeviceNative(address);
         boolean ret;
+		//RDA_BT_SUPPORT --- begin
+        if (isRemoteDeviceInCache(address) && getRemoteUuids(address) != null) {
+		//RDA_BT_SUPPORT --- end
         String path = getObjectPathFromAddress(address);
 				if (path == null) return false;
         if (uuid != null) {
             	ret = discoverServicesNative(path, uuid.toString());
        	} else {
             	ret = discoverServicesNative(path, "");
+		//RDA_BT_SUPPORT --- begin
+        	}
+        } else {
+            ret = createDeviceNative(address);
+		//RDA_BT_SUPPORT --- end
         }
 
         mUuidIntentTracker.add(address);
@@ -1557,15 +1565,17 @@ public class BluetoothService extends IBluetooth.Stub {
 
         Map <ParcelUuid, Integer> uuidToChannelMap = new HashMap<ParcelUuid, Integer>();
 
+		//RDA_BT_SUPPORT, open following code if they were commented
         // Retrieve RFCOMM channel for default uuids
-    /*    for (ParcelUuid uuid : RFCOMM_UUIDS) {
+        for (ParcelUuid uuid : RFCOMM_UUIDS) {
             if (BluetoothUuid.isUuidPresent(deviceUuids, uuid)) {
                 int channel = getDeviceServiceChannelForUuid(address, uuid);
                 uuidToChannelMap.put(uuid, channel);
                 if (DBG) Log.d(TAG, "\tuuid(system): " + uuid + " " + channel);
             }
         }
-        */
+		//RDA_BT_SUPPORT END
+        
         // Retrieve RFCOMM channel for application requested uuids
         for (ParcelUuid uuid : applicationUuids) {
             if (BluetoothUuid.isUuidPresent(deviceUuids, uuid)) {
@@ -2970,8 +2980,10 @@ public class BluetoothService extends IBluetooth.Stub {
     private native int isEnabledNative();
     /*package*/ native int enableNative();
     /*package*/ native int disableNative();
-
-    /*package*/ synchronized native Object[] getAdapterPropertiesNative();
+	
+	//RDA_BT_SUPPORT --- begin
+    /*package synchronized*/ native Object[] getAdapterPropertiesNative();
+	//RDA_BT_SUPPORT --- end
     private native Object[] getDevicePropertiesNative(String objectPath);
     private native boolean setAdapterPropertyStringNative(String key, String value);
     private native boolean setAdapterPropertyIntegerNative(String key, int value);

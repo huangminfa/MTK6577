@@ -359,8 +359,10 @@ class BluetoothEventLoop {
             if (propValues[1].equals("true")) {
                 intent = new Intent(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
             } else {
+ //RDA_BT_SUPPORT  --- begin           
                 // Stop the discovery.
-          //      mBluetoothService.cancelDiscovery();
+                mBluetoothService.cancelDiscovery();
+ //RDA_BT_SUPPORT  --- end
                 intent = new Intent(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
             }
             mContext.sendBroadcast(intent, BLUETOOTH_PERM);
@@ -385,6 +387,10 @@ class BluetoothEventLoop {
         } else if (name.equals("DiscoverableTimeout")) {
             adapterProperties.setProperty(name, propValues[1]);
         }
+		//RDA_BT_SUPPORT -- begin
+		adapterProperties = null;
+		System.gc() ;
+		//RDA_BT_SUPPORT -- end
     }
 
     /**

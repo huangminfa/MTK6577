@@ -292,8 +292,16 @@ public class FMRadioService extends Service implements FMRecorder.onRecorderStat
                 }
 //                int state = intent.getIntExtra("state", -1);
                 mValueHeadSetPlug = (intent.getIntExtra("state", -1) == HEADSET_PLUG_IN) ? 0 : 1;
-                if (mIsSearching) {
-                    mIsHeadSetPlugInOut = true;
+				//RDA_FM_SUPPORT  --- begin
+				//if (mIsSearching) {
+				if (mValueHeadSetPlug == 1) {
+					mIsHeadSetPlugInOut = true;
+					try{
+						mBinder.setRDS(false);
+						mBinder.powerDown();
+					}catch(Exception e){
+					}
+				//RDA_FM_SUPPORT  --- end
                 } else {
                     int ret = -1;
                     try {
@@ -528,6 +536,9 @@ public class FMRadioService extends Service implements FMRecorder.onRecorderStat
                 bRet = true;
             } else {
                 bRet = FMRadioNative.opendev();
+				//RDA_FM_SUPPORT  --- begin
+				bRet = true;
+				//RDA_FM_SUPPORT  --- end
                 if (bRet) {
                     mIsDeviceOpen = true;
                 } else {

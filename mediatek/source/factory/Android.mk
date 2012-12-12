@@ -105,6 +105,13 @@ TEST_SRC_FILES += \
 	src/test/ftm_bt.c\
 	src/test/ftm_bt_op.c
 endif
+
+ifeq ($(RDA_BT_SUPPORT), yes)
+TEST_SRC_FILES += \
+    src/test/ftm_bt.c\
+    src/test/ftm_bt_op.c
+endif
+
 ifeq ($(MTK_EMMC_SUPPORT),yes)
 TEST_SRC_FILES += \
 	src/test/ftm_emmc.c

@@ -660,7 +660,7 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
         }else {
             views.setViewVisibility(R.id.btn_gps, View.GONE);
         }
-        if (FeatureOption.MTK_BT_SUPPORT) {       
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {       
         views.setOnClickPendingIntent(R.id.btn_bluetooth,
                 getLaunchPendingIntent(context,
                         BUTTON_BLUETOOTH));
@@ -697,7 +697,7 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
         sWifiState.setImageViewResources(context, views);
         }
 
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         sBluetoothState.setImageViewResources(context, views);
         }
 
@@ -771,7 +771,7 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
         if ((FeatureOption.MTK_WLAN_SUPPORT)
               && WifiManager.WIFI_STATE_CHANGED_ACTION.equals(action)) {
             sWifiState.onActualStateChange(context, intent);
-        } else if ((FeatureOption.MTK_BT_SUPPORT)
+        } else if ((FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT)
               && BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
             sBluetoothState.onActualStateChange(context, intent);
         } else if (FeatureOption.MTK_GPS_SUPPORT && LocationManager.PROVIDERS_CHANGED_ACTION.equals(action)) {
@@ -797,7 +797,7 @@ public class SettingsAppWidgetProvider extends AppWidgetProvider {
                 sSyncState.toggleState(context);
             } else if (FeatureOption.MTK_GPS_SUPPORT && (buttonId == BUTTON_GPS)) {
                 sGpsState.toggleState(context);
-            } else if ((FeatureOption.MTK_BT_SUPPORT) && (buttonId == BUTTON_BLUETOOTH)) {
+            } else if ((FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) && (buttonId == BUTTON_BLUETOOTH)) {
                 sBluetoothState.toggleState(context);
             }
         } else {

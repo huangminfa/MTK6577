@@ -106,9 +106,38 @@ static inline void hci_uart_tx_complete(struct hci_uart *hu, int pkt_type)
 	}
 }
 
+#ifdef RDA_BT_SUPPORT
+typedef enum
+{
+    HOST_WAKEUP_BT = 1,
+    BT_WAKEUP_HOST,
+    BT_SEND_WAKEUP
+}bt_wakeup_status;
+
+extern volatile int need_wakeup_bt;
+EXPORT_SYMBOL(hci_uart_tx_wakeup);
+#endif
+
 static inline struct sk_buff *hci_uart_dequeue(struct hci_uart *hu)
 {
 	struct sk_buff *skb = hu->tx_skb;
+
+#ifdef RDA_BT_SUPPORT
+    if(need_wakeup_bt == HOST_WAKEUP_BT || need_wakeup_bt == BT_WAKEUP_HOST)
+    {
+        struct sk_buff *bt_wake_buff = NULL;
+        unsigned char rdabt_fc[] = {0x01,0xc0,0xfc,0x00};
+        bt_wake_buff = bt_skb_alloc(4, GFP_ATOMIC);
+        if(bt_wake_buff)
+        {
+            	memcpy(skb_put(bt_wake_buff,4), rdabt_fc, 4);
+            	need_wakeup_bt = BT_SEND_WAKEUP;
+		return bt_wake_buff;
+        }
+    }
+	else if(need_wakeup_bt == BT_SEND_WAKEUP)	
+	   return NULL;
+#endif
 
 	if (!skb)
 		skb = hu->proto->dequeue(hu);

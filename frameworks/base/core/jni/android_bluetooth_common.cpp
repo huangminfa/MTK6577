@@ -463,6 +463,7 @@ jboolean dbus_returns_boolean(JNIEnv *env, DBusMessage *reply) {
     return ret;
 }
 
+#ifndef RDA_BT_SUPPORT
 static void set_object_array_element(JNIEnv *env, jobjectArray strArray,
                                      const char *value, int index) {
     jstring obj;
@@ -470,6 +471,7 @@ static void set_object_array_element(JNIEnv *env, jobjectArray strArray,
     env->SetObjectArrayElement(strArray, index, obj);
     env->DeleteLocalRef(obj);
 }
+#endif
 
 jobjectArray dbus_returns_array_of_object_path(JNIEnv *env,
                                                DBusMessage *reply) {

@@ -23,9 +23,13 @@
  */
 
 #define AUDIO_HEADSET_INTERFACE "org.bluez.Headset"
-
+#ifdef RDA_BT_SUPPORT
+#define DEFAULT_HS_AG_CHANNEL 11	
+#define DEFAULT_HF_AG_CHANNEL 10
+#else
 #define DEFAULT_HS_AG_CHANNEL 12
 #define DEFAULT_HF_AG_CHANNEL 13
+#endif
 
 typedef enum {
 	HEADSET_STATE_DISCONNECTED,

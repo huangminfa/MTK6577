@@ -48,7 +48,7 @@ import com.android.systemui.statusbar.toolbar.SimIconsListView.SimItem;
 import com.android.systemui.statusbar.util.Configurable;
 import com.android.systemui.statusbar.util.SIMHelper;
 import com.android.systemui.statusbar.util.StateTracker;
-import com.mediatek.featureoption.FeatureOption;
+import com.mediatek.featureoption.FeatureOption; //FOR RDA_BT_SUPPORT
 import com.mediatek.xlog.Xlog;
 
 /**
@@ -385,7 +385,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
     	if (FeatureOption.MTK_WLAN_SUPPORT) {
     	    mWifiStateTracker = new WifiStateTracker();
     	}
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         	mBluetoothStateTracker = new BluetoothStateTracker();
         }
         if (FeatureOption.MTK_GPS_SUPPORT) {
@@ -418,7 +418,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
                 }
             });
         }
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         	configIconView = (ConfigurationIconView) View.inflate(mContext, R.layout.zzz_toolbar_configuration_icon_view, null);
         	configIconView.setOrientation(LinearLayout.VERTICAL);
             this.addView(configIconView, layutparams);
@@ -522,7 +522,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
                 if (FeatureOption.MTK_WLAN_SUPPORT) {
                     filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
                 }
-                if (FeatureOption.MTK_BT_SUPPORT) {
+                if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
                     filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
                 }
                 if (FeatureOption.MTK_GPS_SUPPORT) {
@@ -1250,7 +1250,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
     		}
     		mWifiStateTracker.setImageViewResources(mContext);
         }
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         	mBluetoothStateTracker.setImageViewResources(mContext);
         }
         if (FeatureOption.MTK_GPS_SUPPORT) {
@@ -1280,7 +1280,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
     	if (FeatureOption.MTK_WLAN_SUPPORT) {
     		mWifiIcon.enlargeTouchRegion();
         }
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         	mBluetoothIcon.enlargeTouchRegion();
         }
         if (FeatureOption.MTK_GPS_SUPPORT) {
@@ -1299,7 +1299,7 @@ public final class ConnectionSwitchPanel extends LinearLayout implements Configu
     	if (FeatureOption.MTK_WLAN_SUPPORT) {
     		mWifiIcon.setConfigName(R.string.wifi);
         }
-        if (FeatureOption.MTK_BT_SUPPORT) {
+        if (FeatureOption.MTK_BT_SUPPORT || FeatureOption.RDA_BT_SUPPORT) {
         	mBluetoothIcon.setConfigName(R.string.bluetooth);
         }
         if (FeatureOption.MTK_GPS_SUPPORT) {

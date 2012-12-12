@@ -152,6 +152,10 @@ ftm_init_fn ftm_init_funcs[] = {
 #endif
 #endif
 
+#ifdef RDA_BT_SUPPORT
+     bt_init,
+#endif
+
 #ifdef FEATURE_FTM_RTC
     rtc_init,
 #endif

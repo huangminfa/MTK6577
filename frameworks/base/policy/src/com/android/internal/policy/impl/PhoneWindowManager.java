@@ -19,6 +19,7 @@ package com.android.internal.policy.impl;
 import android.app.Activity;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
+import android.app.Instrumentation;
 import android.app.IUiModeManager;
 import android.app.ProgressDialog;
 import android.app.UiModeManager;
@@ -349,6 +350,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int mPointerLocationMode = 0;
     PointerLocationView mPointerLocationView = null;
     InputChannel mPointerLocationInputChannel;
+	//************************************************************
+	final static boolean BAOXUE_BACK_KEY_LONG_PRESS_TO_HOME = false;
+	final static boolean BAOXUE_BACK_KEY_LONG_PRESS_TO_MENU = false;
+	final static boolean BAOXUE_HOME_KEY_IPHONE_FUNC = false;
+	Intent mHomeRecentIntent;
+    boolean mHomeClicked;
+    boolean mBackPressed;
+    boolean mBackHasLongPressed;
+	//*************************************************************
 
     // The last window we were told about in focusChanged.
     WindowState mFocusedWindow;
@@ -671,7 +681,70 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void cancelPendingScreenshotChordAction() {
         mHandler.removeCallbacks(mScreenshotChordLongPress);
     }
+	Runnable mHomeShortPress = new Runnable() {
+        public void run() {
+            mHomeClicked = false;
+            launchHomeFromHotKey(false);
+        };
+    };
 
+    Runnable mHomeLongPress = new Runnable() {
+        public void run() {
+            /*
+             * Eat the longpress so it won't dismiss the recent apps dialog when
+             * the user lets go of the home key
+             */
+            mHomePressed = false;
+            performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
+			if(!mHomeClicked)
+			{
+				Instrumentation in = new Instrumentation();
+				in.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
+			}
+			else
+			{
+				mHomeClicked = false;
+				Instrumentation in = new Instrumentation();
+				in.sendKeyDownUpSync(KeyEvent.KEYCODE_MENU);
+
+			}
+            //sendCloseSystemWindows(SYSTEM_DIALOG_REASON_RECENT_APPS);
+            //showRecentAppsDialog();
+        }
+    };
+	Runnable mBackLongPress = new Runnable() {
+		public void run() {
+			if(mBackPressed)
+			{
+				mBackPressed = false;
+				mBackHasLongPressed = true;
+				if(BAOXUE_BACK_KEY_LONG_PRESS_TO_MENU)
+				{
+					Instrumentation in = new Instrumentation();
+					in.sendKeyDownUpSync(KeyEvent.KEYCODE_MENU);
+				}
+				else if(BAOXUE_BACK_KEY_LONG_PRESS_TO_HOME)
+				{
+					boolean incomingRinging = false;
+					try {
+						ITelephony telephonyService = getTelephonyService();
+						if (telephonyService != null) {
+							incomingRinging = telephonyService.isRinging();
+						}
+					} catch (RemoteException ex) {
+						Log.w(TAG, "RemoteException from getPhoneInterface()", ex);
+					}
+
+					if (incomingRinging) {
+						Log.i(TAG, "Ignoring BACK longpress; there's a ringing incoming call.");
+					} else {
+						if (mAppLaunchTimeEnabled) Slog.i(TAG, "[AppLaunch] Home key pressed");
+						launchHomeFromHotKey(false);
+					}
+				}
+			}
+		}
+	};
     private final Runnable mPowerLongPress = new Runnable() {
         public void run() {
             // The context isn't read
@@ -894,6 +967,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
         
         mAppLaunchTimeEnabled = (1 == SystemProperties.getInt("persist.applaunchtime.enable",0)) ? true : false;        
+		mHomeRecentIntent = new Intent(Intent.ACTION_MAIN, null);
+        mHomeRecentIntent.addCategory(Intent.CATEGORY_HOME);
+        mHomeRecentIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
     }
 
     public void setInitialDisplaySize(int width, int height) {
@@ -1561,6 +1638,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     + " canceled=" + canceled);
         }
 
+        if (BAOXUE_HOME_KEY_IPHONE_FUNC && (keyCode == KeyEvent.KEYCODE_HOME) && !down) {
+            mHandler.removeCallbacks(mHomeLongPress);
+        }
         // If we think we might have a volume down & power key chord on the way
         // but we're not sure, then tell the dispatcher to wait a little while and
         // try again later before dispatching.
@@ -1607,8 +1687,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     if (incomingRinging) {
                         Log.i(TAG, "Ignoring HOME; there's a ringing incoming call.");
                     } else {
-                        if (mAppLaunchTimeEnabled) Slog.i(TAG, "[AppLaunch] Home key pressed");                    
-                        launchHomeFromHotKey();
+                        if (mAppLaunchTimeEnabled) Slog.i(TAG, "[AppLaunch] Home key pressed");
+						if(BAOXUE_HOME_KEY_IPHONE_FUNC)
+						{
+							if(!mHomeClicked){
+								mHomeClicked = true;
+								mHandler.postDelayed(mHomeShortPress, ViewConfiguration.getDoubleTapTimeout());
+							}else{
+								mHomeClicked = false;
+								mHandler.removeCallbacks(mHomeShortPress);
+								launchHomeFromHotKey(true);
+							}
+						}
+						else
+						{
+							launchHomeFromHotKey(false);
+						}                    
                     }
                 } else {
                     Log.i(TAG, "Ignoring HOME; event canceled.");
@@ -1644,7 +1738,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (down) {
                 if (repeatCount == 0) {
                     mHomePressed = true;
-                } else if ((event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
+					if(BAOXUE_HOME_KEY_IPHONE_FUNC)
+					{
+						mHandler.removeCallbacks(mHomeShortPress);
+		                if (!keyguardOn) {
+		                    mHandler.postDelayed(mHomeLongPress, ViewConfiguration.getGlobalActionKeyTimeout());
+		                }
+					}
+                } else if (!BAOXUE_HOME_KEY_IPHONE_FUNC && (event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
                     if (!keyguardOn) {
                         handleLongPressOnHome();
                     }
@@ -1783,7 +1884,47 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mRecentAppsDialogHeldModifiers = 0;
             showOrHideRecentAppsDialog(RECENT_APPS_BEHAVIOR_DISMISS_AND_SWITCH);
         }
+		if(BAOXUE_BACK_KEY_LONG_PRESS_TO_HOME||BAOXUE_BACK_KEY_LONG_PRESS_TO_MENU)
+		{
+			if (keyCode == KeyEvent.KEYCODE_BACK) {
+				if (!down) {
+					mBackPressed = false;
+					mHandler.removeCallbacks(mBackLongPress);
+					if(mBackHasLongPressed)
+					{
+						return -1;
+					}
+				}
+				else
+					do{
+						// If a system window has focus, then it doesn't make sense
+						// right now to interact with applications.
+						WindowManager.LayoutParams attrs = win != null ? win.getAttrs() : null;
+						if (attrs != null) {
+							final int type = attrs.type;
+							if (type == WindowManager.LayoutParams.TYPE_KEYGUARD
+									|| type == WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG) {
+								break;
+									}
 
+							final int flag = attrs.flags;
+							if ((flag & WindowManager.LayoutParams.FLAG_HOMEKEY_DISPATCHED) != 0) {
+								// the window wants to handle the home key, so dispatch it to it.
+								break;
+							}
+						}
+
+						if (down && repeatCount == 0) {
+							if (!keyguardOn) {
+								mHandler.removeCallbacks(mBackLongPress);
+								mHandler.postDelayed(mBackLongPress, ViewConfiguration.getGlobalActionKeyTimeout());
+							}
+							mBackPressed = true;
+							mBackHasLongPressed = false;
+						}
+					}while(false);
+			}
+		}
         // Let the application handle the key.
         return 0;
     }
@@ -1853,7 +1994,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      * A home key -> launch home action was detected.  Take the appropriate action
      * given the situation with the keyguard.
      */
-    void launchHomeFromHotKey() {
+    void launchHomeFromHotKey(final boolean bDoubleClick) {
         if (mKeyguardMediator.isShowingAndNotHidden()) {
             // don't launch home if keyguard showing
         } else if (!mHideLockScreen && mKeyguardMediator.isInputRestricted()) {
@@ -1867,7 +2008,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         } catch (RemoteException e) {
                         }
                         sendCloseSystemWindows(SYSTEM_DIALOG_REASON_HOME_KEY);
-                        startDockOrHome();
+						if(bDoubleClick){
+							try
+							{
+								Log.d(TAG,"launchHomeFromHotKey double click");
+								mContext.startActivity(mHomeRecentIntent);
+							}
+							catch(Exception ex){}
+						}else{
+							startDockOrHome();
+						}
                     }
                 }
             });
@@ -1878,7 +2028,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             } catch (RemoteException e) {
             }
             sendCloseSystemWindows(SYSTEM_DIALOG_REASON_HOME_KEY);
-            startDockOrHome();
+			if(bDoubleClick){
+				try
+				{
+					Log.d(TAG,"launchHomeFromHotKey double click");
+					mContext.startActivity(mHomeRecentIntent);
+				}
+				catch(Exception ex){}
+			}else{
+				startDockOrHome();
+			}
         }
     }
 

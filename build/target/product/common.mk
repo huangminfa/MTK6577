@@ -37,7 +37,6 @@ PRODUCT_PACKAGES := \
     Updater \
     CalendarProvider \
     SyncProvider \
-    Launcher2 \
     mediatek-res \
     disableapplist.txt \
     AtciService \

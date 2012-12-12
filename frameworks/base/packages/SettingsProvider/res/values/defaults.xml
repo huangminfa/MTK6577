@@ -92,7 +92,7 @@
     <!-- Default for input method -->
     <string name="default_input_method" translatable="false">com.mediatek.ime/.MtkIME</string>
     <!-- Default for ipo settings -->
-    <bool name="def_ipo_setting" translatable="false">true</bool>
+    <bool name="def_ipo_setting" translatable="false">false</bool>
 
     <!-- Default for Settings.Secure.ACCESSIBILITY_SCRIPT_INJECTION -->
     <bool name="def_accessibility_script_injection">false</bool>

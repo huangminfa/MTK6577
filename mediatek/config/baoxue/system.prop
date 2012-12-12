@@ -84,3 +84,4 @@ sys.ipo.pwrdncap=2
 
 ro.sys.usb.storage.type=mtp,mass_storage
 ro.sys.usb.bicr=yes
+ro.operator.optr=CUST

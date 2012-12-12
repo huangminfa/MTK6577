@@ -148,7 +148,7 @@ public class WifiService extends IWifiManager.Stub {
      * being enabled but not active exceeds the battery drain caused by
      * re-establishing a connection to the mobile data network.
      */
-    private static final long DEFAULT_IDLE_MS = 15 * 60 * 1000; /* 15 minutes */
+    private static final long DEFAULT_IDLE_MS = 5 * 60 * 1000; /* 15 minutes */
 
     private static final String ACTION_DEVICE_IDLE =
             "com.android.server.WifiManager.action.DEVICE_IDLE";

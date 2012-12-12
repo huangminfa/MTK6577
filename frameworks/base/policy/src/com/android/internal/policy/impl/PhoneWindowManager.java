@@ -353,7 +353,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 	//************************************************************
 	final static boolean BAOXUE_BACK_KEY_LONG_PRESS_TO_HOME = false;
 	final static boolean BAOXUE_BACK_KEY_LONG_PRESS_TO_MENU = false;
-	final static boolean BAOXUE_HOME_KEY_IPHONE_FUNC = false;
+	final static boolean BAOXUE_HOME_KEY_IPHONE_FUNC = true;
 	Intent mHomeRecentIntent;
     boolean mHomeClicked;
     boolean mBackPressed;

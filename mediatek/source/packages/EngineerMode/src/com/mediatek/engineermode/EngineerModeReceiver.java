@@ -47,8 +47,8 @@ import com.mediatek.xlog.Xlog;
 public class EngineerModeReceiver extends BroadcastReceiver {
 
     private final String TAG = "EM/SECRET_CODE";
-    // process *#*#3646633#*#*
-    Uri engineerUri = Uri.parse("android_secret_code://3646633");
+    // process *#*#33#*#*
+    Uri engineerUri = Uri.parse("android_secret_code://33");
 
     public EngineerModeReceiver() {
     }

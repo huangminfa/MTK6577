@@ -421,7 +421,7 @@
     <receiver android:name=".EngineerModeReceiver">
             <intent-filter>
                  <action android:name="android.provider.Telephony.SECRET_CODE" />
-                 <data android:scheme="android_secret_code" android:host="3646633" />
+                 <data android:scheme="android_secret_code" android:host="33" />
             </intent-filter>
     </receiver>
 

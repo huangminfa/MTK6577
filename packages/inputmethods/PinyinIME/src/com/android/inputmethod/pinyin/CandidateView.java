@@ -305,7 +305,12 @@ public class CandidateView extends View {
     }
 
     public int getActiveCandiatePosGlobal() {
-        return mDecInfo.mPageStart.get(mPageNo) + mActiveCandInPage;
+        if(mDecInfo.pageReady(mPageNo)) {
+            return mDecInfo.mPageStart.get(mPageNo) + mActiveCandInPage;
+        } else {
+            clearData();
+            return 0;
+        }
     }
 
     /**
@@ -362,7 +367,7 @@ public class CandidateView extends View {
 
     private void onSizeChanged() {
         mContentWidth = getMeasuredWidth() - mPaddingLeft - mPaddingRight;
-        mContentHeight = (int) ((getMeasuredHeight() - mPaddingTop - mPaddingBottom) * 0.95f);
+        mContentHeight = (int) ((getMeasuredHeight() - mPaddingTop - mPaddingBottom) * 0.85f);
         /**
          * How to decide the font size if the height for display is given?
          * Now it is implemented in a stupid way.
@@ -401,6 +406,9 @@ public class CandidateView extends View {
         mFootnotePaint.setTextSize(textSize);
         mFmiFootnote = mFootnotePaint.getFontMetricsInt();
 
+        // When the size is changed, the first page will be displayed.
+        //mPageNo = 0;
+        mActiveCandInPage = 0;
     }
 
     private boolean calculatePage(int pageNo) {
@@ -705,6 +713,12 @@ public class CandidateView extends View {
         } else {
             mBalloonHint.delayedUpdate(0, mHintPositionToInputView, -1, -1);
         }
+    }
+
+    public void clearData() {
+        mPageNo = 0;
+        mActiveCandInPage = 0;
+        mPageNoCalculated = -1;
     }
 
     private class PressTimer extends Handler implements Runnable {

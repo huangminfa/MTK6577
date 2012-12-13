@@ -97,6 +97,8 @@ public class SoftKeyboard {
      * template will be used.
      **/
     private Drawable mBalloonBg;
+    private Drawable mLeftBalloonBg;
+    private Drawable mRightBalloonBg;
 
     /**
      * Background for popup mini soft keyboard. If it is null, the one in the
@@ -150,6 +152,14 @@ public class SoftKeyboard {
 
     public void setKeyBalloonBackground(Drawable balloonBg) {
         mBalloonBg = balloonBg;
+    }
+
+    public void setLeftKeyBalloonBackground(Drawable balloonBg) {
+        mLeftBalloonBg = balloonBg;
+    }
+
+    public void setRightKeyBalloonBackground(Drawable balloonBg) {
+        mRightBalloonBg = balloonBg;
     }
 
     public void setKeyMargins(float xMargin, float yMargin) {
@@ -262,6 +272,16 @@ public class SoftKeyboard {
     public Drawable getBalloonBackground() {
         if (null != mBalloonBg) return mBalloonBg;
         return mSkbTemplate.getBalloonBackground();
+    }
+
+    public Drawable getLeftBalloonBackground() {
+        if (null != mLeftBalloonBg) return mLeftBalloonBg;
+        return mSkbTemplate.getBalloonLeftBackground();
+    }
+
+    public Drawable getRightBalloonBackground() {
+        if (null != mRightBalloonBg) return mRightBalloonBg;
+        return mSkbTemplate.getBalloonRightBackground();
     }
 
     public Drawable getPopupBackground() {

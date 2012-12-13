@@ -20,6 +20,7 @@
   height="25%p"
   key_type="0"
   repeat="false"
+  key_ymargin="2.5%p"
   balloon="true">
 
   <row>
@@ -44,7 +45,7 @@
   </row>
 
   <row width="10.205%p">
-    <key code="-5" width="14.286%p" key_type="2" label="ALT"/>
+    <key code="-5" width="14.286%p" key_type="2" label="ALT" balloon="false"/>
     <key label="！">
       <toggle_state state_id="@string/toggle_en_sym1" label="!"/>
     </key>
@@ -70,11 +71,10 @@
   </row>
 
   <row width="14.696%p" key_type="1">
-    <key code="-2" label="中 符" width="20%p" repeat="true">
-      <toggle_state state_id="@string/toggle_en_sym1" label="英 符" code="-2"/>
+    <key code="-3" key_type="3"  balloon="false" label="\?123"/>
+    <key code="-2" label="全" width="14.696%p" repeat="true"  balloon="false">
+      <toggle_state state_id="@string/toggle_en_sym1" label="半" code="-2"/>
     </key>
-    <key code="-3" key_type="3" label="\?123"/>
-    <key code="62" key_type="5" width="30.608%p"/>
     <key label="。" key_type="0" icon="@drawable/period_full_icon"
       icon_popup="@drawable/period_full_popup_icon">
       <toggle_state state_id="@string/toggle_en_sym1" label="."
@@ -82,6 +82,7 @@
       <toggle_state state_id="@string/toggle_en_upper" label="."
         icon="@drawable/period_icon" icon_popup="@drawable/period_popup_icon"/>
     </key>
+    <key code="62" key_type="5" width="30.608%p" balloon="false" lable="@string/space"/>
     <key id="1"/>
   </row>
 </keyboard>

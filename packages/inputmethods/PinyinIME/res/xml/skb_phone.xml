@@ -15,9 +15,9 @@
 -->
 <keyboard
   skb_template="@xml/skb_template1"
-  width="25%p"
-  height="25%p"
-  key_type="0"
+  width="33%p"
+  height="24.8%p"
+  key_type="1"
   repeat="false"
   balloon="false">
 
@@ -31,7 +31,7 @@
     <key icon="@drawable/num3" code="10">
       <toggle_state state_id="@string/toggle_phone_sym" label=")"/>
     </key>
-    <key label="-"/>
+    <!-- key label="-"/-->
   </row>
 
   <row>
@@ -39,12 +39,12 @@
       <toggle_state state_id="@string/toggle_phone_sym" label="N"/>
     </key>
     <key icon="@drawable/num5" code="12">
-      <toggle_state state_id="@string/toggle_phone_sym" label="暂 停" code="55"/>
+      <toggle_state state_id="@string/toggle_phone_sym" label="暂 停" code="44"/>
     </key>
     <key icon="@drawable/num6" code="13">
       <toggle_state state_id="@string/toggle_phone_sym" label=","/>
     </key>
-    <key label="."/>
+    <!-- key label="."/-->
   </row>
 
   <row>
@@ -53,23 +53,23 @@
         icon="@drawable/numstar"/>
     </key>
     <key icon="@drawable/num8" code="15">
-      <toggle_state state_id="@string/toggle_phone_sym" label="等 待" code="74"/>
+      <toggle_state state_id="@string/toggle_phone_sym" label="等 待" code="51"/>
     </key>
     <key icon="@drawable/num9" code="16">
       <toggle_state state_id="@string/toggle_phone_sym" label="\#"
         icon="@drawable/numpound"/>
     </key>
-    <key code="67" key_type="1" repeat="true"/>
   </row>
 
   <row>
-    <key icon="@drawable/numalt" code="-4" repeat="true">
+    <key icon="@drawable/numalt" code="-4" repeat="true"  key_type="0">
       <toggle_state state_id="@string/toggle_phone_sym" label="123" code="-4"/>
     </key>
     <key icon="@drawable/num0" code="7">
       <toggle_state state_id="@string/toggle_phone_sym" label="+"/>
     </key>
-    <key code="62"/>
-    <key id="2"/>
+    <!-- key code="62"  key_type="0"/-->
+    <key code="67" key_type="0" repeat="true" icon="@drawable/delete_icon_hl"/>
+    <!-- key id="2"  key_type="0"/-->
   </row>
 </keyboard>

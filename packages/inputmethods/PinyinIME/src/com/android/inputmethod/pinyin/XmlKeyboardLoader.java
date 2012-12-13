@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -76,6 +77,8 @@ public class XmlKeyboardLoader {
      * inside {@link #XMLTAG_SKB_TEMPLATE} and {@link #XMLTAG_KEYBOARD}.
      */
     private static final String XMLATTR_BALLOON_BG = "balloon_bg";
+    private static final String XMLATTR_BALLOON_LEFT_BG = "balloon_left_bg";
+    private static final String XMLATTR_BALLOON_RIGHT_BG = "balloon_right_bg";
 
     /**
      * Attribute tag of the popup balloon background image for key press or
@@ -349,13 +352,15 @@ public class XmlKeyboardLoader {
                         Drawable skbBg = getDrawable(xrp, XMLATTR_SKB_BG, null);
                         Drawable balloonBg = getDrawable(xrp,
                                 XMLATTR_BALLOON_BG, null);
+                        Drawable balloonLeftBg = getDrawable(xrp, XMLATTR_BALLOON_LEFT_BG, null);
+                        Drawable balloonRightBg = getDrawable(xrp, XMLATTR_BALLOON_RIGHT_BG, null);
                         Drawable popupBg = getDrawable(xrp, XMLATTR_POPUP_BG,
                                 null);
                         if (null == skbBg || null == balloonBg
                                 || null == popupBg) {
                             return null;
                         }
-                        mSkbTemplate.setBackgrounds(skbBg, balloonBg, popupBg);
+                        mSkbTemplate.setBackgrounds(skbBg, balloonBg, balloonLeftBg, balloonRightBg, popupBg);
 
                         float xMargin = getFloat(xrp, XMLATTR_KEY_XMARGIN, 0);
                         float yMargin = getFloat(xrp, XMLATTR_KEY_YMARGIN, 0);
@@ -436,6 +441,8 @@ public class XmlKeyboardLoader {
         Drawable skbBg;
         Drawable popupBg;
         Drawable balloonBg;
+        Drawable balloonLeftBg;
+        Drawable balloonRightBg;
         SoftKey softKey = null;
 
         KeyCommonAttributes attrDef = new KeyCommonAttributes(xrp);

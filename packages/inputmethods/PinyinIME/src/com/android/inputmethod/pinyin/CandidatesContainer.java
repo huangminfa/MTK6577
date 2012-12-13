@@ -23,16 +23,13 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation.AnimationListener;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
@@ -213,14 +210,6 @@ public class CandidatesContainer extends RelativeLayout implements
         stopAnimation();
 
         CandidateView cv = (CandidateView) mFlipper.getCurrentView();
-        // fullscreen mode, show fullscreen view and hide the extact area.
-        ViewGroup fullscreenArea = (ViewGroup)this.getParent().getParent();
-        if(fullscreenArea != null && fullscreenArea.getVisibility() == View.INVISIBLE) {
-            FrameLayout extractFrame = (FrameLayout)fullscreenArea.findViewById(android.R.id.extractArea);
-            extractFrame.setVisibility(View.INVISIBLE);
-            fullscreenArea.setVisibility(View.VISIBLE);
-            fullscreenArea.setBackgroundDrawable(null);
-        }
         cv.showPage(mCurrentPage, 0, enableActiveHighlight);
 
         updateArrowStatus();
@@ -295,12 +284,24 @@ public class CandidatesContainer extends RelativeLayout implements
         CandidateView cv = (CandidateView) mFlipper.getChildAt(child);
         CandidateView cvNext = (CandidateView) mFlipper.getChildAt(childNext);
 
-        mCurrentPage--;
+        while(true) {
+            mCurrentPage--;
+            if((mCurrentPage == 0) || ((mCurrentPage + 1) < mDecInfo.mPageStart.size())) {
+                break;
+            }
+        }
+        if(mCurrentPage < 0){
+            mCurrentPage = 0;
+        }
         int activeCandInPage = cv.getActiveCandiatePosInPage();
-        if (animLeftRight)
+        if (animLeftRight) {
+            if((mCurrentPage == 0) && (mDecInfo.mPageStart.size() <= 1)) {
+                activeCandInPage = 0;
+            } else {
             activeCandInPage = mDecInfo.mPageStart.elementAt(mCurrentPage + 1)
                     - mDecInfo.mPageStart.elementAt(mCurrentPage) - 1;
-
+            }
+        }
         cvNext.showPage(mCurrentPage, activeCandInPage, enableActiveHighlight);
         loadAnimation(animLeftRight, false);
         startAnimation();
@@ -481,5 +482,16 @@ public class CandidatesContainer extends RelativeLayout implements
     }
 
     public void onAnimationStart(Animation animation) {
+    }
+
+    public void clearViewData() {
+        if(null == mFlipper) return;
+
+        for (int i = 0; i < mFlipper.getChildCount(); i++) {
+            CandidateView cv = (CandidateView) mFlipper.getChildAt(i);
+            if(null != cv) {
+                cv.clearData();
+            }
+        }
     }
 }

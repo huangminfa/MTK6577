@@ -19,10 +19,8 @@
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
-    DeskClock \
     AlarmProvider \
     Bluetooth \
-    Calculator \
     Calendar \
     CertInstaller \
     DrmProvider \
@@ -32,7 +30,6 @@ PRODUCT_PACKAGES := \
     Music \
     MusicFX \
     Protips \
-    QuickSearchBox \
     Settings \
     ChangeLogo \
     Sync \
@@ -325,8 +322,7 @@ ifeq ($(strip $(MTK_ANDROIDFACTORYMODE_APP)),yes)
 endif
 
 ifeq ($(strip $(MTK_OMA_DOWNLOAD_SUPPORT)),yes)
-  PRODUCT_PACKAGES += Browser \
-                      DownloadProvider
+  PRODUCT_PACKAGES += DownloadProvider
 endif
 
 ifeq ($(strip $(MTK_OMACP_SUPPORT)),yes)

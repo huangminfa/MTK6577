@@ -21,10 +21,8 @@ PRODUCT_POLICY := android.policy_mid
 
 PRODUCT_PACKAGES := \
     CarHome \
-    DeskClock \
     AlarmProvider \
     Bluetooth \
-    Calculator \
     Calendar \
     Camera \
     CertInstaller \
@@ -36,7 +34,6 @@ PRODUCT_PACKAGES := \
     Launcher2 \
     Music \
     Provision \
-    QuickSearchBox \
     Settings \
     Sync \
     Updater \

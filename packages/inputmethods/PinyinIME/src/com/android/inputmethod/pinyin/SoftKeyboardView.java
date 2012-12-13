@@ -20,6 +20,7 @@ import com.android.inputmethod.pinyin.SoftKeyboard.KeyRow;
 
 import java.util.List;
 
+import android.R;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -28,9 +29,8 @@ import android.graphics.Paint.FontMetricsInt;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-
-import android.view.KeyEvent;
 
 /**
  * Class used to show a soft keyboard.
@@ -127,6 +127,7 @@ public class SoftKeyboardView extends View {
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        mPaint.setFakeBoldText(true);
         mFmi = mPaint.getFontMetricsInt();
     }
 
@@ -217,12 +218,8 @@ public class SoftKeyboardView extends View {
         boolean moveWithinPreviousKey = false;
         if (movePress) {
             SoftKey newKey = mSoftKeyboard.mapToKey(x, y);
-            if (newKey == mSoftKeyDown) {
-				mKeyPressed = true;
-				moveWithinPreviousKey = true;
-			} else {
-            	mSoftKeyDown = newKey;
-			}
+            if (newKey == mSoftKeyDown) moveWithinPreviousKey = true;
+            mSoftKeyDown = newKey;
         } else {
             mSoftKeyDown = mSoftKeyboard.mapToKey(x, y);
         }
@@ -237,9 +234,7 @@ public class SoftKeyboardView extends View {
         mLongPressTimer = longPressTimer;
 
         if (!movePress) {
-            if (mSoftKeyDown.getPopupResId() > 0 || mSoftKeyDown.repeatable() ||
-                /* special case for key 0 to insert + in long press */
-                (mSoftKeyDown.getKeyCode() == KeyEvent.KEYCODE_0)) {
+            if (mSoftKeyDown.getPopupResId() > 0 || mSoftKeyDown.repeatable()) {
                 mLongPressTimer.startTimer();
             }
         } else {
@@ -289,6 +284,13 @@ public class SoftKeyboardView extends View {
         // Prepare the popup balloon
         if (mSoftKeyDown.needBalloon()) {
             Drawable balloonBg = mSoftKeyboard.getBalloonBackground();
+
+        	if (mSoftKeyDown.mLeft == 0) {
+        		balloonBg = mSoftKeyboard.getLeftBalloonBackground();
+        	} else if (mSoftKeyDown.mRight == this.getWidth()) {
+        		balloonBg = mSoftKeyboard.getRightBalloonBackground();
+        	}
+
             mBalloonPopup.setBalloonBackground(balloonBg);
 
             desired_width = mSoftKeyDown.width() + env.getKeyBalloonWidthPlus();
@@ -311,7 +313,7 @@ public class SoftKeyboardView extends View {
             mHintLocationToSkbContainer[0] = mPaddingLeft + mSoftKeyDown.mLeft
                     + -(mBalloonPopup.getWidth() - mSoftKeyDown.width()) / 2;
             mHintLocationToSkbContainer[0] += mOffsetToSkbContainer[0];
-            mHintLocationToSkbContainer[1] = mPaddingTop + mSoftKeyDown.mTop
+            mHintLocationToSkbContainer[1] = mPaddingTop + mSoftKeyDown.mBottom
                     - mBalloonPopup.getHeight();
             mHintLocationToSkbContainer[1] += mOffsetToSkbContainer[1];
             showBalloon(mBalloonPopup, mHintLocationToSkbContainer, movePress);
@@ -348,9 +350,7 @@ public class SoftKeyboardView extends View {
     }
 
     public SoftKey onKeyMove(int x, int y) {
-		if (null == mSoftKeyDown || !mKeyPressed){
-			return null;
-		}
+        if (null == mSoftKeyDown) return null;
 
         if (mSoftKeyDown.moveWithinKey(x - mPaddingLeft, y - mPaddingTop)) {
             return mSoftKeyDown;
@@ -480,7 +480,7 @@ public class SoftKeyboardView extends View {
             float x = softKey.mLeft
                     + (softKey.width() - mPaint.measureText(keyLabel)) / 2.0f;
             int fontHeight = mFmi.bottom - mFmi.top;
-            float marginY = (softKey.height() - fontHeight) / 2.0f;
+            float marginY = (softKey.height() - fontHeight) / 2.0f + keyYMargin;
             float y = softKey.mTop + marginY - mFmi.top + mFmi.bottom / 1.5f;
             canvas.drawText(keyLabel, x, y + 1, mPaint);
         }

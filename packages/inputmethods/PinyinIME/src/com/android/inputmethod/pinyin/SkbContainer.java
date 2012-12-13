@@ -31,9 +31,7 @@ import android.view.View.OnTouchListener;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
-
-import android.view.KeyEvent;
-
+import android.util.Log;
 
 /**
  * The top container to host soft keyboard view(s).
@@ -189,7 +187,7 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
         mLongPressTimer = new LongPressTimer(this);
 
         // If it runs on an emulator, no bias correction
-        if ("1".equals(SystemProperties.get("ro.kernel.qemu")) || "resistive".equals(SystemProperties.get("ro.kernel.touchpanel.type", "capacitive"))) {
+        if ("1".equals(SystemProperties.get("ro.kernel.qemu"))) {
             mYBiasCorrection = 0;
         } else {
             mYBiasCorrection = Y_BIAS_CORRECTION;
@@ -257,6 +255,8 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
 
         SoftKeyboard skb = mMajorView.getSoftKeyboard();
         if (null == skb) return;
+	// Log.e("sunway","SkbContainer:updateInputMode");
+	resetKeyPress(0);
         skb.enableToggleStates(mInputModeSwitcher.getToggleStates());
         invalidate();
         return;
@@ -613,7 +613,7 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
         public void run() {
             if (mWaitForTouchUp) {
                 mResponseTimes++;
-                if (mSoftKeyDown != null && mSoftKeyDown.repeatable()) {
+                if (mSoftKeyDown.repeatable()) {
                     if (mSoftKeyDown.isUserDefKey()) {
                         if (1 == mResponseTimes) {
                             if (mInputModeSwitcher
@@ -635,21 +635,6 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
                         postAtTime(this, SystemClock.uptimeMillis() + timeout);
                     }
                 } else {
-                    /* add special process for key 0 in phone number case */
-                    if ((mSoftKeyDown != null && 
-                        mSoftKeyDown.getKeyCode()  == 7) && 
-                        mInputModeSwitcher.isPhoneNumberMode())
-                    {
-                        if (1 == mResponseTimes) {
-                            SoftKey plusKey = new SoftKey();
-                            plusKey.setKeyAttribute(KeyEvent.KEYCODE_PLUS, "+", false, false);
-                            responseKeyEvent(plusKey);
-                            mDiscardEvent = true;
-                            resetKeyPress(0);
-                            return;
-                        }
-                    }
-
                     if (1 == mResponseTimes) {
                         popupSymbols();
                     }

@@ -47,13 +47,5 @@
                 </intent-filter>
             </activity>
 
-			<!-- Regist a activity used for testing -->
-			<activity android:name=".tests.ui.IMEPortraitActivity"
-				android:screenOrientation="portrait"  android:label="PinyinAutoTest">
-				<intent-filter>
-					<action android:name="com.android.pinyinime.tests" />
-					<category android:name="android.intent.category.DEFAULT" />
-				</intent-filter>
-			</activity>
         </application>
 </manifest>

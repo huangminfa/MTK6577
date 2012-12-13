@@ -20,6 +20,7 @@
   height="25%p"
   key_type="0"
   repeat="false"
+  key_ymargin="2.5%p"
   balloon="true">
 
   <row>
@@ -41,7 +42,7 @@
   </row>
 
   <row width="10.205%p">
-    <key code="-5" width="14.286%p" key_type="3" label="ALT"/>
+    <key code="-5" width="14.286%p" key_type="3" label="ALT" balloon="false"/>
     <key label="™"/>
     <key label="‘">
       <toggle_state state_id="@string/toggle_en_sym2" label="‘"/>
@@ -54,14 +55,14 @@
   </row>
 
   <row width="14.696%p" key_type="1">
-    <key code="-2" label="中 符" width="20%p" repeat="true">
-      <toggle_state state_id="@string/toggle_en_sym2" label="英 符" code="-2"/>
+    <key code="-3" key_type="3" label="\?123" balloon="false"/>
+    <key code="-2" label="全" width="14.696%p" repeat="true" balloon="false">
+      <toggle_state state_id="@string/toggle_en_sym2" label="半" code="-2"/>
     </key>
-    <key code="-3" key_type="3" label="\?123"/>
-    <key code="62" key_type="5" width="30.608%p"/>
-    <key label="……" key_type="0">
+    <key label="…" key_type="0">
       <toggle_state state_id="@string/toggle_en_sym2" label="…"/>
     </key>
+    <key code="62" key_type="5" width="30.608%p" balloon="false" lable="@string/space"/>
     <key id="1"/>
   </row>
 </keyboard>

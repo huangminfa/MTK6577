@@ -19,6 +19,7 @@ package com.android.inputmethod.pinyin;
 import com.android.inputmethod.pinyin.SoftKeyboard.KeyRow;
 
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.inputmethod.EditorInfo;
 
 /**
@@ -518,7 +519,6 @@ public class InputModeSwitcher {
         }
 
         saveInputMode(newInputMode);
-        mImeService.setCandidatesViewShown(false);
         prepareToggleStates(true);
         return mInputIcon;
     }
@@ -573,31 +573,44 @@ public class InputModeSwitcher {
     // Return the icon to update.
     public int requestInputWithSkb(EditorInfo editorInfo) {
         mShortMessageField = false;
-
         int newInputMode = MODE_SKB_CHINESE;
-
         switch (editorInfo.inputType & EditorInfo.TYPE_MASK_CLASS) {
-        case EditorInfo.TYPE_CLASS_NUMBER:
-        case EditorInfo.TYPE_CLASS_DATETIME:
-            newInputMode = MODE_SKB_SYMBOL1_EN;
-            break;
-        case EditorInfo.TYPE_CLASS_PHONE:
-            newInputMode = MODE_SKB_PHONE_NUM;
-            break;
-        case EditorInfo.TYPE_CLASS_TEXT:
-            int v = editorInfo.inputType & EditorInfo.TYPE_MASK_VARIATION;
-            if (v == EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
-                    || v == EditorInfo.TYPE_TEXT_VARIATION_PASSWORD
-                    || v == EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                    || v == EditorInfo.TYPE_TEXT_VARIATION_URI) {
-                // If the application request English mode, we switch to it.
-                newInputMode = MODE_SKB_ENGLISH_LOWER;
-            } else {
-                if (v == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE) {
+            case EditorInfo.TYPE_CLASS_NUMBER:
+            case EditorInfo.TYPE_CLASS_DATETIME:
+                newInputMode = MODE_SKB_SYMBOL1_EN;
+                break;
+            case EditorInfo.TYPE_CLASS_PHONE:
+                newInputMode = MODE_SKB_PHONE_NUM;
+                break;
+            case EditorInfo.TYPE_CLASS_TEXT:
+                int v = editorInfo.inputType & EditorInfo.TYPE_MASK_VARIATION;
+                if (v == EditorInfo.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                        || v == EditorInfo.TYPE_TEXT_VARIATION_PASSWORD
+                        || v == EditorInfo.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                        || v == EditorInfo.TYPE_TEXT_VARIATION_URI) {
+                    // If the application request English mode, we switch to it.
+                    newInputMode = MODE_SKB_ENGLISH_LOWER;
+                } else if (v == EditorInfo.TYPE_TEXT_VARIATION_SHORT_MESSAGE) {
                     mShortMessageField = true;
+                    newInputMode = MODE_SKB_CHINESE;
+                } else if (v == EditorInfo.TYPE_TEXT_VARIATION_FILTER) {
+                    newInputMode = MODE_SKB_CHINESE;
+                } else {
+                    // If the application do not request English mode, we
+                    // will try to keep the previous mode.
+                    int skbLayout = (mInputMode & MASK_SKB_LAYOUT);
+                    newInputMode = mInputMode;
+                    if (0 == skbLayout) {
+                        if ((mInputMode & MASK_LANGUAGE) == MASK_LANGUAGE_CN) {
+                            newInputMode = MODE_SKB_CHINESE;
+                        } else {
+                            newInputMode = MODE_SKB_ENGLISH_LOWER;
+                        }
+                    }
                 }
-                // If the application do not request English mode, we will
-                // try to keep the previous mode.
+                break;
+            default:
+                // Try to keep the previous mode.
                 int skbLayout = (mInputMode & MASK_SKB_LAYOUT);
                 newInputMode = mInputMode;
                 if (0 == skbLayout) {
@@ -607,20 +620,7 @@ public class InputModeSwitcher {
                         newInputMode = MODE_SKB_ENGLISH_LOWER;
                     }
                 }
-            }
-            break;
-        default:
-            // Try to keep the previous mode.
-            int skbLayout = (mInputMode & MASK_SKB_LAYOUT);
-            newInputMode = mInputMode;
-            if (0 == skbLayout) {
-                if ((mInputMode & MASK_LANGUAGE) == MASK_LANGUAGE_CN) {
-                    newInputMode = MODE_SKB_CHINESE;
-                } else {
-                    newInputMode = MODE_SKB_ENGLISH_LOWER;
-                }
-            }
-            break;
+                break;
         }
 
         mEditorInfo = editorInfo;
@@ -693,15 +693,6 @@ public class InputModeSwitcher {
             return true;
         }
         return false;
-    }
-    
-    public boolean isPhoneNumberMode() {
-        if (mInputMode == MODE_SKB_PHONE_NUM)        
-        {
-            return true;
-        }
-        return false;
-          
     }
 
     public boolean isEnterNoramlState() {

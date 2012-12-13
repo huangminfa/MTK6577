@@ -50,6 +50,8 @@ public class SkbTemplate {
     private int mSkbTemplateId;
     private Drawable mSkbBg;
     private Drawable mBalloonBg;
+    private Drawable mBalloonLeftBg;
+    private Drawable mBalloonRightBg;
     private Drawable mPopupBg;
     private float mXMargin = 0;
     private float mYMargin = 0;
@@ -75,9 +77,12 @@ public class SkbTemplate {
     }
 
     public void setBackgrounds(Drawable skbBg, Drawable balloonBg,
+    		Drawable balloonLeftBg, Drawable balloonRightBg,
             Drawable popupBg) {
         mSkbBg = skbBg;
         mBalloonBg = balloonBg;
+        mBalloonLeftBg = balloonLeftBg;
+        mBalloonRightBg = balloonRightBg;
         mPopupBg = popupBg;
     }
 
@@ -87,6 +92,14 @@ public class SkbTemplate {
 
     public Drawable getBalloonBackground() {
         return mBalloonBg;
+    }
+    
+    public Drawable getBalloonLeftBackground() {
+        return mBalloonLeftBg;
+    }
+
+    public Drawable getBalloonRightBackground() {
+        return mBalloonRightBg;
     }
 
     public Drawable getPopupBackground() {

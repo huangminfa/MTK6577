@@ -20,8 +20,6 @@ PRODUCT_PROPERTY_OVERRIDES :=
 # Furthermore, it also exists on Android Market, user can download it from
 # Market directly.
 PRODUCT_PACKAGES := \
-	Calculator \
-	DeskClock \
 	Email \
 	Exchange \
 	Music \
@@ -48,7 +46,6 @@ PRODUCT_PACKAGES := \
 	ApiDemos \
 	GestureBuilder \
 	CubeLiveWallpapers \
-	QuickSearchBox \
 	WidgetPreview \
 	monkeyrunner \
 	guavalib \

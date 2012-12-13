@@ -84,6 +84,8 @@ public class BalloonHint extends PopupWindow {
      */
     private BalloonTimer mBalloonTimer;
 
+    private boolean mPopupKey = true;
+    
     private int mParentLocationInWindow[] = new int[2];
 
     public BalloonHint(Context context, View parent, int measureSpecMode) {
@@ -110,6 +112,10 @@ public class BalloonHint extends PopupWindow {
         return mPaddingRect;
     }
 
+    public void setPopupKey(boolean popup) {
+    	mPopupKey = popup;
+    }
+    
     public void setBalloonBackground(Drawable drawable) {
         // We usually pick up a background from a soft keyboard template,
         // and the object may has been set to this balloon before.
@@ -431,7 +437,7 @@ public class BalloonHint extends PopupWindow {
                 int marginLeft = (width - mIcon.getIntrinsicWidth()) / 2;
                 int marginRight = width - mIcon.getIntrinsicWidth()
                         - marginLeft;
-                int marginTop = (height - mIcon.getIntrinsicHeight()) / 2;
+                int marginTop = (height - mIcon.getIntrinsicHeight() - (mPopupKey ? Environment.getInstance().getKeyHeight() : 0)) / 2;
                 int marginBottom = height - mIcon.getIntrinsicHeight()
                         - marginTop;
                 mIcon.setBounds(marginLeft, marginTop, width - marginRight,
@@ -449,7 +455,7 @@ public class BalloonHint extends PopupWindow {
                 }
 
                 int fontHeight = mFmi.bottom - mFmi.top;
-                float marginY = (height - fontHeight) / 2.0f;
+                float marginY = (height - fontHeight - (mPopupKey ? Environment.getInstance().getKeyHeight() : 0)) / 2.0f;
                 float y = marginY - mFmi.top;
                 canvas.drawText(labelToDraw, x, y, mPaintLabel);
             }

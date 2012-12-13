@@ -20,10 +20,8 @@
 PRODUCT_POLICY := android.policy_phone
 
 PRODUCT_PACKAGES := \
-    DeskClock \
     AlarmProvider \
     Bluetooth \
-    Calculator \
     Calendar \
     CertInstaller \
     DrmProvider \
@@ -35,7 +33,6 @@ PRODUCT_PACKAGES := \
     Music \
     MusicFX \
     Provision \
-    QuickSearchBox \
     Settings \
     Sync \
     SystemUI \

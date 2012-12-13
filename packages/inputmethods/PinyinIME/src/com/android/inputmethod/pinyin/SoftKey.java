@@ -21,7 +21,7 @@ import android.graphics.drawable.Drawable;
 /**
  * Class for soft keys which defined in the keyboard xml file. A soft key can be
  * a basic key or a toggling key.
- * 
+ *
  * @see com.android.inputmethod.pinyin.SoftKeyToggle
  */
 public class SoftKey {

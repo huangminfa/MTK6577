@@ -27,7 +27,6 @@ PRODUCT_PACKAGES := \
     secondary_framework \
     ApplicationsProvider \
     BackupRestoreConfirmation \
-    Browser \
     Contacts \
     ContactsProvider \
     DefaultContainerService \

@@ -310,8 +310,8 @@ JNIEXPORT jboolean JNICALL nativeSyncClearLastGot(JNIEnv *env, jclass clazz) {
 static JNINativeMethod gMethods[] = {
     /* name, signature, funcPtr */
     /* ------Functions for Pinyin-to-hanzi decoding begin--------->> */
-    { "nativeImOpenDecoder", "([B[B)Z",
-            (void*) nativeImOpenDecoder },
+//    { "nativeImOpenDecoder", "([B[B)Z",
+  //          (void*) nativeImOpenDecoder },
     { "nativeImOpenDecoderFd", "(Ljava/io/FileDescriptor;JJ[B)Z",
             (void*) nativeImOpenDecoderFd },
     { "nativeImSetMaxLens", "(II)V",
@@ -381,9 +381,11 @@ static int registerNativeMethods(JNIEnv* env, const char* className,
 
     clazz = (*env).FindClass(className);
     if (clazz == NULL) {
+	LOGE("find class----------zhl");
         return JNI_FALSE;
     }
     if ((*env).RegisterNatives(clazz, gMethods, numMethods) < 0) {
+	LOGE("register falier----------zhl");
         return JNI_FALSE;
     }
 

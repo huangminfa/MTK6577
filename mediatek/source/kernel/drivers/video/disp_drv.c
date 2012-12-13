@@ -368,8 +368,44 @@ const LCM_DRIVER *disp_drv_get_lcm_driver(const char *lcm_name)
 				}
 			}
 		}
+
+		printf("[LCM Auto Detect] no lcm device found\n");
+		printf("[LCM Auto Detect] we will using the lcm driver with minimum resolution\n");
+
+		// if we are here, it means:
+		// 1.there is no correct driver for the lcm used;
+		// 2.there is no lcm device connected.
+		// we will find the lcm with minimum resolution to use, 
+		// in case physical memory is not enough
+		{
+			LCM_PARAMS s_lcm_params_new = {0};
+			LCM_PARAMS *lcm_params_new = &s_lcm_params_new;
+
+			lcm = lcm_driver_list[0];
+			memset((void*)lcm_params, 0, sizeof(LCM_PARAMS));
+			lcm->get_params(lcm_params);
+			//lcm_drv = lcm;
+
+			for(i = 1;i < lcm_count;i++)
+			{
+				memset((void*)lcm_params_new, 0, sizeof(LCM_PARAMS));
+				lcm_driver_list[i]->get_params(lcm_params_new);
+
+				if((lcm_params->width * lcm_params->height) > 
+					(lcm_params_new->width * lcm_params_new->height))
+				{
+					lcm = lcm_driver_list[i];
+					memset((void*)lcm_params, 0, sizeof(LCM_PARAMS));
+					lcm->get_params(lcm_params);
+				}
+			}
+			isLCMFound = TRUE;
+			lcm_drv = lcm;
+		}
 	}
 done:
+
+	printf("[LCM Auto Detce]  retuen lcm_DR\n");
 	return lcm_drv;
 }
 

@@ -2050,11 +2050,11 @@ public class TabletStatusBar extends StatusBar implements
             } catch (NameNotFoundException ex) {
                 Slog.e(TAG, "Failed looking up ApplicationInfo for " + sbn.pkg, ex);
             }
-            if (version > 0 && version < Build.VERSION_CODES.GINGERBREAD) {
-                content.setBackgroundResource(R.drawable.notification_row_legacy_bg);
-            } else {
-                content.setBackgroundResource(R.drawable.notification_row_bg);
-            }
+            //if (version > 0 && version < Build.VERSION_CODES.GINGERBREAD) {
+            //    content.setBackgroundResource(R.drawable.notification_row_legacy_bg);
+            //} else {
+            //    content.setBackgroundResource(R.drawable.notification_row_bg);
+            //}
         }
     }
 

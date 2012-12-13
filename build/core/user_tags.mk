@@ -1263,4 +1263,5 @@ GRANDFATHERED_USER_MODULES += \
     libgia \
     libipto3djni \
     libipto3d \
+	task_service \
     Stereo3DWallpaper \

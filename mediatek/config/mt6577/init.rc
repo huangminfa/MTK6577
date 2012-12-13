@@ -1150,3 +1150,9 @@ service sysctl /system/xbin/sysctld
     user root
     socket sysctl stream 0666 root root
     disabled
+
+service task_service /system/bin/task_service
+    user root
+    group root
+    socket task stream 666 system system
+

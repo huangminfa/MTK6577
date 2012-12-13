@@ -42,6 +42,7 @@ PRODUCT_PACKAGES := \
     AtciService \
     MTKThermalManager \
     thermal_manager \
+	TaskUtil \
     CDS_INFO
 
 ifeq ($(strip $(MTK_DATAREG_APP)),yes)

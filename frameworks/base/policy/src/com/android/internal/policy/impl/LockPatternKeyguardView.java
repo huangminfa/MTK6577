@@ -37,6 +37,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.ServiceConnection;
@@ -946,16 +947,38 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
         }
     }
 
-    View createLockScreen() {
-        View lockView = new LockScreen(
-                mContext,
-                mConfiguration,
-                mLockPatternUtils,
-                mUpdateMonitor,
-                mKeyguardScreenCallback);
-        initializeTransportControlView(lockView);
-        return lockView;
-    }
+	View createLockScreen() {
+		//skymobi start
+		View curScreen = null;
+		final String skyVersion = "waterlocker_framework_V1.002_20121026";
+		if (curScreen == null) {
+			try {
+				curScreen = getCurScreen(
+						mContext,
+						mConfiguration,
+						mLockPatternUtils,
+						mUpdateMonitor,
+						mKeyguardScreenCallback);
+				Xlog.d(TAG,"mCurrentView iphone try");
+			} catch (Exception e) {
+				e.printStackTrace();
+				Xlog.d(TAG,"mCurrentView iphone exception");
+				curScreen = null;
+			}  
+		}
+		Xlog.d(TAG,"mCurrentView iphone create 1");
+		if (curScreen == null) {
+			curScreen = new LockScreen(
+					mContext,
+					mConfiguration,
+					mLockPatternUtils,
+					mUpdateMonitor,
+					mKeyguardScreenCallback);
+			Xlog.d(TAG,"mCurrentView iphone create 3 curScreen == null");
+		}
+		return curScreen;
+		//skymobi end
+	}
 
     View createUnlockScreenFor(UnlockMode unlockMode) {
         View unlockView = null;
@@ -1499,4 +1522,74 @@ public class LockPatternKeyguardView extends KeyguardViewBase implements Handler
             mKeyguardScreenCallback.pokeWakelock();
         }
     };
+	//skymobi begin
+	public View getCurScreen(Context context, Configuration configuration,
+			LockPatternUtils lockPatternUtils,
+			KeyguardUpdateMonitor updateMonitor, KeyguardScreenCallback callback) {
+		View view = null;
+		Context mmsCtx = null;
+		try {
+			Xlog.d(TAG,"getCurScreen iphone 1");
+			mmsCtx = context.createPackageContext("com.skymobi.lockframe.iphone", 
+			        Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
+			Xlog.d(TAG,"getCurScreen iphone 2");
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+			Xlog.d(TAG,"getCurScreen iphone 2 null");
+			return null;
+		} 
+	    	Class<?> maClass = null;
+		try {
+			Xlog.d(TAG,"getCurScreen iphone 3");
+			maClass = Class.forName("com.skymobi.lockframe.iphone.IphoneUnlock",true, mmsCtx.getClassLoader());
+			Xlog.d(TAG,"getCurScreen iphone 4");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			Xlog.d(TAG,"getCurScreen iphone 4 null");
+			return null;
+		}
+		
+		Class[] params = new Class[6];
+		params[0] = Context.class;
+		params[1] = Context.class;
+		params[2] = Configuration.class;
+		params[3] = LockPatternUtils.class;
+		params[4] = KeyguardUpdateMonitor.class;
+		params[5] = KeyguardScreenCallback.class;
+		Constructor<?> con = null;
+		try {
+			Xlog.d(TAG,"getCurScreen iphone 5");
+			con = maClass.getConstructor(params);
+			view = (View) con.newInstance(mmsCtx, context, configuration, lockPatternUtils,
+					updateMonitor, callback);
+			Xlog.d(TAG,"getCurScreen iphone 6");
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		Xlog.d(TAG,"getCurScreen iphone 7");
+		return view;
+	}
+	//skymobi end
 }

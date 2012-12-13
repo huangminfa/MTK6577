@@ -1621,9 +1621,7 @@ public class KeyguardUpdateMonitor {
     /**
      * Callback for general information relevant to lock screen.
      */
-	//skymobi
-    public interface InfoCallback {
-	//skymobi
+    interface InfoCallback {
         void onRefreshBatteryInfo(boolean showBatteryInfo, boolean pluggedIn, int batteryLevel);
         void onTimeChanged();
         void onUnlockKeyguard();

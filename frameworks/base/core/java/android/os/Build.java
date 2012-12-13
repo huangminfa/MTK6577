@@ -22,6 +22,14 @@ import com.android.internal.telephony.TelephonyProperties;
  * Information about the current build, extracted from system properties.
  */
 public class Build {
+     /**
+     *@hide idh id cannot be modified,by skymobi.
+     */
+    public static final String SKYMOBI_A="baoxue";
+     /**
+     *@hide project id,can be modified,by skymobi.
+     */
+    public static final String SKYMOBI_PROJECT="f5";
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
 

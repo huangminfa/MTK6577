@@ -145,6 +145,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
  * introduces a new method suffix, Lp, for an internal lock of the
@@ -360,6 +364,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mBackHasLongPressed;
 	//*************************************************************
 
+	Toast mProfileToast = null;
+	private static boolean muteState = false;
+	private static final String TAG_MUTE = "mute";
     // The last window we were told about in focusChanged.
     WindowState mFocusedWindow;
     IApplicationToken mFocusedApp;
@@ -681,6 +688,65 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void cancelPendingScreenshotChordAction() {
         mHandler.removeCallbacks(mScreenshotChordLongPress);
     }
+	private final Runnable mshowDialogForProfileRun = new Runnable() {
+		public void run() {
+			Log.d(TAG_MUTE, "md.w mshowDialogForProfileRun:"+mshowDialogForProfileRun);
+
+
+			AudioManager audioManager =  (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
+			muteState=!muteState;
+			if(muteState)
+			{
+				mVibrator.vibrate(300);
+			}
+			sendCloseSystemWindows(SYSTEM_DIALOG_REASON_RECENT_APPS);	  	
+
+			Log.d(TAG_MUTE, "md.w mProfileToast:"+mProfileToast);
+			if(mProfileToast == null)
+			{
+				mProfileToast = Toast.makeText(mContext,"", Toast.LENGTH_SHORT);
+				mProfileToast.setGravity(Gravity.CENTER, 0, -100);
+				mProfileToast.setDuration(Toast.LENGTH_SHORT);
+			}
+			LinearLayout toastView = (LinearLayout) mProfileToast.getView();
+			ImageView imageCodeProject = new ImageView(mContext);
+			Log.d(TAG_MUTE, "md.w toastView:"+toastView);
+			Log.d(TAG_MUTE, "md.w imageCodeProject:"+imageCodeProject);
+			if(toastView != null && imageCodeProject != null)
+			{
+			    toastView.setBackgroundColor(0);
+			    toastView.removeAllViews();
+				if(muteState)
+				{			
+					imageCodeProject.setImageResource(com.android.internal.R.drawable.slient_active_pop);
+				}
+				else
+				{
+					imageCodeProject.setImageResource(com.android.internal.R.drawable.slient_deactive_pop);			
+				}
+				toastView.addView(imageCodeProject, 300,300);
+				mProfileToast.show();					
+			}			
+
+			if(muteState)
+			{  
+				final boolean vibe = (Settings.System.getInt(
+							mContext.getContentResolver(),
+							Settings.System.VIBRATE_IN_SILENT, 1) == 1);
+				if(vibe)
+					audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+				else
+					audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);					
+			}
+			else
+			{
+				audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);	
+			}
+
+			mHandler.removeCallbacks(mshowDialogForProfileRun);
+		}
+	};
+
 	Runnable mHomeShortPress = new Runnable() {
         public void run() {
             mHomeClicked = false;
@@ -1752,6 +1818,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             }
             return -1;
+        } else if(keyCode == KeyEvent.KEYCODE_MUTE) {
+			if (down && repeatCount == 0) {
+				mHandler.post(mshowDialogForProfileRun);
+			}
+			return -1;
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
             // Hijack modified menu keys for debugging features
             final int chordBug = KeyEvent.META_SHIFT_ON;

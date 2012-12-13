@@ -369,8 +369,8 @@ const LCM_DRIVER *disp_drv_get_lcm_driver(const char *lcm_name)
 			}
 		}
 
-		printf("[LCM Auto Detect] no lcm device found\n");
-		printf("[LCM Auto Detect] we will using the lcm driver with minimum resolution\n");
+		printk("[LCM Auto Detect] no lcm device found\n");
+		printk("[LCM Auto Detect] we will using the lcm driver with minimum resolution\n");
 
 		// if we are here, it means:
 		// 1.there is no correct driver for the lcm used;
@@ -405,7 +405,6 @@ const LCM_DRIVER *disp_drv_get_lcm_driver(const char *lcm_name)
 	}
 done:
 
-	printf("[LCM Auto Detce]  retuen lcm_DR\n");
 	return lcm_drv;
 }
 

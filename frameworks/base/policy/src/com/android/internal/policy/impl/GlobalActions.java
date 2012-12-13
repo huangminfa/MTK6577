@@ -18,11 +18,13 @@ package com.android.internal.policy.impl;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
@@ -46,8 +48,10 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.google.android.collect.Lists;
 import com.mediatek.featureoption.FeatureOption;
+import java.lang.Exception;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-
 /**
  * Helper to show the global actions dialog.  Each item is an {@link Action} that
  * may show depending on whether the keyguard is showing, and whether the device
@@ -135,9 +139,102 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
         prepareDialog();
 
-        mDialog.show();
-        mDialog.getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_DISABLE_EXPAND);
+        //mDialog.show();
+        //mDialog.getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_DISABLE_EXPAND);
+		/** skymobi add by fengming 11-8 start **/
+		Dialog iphoneDialog = null;
+		Log.d(TAG,"getIphoneDialog create 1");
+		try {
+			iphoneDialog = getIphoneDialog();
+			prepareIphoneDialog(iphoneDialog);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.d(TAG,"getIphoneDialog create exception");
+			iphoneDialog = null;
+		} 
+		Log.d(TAG,"getIphoneDialog create 2");
+		if (iphoneDialog == null) {
+			Log.d(TAG,"getIphoneDialog create failed");
+        	iphoneDialog.getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_DISABLE_EXPAND);
+			mDialog.setTitle(R.string.global_actions);
+			mDialog.show();
+			mIsVisable = true;
+		} else {
+			Log.d(TAG,"getIphoneDialog create success");
+        	iphoneDialog.getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_DISABLE_EXPAND);
+			iphoneDialog.show();
+			mIsVisable = true;
+		}
     }
+	
+	/** skymobi add by fengming 11-8 start **/
+	private void prepareIphoneDialog(Dialog iphoneDialog) {
+		if (mKeyguardShowing) {
+	            iphoneDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
+	        } else {
+	            iphoneDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG);
+	        }
+	}
+	
+	private Dialog getIphoneDialog() {
+		Dialog dialog = null;
+		Context mmsCtx = null;
+		try {
+			Log.d(TAG,"getIphoneDialog iphone 1");
+			mmsCtx = mContext.createPackageContext("com.skymobi.shutdown.iphone", 
+			        Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
+			Log.d(TAG,"getIphoneDialog iphone 2");
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+			Log.d(TAG,"getIphoneDialog iphone 2 null");
+			return null;
+		} 
+	    	Class<?> maClass = null;
+		try {
+			Log.d(TAG,"getIphoneDialog iphone 3");
+			maClass = Class.forName("com.skymobi.shutdown.iphone.iPhoneDialog",true, mmsCtx.getClassLoader());
+			Log.d(TAG,"getIphoneDialog iphone 4");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			Log.d(TAG,"getIphoneDialog iphone 4 null");
+			return null;
+		}
+		
+		Class[] params = new Class[2];
+		params[0] = Context.class;
+		params[1] = Context.class;
+		Constructor<?> con = null;
+		try {
+			Log.d(TAG,"getIphoneDialog iphone 5");
+			con = maClass.getConstructor(params);
+			dialog = (Dialog) con.newInstance(mmsCtx, mContext);
+			Log.d(TAG,"getIphoneDialog iphone 6");
+		} catch (SecurityException e) {
+			e.printStackTrace();
+			return null;
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			return null;
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+			return null;
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+			return null;
+		}
+		Log.d(TAG,"getIphoneDialog iphone 7");
+		return dialog;
+
+	}
+
+	/** skymobi add by fengming 11-8 end **/
+	
 
     /**
      * Create the global actions dialog.

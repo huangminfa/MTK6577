@@ -50,7 +50,7 @@
  * -------
  *  EMI auto generator V0.01
  *
- *   Memory Device database last modified on 2012/11/1
+ *   Memory Device database last modified on 2013/3/7
  *
  *============================================================================
  *             HISTORY
@@ -72,38 +72,71 @@
 
 #include "mt6577_emi.h"
 
-#define NUM_EMI_RECORD (1)
+#define NUM_EMI_RECORD (2)
 
 int num_of_emi_records = NUM_EMI_RECORD ;
 
 EMI_SETTINGS emi_settings[] =
 {
      
-	//KMSJS000KM_B308
+	//H9TP32A4GDMCPR_KDM
 	{
-		0x0201,		/* TYPE */
-		{0x15,0x01,0x00,0x53,0x4A,0x53,0x30,0x30,0x4D,0x0,0x0,0x0},		/* NAND_EMMC_ID */
-		0x0002202E,		/* EMI_CONA_VAL */
-		0x88008800,		/* DRAMC_DRVCTL0_VAL */
-		0x88008800,		/* DRAMC_DRVCTL1_VAL */
-		0x00000005,		/* DRAMC_DLE_VAL */
-		0x22824154,		/* DRAMC_ACTIM_VAL */
-		0x00000000,		/* DRAMC_GDDR3CTL1_VAL */
-		0xF0040560,		/* DRAMC_CONF1_VAL */
-		0x8283405C,		/* DRAMC_DDR2CTL_VAL */
-		0x9F038CA0,		/* DRAMC_TEST2_3_VAL */
-		0x00403362,		/* DRAMC_CONF2_VAL */
-		0x11651B42,		/* DRAMC_PD_CTRL_VAL */
+		0x0202,		/* TYPE */
+		{0x90,0x01,0x4A,0x20,0x58,0x49,0x4E,0x59,0x48,0x0,0x0,0x0},		/* NAND_EMMC_ID */
+		0x0000212E,		/* EMI_CONA_VAL */
+		0xAA00AA00,		/* DRAMC_DRVCTL0_VAL */
+		0xAA00AA00,		/* DRAMC_DRVCTL1_VAL */
+		0x00000007,		/* DRAMC_DLE_VAL */
+		0x45C844B7,		/* DRAMC_ACTIM_VAL */
+		0x01000000,		/* DRAMC_GDDR3CTL1_VAL */
+		0xF00407A0,		/* DRAMC_CONF1_VAL */
+		0xA0064170,		/* DRAMC_DDR2CTL_VAL */
+		0x9F0D8CA0,		/* DRAMC_TEST2_3_VAL */
+		0x00406340,		/* DRAMC_CONF2_VAL */
+		0x21322842,		/* DRAMC_PD_CTRL_VAL */
 		0x00000000,		/* DRAMC_PADCTL3_VAL */
 		0x00000000,		/* DRAMC_DQODLY_VAL */
-		0x00000000,		/* DRAMC_ADDR_OUTPUT_DLY */
+		0x00000003,		/* DRAMC_ADDR_OUTPUT_DLY */
 		0x00000000,		/* DRAMC_CLK_OUTPUT_DLY */
-		{0x10000000,0x10000000,0,0},		/* DRAM RANK SIZE */
+		{0x20000000,0,0,0},		/* DRAM RANK SIZE */
 		{0,0},		/* reserved 2 */
 		{0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0},		/* EMMC FW ID */
 		9,		/* EMMC ID/FW ID checking length */
 		0x0,		/* sub_version */
-		0x00000032,		/* DDR1_MODE_REG */
-		0x00000020		/* DDR1_EXT_MODE_REG */
+		0x00010032,		/* DDR2_MODE_REG1 */
+		0x00020002,		/* DDR2_MODE_REG2 */
+		0x00030003,		/* DDR2_MODE_REG3 */
+		0x000A00FF,		/* DDR2_MODE_REG10 */
+		0x003F0000		/* DDR2_MODE_REG63 */
+	} ,
+	//KMNJS000ZM_B205
+	{
+		0x0202,		/* TYPE */
+		{0x15,0x01,0x00,0x4E,0x4A,0x53,0x30,0x30,0x4D,0x0,0x0,0x0},		/* NAND_EMMC_ID */
+		0x0000212E,		/* EMI_CONA_VAL */
+		0xAA00AA00,		/* DRAMC_DRVCTL0_VAL */
+		0xAA00AA00,		/* DRAMC_DRVCTL1_VAL */
+		0x00000007,		/* DRAMC_DLE_VAL */
+		0x44C844A7,		/* DRAMC_ACTIM_VAL */
+		0x01000000,		/* DRAMC_GDDR3CTL1_VAL */
+		0xF00407A0,		/* DRAMC_CONF1_VAL */
+		0xA0064170,		/* DRAMC_DDR2CTL_VAL */
+		0x9F0D8CA0,		/* DRAMC_TEST2_3_VAL */
+		0x00406340,		/* DRAMC_CONF2_VAL */
+		0x21332842,		/* DRAMC_PD_CTRL_VAL */
+		0x00000000,		/* DRAMC_PADCTL3_VAL */
+		0x00000000,		/* DRAMC_DQODLY_VAL */
+		0x00000003,		/* DRAMC_ADDR_OUTPUT_DLY */
+		0x00000000,		/* DRAMC_CLK_OUTPUT_DLY */
+		{0x20000000,0,0,0},		/* DRAM RANK SIZE */
+		{0,0},		/* reserved 2 */
+		{0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0},		/* EMMC FW ID */
+		9,		/* EMMC ID/FW ID checking length */
+		0x0,		/* sub_version */
+		0x00010032,		/* DDR2_MODE_REG1 */
+		0x00020002,		/* DDR2_MODE_REG2 */
+		0x00030003,		/* DDR2_MODE_REG3 */
+		0x000A00FF,		/* DDR2_MODE_REG10 */
+		0x003F0000		/* DDR2_MODE_REG63 */
 	}
 };

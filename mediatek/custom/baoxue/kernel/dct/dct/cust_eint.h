@@ -87,6 +87,13 @@ extern "C" {
 #define CUST_EINT_FM_RDS_SENSITIVE        CUST_EINT_EDGE_SENSITIVE
 #define CUST_EINT_FM_RDS_DEBOUNCE_EN      CUST_EINT_DEBOUNCE_DISABLE
 
+// temp to build
+#define CUST_EINT_COMBO_BGF_NUM         6
+#define CUST_EINT_COMBO_BGF_DEBOUNCE_CN 1
+#define CUST_EINT_COMBO_BGF_POLARITY    CUST_EINT_POLARITY_HIGH
+#define CUST_EINT_COMBO_BGF_SENSITIVE   CUST_EINT_EDGE_SENSITIVE
+#define CUST_EINT_COMBO_BGF_DEBOUNCE_EN CUST_EINT_DEBOUNCE_ENABLE
+
 //////////////////////////////////////////////////////////////////////////////
 #ifdef __cplusplus
 }

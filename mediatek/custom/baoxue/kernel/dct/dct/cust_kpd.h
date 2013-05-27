@@ -59,7 +59,7 @@
 #define KPD_KEY_DEBOUNCE  1024      /* (val / 32) ms */
 #define KPD_PWRKEY_MAP    KEY_POWER
 
-#define KPD_PWRKEY_USE_EINT       KPD_YES
+#define KPD_PWRKEY_USE_EINT       KPD_NO
 
 /* HW keycode [0 ~ 71] -> Linux keycode */
 #define KPD_INIT_KEYMAP()	\

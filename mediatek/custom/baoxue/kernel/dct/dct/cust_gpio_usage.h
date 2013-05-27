@@ -317,6 +317,10 @@
 #define GPIO_CAMERA_CMRST1_PIN_M_EINT  GPIO_MODE_02
 #define GPIO_CAMERA_CMRST1_PIN_M_CMFLASH   GPIO_MODE_01
 
+// temp to build
+#define GPIO_COMBO_BGF_EINT_PIN         GPIO231
+#define GPIO_COMBO_BGF_EINT_PIN_M_GPIO  GPIO_MODE_00
+#define GPIO_COMBO_BGF_EINT_PIN_M_EINT  GPIO_MODE_02
 
 /*Output for default variable names*/
 /*@XXX_XX_PIN in gpio.cmp          */

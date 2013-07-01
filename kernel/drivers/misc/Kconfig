@@ -538,3 +538,7 @@ source "drivers/misc/lis3lv02d/Kconfig"
 source "drivers/misc/carma/Kconfig"
 
 endif # MISC_DEVICES
+
+source "drivers/misc/symsearch/Kconfig"
+source "drivers/misc/gpiofix/Kconfig"
+
